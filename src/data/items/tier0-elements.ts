@@ -1,0 +1,60 @@
+import type { Item } from '@/types'
+
+export const TIER0_ELEMENTS: Item[] = [
+  {
+    id: 'electricity',
+    name: 'Electricity',
+    emoji: '⚡',
+    tier: 'elements',
+    description: 'The flow of electric charge through a conductor — the energy source behind every digital device.',
+    isStarter: true,
+  },
+  {
+    id: 'silicon',
+    name: 'Silicon',
+    emoji: '🪨',
+    tier: 'elements',
+    description: 'A semiconductor element, abundant in sand, whose ability to selectively conduct electricity makes modern electronics possible.',
+    isStarter: true,
+  },
+  {
+    id: 'copper',
+    name: 'Copper',
+    emoji: '🟠',
+    tier: 'elements',
+    description: 'A highly conductive metal used throughout electronics to carry electrical current with minimal resistance.',
+    isStarter: true,
+  },
+  {
+    id: 'sand',
+    name: 'Sand',
+    emoji: '⏳',
+    tier: 'elements',
+    description: 'Granular silica — the raw material refined into both silicon wafers and glass.',
+    isStarter: true,
+  },
+  {
+    id: 'water',
+    name: 'Water',
+    emoji: '💧',
+    tier: 'elements',
+    description: 'A simple molecule, H₂O, used industrially to cool processes that generate excess heat.',
+    isStarter: true,
+  },
+  {
+    id: 'fire',
+    name: 'Fire',
+    emoji: '🔥',
+    tier: 'elements',
+    description: 'Rapid oxidation releasing heat and light — the energy source used to smelt and shape raw materials.',
+    isStarter: true,
+  },
+  {
+    id: 'metal',
+    name: 'Metal',
+    emoji: '🔩',
+    tier: 'elements',
+    description: 'A broad class of conductive, malleable elements used to build the physical structures of machines.',
+    isStarter: true,
+  },
+]
