@@ -12,6 +12,7 @@ export function HintPanel() {
   const hintsAvailable = useGameStore((s) => s.hintsAvailable)
   const hintLastGrantedAt = useGameStore((s) => s.hintLastGrantedAt)
   const useHint = useGameStore((s) => s.useHint)
+  const tickHintRegen = useGameStore((s) => s.tickHintRegen)
   const clearHighlight = useGameStore((s) => s.clearHighlight)
 
   const [now, setNow] = useState(() => Date.now())
@@ -23,9 +24,12 @@ export function HintPanel() {
 
   useEffect(() => {
     if (hintsAvailable >= HINT_MAX) return
-    const interval = setInterval(() => setNow(Date.now()), 1000)
+    const interval = setInterval(() => {
+      setNow(Date.now())
+      tickHintRegen()
+    }, 1000)
     return () => clearInterval(interval)
-  }, [hintsAvailable])
+  }, [hintsAvailable, tickHintRegen])
 
   const msUntilNext = hintLastGrantedAt + HINT_REGEN_MS - now
 

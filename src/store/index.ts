@@ -9,7 +9,26 @@ const LS_DISCOVERED_KEY = 'bitforge:discovered'
 const LS_HINTS_KEY = 'bitforge:hints'
 
 export const HINT_MAX = 3
-export const HINT_REGEN_MS = 3 * 60 * 1000
+export const HINT_REGEN_MS = 5 * 1000
+
+const MIN_TOKEN_DIST = 18
+
+function isFarFromAll(x: number, y: number, tokens: CanvasToken[], excludeInstanceId?: string) {
+  return tokens.every((t) => t.instanceId === excludeInstanceId || Math.hypot(t.x - x, t.y - y) >= MIN_TOKEN_DIST)
+}
+
+function findFreePosition(tokens: CanvasToken[], desiredX: number, desiredY: number, excludeInstanceId?: string) {
+  if (isFarFromAll(desiredX, desiredY, tokens, excludeInstanceId)) return { x: desiredX, y: desiredY }
+  for (let radius = MIN_TOKEN_DIST; radius < 60; radius += MIN_TOKEN_DIST) {
+    for (let angle = 0; angle < 360; angle += 30) {
+      const rad = (angle * Math.PI) / 180
+      const x = Math.min(95, Math.max(5, desiredX + radius * Math.cos(rad)))
+      const y = Math.min(95, Math.max(5, desiredY + radius * Math.sin(rad)))
+      if (isFarFromAll(x, y, tokens, excludeInstanceId)) return { x, y }
+    }
+  }
+  return { x: desiredX, y: desiredY }
+}
 
 function loadDiscovered(): Set<string> {
   try {
@@ -75,6 +94,7 @@ interface GameStore {
   clearFailedCombo: () => void
 
   useHint: () => void
+  tickHintRegen: () => void
   clearHighlight: () => void
 }
 
@@ -91,8 +111,10 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
   addCanvasToken: (itemId, x, y) => {
     const instanceId = `t${nextInstanceId++}`
-    const token: CanvasToken = { instanceId, itemId, x, y }
-    set({ canvasTokens: [...get().canvasTokens, token] })
+    const tokens = get().canvasTokens
+    const pos = findFreePosition(tokens, x, y)
+    const token: CanvasToken = { instanceId, itemId, x: pos.x, y: pos.y }
+    set({ canvasTokens: [...tokens, token] })
     return instanceId
   },
 
@@ -101,7 +123,9 @@ export const useGameStore = create<GameStore>()((set, get) => ({
   },
 
   moveCanvasToken: (instanceId, x, y) => {
-    set({ canvasTokens: get().canvasTokens.map((t) => (t.instanceId === instanceId ? { ...t, x, y } : t)) })
+    const tokens = get().canvasTokens
+    const pos = findFreePosition(tokens, x, y, instanceId)
+    set({ canvasTokens: tokens.map((t) => (t.instanceId === instanceId ? { ...t, x: pos.x, y: pos.y } : t)) })
   },
 
   clearCanvas: () => set({ canvasTokens: [] }),
@@ -160,6 +184,14 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     const nextState: HintState = { count: hintState.count - 1, lastGrantedAt: hintState.lastGrantedAt }
     saveHintState(nextState)
     set({ hintsAvailable: nextState.count, hintLastGrantedAt: nextState.lastGrantedAt, highlightedItemId: hint.knownIngredientId })
+  },
+
+  tickHintRegen: () => {
+    const current = { count: get().hintsAvailable, lastGrantedAt: get().hintLastGrantedAt }
+    const next = regenerateHints(current)
+    if (next.count === current.count && next.lastGrantedAt === current.lastGrantedAt) return
+    saveHintState(next)
+    set({ hintsAvailable: next.count, hintLastGrantedAt: next.lastGrantedAt })
   },
 
   clearHighlight: () => set({ highlightedItemId: null }),

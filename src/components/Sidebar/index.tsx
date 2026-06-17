@@ -3,7 +3,7 @@ import { useDraggable } from '@dnd-kit/core'
 import type { Item, Tier } from '@/types'
 import type { DragPayload } from '@/types/dnd'
 import { ITEMS_BY_ID } from '@/data/items'
-import { TIER_LABELS } from '@/data/tiers'
+import { TIER_LABELS, TIER_ORDER } from '@/data/tiers'
 import { useGameStore } from '@/store'
 import { ItemChip } from '@/components/ItemChip'
 
@@ -24,7 +24,7 @@ function DraggableSidebarItem({ item, highlighted, onTap }: { item: Item; highli
       {...listeners}
       data-testid="sidebar-item"
       onClick={onTap}
-      className={`touch-none cursor-grab active:cursor-grabbing active:scale-95 transition-transform ${isDragging ? 'opacity-0' : ''}`}
+      className={`touch-pan-y cursor-grab active:cursor-grabbing active:scale-95 transition-transform ${isDragging ? 'opacity-0' : ''}`}
     >
       <ItemChip item={item} highlighted={highlighted} />
     </button>
@@ -39,12 +39,20 @@ export function Sidebar() {
   const [query, setQuery] = useState('')
   const [tierFilter, setTierFilter] = useState<Tier | 'all'>('all')
 
-  const items = useMemo(() => {
+  const groups = useMemo(() => {
     const list = [...discoveredItemIds].map((id) => ITEMS_BY_ID.get(id)!).filter(Boolean)
-    return list
+    const filtered = list
       .filter((item) => tierFilter === 'all' || item.tier === tierFilter)
       .filter((item) => item.name.toLowerCase().includes(query.toLowerCase()))
-      .sort((a, b) => a.name.localeCompare(b.name))
+
+    const byTier = new Map<Tier, Item[]>()
+    for (const item of filtered) {
+      const group = byTier.get(item.tier) ?? []
+      group.push(item)
+      byTier.set(item.tier, group)
+    }
+    for (const group of byTier.values()) group.sort((a, b) => a.name.localeCompare(b.name))
+    return TIER_ORDER.filter((tier) => byTier.has(tier)).map((tier) => ({ tier, items: byTier.get(tier)! }))
   }, [discoveredItemIds, tierFilter, query])
 
   const availableTiers = useMemo(() => {
@@ -79,17 +87,22 @@ export function Sidebar() {
         </select>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-2.5">
-        <div className="flex flex-wrap gap-2 content-start">
-          {items.map((item) => (
-            <DraggableSidebarItem
-              key={item.id}
-              item={item}
-              highlighted={item.id === highlightedItemId}
-              onTap={() => addCanvasToken(item.id, randomCoord(15, 85), randomCoord(20, 80))}
-            />
-          ))}
-        </div>
+      <div className="flex-1 overflow-y-auto p-2.5 space-y-3">
+        {groups.map(({ tier, items }) => (
+          <div key={tier}>
+            <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">{TIER_LABELS[tier]}</div>
+            <div className="flex flex-wrap gap-2 content-start">
+              {items.map((item) => (
+                <DraggableSidebarItem
+                  key={item.id}
+                  item={item}
+                  highlighted={item.id === highlightedItemId}
+                  onTap={() => addCanvasToken(item.id, randomCoord(15, 85), randomCoord(20, 80))}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )

@@ -3,7 +3,8 @@ import { AnimatePresence } from 'framer-motion'
 import {
   DndContext,
   DragOverlay,
-  PointerSensor,
+  MouseSensor,
+  TouchSensor,
   useSensor,
   useSensors,
   type DragEndEvent,
@@ -32,7 +33,10 @@ export default function App() {
   const [activeDrag, setActiveDrag] = useState<DragPayload | null>(null)
   const [journalOpen, setJournalOpen] = useState(false)
 
-  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 6 } }))
+  const sensors = useSensors(
+    useSensor(MouseSensor, { activationConstraint: { distance: 6 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 8 } }),
+  )
 
   function handleDragStart(event: DragStartEvent) {
     const drag = event.active.data.current as DragPayload | undefined
