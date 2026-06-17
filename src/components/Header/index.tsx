@@ -4,9 +4,11 @@ import { useGameStore } from '@/store'
 
 interface HeaderProps {
   onOpenJournal: () => void
+  sidebarSide: boolean
+  onToggleSidebarSide: () => void
 }
 
-export function Header({ onOpenJournal }: HeaderProps) {
+export function Header({ onOpenJournal, sidebarSide, onToggleSidebarSide }: HeaderProps) {
   const clearCanvas = useGameStore((s) => s.clearCanvas)
 
   return (
@@ -21,6 +23,13 @@ export function Header({ onOpenJournal }: HeaderProps) {
 
       <div className="flex items-center gap-2 shrink-0">
         <HintPanel />
+        <button
+          onClick={onToggleSidebarSide}
+          title="Move the item library to the side"
+          className="px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-stone-500 hover:text-stone-100 transition-colors"
+        >
+          {sidebarSide ? '⬒ Top' : '⬓ Side'}
+        </button>
         <button
           onClick={onOpenJournal}
           className="px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-stone-500 hover:text-stone-100 transition-colors"

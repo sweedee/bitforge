@@ -18,7 +18,7 @@ export function CombineCanvas() {
 
   useEffect(() => {
     if (!lastFailedComboInstanceIds) return
-    const timer = setTimeout(clearFailedCombo, 450)
+    const timer = setTimeout(clearFailedCombo, 240)
     return () => clearTimeout(timer)
   }, [lastFailedComboInstanceIds, clearFailedCombo])
 

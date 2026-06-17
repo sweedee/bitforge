@@ -38,3 +38,13 @@ export function getHint(discoveredItemIds: Set<string>, recipes: Recipe[]): Hint
   if (candidates.length === 0) return null
   return candidates[Math.floor(Math.random() * candidates.length)]
 }
+
+export function isItemExhausted(itemId: string, discoveredItemIds: Set<string>, recipes: Recipe[]): boolean {
+  for (const recipe of recipes) {
+    const [a, b] = recipe.inputs
+    if (a !== itemId && b !== itemId) continue
+    const other = a === itemId ? b : a
+    if (discoveredItemIds.has(other) && !discoveredItemIds.has(recipe.result)) return false
+  }
+  return true
+}
