@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import type { Item } from '@/types'
 import { TIER_LABELS } from '@/data/tiers'
+import { ITEMS_BY_ID } from '@/data/items'
+import { RECIPE_BY_RESULT } from '@/data/recipes'
 
 interface ItemDetailModalProps {
   item: Item
@@ -8,6 +10,10 @@ interface ItemDetailModalProps {
 }
 
 export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
+  const recipe = RECIPE_BY_RESULT.get(item.id)
+  const ingredientA = recipe ? ITEMS_BY_ID.get(recipe.inputs[0]) : undefined
+  const ingredientB = recipe ? ITEMS_BY_ID.get(recipe.inputs[1]) : undefined
+
   return (
     <div
       className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
@@ -31,6 +37,18 @@ export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
           <span className="text-4xl">{item.emoji}</span>
           <span className="text-lg font-bold text-stone-100">{item.name}</span>
           <p className="text-sm text-stone-400">{item.description}</p>
+
+          {ingredientA && ingredientB ? (
+            <div className="mt-3 flex items-center gap-2 text-sm text-stone-300 bg-stone-800/60 border border-stone-700 rounded-lg px-3 py-2">
+              <span>{ingredientA.emoji}</span>
+              <span>{ingredientA.name}</span>
+              <span className="text-stone-500">+</span>
+              <span>{ingredientB.emoji}</span>
+              <span>{ingredientB.name}</span>
+            </div>
+          ) : (
+            <span className="mt-3 text-xs uppercase tracking-widest text-stone-500">Starting element</span>
+          )}
         </div>
       </motion.div>
     </div>

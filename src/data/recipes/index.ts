@@ -29,6 +29,8 @@ export const RECIPE_INDEX: Map<string, Recipe> = new Map(
   RECIPES.map((recipe) => [makeRecipeKey(recipe.inputs[0], recipe.inputs[1]), recipe]),
 )
 
+export const RECIPE_BY_RESULT: Map<string, Recipe> = new Map(RECIPES.map((recipe) => [recipe.result, recipe]))
+
 if (import.meta.env.DEV) {
   const seenKeys = new Set<string>()
   for (const recipe of RECIPES) {
