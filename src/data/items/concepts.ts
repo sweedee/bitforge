@@ -1,0 +1,28 @@
+import type { Item } from '@/types'
+
+export const CONCEPTS: Item[] = [
+  { id: 'boolean', name: 'Boolean', emoji: '⚖️', category: 'concepts', rarity: 'common', description: 'A data type with exactly two values, true and false, underpinning all logical decisions in code.' },
+  { id: 'operator', name: 'Operator', emoji: '✖️', category: 'concepts', rarity: 'uncommon', description: 'A symbol that performs an operation on values, such as addition, comparison, or logical AND.' },
+  { id: 'variable', name: 'Variable', emoji: '📦', category: 'concepts', rarity: 'common', description: 'A named storage location that holds a value which can change during program execution.' },
+  { id: 'expression', name: 'Expression', emoji: '🟰', category: 'concepts', rarity: 'uncommon', description: 'A combination of variables, values, and operators that evaluates to a single result.' },
+  { id: 'conditional', name: 'Conditional', emoji: '❓', category: 'concepts', rarity: 'uncommon', description: 'A control structure that executes different code paths depending on whether a condition is true or false.' },
+  { id: 'loop', name: 'Loop', emoji: '🔁', category: 'concepts', rarity: 'uncommon', description: 'A control structure that repeats a block of code until a specified condition is met.' },
+  { id: 'function', name: 'Function', emoji: '🛠️', category: 'concepts', rarity: 'uncommon', description: 'A reusable block of code that performs a specific task and can be invoked by name.' },
+  { id: 'recursion', name: 'Recursion', emoji: '🪆', category: 'concepts', rarity: 'rare', description: 'A technique where a function calls itself to solve smaller instances of the same problem.' },
+  { id: 'record', name: 'Record', emoji: '📑', category: 'concepts', rarity: 'uncommon', description: 'A structure that groups several named fields of related data together — also called a struct.' },
+  { id: 'pointer', name: 'Pointer', emoji: '👉', category: 'concepts', rarity: 'uncommon', description: 'A variable that stores the memory address of another value rather than the value itself.' },
+  { id: 'null-pointer', name: 'Null Pointer', emoji: '❌', category: 'concepts', rarity: 'rare', description: 'A pointer that refers to no valid memory location, often used to signal the absence of a value.' },
+  { id: 'segmentation-fault', name: 'Segmentation Fault', emoji: '💥', category: 'concepts', rarity: 'uncommon', description: "An error raised when a program tries to access a memory location it isn't permitted to access." },
+  { id: 'class', name: 'Class', emoji: '🏗️', category: 'concepts', rarity: 'rare', description: 'A blueprint that bundles data fields and the behaviors that operate on them.' },
+  { id: 'object', name: 'Object', emoji: '🟦', category: 'concepts', rarity: 'rare', description: 'An instance of a class that bundles state and behavior together in memory.' },
+  { id: 'method', name: 'Method', emoji: '🪛', category: 'concepts', rarity: 'uncommon', description: 'A function that belongs to an object and operates on its data.' },
+  { id: 'inheritance', name: 'Inheritance', emoji: '🧬', category: 'concepts', rarity: 'rare', description: 'A mechanism allowing one class to acquire the properties and behaviors of another class.' },
+  { id: 'polymorphism', name: 'Polymorphism', emoji: '🎭', category: 'concepts', rarity: 'rare', description: 'The ability of different objects to respond to the same operation in ways specific to their own type.' },
+  { id: 'oop', name: 'OOP', emoji: '🧰', category: 'concepts', rarity: 'rare', milestone: '1967', description: 'Object-oriented programming — a paradigm organizing software around objects rather than logic and functions.' },
+  { id: 'lambda', name: 'Lambda', emoji: 'λ', category: 'concepts', rarity: 'uncommon', description: 'An anonymous, inline function that can be defined without being bound to a name.' },
+  { id: 'closure', name: 'Closure', emoji: '🔒', category: 'concepts', rarity: 'rare', description: 'A function bundled with references to variables from its surrounding scope at creation time.' },
+  { id: 'higher-order-function', name: 'Higher-Order Function', emoji: '🎚️', category: 'concepts', rarity: 'rare', description: 'A function that takes other functions as arguments or returns a function as its result.' },
+  { id: 'functional-programming', name: 'Functional Programming', emoji: '🌀', category: 'concepts', rarity: 'epic', milestone: '1958', description: 'A paradigm treating computation as the evaluation of functions, favoring immutability and avoiding side effects.' },
+  { id: 'exception', name: 'Exception', emoji: '⚠️', category: 'concepts', rarity: 'uncommon', description: 'A signal raised when something goes wrong, interrupting normal flow so the error can be handled.' },
+  { id: 'iterator', name: 'Iterator', emoji: '🔂', category: 'concepts', rarity: 'uncommon', description: 'An object that yields the elements of a collection one at a time without exposing its structure.' },
+]

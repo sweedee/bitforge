@@ -1,28 +1,38 @@
 import type { Recipe } from '@/types'
-import { ITEMS_BY_ID } from '@/data/items'
+import { ITEMS, ITEMS_BY_ID, STARTER_ITEM_IDS } from '@/data/items'
 import { makeRecipeKey } from '@/engine/combine'
-import { RECIPES_TIER1_LOGIC } from './tier1-logic'
-import { RECIPES_TIER2_CIRCUITS } from './tier2-circuits'
-import { RECIPES_TIER3_ARCHITECTURE } from './tier3-architecture'
-import { RECIPES_TIER4_LOWLEVEL } from './tier4-lowlevel'
-import { RECIPES_TIER5_LANGUAGES_LOW } from './tier5-languages-low'
-import { RECIPES_TIER6_LANGUAGES_HIGH } from './tier6-languages-high'
-import { RECIPES_TIER7_PARADIGMS } from './tier7-paradigms'
-import { RECIPES_TIER8_DATASTRUCTURES } from './tier8-datastructures'
-import { RECIPES_TIER9_ALGORITHMS } from './tier9-algorithms'
-import { RECIPES_TIER10_CAPSTONE } from './tier10-capstone'
+import { RECIPES_HARDWARE } from './hardware'
+import { RECIPES_ARCHITECTURE } from './architecture'
+import { RECIPES_ENCODING } from './encoding'
+import { RECIPES_CONCEPTS } from './concepts'
+import { RECIPES_LANGUAGES } from './languages'
+import { RECIPES_DATASTRUCTURES } from './datastructures'
+import { RECIPES_ALGORITHMS } from './algorithms'
+import { RECIPES_DATABASES } from './databases'
+import { RECIPES_WEB } from './web'
+import { RECIPES_OS } from './os'
+import { RECIPES_SOFTWARE_ENG } from './software-eng'
+import { RECIPES_SECURITY } from './security'
+import { RECIPES_AI_ML } from './ai-ml'
+import { RECIPES_THEORY } from './theory'
+import { RECIPES_CAPSTONE } from './capstone'
 
 export const RECIPES: Recipe[] = [
-  ...RECIPES_TIER1_LOGIC,
-  ...RECIPES_TIER2_CIRCUITS,
-  ...RECIPES_TIER3_ARCHITECTURE,
-  ...RECIPES_TIER4_LOWLEVEL,
-  ...RECIPES_TIER5_LANGUAGES_LOW,
-  ...RECIPES_TIER6_LANGUAGES_HIGH,
-  ...RECIPES_TIER7_PARADIGMS,
-  ...RECIPES_TIER8_DATASTRUCTURES,
-  ...RECIPES_TIER9_ALGORITHMS,
-  ...RECIPES_TIER10_CAPSTONE,
+  ...RECIPES_HARDWARE,
+  ...RECIPES_ARCHITECTURE,
+  ...RECIPES_ENCODING,
+  ...RECIPES_CONCEPTS,
+  ...RECIPES_LANGUAGES,
+  ...RECIPES_DATASTRUCTURES,
+  ...RECIPES_ALGORITHMS,
+  ...RECIPES_DATABASES,
+  ...RECIPES_WEB,
+  ...RECIPES_OS,
+  ...RECIPES_SOFTWARE_ENG,
+  ...RECIPES_SECURITY,
+  ...RECIPES_AI_ML,
+  ...RECIPES_THEORY,
+  ...RECIPES_CAPSTONE,
 ]
 
 export const RECIPE_INDEX: Map<string, Recipe> = new Map(
@@ -41,5 +51,23 @@ if (import.meta.env.DEV) {
     const key = makeRecipeKey(a, b)
     if (seenKeys.has(key)) throw new Error(`Duplicate recipe for pair: ${key}`)
     seenKeys.add(key)
+  }
+
+  // Reachability: every non-starter item must be craftable from the starter elements.
+  const reachable = new Set<string>(STARTER_ITEM_IDS)
+  let changed = true
+  while (changed) {
+    changed = false
+    for (const recipe of RECIPES) {
+      const [a, b] = recipe.inputs
+      if (reachable.has(a) && reachable.has(b) && !reachable.has(recipe.result)) {
+        reachable.add(recipe.result)
+        changed = true
+      }
+    }
+  }
+  const orphans = ITEMS.filter((item) => !reachable.has(item.id)).map((item) => item.id)
+  if (orphans.length > 0) {
+    throw new Error(`Unreachable items (no path from starters): ${orphans.join(', ')}`)
   }
 }

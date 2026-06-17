@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import { useDraggable } from '@dnd-kit/core'
-import type { Item, Tier } from '@/types'
+import type { Item, Category } from '@/types'
 import type { DragPayload } from '@/types/dnd'
 import { ITEMS_BY_ID } from '@/data/items'
 import { RECIPES } from '@/data/recipes'
-import { TIER_LABELS, TIER_ORDER } from '@/data/tiers'
+import { CATEGORY_LABELS, CATEGORY_ORDER } from '@/data/categories'
 import { isItemExhausted } from '@/engine/combine'
 import { useGameStore } from '@/store'
 import { ItemChip } from '@/components/ItemChip'
@@ -54,7 +54,7 @@ export function Sidebar() {
   const addCanvasToken = useGameStore((s) => s.addCanvasToken)
 
   const [query, setQuery] = useState('')
-  const [tierFilter, setTierFilter] = useState<Tier | 'all'>('all')
+  const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all')
   const [hideExhausted, setHideExhausted] = useState(false)
 
   const exhaustedIds = useMemo(() => {
@@ -68,25 +68,28 @@ export function Sidebar() {
   const groups = useMemo(() => {
     const list = [...discoveredItemIds].map((id) => ITEMS_BY_ID.get(id)!).filter(Boolean)
     const filtered = list
-      .filter((item) => tierFilter === 'all' || item.tier === tierFilter)
+      .filter((item) => categoryFilter === 'all' || item.category === categoryFilter)
       .filter((item) => item.name.toLowerCase().includes(query.toLowerCase()))
       .filter((item) => !hideExhausted || !exhaustedIds.has(item.id))
 
-    const byTier = new Map<Tier, Item[]>()
+    const byCategory = new Map<Category, Item[]>()
     for (const item of filtered) {
-      const group = byTier.get(item.tier) ?? []
+      const group = byCategory.get(item.category) ?? []
       group.push(item)
-      byTier.set(item.tier, group)
+      byCategory.set(item.category, group)
     }
-    for (const group of byTier.values()) group.sort((a, b) => a.name.localeCompare(b.name))
-    return TIER_ORDER.filter((tier) => byTier.has(tier)).map((tier) => ({ tier, items: byTier.get(tier)! }))
-  }, [discoveredItemIds, tierFilter, query, hideExhausted, exhaustedIds])
+    for (const group of byCategory.values()) group.sort((a, b) => a.name.localeCompare(b.name))
+    return CATEGORY_ORDER.filter((category) => byCategory.has(category)).map((category) => ({
+      category,
+      items: byCategory.get(category)!,
+    }))
+  }, [discoveredItemIds, categoryFilter, query, hideExhausted, exhaustedIds])
 
-  const availableTiers = useMemo(() => {
-    const set = new Set<Tier>()
+  const availableCategories = useMemo(() => {
+    const set = new Set<Category>()
     for (const id of discoveredItemIds) {
       const item = ITEMS_BY_ID.get(id)
-      if (item) set.add(item.tier)
+      if (item) set.add(item.category)
     }
     return [...set]
   }, [discoveredItemIds])
@@ -101,14 +104,14 @@ export function Sidebar() {
           className="w-full px-2.5 py-1.5 text-sm rounded border border-stone-700 bg-stone-900 text-stone-200 placeholder:text-stone-500 focus:outline-none focus:border-orange-500"
         />
         <select
-          value={tierFilter}
-          onChange={(e) => setTierFilter(e.target.value as Tier | 'all')}
+          value={categoryFilter}
+          onChange={(e) => setCategoryFilter(e.target.value as Category | 'all')}
           className="w-full px-2.5 py-1.5 text-sm rounded border border-stone-700 bg-stone-900 text-stone-200 focus:outline-none focus:border-orange-500"
         >
-          <option value="all">All tiers</option>
-          {availableTiers.map((tier) => (
-            <option key={tier} value={tier}>
-              {TIER_LABELS[tier]}
+          <option value="all">All domains</option>
+          {CATEGORY_ORDER.filter((category) => availableCategories.includes(category)).map((category) => (
+            <option key={category} value={category}>
+              {CATEGORY_LABELS[category]}
             </option>
           ))}
         </select>
@@ -124,9 +127,9 @@ export function Sidebar() {
       </div>
 
       <div className="flex-1 overflow-y-auto p-2.5 space-y-3">
-        {groups.map(({ tier, items }) => (
-          <div key={tier}>
-            <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">{TIER_LABELS[tier]}</div>
+        {groups.map(({ category, items }) => (
+          <div key={category}>
+            <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">{CATEGORY_LABELS[category]}</div>
             <div className="flex flex-wrap gap-2 content-start">
               {items.map((item) => (
                 <DraggableSidebarItem

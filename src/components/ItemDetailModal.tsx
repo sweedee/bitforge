@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import type { Item } from '@/types'
-import { TIER_LABELS } from '@/data/tiers'
+import { CATEGORY_LABELS } from '@/data/categories'
+import { RARITY_LABELS, RARITY_STYLES } from '@/data/rarity'
+import { getItemStars } from '@/engine/depth'
 import { ITEMS_BY_ID } from '@/data/items'
 import { RECIPE_BY_RESULT } from '@/data/recipes'
 
@@ -13,6 +15,8 @@ export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
   const recipe = RECIPE_BY_RESULT.get(item.id)
   const ingredientA = recipe ? ITEMS_BY_ID.get(recipe.inputs[0]) : undefined
   const ingredientB = recipe ? ITEMS_BY_ID.get(recipe.inputs[1]) : undefined
+  const rarity = RARITY_STYLES[item.rarity]
+  const stars = getItemStars(item.id)
 
   return (
     <div
@@ -27,8 +31,8 @@ export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
         transition={{ duration: 0.15 }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-5 py-3 border-b border-stone-700">
-          <span className="text-xs uppercase tracking-widest text-orange-400">{TIER_LABELS[item.tier]}</span>
+        <div className={`flex items-center justify-between px-5 py-3 border-b ${rarity.border}`}>
+          <span className="text-xs uppercase tracking-widest text-orange-400">{CATEGORY_LABELS[item.category]}</span>
           <button onClick={onClose} className="text-stone-500 hover:text-stone-200 text-lg leading-none transition-colors">
             ×
           </button>
@@ -36,6 +40,20 @@ export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
         <div className="px-5 py-5 flex flex-col items-center gap-2 text-center">
           <span className="text-4xl">{item.emoji}</span>
           <span className="text-lg font-bold text-stone-100">{item.name}</span>
+
+          <div className="flex items-center gap-2 text-xs">
+            <span className={`uppercase tracking-widest font-semibold ${rarity.accent}`}>{RARITY_LABELS[item.rarity]}</span>
+            {stars > 0 && (
+              <span className="text-amber-300" aria-label={`depth ${stars} of 5`}>
+                {'★'.repeat(stars)}
+                <span className="text-stone-600">{'☆'.repeat(5 - stars)}</span>
+              </span>
+            )}
+          </div>
+          {item.milestone && (
+            <span className="text-[11px] text-amber-300 tracking-wide">⭐ Milestone · {item.milestone}</span>
+          )}
+
           <p className="text-sm text-stone-400">{item.description}</p>
 
           {ingredientA && ingredientB ? (

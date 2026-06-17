@@ -1,0 +1,19 @@
+import type { Recipe } from '@/types'
+
+export const RECIPES_ALGORITHMS: Recipe[] = [
+  { inputs: ['array', 'conditional'], result: 'linear-search' },
+  { inputs: ['linear-search', 'binary-tree'], result: 'binary-search' },
+  { inputs: ['array', 'loop'], result: 'sorting-algorithm' },
+  { inputs: ['sorting-algorithm', 'loop'], result: 'bubble-sort' },
+  { inputs: ['sorting-algorithm', 'recursion'], result: 'quicksort' },
+  { inputs: ['sorting-algorithm', 'queue'], result: 'merge-sort' },
+  { inputs: ['graph', 'recursion'], result: 'depth-first-search' },
+  { inputs: ['graph', 'queue'], result: 'breadth-first-search' },
+  { inputs: ['breadth-first-search', 'priority-queue'], result: 'dijkstras-algorithm' },
+  { inputs: ['dijkstras-algorithm', 'greedy-algorithm'], result: 'a-star' },
+  { inputs: ['recursion', 'hash-map'], result: 'dynamic-programming' },
+  { inputs: ['recursion', 'cache'], result: 'memoization' },
+  { inputs: ['dijkstras-algorithm', 'sorting-algorithm'], result: 'greedy-algorithm' },
+  { inputs: ['recursion', 'conditional'], result: 'backtracking' },
+  { inputs: ['quicksort', 'bubble-sort'], result: 'big-o-notation' },
+]

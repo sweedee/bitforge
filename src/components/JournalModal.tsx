@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Item } from '@/types'
 import { ITEMS_BY_ID } from '@/data/items'
-import { TIER_LABELS, TIER_ORDER } from '@/data/tiers'
+import { CATEGORY_LABELS, CATEGORY_ORDER } from '@/data/categories'
 import { useGameStore } from '@/store'
 import { ItemChip } from '@/components/ItemChip'
 import { ItemDetailModal } from '@/components/ItemDetailModal'
@@ -16,16 +16,19 @@ export function JournalModal({ onClose }: JournalModalProps) {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
 
   const groups = useMemo(() => {
-    const byTier = new Map<string, Item[]>()
+    const byCategory = new Map<string, Item[]>()
     for (const id of discoveredItemIds) {
       const item = ITEMS_BY_ID.get(id)
       if (!item) continue
-      const list = byTier.get(item.tier) ?? []
+      const list = byCategory.get(item.category) ?? []
       list.push(item)
-      byTier.set(item.tier, list)
+      byCategory.set(item.category, list)
     }
-    for (const list of byTier.values()) list.sort((a, b) => a.name.localeCompare(b.name))
-    return TIER_ORDER.filter((tier) => byTier.has(tier)).map((tier) => ({ tier, items: byTier.get(tier)! }))
+    for (const list of byCategory.values()) list.sort((a, b) => a.name.localeCompare(b.name))
+    return CATEGORY_ORDER.filter((category) => byCategory.has(category)).map((category) => ({
+      category,
+      items: byCategory.get(category)!,
+    }))
   }, [discoveredItemIds])
 
   return (
@@ -45,9 +48,9 @@ export function JournalModal({ onClose }: JournalModalProps) {
           </button>
         </div>
         <div className="overflow-y-auto px-5 py-4 space-y-5">
-          {groups.map(({ tier, items }) => (
-            <div key={tier}>
-              <div className="text-xs uppercase tracking-widest text-orange-400 mb-2">{TIER_LABELS[tier]}</div>
+          {groups.map(({ category, items }) => (
+            <div key={category}>
+              <div className="text-xs uppercase tracking-widest text-orange-400 mb-2">{CATEGORY_LABELS[category]}</div>
               <div className="flex flex-wrap gap-2">
                 {items.map((item) => (
                   <button key={item.id} onClick={() => setSelectedItem(item)} className="cursor-pointer active:scale-95 transition-transform">

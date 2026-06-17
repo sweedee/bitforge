@@ -1,21 +1,32 @@
-export type Tier =
+export type Category =
   | 'elements'
-  | 'logic'
-  | 'circuits'
+  | 'hardware'
   | 'architecture'
-  | 'lowlevel'
-  | 'languages-low'
-  | 'languages-high'
-  | 'paradigms'
+  | 'encoding'
+  | 'concepts'
+  | 'languages'
   | 'datastructures'
   | 'algorithms'
+  | 'databases'
+  | 'web'
+  | 'os'
+  | 'software-eng'
+  | 'security'
+  | 'ai-ml'
+  | 'theory'
   | 'capstone'
+
+export type Rarity = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary' | 'mythic'
 
 export interface Item {
   id: string
   name: string
   emoji: string
-  tier: Tier
+  category: Category
+  /** Hand-tuned by obscurity — drives the rarity color. */
+  rarity: Rarity
+  /** Year/era this landmark first appeared (e.g. '1947'). Presence marks the item as a milestone. */
+  milestone?: string
   description: string
   isStarter?: boolean
 }

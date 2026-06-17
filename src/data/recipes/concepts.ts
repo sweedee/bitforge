@@ -1,0 +1,28 @@
+import type { Recipe } from '@/types'
+
+export const RECIPES_CONCEPTS: Recipe[] = [
+  { inputs: ['bit', 'and-gate'], result: 'boolean' },
+  { inputs: ['boolean', 'alu'], result: 'operator' },
+  { inputs: ['memory-address', 'data'], result: 'variable' },
+  { inputs: ['variable', 'operator'], result: 'expression' },
+  { inputs: ['boolean', 'expression'], result: 'conditional' },
+  { inputs: ['conditional', 'register'], result: 'loop' },
+  { inputs: ['expression', 'variable'], result: 'function' },
+  { inputs: ['function', 'function'], result: 'recursion' },
+  { inputs: ['variable', 'variable'], result: 'record' },
+  { inputs: ['memory-address', 'variable'], result: 'pointer' },
+  { inputs: ['pointer', 'not-gate'], result: 'null-pointer' },
+  { inputs: ['null-pointer', 'memory-address'], result: 'segmentation-fault' },
+  { inputs: ['record', 'function'], result: 'class' },
+  { inputs: ['class', 'memory-address'], result: 'object' },
+  { inputs: ['function', 'object'], result: 'method' },
+  { inputs: ['class', 'class'], result: 'inheritance' },
+  { inputs: ['inheritance', 'function'], result: 'polymorphism' },
+  { inputs: ['inheritance', 'polymorphism'], result: 'oop' },
+  { inputs: ['function', 'expression'], result: 'lambda' },
+  { inputs: ['lambda', 'variable'], result: 'closure' },
+  { inputs: ['function', 'lambda'], result: 'higher-order-function' },
+  { inputs: ['closure', 'lambda'], result: 'functional-programming' },
+  { inputs: ['conditional', 'segmentation-fault'], result: 'exception' },
+  { inputs: ['loop', 'object'], result: 'iterator' },
+]

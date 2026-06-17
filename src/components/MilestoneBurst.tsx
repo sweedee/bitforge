@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ITEMS_BY_ID } from '@/data/items'
+import { rarityRank } from '@/data/rarity'
 import { useGameStore } from '@/store'
 import { sounds } from '@/sound'
 
@@ -18,9 +20,11 @@ const PARTICLES = Array.from({ length: 16 }, (_, i) => {
 
 export function MilestoneBurst() {
   const discoveredCount = useGameStore((s) => s.discoveredItemIds.size)
+  const recentDiscoveryId = useGameStore((s) => s.recentDiscoveryId)
   const prevCountRef = useRef(discoveredCount)
   const [active, setActive] = useState(false)
 
+  // Burst on every Nth discovery (count milestone).
   useEffect(() => {
     const prev = prevCountRef.current
     prevCountRef.current = discoveredCount
@@ -32,6 +36,20 @@ export function MilestoneBurst() {
     const timer = setTimeout(() => setActive(false), 1000)
     return () => clearTimeout(timer)
   }, [discoveredCount])
+
+  // Burst when an especially rare or landmark item is discovered.
+  useEffect(() => {
+    if (!recentDiscoveryId) return
+    const item = ITEMS_BY_ID.get(recentDiscoveryId)
+    if (!item) return
+    const special = item.milestone !== undefined || rarityRank(item.rarity) >= 3 // epic+
+    if (!special) return
+
+    setActive(true)
+    sounds.fanfare()
+    const timer = setTimeout(() => setActive(false), 1000)
+    return () => clearTimeout(timer)
+  }, [recentDiscoveryId])
 
   return (
     <AnimatePresence>
