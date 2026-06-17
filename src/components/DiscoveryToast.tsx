@@ -16,7 +16,7 @@ export function DiscoveryToast() {
   const item = recentDiscoveryId ? ITEMS_BY_ID.get(recentDiscoveryId) : undefined
 
   return (
-    <div className="fixed top-16 right-4 z-50 pointer-events-none">
+    <div className="fixed top-24 sm:top-16 right-4 z-50 pointer-events-none">
       <AnimatePresence>
         {item && (
           <motion.div
