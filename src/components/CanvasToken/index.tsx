@@ -39,7 +39,7 @@ export function CanvasToken({ token, selected, shake, onClick }: CanvasTokenProp
       {...listeners}
       onClick={onClick}
       data-testid="canvas-token"
-      className={`absolute cursor-grab active:cursor-grabbing ${shake ? 'animate-shake' : ''} ${isDragging ? 'opacity-0' : ''}`}
+      className={`absolute touch-none cursor-grab active:cursor-grabbing ${shake ? 'animate-shake' : ''} ${isDragging ? 'opacity-0' : ''}`}
       style={{ left: `${token.x}%`, top: `${token.y}%`, x: '-50%', y: '-50%' }}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}

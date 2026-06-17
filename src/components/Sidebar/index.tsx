@@ -24,7 +24,7 @@ function DraggableSidebarItem({ item, highlighted, onTap }: { item: Item; highli
       {...listeners}
       data-testid="sidebar-item"
       onClick={onTap}
-      className={`cursor-grab active:cursor-grabbing active:scale-95 transition-transform ${isDragging ? 'opacity-0' : ''}`}
+      className={`touch-none cursor-grab active:cursor-grabbing active:scale-95 transition-transform ${isDragging ? 'opacity-0' : ''}`}
     >
       <ItemChip item={item} highlighted={highlighted} />
     </button>
