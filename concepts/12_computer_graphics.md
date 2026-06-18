@@ -6,8 +6,6 @@
   - Ray Tracing
   - Ray Marching
   - Path Tracing
-  - Photon Mapping
-  - Radiosity
   - Global Illumination
   - Ambient Occlusion
     - Screen Space Ambient Occlusion (SSAO)
@@ -19,7 +17,6 @@
     - Flat Shading
     - Physically Based Rendering (PBR)
       - Bidirectional Reflectance Distribution Function (BRDF)
-      - Microfacet Models (Cook-Torrance)
       - Fresnel Effect
       - Metalness/Roughness Workflow
       - Subsurface Scattering
@@ -49,14 +46,12 @@
 - **Geometry Representation**
   - Polygon Meshes
     - Triangle Meshes
-    - Half-Edge Data Structure
     - Vertex/Index Buffers
     - Normals & Vertex Attributes
     - Mesh Simplification / Decimation
-    - Subdivision Surfaces (Catmull-Clark)
+    - Subdivision Surfaces
   - Implicit Surfaces
     - Signed Distance Fields (SDF)
-    - Metaballs
     - Marching Cubes
   - Voxels
   - Point Clouds
@@ -65,7 +60,6 @@
     - B-Splines
     - NURBS
     - Catmull-Rom Splines
-    - Hermite Curves
   - Constructive Solid Geometry (CSG)
   - Bounding Volumes
     - Axis-Aligned Bounding Box (AABB)
@@ -95,7 +89,6 @@
   - Procedural Texturing
     - Perlin Noise
     - Simplex Noise
-    - Worley Noise
 - **Color Theory & Color Spaces**
   - RGB Color Model
   - CMYK Color Model
@@ -112,12 +105,10 @@
   - Edge Detection (Sobel, Canny)
   - Gaussian Blur
   - Image Compression (lossy/lossless concepts)
-  - Image Pyramids
   - Bilateral Filtering
   - Morphological Operations (Dilation, Erosion)
 - **Lighting**
   - Local Illumination Models
-  - Light Probes
   - Lightmaps
   - Shadow Mapping
   - Shadow Volumes

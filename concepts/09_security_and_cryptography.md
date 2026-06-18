@@ -19,15 +19,12 @@
     - Elliptic Curve Diffie-Hellman (ECDH)
     - ElGamal Encryption
     - Lattice-Based Cryptography
-    - Trapdoor Function
-    - Key Encapsulation Mechanism (KEM)
   - Hash Functions
     - SHA family, MD5
     - SHA-3 / Keccak
     - BLAKE2 / BLAKE3
     - Collision Resistance
     - Preimage Resistance
-    - Avalanche Effect
     - HMAC
     - Key Derivation Functions (PBKDF2, bcrypt, scrypt, Argon2)
     - Salting
@@ -37,8 +34,6 @@
     - RSA Signatures
     - DSA / ECDSA
     - EdDSA (Ed25519)
-    - Schnorr Signatures
-    - Blind Signatures
   - Public Key Infrastructure (PKI)
     - Certificate Authorities
     - X.509 Certificates
@@ -55,7 +50,6 @@
     - Side-Channel Attacks (Timing, Power Analysis)
     - Chosen-Plaintext / Chosen-Ciphertext Attack
     - Padding Oracle Attack
-    - Meet-in-the-Middle Attack
   - Advanced Cryptographic Concepts
     - Zero-Knowledge Proofs
     - Homomorphic Encryption
@@ -63,7 +57,6 @@
     - Post-Quantum Cryptography
     - Forward Secrecy
     - Perfect Forward Secrecy
-    - Quantum Key Distribution
 - **Application Security**
   - Authentication & Authorization
     - OAuth / OpenID Connect
@@ -148,7 +141,6 @@
     - DNS Spoofing / Cache Poisoning
     - Port Scanning
     - Honeypots
-    - Network Access Control (802.1X)
   - Cloud & Infrastructure Security
     - Identity and Access Management (IAM)
     - Secrets Management (Vaults)

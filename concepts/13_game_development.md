@@ -27,14 +27,11 @@
     - Hot Reloading
   - Scripting Layer / Modding Hooks
   - Scene/Level Serialization
-  - Rendering Pipeline <!-- owned by 12_computer_graphics.md, not detailed here -->
 - **Physics & Simulation**
   - Collision Detection
     - Broad Phase vs Narrow Phase
     - Spatial Partitioning (Grids, Quadtrees, Octrees)
-    - Sweep and Prune
     - Separating Axis Theorem (SAT)
-    - GJK Algorithm
     - Continuous Collision Detection
   - Collision Response
     - Impulse Resolution
@@ -67,7 +64,6 @@
   - Flocking / Swarm Behavior (Boids)
   - Crowd Simulation
   - Sensory Systems (Sight, Hearing, Awareness)
-  - Squad / Group Tactics AI
   - Difficulty Scaling / Dynamic Difficulty Adjustment
   - Game-Playing AI (Minimax, Monte Carlo Tree Search)
   - Reinforcement Learning for Game Agents
@@ -94,8 +90,6 @@
   - Spatial / 3D Audio
   - Audio Mixing & Buses
   - Audio Occlusion
-  - Doppler Effect Simulation
-  - Procedural Audio
 - **Multiplayer & Networking in Games**
   - Client-Server Model for Games
   - Peer-to-Peer Multiplayer
@@ -118,7 +112,6 @@
   - Dungeon Generation Algorithms
   - Markov Chains for Content Generation
   - L-Systems for Procedural Geometry
-  - Noise-Based Generation (Perlin/Simplex) <!-- owned by 12_computer_graphics.md -->
 - **Game Design Patterns & Engine Concepts**
   - Tile-Based Maps
   - Tilemaps & Chunking

@@ -1,0 +1,70 @@
+# 20. Memes & Fun
+
+- **Esoteric & Joke Languages**
+  - Brainfuck
+  - Whitespace
+  - Malbolge
+  - LOLCODE
+  - Piet
+  - INTERCAL
+  - Befunge
+  - Shakespeare Programming Language
+  - Chef
+- **Cursed / Legendary Code**
+  - Holy C
+  - Duff's Device
+  - FizzBuzz
+  - Sleep Sort
+  - Quine
+  - Obfuscated C (IOCCC)
+  - Code Golf
+  - Hello World
+  - 99 Bottles of Beer
+- **Internet & Tech Culture Lore**
+  - TempleOS
+  - Terry Davis
+  - Roko's Basilisk
+  - Skynet
+  - The Matrix (simulation hypothesis)
+  - Paperclip Maximizer
+  - Grey Goo
+  - AI Waifu
+  - Clippy
+  - Dancing Baby (early internet meme)
+  - Rickrolling
+  - Rule 34
+  - All Your Base Are Belong To Us
+  - Doge
+  - It's Always DNS
+  - Works On My Machine
+  - 404 Not Found
+  - The Cake Is a Lie
+- **Hacker & Programmer Folklore**
+  - Mentor's Manifesto (Hacker Manifesto)
+  - Bash.org / Programming Quotes
+  - Stack Overflow Driven Development
+  - Ctrl+C Ctrl+V Programming
+  - Rubber Duck Debugging
+  - There Are Only Two Hard Things in CS
+  - 10x Engineer
+  - Brogrammer
+  - Spaghetti Code
+  - Ninja/Rockstar Developer
+- **Cursed Engineering Artifacts**
+  - Y2K Bug
+  - Heartbleed (as folklore, not just the CVE)
+  - Therac-25 (cautionary tale)
+  - Boeing 787 Leap Year Bug
+  - Denver Airport Baggage System
+  - The 512K Day (Cisco router crash)
+  - Left-pad Incident
+- **Tech Punditry & Memes**
+  - Dunning-Kruger in Tech
+  - Bikeshedding
+  - Yak Shaving
+  - Premature Optimization
+  - Not Invented Here Syndrome
+  - Resume-Driven Development
+  - Move Fast and Break Things
+  - Worse Is Better
+  - Turing Tarpit

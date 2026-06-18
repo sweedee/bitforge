@@ -16,7 +16,6 @@
   - Inter-Process Communication on Mobile (Content Providers, Broadcast Receivers)
 - **App Architecture Patterns**
   - Model-View-ViewModel (MVVM)
-  - Model-View-Intent (MVI)
   - Model-View-Controller (MVC) for Mobile
   - Model-View-Presenter (MVP)
   - Unidirectional Data Flow

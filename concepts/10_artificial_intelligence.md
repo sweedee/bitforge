@@ -18,7 +18,6 @@
   - Adversarial Search
     - Minimax Algorithm
     - Alpha-Beta Pruning
-    - Expectimax
     - Monte Carlo Tree Search
   - Constraint Satisfaction Problems
     - Backtracking Search
@@ -27,7 +26,6 @@
     - Forward Checking
   - Planning
     - Classical Planning (STRIPS)
-    - Hierarchical Task Network (HTN) Planning
   - Multi-Agent Systems
     - Game Theory Basics (Nash Equilibrium)
 - **Knowledge Representation & Reasoning**
@@ -37,8 +35,6 @@
     - Forward Chaining
     - Backward Chaining
   - Bayesian Networks
-    - Belief Propagation
-    - Markov Random Fields
   - Hidden Markov Models
   - Fuzzy Logic
   - First-Order Logic / Predicate Logic
@@ -59,15 +55,12 @@
         - Kernel Trick
       - Naive Bayes
       - k-Nearest Neighbors
-      - Linear Discriminant Analysis
-      - Perceptron Algorithm
   - Unsupervised Learning
     - Clustering
       - k-Means
       - Hierarchical Clustering
       - DBSCAN
       - Gaussian Mixture Models / Expectation-Maximization
-      - Mean Shift Clustering
     - Dimensionality Reduction
       - Principal Component Analysis (PCA)
       - t-SNE
@@ -104,7 +97,6 @@
     - Deep Q-Networks (DQN)
     - Policy Gradient Methods
     - Actor-Critic Methods
-    - SARSA
     - Temporal Difference Learning
     - Reward Shaping
     - Exploration vs Exploitation
@@ -130,7 +122,6 @@
       - Feature Maps
       - Strides / Padding
       - Residual Networks (ResNet)
-      - U-Net
     - Recurrent Neural Networks (RNNs)
       - LSTM / GRU
       - Sequence-to-Sequence Models
@@ -176,8 +167,7 @@
     - Bag-of-Words Model
     - TF-IDF
   - Word Embeddings (Word2Vec, GloVe)
-    - FastText
-    - Contextual Embeddings (ELMo)
+    - Contextual Embeddings
   - Language Models
     - n-gram Models
     - Large Language Models (LLMs)
@@ -191,7 +181,6 @@
     - Neural Machine Translation
   - Text Summarization
   - Question Answering Systems
-  - Coreference Resolution
   - Speech Recognition
   - Text-to-Speech Synthesis
   - Topic Modeling (Latent Dirichlet Allocation)

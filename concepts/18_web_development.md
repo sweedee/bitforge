@@ -44,7 +44,6 @@
   - Client-Side Routing
   - Static Site Generation (SSG)
   - Hydration
-  - Islands Architecture
   - Web Components
   - Module Bundlers (Webpack, Vite, Rollup)
   - Transpilation (Babel)
@@ -96,8 +95,6 @@
     - Web App Manifest
     - Offline-First Caching Strategies
     - Background Sync
-  - Micro-Frontends
-  - JAMstack
   - Headless CMS
 - **Web Performance**
   - Core Web Vitals (LCP, FID/INP, CLS)
@@ -113,12 +110,9 @@
   - Color Contrast Standards (WCAG)
   - Alt Text / Accessible Media
 - **Web App Security (Web-Specific)**
-  - Subresource Integrity (SRI)
   - Secure Cookie Attributes (HttpOnly, Secure, SameSite)
   - Cross-Origin Resource Sharing (CORS) Preflight
-  - Cross-Origin Opener/Embedder Policy (COOP/COEP)
 - **Testing & Tooling**
   - Browser DevTools
   - End-to-End Testing (Selenium, Playwright, Cypress)
-  - Visual Regression Testing
   - Linting & Formatting (ESLint, Prettier)
