@@ -27,4 +27,7 @@ export const RECIPES_HARDWARE: Recipe[] = [
   { inputs: ['flip-flop', 'adder'], result: 'counter' },
   { inputs: ['register', 'flip-flop'], result: 'shift-register' },
   { inputs: ['integrated-circuit', 'and-gate'], result: 'fpga' },
+  { inputs: ['integrated-circuit', 'cpu'], result: 'microcontroller' },
+  { inputs: ['microcontroller', 'gpu'], result: 'soc' },
+  { inputs: ['soc', 'memory-mapped-io'], result: 'single-board-computer' },
 ]

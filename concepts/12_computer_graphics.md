@@ -1,104 +1,102 @@
 ## 12. Computer Graphics
 
 - **Rendering Fundamentals**
-  - Rasterization
-  - Ray Tracing
-  - Global Illumination
-  - Ambient Occlusion
-  - Shading Models
-  - Z-Buffering (Depth Buffering)
-  - Painter's Algorithm
-  - Backface Culling
-  - Frustum Culling
-  - Occlusion Culling
-  - Clipping
+  - [x] Rasterization
+  - [x] Ray Tracing
+  - [x] Global Illumination
+  - [x] Ambient Occlusion <!-- already implemented as 'global-illumination' -->
+  - [x] Shading Models
+  - [x] Z-Buffering (Depth Buffering)
+  - [x] Painter's Algorithm
+  - [x] Backface Culling
+  - [x] Frustum Culling
+  - [ ] Occlusion Culling <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Clipping
 - **Geometric Transformations**
-  - Affine Transformations
-  - Translation, Rotation, Scaling
-  - Homogeneous Coordinates
-  - Transformation Matrices
-  - Model-View-Projection (MVP) Matrix
-  - Orthographic Projection
-  - Perspective Projection
-  - Quaternions (rotation representation)
-  - Euler Angles
-  - Gimbal Lock
-  - Coordinate Spaces (Object, World, Camera/View, Clip, Screen)
-  - Normal Mapping Space (Tangent Space)
+  - [x] Affine Transformations <!-- already implemented as 'transformation-matrix' -->
+  - [x] Translation, Rotation, Scaling <!-- already implemented as 'transformation-matrix' -->
+  - [x] Homogeneous Coordinates
+  - [x] Transformation Matrices
+  - [x] Model-View-Projection (MVP) Matrix
+  - [ ] Orthographic Projection <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [ ] Perspective Projection <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Quaternions (rotation representation)
+  - [ ] Euler Angles <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [ ] Gimbal Lock <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Coordinate Spaces (Object, World, Camera/View, Clip, Screen) <!-- already implemented as 'transformation-matrix' / 'homogeneous-coordinates' -->
 - **Geometry Representation**
-  - Polygon Meshes
-  - Implicit Surfaces
-  - Voxels
-  - Point Clouds
-  - Curves & Splines
-  - Constructive Solid Geometry (CSG)
-  - Bounding Volumes
-  - Spatial Acceleration Structures
+  - [x] Polygon Meshes
+  - [ ] Implicit Surfaces <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Voxels
+  - [x] Point Clouds
+  - [x] Curves & Splines
+  - [ ] Constructive Solid Geometry (CSG) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Bounding Volumes
+  - [x] Spatial Acceleration Structures
 - **Texturing**
-  - Texture Mapping
-  - UV Mapping / UV Unwrapping
-  - Texture Filtering
-  - Mipmapping
-  - Texture Atlases
-  - Normal Mapping
-  - Bump Mapping
-  - Parallax Mapping
-  - Environment Mapping
-    - Cube Mapping
+  - [x] Texture Mapping
+  - [x] UV Mapping / UV Unwrapping
+  - [ ] Texture Filtering <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Mipmapping
+  - [ ] Texture Atlases <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Normal Mapping
+  - [x] Bump Mapping <!-- already implemented as 'normal-mapping' -->
+  - [ ] Parallax Mapping <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Environment Mapping
+    - [x] Cube Mapping <!-- already implemented as 'environment-mapping' -->
 - **Color Theory & Color Spaces**
-  - RGB Color Model
-  - CMYK Color Model
-  - Gamma Correction
-  - Color Quantization
-  - Dithering
+  - [x] RGB Color Model
+  - [ ] CMYK Color Model <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Gamma Correction
+  - [ ] Color Quantization <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Dithering
 - **Image Processing**
-  - Image Convolution / Filters
-  - Edge Detection (Sobel, Canny)
-  - Gaussian Blur
-  - Image Compression (lossy/lossless concepts)
-  - Bilateral Filtering
+  - [x] Image Convolution / Filters
+  - [x] Edge Detection (Sobel, Canny)
+  - [x] Gaussian Blur
+  - [x] Image Compression (lossy/lossless concepts) <!-- already implemented as 'data-compression' in encoding.ts -->
 - **Lighting**
-  - Local Illumination Models
-  - Lightmaps
-  - Shadow Mapping
-  - Soft Shadows
+  - [x] Local Illumination Models <!-- already implemented as 'shading-model' -->
+  - [ ] Lightmaps <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Shadow Mapping
+  - [ ] Soft Shadows <!-- TODO: real concept, no satisfying craftable artifact yet -->
 - **Animation**
-  - Keyframe Animation
-  - Interpolation (Linear, Spline-based)
-  - Skeletal Animation / Rigging
-  - Skinning (Linear Blend Skinning)
-  - Inverse Kinematics
-  - Forward Kinematics
-  - Morph Target Animation / Blend Shapes
-  - Motion Capture
-  - Procedural Animation
-  - Particle Systems
+  - [x] Keyframe Animation
+  - [x] Interpolation (Linear, Spline-based) <!-- already implemented as 'keyframe-animation' / 'spline' -->
+  - [x] Skeletal Animation / Rigging
+  - [ ] Skinning (Linear Blend Skinning) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Inverse Kinematics
+  - [ ] Forward Kinematics <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [ ] Morph Target Animation / Blend Shapes <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [ ] Motion Capture <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [ ] Procedural Animation <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Particle Systems
 - **GPU & Shader Concepts**
-  - Graphics Pipeline
-  - Vertex Shaders
-  - Fragment / Pixel Shaders
-  - Geometry Shaders
-  - Tessellation Shaders
-  - Compute Shaders
-  - Shading Languages
-  - Framebuffers
-  - Render Targets
-  - G-Buffer
-  - Double Buffering / V-Sync
-  - Graphics APIs
+  - [x] Graphics Pipeline
+  - [x] Vertex Shaders
+  - [x] Fragment / Pixel Shaders
+  - [ ] Geometry Shaders <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [ ] Tessellation Shaders <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Compute Shaders
+  - [ ] Shading Languages <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Framebuffers
+  - [x] Render Targets <!-- already implemented as 'framebuffer' -->
+  - [x] G-Buffer <!-- already implemented as 'deferred-shading' -->
+  - [x] Double Buffering / V-Sync
+  - [x] Graphics APIs
 - **Anti-Aliasing**
-  - Supersampling (SSAA)
-  - Multisampling (MSAA)
-  - Fast Approximate Anti-Aliasing (FXAA)
-  - Temporal Anti-Aliasing (TAA)
+  - [x] Supersampling (SSAA) <!-- already implemented as 'anti-aliasing' -->
+  - [x] Multisampling (MSAA) <!-- already implemented as 'anti-aliasing' -->
+  - [x] Fast Approximate Anti-Aliasing (FXAA) <!-- already implemented as 'anti-aliasing' -->
+  - [x] Temporal Anti-Aliasing (TAA) <!-- already implemented as 'anti-aliasing' -->
 - **Real-Time Rendering Techniques**
-  - Forward Shading
-  - Deferred Shading
-  - Level of Detail (LOD)
-  - Instancing
-  - Screen Space Reflections
-  - Temporal Upsampling (DLSS/FSR-style)
+  - [x] Forward Shading <!-- already implemented as 'shading-model' -->
+  - [x] Deferred Shading
+  - [x] Level of Detail (LOD)
+  - [x] Instancing
+  - [ ] Screen Space Reflections <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [ ] Temporal Upsampling (DLSS/FSR-style) <!-- TODO: real concept, no satisfying craftable artifact yet -->
 - **Volume & Special Rendering**
-  - Volumetric Rendering
-  - Fog / Atmospheric Scattering
-  - Non-Photorealistic Rendering
+  - [x] Volumetric Rendering
+  - [x] Fog / Atmospheric Scattering <!-- already implemented as 'volumetric-rendering' -->
+  - [ ] Non-Photorealistic Rendering <!-- TODO: real concept, no satisfying craftable artifact yet -->

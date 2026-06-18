@@ -9,4 +9,5 @@ export const CAPSTONE: Item[] = [
   { id: 'quantum-computer', name: 'Quantum Computer', emoji: '⚛️', category: 'capstone', rarity: 'mythic', milestone: '1998', description: 'A computer exploiting quantum phenomena to perform certain calculations far faster than classical machines.' },
   { id: 'agi', name: 'AGI', emoji: '👽', category: 'capstone', rarity: 'mythic', description: 'Artificial general intelligence — a hypothetical AI able to learn any intellectual task a human can.' },
   { id: 'singularity', name: 'Singularity', emoji: '💫', category: 'capstone', rarity: 'mythic', description: 'A hypothetical point where self-improving intelligence triggers runaway, irreversible change.' },
+  { id: 'quantum-supremacy', name: 'Quantum Supremacy', emoji: '👑', category: 'capstone', rarity: 'mythic', milestone: '2019', description: 'The milestone where a quantum computer solves a problem no classical computer could solve in any feasible time.' },
 ]

@@ -1,96 +1,79 @@
 ## 8. Distributed Systems
 
 - **Foundational Concepts**
-  - Distributed System Properties (transparency, scalability)
-  - Network Partitions
-  - Partial Failure
+  - [x] Distributed System Properties (transparency, scalability)
+  - [x] Network Partitions
+  - [x] Partial Failure
   - System Models
-    - Synchronous vs Asynchronous Systems
-    - Fail-Stop vs Byzantine Failure Models
+    - [ ] Synchronous vs Asynchronous Systems <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [x] Fail-Stop vs Byzantine Failure Models <!-- already implemented as 'byzantine-fault-tolerance' in distributed.ts -->
   - Logical Clocks
-    - Lamport Timestamps
-    - Vector Clocks
-  - Happens-Before Relation
-  - Causality
-  - Total Order vs Partial Order
-  - Clock Synchronization
-    - Berkeley Algorithm
-  - Snapshot Algorithms
-  - Distributed Mutual Exclusion
+    - [x] Lamport Timestamps
+    - [x] Vector Clocks
+  - [x] Happens-Before Relation
+  - [x] Causality <!-- already implemented as 'happens-before' in distributed.ts -->
+  - [ ] Total Order vs Partial Order <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Clock Synchronization
+  - [x] Distributed Mutual Exclusion <!-- already implemented as 'distributed-locking' in distributed.ts -->
 - **Consensus**
-  - Byzantine Fault Tolerance
-    - Byzantine Generals Problem
-    - PBFT (Practical Byzantine Fault Tolerance)
-  - Paxos
-  - Raft
-    - Leader Election (Raft)
-    - Log Replication (Raft)
-  - Quorum Systems
+  - [x] Byzantine Fault Tolerance
+    - [x] Byzantine Generals Problem
+  - [x] Paxos
+  - [x] Raft
+    - [x] Leader Election (Raft) <!-- already implemented as 'leader-election' in distributed.ts -->
+    - [ ] Log Replication (Raft) <!-- TODO: covered loosely by raft + replication, no distinct artifact yet -->
+  - [x] Quorum Systems
 - **Consistency Models**
-  - Strong Consistency
-  - Linearizability
-  - Sequential Consistency
-  - Causal Consistency
-  - Eventual Consistency
-  - Read-Your-Writes Consistency
-  - Monotonic Reads / Monotonic Writes
-  - Quorum Consistency (Read/Write Quorums)
-  - CAP Theorem
-  - BASE Properties (Basically Available, Soft state, Eventual consistency)
+  - [x] Strong Consistency <!-- already implemented as 'linearizability' in distributed.ts -->
+  - [x] Linearizability
+  - [ ] Sequential Consistency <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [ ] Causal Consistency <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Eventual Consistency
+  - [ ] Read-Your-Writes Consistency <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Quorum Consistency (Read/Write Quorums) <!-- already implemented as 'quorum' in distributed.ts -->
+  - [x] CAP Theorem
+  - [x] BASE Properties (Basically Available, Soft state, Eventual consistency)
 - **Distributed Transactions**
-  - Two-Phase Commit (2PC)
-  - Three-Phase Commit (3PC)
-  - Saga Pattern
-  - Distributed Deadlock Detection
+  - [x] Two-Phase Commit (2PC)
+  - [x] Saga Pattern
+  - [ ] Distributed Deadlock Detection <!-- TODO: real concept, no satisfying craftable artifact yet -->
 - **Fault Tolerance**
   - Replication Strategies
-    - Primary-Backup Replication
-    - Multi-Master Replication
-    - Chain Replication
+    - [x] Primary-Backup Replication
+    - [x] Multi-Master Replication
   - Failure Detection
-    - Heartbeats
-    - Gossip Protocols
-  - Split-Brain Problem
-  - Chaos Engineering
-  - Bulkhead Pattern
-  - Retry with Backoff & Jitter
+    - [x] Heartbeats
+    - [x] Gossip Protocols
+  - [x] Split-Brain Problem
+  - [x] Chaos Engineering
+  - [x] Bulkhead Pattern
+  - [x] Retry with Backoff & Jitter
 - **Distributed Data Structures**
-  - Distributed Hash Tables (DHT)
+  - [x] Distributed Hash Tables (DHT)
 - **Coordination & Communication**
-  - Remote Procedure Calls (RPC)
-    - gRPC
-  - Message Queues / Brokers
-    - Publish-Subscribe Pattern
-    - Kafka-style Log-Based Messaging
-  - Coordination Services
-    - ZooKeeper
-    - etcd
-    - Consul
-  - Service Discovery
-  - Leader Election
-  - Distributed Locking
-    - Lease-Based Locking
-  - Event Sourcing
-  - Distributed Tracing (causal request tracking)
+  - [x] Remote Procedure Calls (RPC, gRPC)
+  - [x] Message Queues / Brokers
+    - [x] Publish-Subscribe Pattern
+    - [x] Kafka-style Log-Based Messaging <!-- already implemented as 'stream-processing' in distributed.ts -->
+  - [x] Coordination Services (ZooKeeper, etcd, Consul)
+  - [x] Service Discovery
+  - [x] Distributed Locking
+  - [x] Event Sourcing
+  - [x] Distributed Tracing (causal request tracking)
 - **Distributed Computing Paradigms & Frameworks**
-  - MapReduce
-  - Apache Spark / Resilient Distributed Datasets (RDDs)
-  - Stream Processing
-    - Apache Flink
-    - Windowing (Tumbling, Sliding, Session Windows)
-    - Exactly-Once / At-Least-Once Processing Semantics
-  - Actor Model
-    - Erlang/OTP
-    - Akka
+  - [x] MapReduce
+  - [ ] Apache Spark / Resilient Distributed Datasets (RDDs) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Stream Processing
+    - [ ] Windowing (Tumbling, Sliding, Session Windows) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [ ] Exactly-Once / At-Least-Once Processing Semantics <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Actor Model
 - **Scalability Patterns**
-  - Horizontal vs Vertical Scaling
-  - Sharding
-  - Caching Strategies
-    - Cache-Aside, Write-Through, Write-Back
-    - Cache Invalidation
-    - Thundering Herd Problem
-  - Rate Limiting
-    - Token Bucket / Leaky Bucket Algorithms
-  - Circuit Breaker Pattern
-  - Idempotency
-  - Backpressure
+  - [x] Horizontal vs Vertical Scaling
+  - [x] Sharding
+  - [x] Caching Strategies (Cache-Aside, Write-Through, Write-Back)
+    - [x] Cache Invalidation
+    - [x] Thundering Herd Problem
+  - [x] Rate Limiting (Token Bucket / Leaky Bucket Algorithms)
+  - [x] Circuit Breaker Pattern
+  - [x] Idempotency
+  - [x] Backpressure

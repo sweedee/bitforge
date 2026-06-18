@@ -1,63 +1,65 @@
 ## 15. Cloud Computing
 
 - **Service Models**
-  - IaaS, PaaS, SaaS
-  - FaaS (Function as a Service)
-  - BaaS / Mobile Backend as a Service
-  - Shared Responsibility Model
+  - [x] IaaS, PaaS, SaaS
+  - [x] FaaS (Function as a Service)
+  - [ ] BaaS / Mobile Backend as a Service <!-- too niche, redundant subtype of PaaS -->
+  - [ ] Shared Responsibility Model <!-- TODO: real concept, no satisfying craftable artifact yet -->
 - **Deployment Models**
-  - Public, Private, Hybrid Cloud
-  - Multi-Cloud
-  - On-Premises vs Cloud-Native
+  - [x] Public, Private, Hybrid Cloud
+  - [x] Multi-Cloud
+  - [ ] On-Premises vs Cloud-Native <!-- TODO: comparison framing, not a craftable artifact -->
 - **Virtualization**
-  - Hypervisors
-  - Virtual Machines
+  - [x] Hypervisors
+  - [x] Virtual Machines <!-- already implemented as 'virtual-machine' in architecture.ts -->
 - **Containers & Orchestration**
   - Containerization
-    - Docker
-  - Kubernetes
+    - [x] Containerization
+    - [x] Docker
+  - [x] Kubernetes
 - **Infrastructure as Code**
-  - Infrastructure as Code
-  - GitOps
+  - [x] Infrastructure as Code
+  - [x] GitOps
 - **Cloud Storage**
-  - Object Storage
-  - Block Storage
-  - File Storage
+  - [x] Object Storage
+  - [x] Block Storage
+  - [x] File Storage
 - **Elasticity & Scaling**
-  - Auto-Scaling
-  - Elasticity vs Scalability
-  - Load Balancing
-  - Resource Pooling
+  - [x] Auto-Scaling
+  - [ ] Elasticity vs Scalability <!-- TODO: real conceptual distinction, no satisfying craftable artifact yet -->
+  - [x] Load Balancing
+  - [ ] Resource Pooling <!-- TODO: real concept, no satisfying craftable artifact yet -->
 - **Cloud Networking**
-  - Virtual Private Cloud (VPC)
-  - Subnets (Cloud)
-  - Security Groups / Network ACLs
-  - Cloud Load Balancers (L4/L7)
-  - API Gateways
-  - Content Delivery Networks (CDN)
-  - VPC Peering
-  - NAT Gateways
+  - [x] Virtual Private Cloud (VPC)
+  - [x] Subnets (Cloud)
+  - [x] Security Groups / Network ACLs
+  - [x] Cloud Load Balancers (L4/L7) <!-- merged into Load Balancing above -->
+  - [x] API Gateways
+  - [x] Content Delivery Networks (CDN)
+  - [ ] VPC Peering <!-- too implementation-specific, a feature of VPC rather than its own concept -->
+  - [ ] NAT Gateways <!-- belongs to general networking, not cloud-specific; canonical home is computer-networks -->
 - **Identity & Access (Cloud)**
-  - Identity and Access Management (IAM)
-  - Role-Based Access Control (Cloud IAM)
-  - Federated Identity / Single Sign-On (Cloud)
-  - Service Accounts
-  - Secrets Management (Vault, KMS)
+  - [x] Identity and Access Management (IAM)
+  - [x] Role-Based Access Control (Cloud IAM)
+  - [x] Federated Identity / Single Sign-On (Cloud)
+  - [ ] Service Accounts <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Secrets Management (Vault, KMS)
 - **Multi-Tenancy**
-  - Multi-Tenant Architecture
-  - Noisy Neighbor Problem
-  - Resource Quotas & Throttling
+  - [x] Multi-Tenant Architecture
+  - [x] Noisy Neighbor Problem
+  - [ ] Resource Quotas & Throttling <!-- TODO: real concept, no satisfying craftable artifact yet -->
 - **Reliability Engineering**
-  - SLAs, SLOs, SLIs
-  - Error Budgets
+  - [x] SLAs, SLOs, SLIs
+  - [ ] Error Budgets <!-- TODO: real concept, no satisfying craftable artifact yet -->
   - Observability
-    - Logging, Metrics, Tracing
-    - Distributed Tracing (OpenTelemetry)
-    - Health Checks
-  - Site Reliability Engineering (SRE)
-  - Blue-Green & Canary Deployments
-  - High Availability & Multi-Region Failover
-  - Disaster Recovery
-    - Backup & Restore Strategies
-    - RTO / RPO (Recovery Time/Point Objective)
-  - Chaos Engineering
+    - [x] Logging, Metrics, Tracing
+    - [x] Observability
+    - [x] Distributed Tracing (OpenTelemetry) <!-- already implemented as 'distributed-tracing' in distributed.ts -->
+    - [x] Health Checks
+  - [x] Site Reliability Engineering (SRE)
+  - [x] Blue-Green & Canary Deployments
+  - [x] High Availability & Multi-Region Failover
+  - [x] Disaster Recovery
+    - [x] Backup & Restore Strategies
+    - [x] RTO / RPO (Recovery Time/Point Objective)
+  - [x] Chaos Engineering <!-- already implemented as 'chaos-engineering' in distributed.ts -->

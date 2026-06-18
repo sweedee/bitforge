@@ -14,6 +14,10 @@ import { SOFTWARE_ENG } from './software-eng'
 import { SECURITY } from './security'
 import { AI_ML } from './ai-ml'
 import { THEORY } from './theory'
+import { DISTRIBUTED } from './distributed'
+import { GRAPHICS } from './graphics'
+import { GAMEDEV } from './gamedev'
+import { CLOUD } from './cloud'
 import { CAPSTONE } from './capstone'
 
 export const ITEMS: Item[] = [
@@ -32,6 +36,10 @@ export const ITEMS: Item[] = [
   ...SECURITY,
   ...AI_ML,
   ...THEORY,
+  ...DISTRIBUTED,
+  ...GRAPHICS,
+  ...GAMEDEV,
+  ...CLOUD,
   ...CAPSTONE,
 ]
 

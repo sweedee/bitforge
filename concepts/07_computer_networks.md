@@ -1,115 +1,71 @@
 ## 7. Computer Networks
 
 - **Network Models**
-  - OSI Model (7 layers)
-  - TCP/IP Model
-  - Encapsulation / Decapsulation
-  - Protocol Data Units (Frame, Packet, Segment, Datagram)
+  - [x] OSI Model (7 layers)
+  - [ ] TCP/IP Model <!-- TODO: redundant alternate model to OSI, no distinct satisfying recipe -->
+  - [x] Encapsulation / Decapsulation
 - **Physical Layer**
-  - Bit Rate / Baud Rate
-  - Transmission Media (Copper, Fiber Optic, Coaxial, Radio)
-  - Multiplexing
-    - Time Division Multiplexing (TDM)
-    - Frequency Division Multiplexing (FDM)
-  - Attenuation / Noise / Crosstalk
+  - [ ] Bit Rate / Baud Rate <!-- TODO: a measurement, not a craftable artifact -->
+  - [ ] Transmission Media (Copper, Fiber Optic, Coaxial, Radio) <!-- TODO: physical materials, no satisfying recipe yet -->
+  - [x] Multiplexing <!-- already implemented as 'multiplexer' in hardware.ts -->
+  - [ ] Attenuation / Noise / Crosstalk <!-- TODO: physical signal degradation, not an artifact -->
 - **Data Link Layer**
-  - Ethernet
-    - Ethernet Frame Format
-  - MAC Addressing
-  - Switching
-    - MAC Address Table / CAM Table
-  - VLANs
-    - Trunking
-  - Spanning Tree Protocol (STP)
-  - ARP (Address Resolution Protocol)
-  - Collision Domains / CSMA-CD / CSMA-CA
-  - PPP (Point-to-Point Protocol)
+  - [x] Ethernet
+  - [x] MAC Addressing
+  - [x] Switching
+  - [ ] MAC Address Table / CAM Table <!-- TODO: granular sub-detail of Switching, no distinct recipe -->
+  - [x] VLANs
+  - [x] ARP (Address Resolution Protocol)
+  - [ ] Collision Domains / CSMA-CD / CSMA-CA <!-- TODO: real, no satisfying craftable artifact yet -->
 - **Network Layer**
-  - IP Addressing (IPv4, IPv6)
-    - IPv4 Address Classes (A/B/C/D/E)
-    - IPv6 Address Types (Unicast, Multicast, Anycast)
-    - Private vs Public IP Addresses
-  - Subnetting / CIDR
-    - Subnet Masks
-  - Routing
-    - Static vs Dynamic Routing
-    - Routing Tables
-    - Distance Vector Routing (RIP)
-    - Link State Routing (OSPF, IS-IS)
-    - BGP
-      - Autonomous Systems
-    - Default Gateway
-  - NAT (Network Address Translation)
-    - Port Address Translation (PAT)
-  - ICMP
-    - Ping / Traceroute Mechanics
-  - IP Fragmentation
+  - [x] IP Addressing (IPv4, IPv6) <!-- already implemented as 'ip-address' -->
+  - [ ] Private vs Public IP Addresses <!-- TODO: a property of IP Addressing, not a separate artifact -->
+  - [x] Subnetting / CIDR
+  - [x] Routing
+  - [x] BGP
+  - [x] NAT (Network Address Translation)
+  - [x] ICMP
+  - [ ] IP Fragmentation <!-- TODO: niche protocol-level detail -->
 - **Transport Layer**
-  - TCP
-    - Three-Way Handshake
-    - Connection Termination (FIN/ACK, Four-Way Close)
-    - Flow Control (sliding window)
-    - Congestion Control
-      - Slow Start
-      - AIMD (Additive Increase Multiplicative Decrease)
-      - TCP Tahoe/Reno/Cubic/BBR
-      - Nagle's Algorithm
-    - Sequence Numbers & Acknowledgments
-    - Retransmission (Timeout, Fast Retransmit)
-    - Port Numbers / Sockets
-  - UDP
-  - QUIC
+  - [x] TCP <!-- already implemented -->
+  - [x] Three-Way Handshake
+  - [x] Flow Control (sliding window)
+  - [x] Congestion Control
+  - [x] Port Numbers / Sockets
+  - [x] UDP
+  - [x] QUIC
 - **Application Layer**
-  - DNS
-    - DNS Resolution Process
-    - DNS Record Types (A, AAAA, CNAME, MX, TXT, NS)
-    - DNS Caching
-    - Authoritative vs Recursive Resolvers
-    - DNSSEC
-  - HTTP/HTTPS
-    - HTTP Methods, Status Codes
-    - HTTP Headers
-    - HTTP/1.1 vs HTTP/2 vs HTTP/3
-    - HTTP Caching (ETag, Cache-Control)
-    - Cookies & Sessions
-  - Email Protocols (SMTP, IMAP, POP3)
-  - FTP/SFTP
-  - WebSockets
-  - DHCP (Dynamic Host Configuration Protocol)
-  - Telnet / SSH
-  - NTP (Network Time Protocol)
+  - [x] DNS <!-- already implemented -->
+  - [ ] DNSSEC <!-- TODO: real security extension, no satisfying recipe yet -->
+  - [x] HTTP/HTTPS
+  - [x] Cookies & Sessions
+  - [x] Email Protocols (SMTP, IMAP, POP3)
+  - [x] FTP/SFTP
+  - [x] WebSockets
+  - [x] DHCP (Dynamic Host Configuration Protocol)
+  - [x] Telnet / SSH
+  - [ ] NTP (Network Time Protocol) <!-- TODO: real, foundational, no satisfying recipe yet -->
 - **Network Security**
-  - DDoS Attacks
-    - SYN Flood
-    - Amplification Attacks
+  - [x] DDoS Attacks
 - **Network Hardware**
-  - Hubs vs Switches vs Routers
-  - Repeaters
-  - Gateways
-  - Network Interface Card (NIC)
-  - Modems
-  - Access Points
+  - [x] Hubs vs Switches vs Routers <!-- implemented as 'network-switch' and 'router' -->
+  - [x] Gateways
+  - [x] Network Interface Card (NIC)
+  - [ ] Modems <!-- TODO: real, but redundant with NIC/Router for this game's purposes -->
+  - [x] Access Points
 - **Wireless & Mobile Networking**
-  - Wi-Fi Standards (802.11 a/b/g/n/ac/ax)
-  - Wi-Fi Channels & Frequency Bands (2.4GHz, 5GHz, 6GHz)
-  - SSID / BSSID
-  - Cellular Networks (3G/4G/5G)
-    - Handoff / Roaming
-  - Bluetooth
-  - Mesh Networks
-  - Satellite Networking
+  - [x] Wi-Fi Standards (802.11 a/b/g/n/ac/ax)
+  - [x] Cellular Networks (3G/4G/5G)
+  - [x] Bluetooth
+  - [ ] Mesh Networks <!-- TODO: real, no clean 2-input recipe yet -->
+  - [ ] Satellite Networking <!-- TODO: real and topical, no satisfying recipe yet -->
 - **Network Performance, Reliability & Management**
-  - Latency vs Bandwidth vs Throughput
-  - Jitter
-  - Packet Loss
-  - Quality of Service (QoS)
-    - Traffic Shaping / Policing
-  - Load Balancing
-    - Round Robin, Least Connections
-    - Layer 4 vs Layer 7 Load Balancing
-  - Content Delivery Networks (CDN)
-  - Software-Defined Networking (SDN)
+  - [ ] Latency vs Bandwidth vs Throughput <!-- TODO: measurement properties, not artifacts -->
+  - [ ] Packet Loss <!-- TODO: a measured property, not an artifact -->
+  - [x] Quality of Service (QoS)
+  - [x] Load Balancing <!-- already implemented as 'load-balancer' in cloud.ts -->
+  - [x] Content Delivery Networks (CDN) <!-- already implemented as 'cdn' in cloud.ts -->
+  - [ ] Software-Defined Networking (SDN) <!-- TODO: real, increasingly common, no satisfying recipe yet -->
 - **Network Troubleshooting & Tools**
-  - Packet Sniffing (Wireshark)
-  - Traceroute
-  - Netstat
+  - [x] Packet Sniffing (Wireshark)
+  - [x] Traceroute

@@ -15,6 +15,10 @@ import { RECIPES_SOFTWARE_ENG } from './software-eng'
 import { RECIPES_SECURITY } from './security'
 import { RECIPES_AI_ML } from './ai-ml'
 import { RECIPES_THEORY } from './theory'
+import { RECIPES_DISTRIBUTED } from './distributed'
+import { RECIPES_GRAPHICS } from './graphics'
+import { RECIPES_GAMEDEV } from './gamedev'
+import { RECIPES_CLOUD } from './cloud'
 import { RECIPES_CAPSTONE } from './capstone'
 
 export const RECIPES: Recipe[] = [
@@ -32,6 +36,10 @@ export const RECIPES: Recipe[] = [
   ...RECIPES_SECURITY,
   ...RECIPES_AI_ML,
   ...RECIPES_THEORY,
+  ...RECIPES_DISTRIBUTED,
+  ...RECIPES_GRAPHICS,
+  ...RECIPES_GAMEDEV,
+  ...RECIPES_CLOUD,
   ...RECIPES_CAPSTONE,
 ]
 

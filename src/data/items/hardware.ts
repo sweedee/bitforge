@@ -27,4 +27,7 @@ export const HARDWARE: Item[] = [
   { id: 'counter', name: 'Counter', emoji: '🔢', category: 'hardware', rarity: 'uncommon', description: 'A sequential circuit that steps through a fixed sequence of states, typically counting clock pulses.' },
   { id: 'shift-register', name: 'Shift Register', emoji: '➡️', category: 'hardware', rarity: 'uncommon', description: 'A chain of flip-flops that shifts its stored bits one position on each clock pulse.' },
   { id: 'fpga', name: 'FPGA', emoji: '🧮', category: 'hardware', rarity: 'epic', description: 'A field-programmable gate array — a chip whose logic can be rewired after manufacturing.' },
+  { id: 'microcontroller', name: 'Microcontroller', emoji: '🤖', category: 'hardware', rarity: 'rare', milestone: '1971', description: 'A tiny computer on a single chip, bundling a processor, memory, and I/O for embedded control tasks.' },
+  { id: 'soc', name: 'System-on-Chip', emoji: '🧱', category: 'hardware', rarity: 'epic', description: 'A single chip integrating a processor, graphics, memory, and I/O controllers that would otherwise be separate parts.' },
+  { id: 'single-board-computer', name: 'Single-Board Computer', emoji: '🍓', category: 'hardware', rarity: 'epic', milestone: '2012', description: 'A complete computer, like a Raspberry Pi, built on one circuit board around a system-on-chip.' },
 ]

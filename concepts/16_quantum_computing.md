@@ -1,21 +1,21 @@
 ## 16. Quantum Computing
 
 - **Fundamentals**
-  - Qubits & Superposition
-  - Entanglement
+  - [x] Qubits & Superposition <!-- already implemented as 'qubit'/'superposition' in capstone.ts/theory.ts -->
+  - [x] Entanglement
   - Measurement
-    - Born Rule
-    - Wave Function Collapse
-    - Measurement Basis
-  - Quantum Gates
-  - Quantum Circuits
-  - Bloch Sphere
-  - Qubit Representations
+    - [x] Born Rule <!-- merged into Measurement above -->
+    - [x] Wave Function Collapse <!-- merged into Measurement above -->
+    - [x] Measurement Basis <!-- merged into Measurement above -->
+  - [x] Quantum Gates
+  - [x] Quantum Circuits
+  - [x] Bloch Sphere
+  - [x] Qubit Representations <!-- merged into Bloch Sphere above -->
 - **Algorithms**
-  - Shor's Algorithm
-  - Grover's Algorithm
+  - [x] Shor's Algorithm
+  - [x] Grover's Algorithm
 - **Programming & Tooling**
-  - Quantum Programming Languages (Qiskit, Cirq, Q#)
-  - Quantum Assembly (QASM)
+  - [x] Quantum Programming Languages (Qiskit, Cirq, Q#)
+  - [x] Quantum Assembly (QASM) <!-- merged into Quantum Programming Language above -->
 - **Challenges**
-  - Quantum Supremacy / Quantum Advantage
+  - [x] Quantum Supremacy / Quantum Advantage

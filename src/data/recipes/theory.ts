@@ -44,4 +44,12 @@ export const RECIPES_THEORY: Recipe[] = [
   { inputs: ['set', 'array'], result: 'pigeonhole-principle' },
   { inputs: ['set', 'recursion'], result: 'permutations-combinations' },
   { inputs: ['pigeonhole-principle', 'permutations-combinations'], result: 'inclusion-exclusion-principle' },
+  { inputs: ['qubit', 'qubit'], result: 'entanglement' },
+  { inputs: ['qubit', 'boolean'], result: 'measurement' },
+  { inputs: ['qubit', 'xor-gate'], result: 'quantum-gate' },
+  { inputs: ['quantum-gate', 'quantum-gate'], result: 'quantum-circuit' },
+  { inputs: ['qubit', 'measurement'], result: 'bloch-sphere' },
+  { inputs: ['quantum-circuit', 'public-key'], result: 'shors-algorithm' },
+  { inputs: ['quantum-circuit', 'algorithm'], result: 'grovers-algorithm' },
+  { inputs: ['quantum-circuit', 'compiler'], result: 'quantum-programming-language' },
 ]

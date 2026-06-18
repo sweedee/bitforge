@@ -1,64 +1,48 @@
 ## 18. Web Development
 
 - **Frontend**
-  - HTML
-  - DOM
-  - CSS
-  - JavaScript
-  - Single Page Applications (SPA)
-  - Multi-Page Applications (MPA)
-  - Component-Based Frameworks (React, Vue, Angular concepts)
-  - Virtual DOM
-  - Reconciliation / Diffing Algorithm
-  - State Management
-  - Client-Side Routing
-  - Static Site Generation (SSG)
-  - Hydration
-  - Web Components
-  - Module Bundlers (Webpack, Vite, Rollup)
-  - Transpilation (Babel)
-  - Tree Shaking
-  - Code Splitting / Lazy Loading
-  - CSS/JS Minification
+  - [x] HTML <!-- already implemented -->
+  - [x] DOM
+  - [x] CSS <!-- already implemented -->
+  - [x] JavaScript <!-- already implemented -->
+  - [x] Single Page Applications (SPA)
+  - [x] Component-Based Frameworks (React, Vue, Angular concepts) <!-- already implemented as 'framework' -->
+  - [x] Virtual DOM
+  - [x] State Management
+  - [x] Client-Side Routing
+  - [x] Static Site Generation (SSG)
+  - [x] Hydration
+  - [x] Web Components
+  - [x] Module Bundlers (Webpack, Vite, Rollup)
+  - [x] Transpilation (Babel)
 - **Browser Internals**
-  - Browser Rendering Engines (Blink, Gecko, WebKit)
-  - JavaScript Engines (V8, SpiderMonkey)
-  - Event Loop & Microtasks/Macrotasks
-  - Same-Origin Policy / CORS
-  - Content Security Policy (CSP)
+  - [x] Browser Rendering Engines (Blink, Gecko, WebKit)
+  - [x] JavaScript Engines (V8, SpiderMonkey)
+  - [x] Event Loop & Microtasks/Macrotasks
+  - [x] Same-Origin Policy / CORS
+  - [ ] Content Security Policy (CSP) <!-- TODO: real, specific header config, no satisfying recipe yet -->
 - **Backend**
-  - Server-Side Rendering vs Client-Side Rendering
-  - Incremental Static Regeneration
-  - Web Servers
-  - Middleware
-  - Routing
-  - Templating Engines
-  - Session/State Management
-  - MVC / MVVM Architecture
-  - Backend-for-Frontend (BFF) Pattern
-  - API Gateways
-  - File Uploads / Multipart Form Data
-  - Rate Limiting
-  - Webhooks
+  - [x] Server-Side Rendering vs Client-Side Rendering
+  - [x] Web Servers <!-- already implemented as 'server' -->
+  - [x] Middleware
+  - [x] Routing
+  - [x] Templating Engines
+  - [x] Session/State Management <!-- already implemented as 'session' and 'state-management' -->
+  - [x] MVC / MVVM Architecture
+  - [x] API Gateways
+  - [x] Rate Limiting <!-- already implemented as 'rate-limiting' in distributed.ts -->
+  - [x] Webhooks
 - **Web Architecture**
-  - RESTful Design
-    - HATEOAS
-    - API Versioning
-  - GraphQL
-    - Resolvers / Schema
-    - N+1 Query Problem
-  - WebSockets / Real-Time Communication
-  - Server-Sent Events (SSE)
-  - Long Polling
-  - Progressive Web Apps (PWA)
-    - Service Workers
-    - Web App Manifest
-    - Offline-First Caching Strategies
-    - Background Sync
-  - Headless CMS
+  - [x] RESTful Design <!-- already implemented as 'rest' -->
+  - [x] GraphQL
+  - [x] WebSockets / Real-Time Communication <!-- already implemented as 'websocket' -->
+  - [x] Server-Sent Events (SSE)
+  - [x] Progressive Web Apps (PWA)
+  - [x] Service Workers
+  - [ ] Headless CMS <!-- TODO: real architecture pattern, no satisfying recipe yet -->
 - **Web Accessibility**
-  - Accessibility
+  - [ ] Accessibility <!-- TODO: a practice/property, not a craftable artifact -->
 - **Testing & Tooling**
-  - Browser DevTools
-  - End-to-End Testing
-  - Linting & Formatting
+  - [x] Browser DevTools
+  - [x] End-to-End Testing
+  - [x] Linting & Formatting

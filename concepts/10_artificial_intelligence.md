@@ -1,222 +1,190 @@
 ## 10. Artificial Intelligence
 
 - **Search & Planning**
-  - Uninformed Search (BFS, DFS, Iterative Deepening)
-    - Uniform-Cost Search
-    - Bidirectional Search
+  - [x] Uninformed Search (BFS, DFS, Iterative Deepening) <!-- already implemented as 'breadth-first-search'/'depth-first-search' in algorithms.ts -->
+    - [x] Bidirectional Search <!-- already implemented as 'bidirectional-search' in algorithms.ts -->
   - Informed Search
-    - A* Search
-    - Greedy Best-First Search
-    - Iterative Deepening A* (IDA*)
-    - Heuristic Design / Admissibility & Consistency
+    - [x] A* Search <!-- already implemented as 'a-star' in algorithms.ts -->
+    - [ ] Greedy Best-First Search <!-- TODO: simple heuristic search variant, redundant with A*, no distinct craftable artifact -->
+    - [ ] Heuristic Design / Admissibility & Consistency <!-- TODO: real concept but an abstract design guideline, no craftable artifact -->
   - Local Search
-    - Hill Climbing
-    - Simulated Annealing
-    - Genetic Algorithms
-    - Particle Swarm Optimization
-    - Ant Colony Optimization
+    - [x] Hill Climbing <!-- already implemented as 'hill-climbing' in algorithms.ts -->
+    - [x] Simulated Annealing <!-- already implemented as 'simulated-annealing' in algorithms.ts -->
+    - [x] Genetic Algorithms <!-- already implemented as 'genetic-algorithms' in algorithms.ts -->
+    - [ ] Particle Swarm Optimization <!-- TODO: real metaheuristic, niche enough that no clean recipe stands out yet -->
   - Adversarial Search
-    - Minimax Algorithm
-    - Alpha-Beta Pruning
-    - Monte Carlo Tree Search
-  - Constraint Satisfaction Problems
-    - Backtracking Search
-    - Arc Consistency
-    - Constraint Propagation
-    - Forward Checking
+    - [x] Minimax Algorithm
+    - [x] Alpha-Beta Pruning
+    - [x] Monte Carlo Tree Search
+  - [x] Constraint Satisfaction Problems <!-- already implemented as 'constraint-satisfaction-search' in algorithms.ts -->
+    - [x] Backtracking Search <!-- already implemented as 'backtracking' in algorithms.ts -->
   - Planning
-    - Classical Planning (STRIPS)
+    - [x] Classical Planning (STRIPS)
   - Multi-Agent Systems
-    - Game Theory Basics (Nash Equilibrium)
+    - [x] Game Theory Basics (Nash Equilibrium)
 - **Knowledge Representation & Reasoning**
-  - Semantic Networks
-  - Ontologies
-  - Rule-Based Systems / Expert Systems
-    - Forward Chaining
-    - Backward Chaining
-  - Bayesian Networks
-  - Hidden Markov Models
-  - Fuzzy Logic
-  - First-Order Logic / Predicate Logic
-  - Knowledge Graphs
+  - [ ] Semantic Networks <!-- TODO: real KR concept, abstract, no satisfying craftable artifact yet -->
+  - [ ] Ontologies <!-- TODO: real KR concept, abstract, no satisfying craftable artifact yet -->
+  - [x] Rule-Based Systems / Expert Systems
+  - [x] Bayesian Networks
+  - [x] Hidden Markov Models
+  - [x] Fuzzy Logic
+  - [x] First-Order Logic / Predicate Logic <!-- already implemented as 'first-order-logic' in theory.ts -->
+  - [x] Knowledge Graphs
 - **Machine Learning**
   - Supervised Learning
     - Regression
-      - Linear Regression
-      - Logistic Regression
-      - Polynomial Regression
-      - Ridge / Lasso / Elastic Net Regression
+      - [x] Linear Regression
+      - [x] Logistic Regression
     - Classification
-      - Decision Trees
-        - Gini Impurity / Information Gain
-        - Pruning
-      - Random Forests
-      - Support Vector Machines (SVM)
-        - Kernel Trick
-      - Naive Bayes
-      - k-Nearest Neighbors
+      - [x] Decision Trees
+        - [ ] Gini Impurity / Information Gain <!-- TODO: real splitting metric, too granular for its own artifact -->
+        - [ ] Pruning <!-- TODO: real technique, generic term reused across the field, no distinct artifact -->
+      - [x] Random Forests
+      - [x] Support Vector Machines (SVM)
+        - [ ] Kernel Trick <!-- TODO: real mathematical trick, abstract, no craftable artifact -->
+      - [x] Naive Bayes
+      - [x] k-Nearest Neighbors
   - Unsupervised Learning
     - Clustering
-      - k-Means
-      - Hierarchical Clustering
-      - DBSCAN
-      - Gaussian Mixture Models / Expectation-Maximization
+      - [x] k-Means
+      - [ ] Hierarchical Clustering <!-- TODO: real clustering variant, redundant with k-Means for crafting purposes -->
+      - [ ] DBSCAN <!-- TODO: real density-based clustering, niche enough no recipe stands out -->
+      - [x] Gaussian Mixture Models / Expectation-Maximization
     - Dimensionality Reduction
-      - Principal Component Analysis (PCA)
-      - t-SNE
-      - UMAP
-      - Autoencoders
-      - Singular Value Decomposition (SVD)
+      - [x] Principal Component Analysis (PCA)
+      - [ ] t-SNE <!-- TODO: real visualization technique, redundant with PCA for crafting -->
+      - [x] Autoencoders
+      - [x] Singular Value Decomposition (SVD)
     - Association Rule Learning
-      - Apriori Algorithm
-  - Semi-Supervised Learning
-  - Self-Supervised Learning
+      - [ ] Apriori Algorithm <!-- TODO: classic but dated data-mining algorithm, no satisfying craftable artifact -->
+  - [ ] Semi-Supervised Learning <!-- TODO: real concept, no clean artifact distinct from supervised/self-supervised learning -->
+  - [x] Self-Supervised Learning
   - Ensemble Methods
-    - Bagging
-    - Boosting (AdaBoost, Gradient Boosting, XGBoost)
-    - Stacking
-    - Voting Classifiers
+    - [x] Bagging <!-- already implemented as 'random-forest' above (bagging of decision trees) -->
+    - [x] Boosting (AdaBoost, Gradient Boosting, XGBoost)
+    - [ ] Stacking <!-- TODO: real ensembling technique, no distinct artifact -->
   - Feature Engineering
-    - Feature Scaling (Normalization, Standardization)
-    - One-Hot Encoding
-    - Feature Selection
-    - Imputation of Missing Data
+    - [ ] Feature Scaling (Normalization, Standardization) <!-- TODO: fundamental prep step, no satisfying craftable artifact -->
+    - [x] One-Hot Encoding
+    - [ ] Feature Selection <!-- TODO: real concept, abstract, no craftable artifact -->
   - Model Evaluation
-    - Cross-Validation
-    - Bias-Variance Tradeoff
-    - Overfitting / Underfitting / Regularization (L1/L2)
-    - Confusion Matrix, Precision/Recall, ROC-AUC
-    - F1 Score
+    - [x] Cross-Validation
+    - [x] Bias-Variance Tradeoff
+    - [x] Overfitting / Underfitting / Regularization (L1/L2) <!-- overfitting already implemented in ai-ml.ts; regularization added new -->
+    - [x] Confusion Matrix, Precision/Recall, ROC-AUC
     - Hyperparameter Tuning
-      - Grid Search
-      - Random Search
-      - Bayesian Optimization
+      - [ ] Grid Search <!-- TODO: real tuning technique, no craftable artifact -->
+      - [ ] Bayesian Optimization <!-- TODO: real tuning technique, no craftable artifact -->
   - Reinforcement Learning
-    - Markov Decision Processes
-    - Q-Learning
-    - Deep Q-Networks (DQN)
-    - Policy Gradient Methods
-    - Actor-Critic Methods
-    - Temporal Difference Learning
-    - Reward Shaping
-    - Exploration vs Exploitation
-    - Multi-Armed Bandit Problem
+    - [x] Markov Decision Processes
+    - [x] Q-Learning
+    - [x] Deep Q-Networks (DQN)
+    - [x] Policy Gradient Methods
+    - [x] Actor-Critic Methods
+    - [ ] Reward Shaping <!-- TODO: real technique, abstract, no craftable artifact -->
+    - [ ] Exploration vs Exploitation <!-- TODO: fundamental RL tradeoff, captured loosely by the bandit problem but distinct enough to flag -->
+    - [x] Multi-Armed Bandit Problem
 - **Recommender Systems**
-  - Collaborative Filtering
-  - Content-Based Filtering
+  - [x] Collaborative Filtering
+  - [ ] Content-Based Filtering <!-- TODO: real recommender approach, redundant with collaborative filtering for crafting -->
 - **Deep Learning**
   - Neural Network Fundamentals
-    - Perceptron
-    - Multilayer Perceptron (MLP)
-    - Activation Functions (ReLU, Sigmoid, Tanh)
-      - Softmax Function
-    - Backpropagation
-    - Gradient Descent Variants (SGD, Adam, RMSProp)
-      - Momentum
-      - Learning Rate Scheduling
-    - Vanishing/Exploding Gradients
-    - Loss Functions (Cross-Entropy, MSE, Hinge Loss)
+    - [x] Perceptron
+    - [x] Multilayer Perceptron (MLP)
+    - [x] Activation Functions (ReLU, Sigmoid, Tanh)
+      - [ ] Softmax Function <!-- TODO: specific activation variant, too granular -->
+    - [x] Backpropagation <!-- already implemented as 'backpropagation' in ai-ml.ts -->
+    - [x] Gradient Descent Variants (SGD, Adam, RMSProp)
+      - [ ] Momentum <!-- TODO: optimizer implementation detail, too granular -->
+      - [ ] Learning Rate Scheduling <!-- TODO: optimizer implementation detail, too granular -->
+    - [x] Vanishing/Exploding Gradients
+    - [x] Loss Functions (Cross-Entropy, MSE, Hinge Loss)
   - Architectures
-    - Convolutional Neural Networks (CNNs)
-      - Pooling Layers
-      - Feature Maps
-      - Strides / Padding
-      - Residual Networks (ResNet)
-    - Recurrent Neural Networks (RNNs)
-      - LSTM / GRU
-      - Sequence-to-Sequence Models
-    - Transformers
-      - Self-Attention Mechanism
-      - Positional Encoding
-      - Multi-Head Attention
-      - Encoder-Decoder Architecture
-      - Vision Transformers (ViT)
-    - Generative Adversarial Networks (GANs)
-      - Discriminator / Generator
-      - Mode Collapse
-    - Diffusion Models
-    - Autoencoders / Variational Autoencoders
-    - Graph Neural Networks (GNNs)
+    - [x] Convolutional Neural Networks (CNNs) <!-- already implemented as 'cnn' in ai-ml.ts -->
+      - [ ] Pooling Layers <!-- TODO: CNN implementation detail, too granular -->
+      - [ ] Feature Maps <!-- TODO: CNN implementation detail, too granular -->
+      - [x] Residual Networks (ResNet)
+    - [x] Recurrent Neural Networks (RNNs)
+      - [x] LSTM / GRU
+      - [x] Sequence-to-Sequence Models
+    - [x] Transformers <!-- already implemented as 'transformer' in ai-ml.ts -->
+      - [x] Self-Attention Mechanism <!-- already implemented as 'attention' in ai-ml.ts -->
+      - [ ] Positional Encoding <!-- TODO: transformer implementation detail, too granular -->
+      - [ ] Multi-Head Attention <!-- TODO: variant of attention, too granular for its own artifact -->
+      - [x] Vision Transformers (ViT)
+    - [x] Generative Adversarial Networks (GANs)
+      - [ ] Mode Collapse <!-- TODO: GAN failure mode, abstract, no craftable artifact -->
+    - [x] Diffusion Models
+    - [x] Autoencoders / Variational Autoencoders <!-- autoencoder + new 'vae' -->
+    - [x] Graph Neural Networks (GNNs)
   - Training Techniques
-    - Dropout
-    - Batch Normalization
-    - Layer Normalization
-    - Transfer Learning
-    - Fine-Tuning
-    - Parameter-Efficient Fine-Tuning (LoRA, Adapters)
-    - Knowledge Distillation
-    - Weight Initialization (Xavier, He)
-    - Early Stopping
-    - Gradient Clipping
-    - Data Augmentation
-    - Federated Learning
-    - Model Quantization / Pruning
+    - [x] Dropout
+    - [x] Batch Normalization
+    - [ ] Layer Normalization <!-- TODO: variant of batch normalization, too granular -->
+    - [x] Transfer Learning
+    - [x] Fine-Tuning
+    - [x] Parameter-Efficient Fine-Tuning (LoRA, Adapters)
+    - [x] Knowledge Distillation
+    - [ ] Weight Initialization (Xavier, He) <!-- TODO: training implementation detail, too granular -->
+    - [x] Data Augmentation
+    - [x] Federated Learning
+    - [x] Model Quantization / Pruning
   - Frameworks & Tooling
-    - Computational Graphs
-    - Automatic Differentiation
-    - GPU/TPU Acceleration
+    - [x] Computational Graphs
+    - [x] Automatic Differentiation
+    - [x] GPU/TPU Acceleration <!-- already implemented as 'gpu' in architecture.ts -->
 - **Natural Language Processing**
   - Tokenization
-    - Byte Pair Encoding (BPE)
-    - WordPiece Tokenization
-    - Stemming / Lemmatization
+    - [x] Byte Pair Encoding (BPE)
+    - [ ] WordPiece Tokenization <!-- TODO: variant of BPE, too granular -->
+    - [ ] Stemming / Lemmatization <!-- TODO: real NLP preprocessing technique, no craftable artifact -->
   - Text Preprocessing
-    - Stop Word Removal
-    - Part-of-Speech Tagging
-    - Dependency Parsing
-    - Bag-of-Words Model
-    - TF-IDF
-  - Word Embeddings (Word2Vec, GloVe)
-    - Contextual Embeddings
+    - [ ] Part-of-Speech Tagging <!-- TODO: real NLP task, no craftable artifact -->
+    - [ ] Dependency Parsing <!-- TODO: real NLP task, no craftable artifact -->
+    - [x] Bag-of-Words Model
+    - [x] TF-IDF
+  - [x] Word Embeddings (Word2Vec, GloVe) <!-- already implemented as 'embedding' in ai-ml.ts -->
+    - [ ] Contextual Embeddings <!-- TODO: modern variant via transformers, redundant with embedding+transformer for crafting -->
   - Language Models
-    - n-gram Models
-    - Large Language Models (LLMs)
-    - Masked Language Modeling
-    - Prompt Engineering
-    - In-Context Learning
-    - Chain-of-Thought Prompting
-  - Named Entity Recognition
-  - Sentiment Analysis
+    - [x] n-gram Models
+    - [x] Large Language Models (LLMs) <!-- already implemented as 'llm' in ai-ml.ts -->
+    - [ ] Masked Language Modeling <!-- TODO: training technique, too granular -->
+    - [x] Prompt Engineering
+    - [ ] In-Context Learning <!-- TODO: emergent LLM behavior, abstract, no craftable artifact -->
+    - [x] Chain-of-Thought Prompting
+  - [ ] Named Entity Recognition <!-- TODO: real NLP task, no craftable artifact -->
+  - [x] Sentiment Analysis
   - Machine Translation
-    - Neural Machine Translation
-  - Text Summarization
-  - Question Answering Systems
-  - Speech Recognition
-  - Text-to-Speech Synthesis
-  - Topic Modeling (Latent Dirichlet Allocation)
-  - Retrieval-Augmented Generation (RAG)
+    - [x] Neural Machine Translation
+  - [ ] Text Summarization <!-- TODO: real NLP application, redundant with other LLM-based items for crafting -->
+  - [x] Question Answering Systems
+  - [x] Speech Recognition
+  - [ ] Text-to-Speech Synthesis <!-- TODO: symmetric counterpart to speech recognition, no distinct craftable artifact yet -->
+  - [ ] Topic Modeling (Latent Dirichlet Allocation) <!-- TODO: real statistical NLP technique, niche enough no recipe stands out -->
+  - [x] Retrieval-Augmented Generation (RAG)
 - **Computer Vision**
   - Image Processing Basics
-    - Convolution / Filters
-    - Edge Detection
-    - Image Thresholding
-    - Morphological Operations
-    - Histogram Equalization
+    - [ ] Convolution / Filters <!-- TODO: real basic image op, conceptually close to CNN but distinct enough to flag -->
+    - [x] Edge Detection <!-- already implemented as 'edge-detection' in graphics.ts -->
   - Feature Detection
-    - Corner Detection (Harris)
-    - SIFT / SURF
-    - Optical Flow
-  - Object Detection (YOLO, R-CNN)
-    - Bounding Box Regression
-    - Non-Maximum Suppression
+    - [x] Optical Flow
+  - [x] Object Detection (YOLO, R-CNN)
+    - [ ] Bounding Box Regression <!-- TODO: object detection implementation detail -->
   - Image Segmentation
-    - Semantic Segmentation
-    - Instance Segmentation
-  - Image Classification
-  - Facial Recognition
-  - Pose Estimation
-  - Optical Character Recognition (OCR)
-  - Image Generation / Super-Resolution
-  - SLAM (Simultaneous Localization and Mapping)
+    - [x] Semantic Segmentation
+    - [x] Instance Segmentation <!-- merged into Semantic Segmentation above -->
+  - [x] Image Classification <!-- already implemented as 'cnn' in ai-ml.ts -->
+  - [ ] Facial Recognition <!-- TODO: real application, ethically sensitive, no clean craftable artifact yet -->
+  - [x] Optical Character Recognition (OCR)
+  - [x] Image Generation / Super-Resolution
 - **MLOps & Deployment**
-  - Model Versioning
-  - Model Serving / Inference Pipelines
-  - Model Monitoring / Drift Detection
-  - Edge AI / On-Device Inference
+  - [ ] Model Serving / Inference Pipelines <!-- TODO: real infra concept, mostly process, no satisfying craftable artifact -->
+  - [x] Edge AI / On-Device Inference
 - **AI Ethics & Safety**
-  - Bias & Fairness
-  - Explainability / Interpretability
-    - SHAP / LIME
-  - AI Alignment
-  - Adversarial Examples / Robustness
-  - Differential Privacy
+  - [ ] Bias & Fairness <!-- TODO: important real concept, social/abstract, no clean craftable artifact -->
+  - [x] Explainability / Interpretability
+    - [ ] SHAP / LIME <!-- TODO: specific named tools, niche outside ML practitioners -->
+  - [x] AI Alignment
+  - [x] Adversarial Examples / Robustness
+  - [x] Differential Privacy

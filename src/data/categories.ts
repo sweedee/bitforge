@@ -16,6 +16,10 @@ export const CATEGORY_ORDER: Category[] = [
   'security',
   'ai-ml',
   'theory',
+  'distributed',
+  'graphics',
+  'gamedev',
+  'cloud',
   'capstone',
 ]
 
@@ -35,5 +39,9 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   security: 'Security & Crypto',
   'ai-ml': 'AI & Machine Learning',
   theory: 'Theory of Computation',
+  distributed: 'Distributed Systems',
+  graphics: 'Computer Graphics',
+  gamedev: 'Game Development',
+  cloud: 'Cloud Computing',
   capstone: 'Capstone',
 }

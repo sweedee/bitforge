@@ -14,6 +14,10 @@ export type Category =
   | 'security'
   | 'ai-ml'
   | 'theory'
+  | 'distributed'
+  | 'graphics'
+  | 'gamedev'
+  | 'cloud'
   | 'capstone'
 
 export type Rarity = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary' | 'mythic'

@@ -1,118 +1,98 @@
-
-
 ## 4. Operating Systems
 
 - **Process Management**
-  - Process vs Thread
-  - Process Control Block (PCB)
-  - Process Lifecycle / States (new, ready, running, waiting, terminated)
-  - Process Creation (fork, exec, spawn)
-  - Zombie & Orphan Processes
+  - [x] Process vs Thread <!-- already implemented as 'process' and 'thread' in os.ts -->
+  - [x] Process Control Block (PCB)
+  - [x] Process Lifecycle / States (new, ready, running, waiting, terminated)
+  - [x] Process Creation (fork, exec, spawn)
+  - [ ] Zombie & Orphan Processes <!-- TODO: real concept, no satisfying craftable artifact yet -->
   - Threads
-    - User-Level vs Kernel-Level Threads
-    - Thread Pools
-    - Green Threads / Fibers
-  - Context Switching
-  - Scheduling Algorithms
-    - FCFS, Round Robin
-    - Shortest Job First
-    - Priority Scheduling
-    - Multilevel Feedback Queue
-    - Completely Fair Scheduler (CFS)
-    - Earliest Deadline First (Real-Time Scheduling)
-    - Scheduling Metrics (turnaround time, waiting time, response time, throughput)
-    - Preemptive vs Non-Preemptive Scheduling
-  - Inter-Process Communication (IPC)
-    - Pipes, Named Pipes (FIFOs)
-    - Message Queues
-    - Shared Memory
-    - Sockets
-    - Signals
+    - [ ] User-Level vs Kernel-Level Threads <!-- TODO: real distinction, no satisfying craftable artifact yet -->
+    - [ ] Thread Pools <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [ ] Green Threads / Fibers <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Context Switching
+  - [x] Scheduling Algorithms (FCFS, Round Robin, Shortest Job First, Priority, Multilevel Feedback Queue, CFS, Earliest Deadline First) <!-- already implemented as 'scheduler' in os.ts -->
+  - [x] Inter-Process Communication (IPC) (pipes, message queues, shared memory, sockets)
+  - [x] Signals
 - **Concurrency & Synchronization**
-  - Race Conditions
-  - Critical Section Problem
-  - Mutexes, Semaphores
-  - Spinlocks
-  - Condition Variables
-  - Read-Write Locks
-  - Monitors
-  - Atomic Operations
-  - Deadlock
-    - Coffman Conditions
-    - Deadlock Detection / Prevention / Avoidance
-    - Banker's Algorithm
-  - Livelock & Starvation
-  - Priority Inversion
-  - Producer-Consumer Problem
-  - Readers-Writers Problem
-  - Dining Philosophers Problem
-  - Lock-Free / Wait-Free Programming
-    - Compare-And-Swap (CAS)
-    - ABA Problem
+  - [x] Race Conditions
+  - [x] Critical Section Problem
+  - [x] Mutexes <!-- already implemented as 'mutex' in os.ts -->
+  - [x] Semaphores
+  - [x] Spinlocks
+  - [x] Condition Variables
+  - [x] Read-Write Locks
+  - [x] Monitors
+  - [x] Atomic Operations
+  - [x] Deadlock <!-- already implemented as 'deadlock' in os.ts -->
+    - [ ] Coffman Conditions <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [ ] Deadlock Detection / Prevention / Avoidance <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [x] Banker's Algorithm
+  - [x] Livelock & Starvation
+  - [x] Priority Inversion
+  - [x] Producer-Consumer Problem
+  - [x] Readers-Writers Problem
+  - [x] Dining Philosophers Problem
+  - [x] Lock-Free / Wait-Free Programming
+    - [ ] Compare-And-Swap (CAS) <!-- TODO: folded into 'atomic-operation', a dedicated CAS item didn't earn its own slot -->
+    - [ ] ABA Problem <!-- TODO: real concept, no satisfying craftable artifact yet -->
 - **Memory Management**
-  - Dynamic Memory Allocation
-    - Heap vs Stack
-    - Memory Fragmentation (internal/external)
-    - First-Fit / Best-Fit / Worst-Fit Allocation
-  - Virtual Memory Management (OS Policy)
-    - Demand Paging
-    - Page Replacement Algorithms
-      - LRU, FIFO, Optimal (Belady's Algorithm)
-      - Clock / Second-Chance Algorithm
-      - Working Set Model
-    - Copy-on-Write
-    - Memory-Mapped Files (mmap)
-    - Swap Space
-  - Garbage Collection
-    - Mark-and-Sweep
-    - Reference Counting
-    - Generational GC
-    - Copying / Compacting GC
-  - Swapping & Thrashing
-  - Out-of-Memory (OOM) Killer
+  - [x] Dynamic Memory Allocation
+    - [x] Heap vs Stack <!-- already implemented as 'heap' and 'stack' in datastructures.ts -->
+    - [x] Memory Fragmentation (internal/external)
+    - [ ] First-Fit / Best-Fit / Worst-Fit Allocation <!-- TODO: too granular a sub-strategy for its own craftable artifact -->
+  - [x] Virtual Memory Management (OS Policy) <!-- already implemented as 'virtual-memory' in os.ts -->
+    - [x] Demand Paging <!-- already implemented as 'paging' in architecture.ts -->
+    - [x] Page Replacement Algorithms <!-- already implemented as 'page-replacement-algorithm' in architecture.ts -->
+    - [x] Copy-on-Write
+    - [x] Memory-Mapped Files (mmap)
+    - [x] Swap Space
+  - [x] Garbage Collection
+    - [x] Mark-and-Sweep
+    - [x] Reference Counting
+    - [ ] Generational GC <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [ ] Copying / Compacting GC <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Swapping & Thrashing
+  - [x] Out-of-Memory (OOM) Killer
 - **File Systems**
-  - File Allocation Methods (contiguous, linked, indexed)
-  - inodes
-  - File Allocation Table (FAT)
-  - Superblock
-  - Free Space Management (bitmap, free list)
-  - Journaling File Systems
-  - Common File Systems (ext4, NTFS, FAT32, ZFS, Btrfs)
-  - Network File Systems (NFS, SMB/CIFS)
-  - Distributed File Systems (HDFS, GFS)
-  - Directory Structures
-    - Hard Links vs Symbolic Links
-    - Mount Points
-  - File Permissions & Access Control Lists (ACLs)
-  - File Locking
-  - Buffer Cache / Page Cache
+  - [ ] File Allocation Methods (contiguous, linked, indexed) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] inodes
+  - [x] Superblock
+  - [ ] Free Space Management (bitmap, free list) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Journaling File Systems
+  - [x] Directory Structures
+    - [x] Hard Links vs Symbolic Links
+    - [x] Mount Points
+  - [x] File Permissions & Access Control Lists (ACLs)
+  - [x] File Locking
+  - [x] Buffer Cache / Page Cache
 - **OS Design**
-  - Kernel Architectures (monolithic, microkernel, hybrid)
-  - System Calls
-  - User Mode vs Kernel Mode
-  - Interrupts & Interrupt Handlers
-    - Traps & Exceptions
-  - Virtualization
-    - Hypervisors (Type 1 / Type 2)
-    - Full Virtualization vs Paravirtualization
-    - Containers vs VMs
-    - Namespaces & cgroups
-    - Emulation
-  - Boot Process (BIOS/UEFI, Bootloader)
-  - Init Systems (init, systemd)
-  - Shells & Command Interpreters
+  - [x] Kernel Architectures (monolithic, microkernel, hybrid)
+  - [x] System Calls
+  - [x] User Mode vs Kernel Mode
+  - [x] Interrupts & Interrupt Handlers <!-- already implemented as 'interrupt-handling' in architecture.ts -->
+    - [x] Traps & Exceptions <!-- merged into Interrupts & Interrupt Handlers above -->
+  - [x] Virtualization
+    - [x] Hypervisors (Type 1 / Type 2) <!-- already implemented as 'hypervisor' in cloud.ts -->
+    - [ ] Full Virtualization vs Paravirtualization <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [x] Containers vs VMs
+    - [ ] Namespaces & cgroups <!-- TODO: folded into 'container', the Linux-specific mechanism didn't earn its own slot -->
+    - [ ] Emulation <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Boot Process (BIOS/UEFI, Bootloader)
+  - [x] Init Systems (init, systemd)
+  - [x] Shells & Command Interpreters <!-- already implemented as 'shell' in os.ts -->
 - **Protection & Security**
-  - Access Control Models (DAC, MAC, RBAC)
-  - Protection Rings
-  - Sandboxing
-  - System Call Filtering (seccomp)
+  - [x] Access Control Models (DAC, MAC, RBAC)
+  - [x] Protection Rings
+  - [x] Sandboxing
+  - [x] System Call Filtering (seccomp)
 - **Device Management**
-  - Device Drivers
-  - I/O Scheduling
-    - Disk Scheduling Algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK)
-  - I/O Techniques
-    - Polling
-    - Interrupt-Driven I/O
-    - Direct Memory Access (DMA)
-  - Spooling
-  - Buffering
+  - [x] Device Drivers
+  - [x] I/O Scheduling
+    - [x] Disk Scheduling Algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK)
+  - [x] I/O Techniques
+    - [x] Polling <!-- already implemented as 'polling-vs-interrupt-driven-io' in architecture.ts -->
+    - [x] Interrupt-Driven I/O <!-- already implemented as 'polling-vs-interrupt-driven-io' in architecture.ts -->
+    - [x] Direct Memory Access (DMA) <!-- already implemented as 'dma' in architecture.ts -->
+  - [x] Spooling
+  - [x] Buffering

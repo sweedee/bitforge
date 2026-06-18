@@ -2,120 +2,86 @@
 
 - **Relational Databases**
   - Relational Model
-    - Tables, Tuples, Attributes, Keys
-    - Primary/Foreign/Candidate Keys
-    - Relational Algebra
-      - Selection, Projection, Union, Set Difference
-      - Join (Theta, Equijoin, Natural Join)
+    - [x] Tables, Tuples, Attributes, Keys <!-- already implemented as 'table' -->
+    - [x] Primary/Foreign/Candidate Keys
+    - [x] Relational Algebra
   - Database Design
-    - Entity-Relationship (ER) Modeling
-      - Entities, Attributes, Relationships
-      - Cardinality & Participation Constraints
-    - Functional Dependencies
-      - Closure of Attributes
-  - Normalization
-    - 1NF, 2NF, 3NF, BCNF
-    - Denormalization
-  - SQL
-    - DDL, DML, DCL, TCL
-    - Joins (inner, outer, cross, self)
-    - Subqueries
-      - Correlated Subqueries
-      - Common Table Expressions (CTEs)
-      - Recursive CTEs
-    - Window Functions
-    - Aggregate Functions & GROUP BY / HAVING
-    - Set Operations (UNION, INTERSECT, EXCEPT)
-    - Views
-      - Materialized Views
-    - Stored Procedures & Triggers
-    - User-Defined Functions
-    - Constraints (CHECK, UNIQUE, NOT NULL, FOREIGN KEY)
-    - Schema Migrations
-    - SQL Injection
-    - Object-Relational Mapping (ORM)
+    - [x] Entity-Relationship (ER) Modeling
+    - [x] Functional Dependencies
+  - [x] Normalization
+    - [x] Denormalization
+  - [x] SQL <!-- already implemented as 'sql' -->
+    - [x] Subqueries
+      - [x] Common Table Expressions (CTEs)
+    - [x] Window Functions
+    - [x] Aggregate Functions & GROUP BY / HAVING
+    - [x] Views
+      - [x] Materialized Views
+    - [x] Stored Procedures & Triggers
+    - [x] Constraints (CHECK, UNIQUE, NOT NULL, FOREIGN KEY)
+    - [x] Schema Migrations
+    - [x] SQL Injection
+    - [x] Object-Relational Mapping (ORM)
   - Query Processing & Optimization
-    - Query Execution Plans
-    - Join Algorithms
-      - Nested Loop Join
-      - Sort-Merge Join
-      - Hash Join
+    - [x] Query Execution Plans
+    - [ ] Join Algorithms (Nested Loop, Sort-Merge, Hash Join) <!-- TODO: real technique, too implementation-detail for a satisfying craftable artifact -->
     - Indexing
-      - B-Tree Index
-      - Hash Index
-      - Composite (Multi-Column) Index
-      - Clustered vs Non-Clustered Index
-      - Full-Text Index
-    - Cost-Based Optimization
-      - Cardinality Estimation
-      - Join Order Optimization
-    - Query Caching
-    - Explain/Analyze Tooling
+      - [x] B-Tree Index <!-- already implemented as 'b-tree' -->
+      - [x] Hash Index
+      - [ ] Clustered vs Non-Clustered Index <!-- TODO: real distinction, no satisfying craftable artifact beyond Index -->
+      - [x] Full-Text Index
+    - [x] Cost-Based Optimization
+    - [x] Query Caching
+    - [ ] Explain/Analyze Tooling <!-- TODO: real concept, but a tooling feature rather than a craftable artifact -->
   - Storage & File Organization
-    - Row-Oriented Storage
-    - Column-Oriented Storage
-    - Buffer Pool Management
-  - Transactions
-    - ACID Properties
-    - Isolation Levels
-      - Read Uncommitted, Read Committed, Repeatable Read, Serializable
+    - [x] Row-Oriented Storage
+    - [x] Column-Oriented Storage
+    - [x] Buffer Pool Management
+  - [x] Transactions <!-- already implemented as 'transaction' -->
+    - [x] ACID Properties
+    - [x] Isolation Levels
     - Concurrency Control
-      - Two-Phase Locking
-      - Optimistic Concurrency Control
-      - Multi-Version Concurrency Control (MVCC)
-    - Concurrency Anomalies
-      - Dirty Read, Non-Repeatable Read, Phantom Read
-      - Lost Update, Write Skew
-    - Deadlock in Transactions
-    - Savepoints
+      - [x] Two-Phase Locking
+      - [x] Optimistic Concurrency Control
+      - [x] Multi-Version Concurrency Control (MVCC)
+    - [x] Concurrency Anomalies (Dirty Read, Phantom Read, Lost Update, Write Skew)
+    - [x] Deadlock in Transactions <!-- already implemented as 'deadlock' in os.ts -->
+    - [ ] Savepoints <!-- TODO: real concept, no satisfying craftable artifact beyond Transaction -->
   - Recovery
-    - Write-Ahead Logging (WAL)
-    - Checkpointing
-    - Backup Strategies
-      - Full, Incremental, Differential Backup
-      - Point-in-Time Recovery
+    - [x] Write-Ahead Logging (WAL)
+    - [x] Checkpointing
+    - [x] Backup Strategies
+      - [x] Point-in-Time Recovery
 - **NoSQL Databases**
-  - Key-Value Stores (Redis, DynamoDB)
-  - Document Stores (MongoDB)
-  - Column-Family Stores (Cassandra, HBase)
-  - Graph Databases (Neo4j)
-    - Property Graph Model
-    - Graph Query Languages (Cypher, Gremlin)
-  - Time-Series Databases
-  - Search Engines / Search Indexes (Elasticsearch, Solr)
-  - NewSQL Databases
-  - BASE Properties (Basically Available, Soft state, Eventual consistency)
+  - [x] Key-Value Stores (Redis, DynamoDB)
+  - [x] Document Stores (MongoDB)
+  - [x] Column-Family Stores (Cassandra, HBase)
+  - [x] Graph Databases (Neo4j)
+  - [x] Time-Series Databases
+  - [x] Search Engines / Search Indexes (Elasticsearch, Solr)
+  - [ ] NewSQL Databases <!-- TODO: marketing umbrella term, not a distinct craftable artifact -->
+  - [ ] BASE Properties (Basically Available, Soft state, Eventual consistency) <!-- TODO: canonical home is Distributed Systems (08), kept out of databases.ts to avoid duplicating that item -->
 - **Distributed Databases**
-  - Sharding / Partitioning
-    - Horizontal vs Vertical Partitioning
-    - Range Partitioning
-    - Hash Partitioning
-  - Replication
-    - Master-Slave / Leader-Follower
-    - Multi-Master Replication
-    - Synchronous vs Asynchronous Replication
-    - Conflict Resolution (Last-Write-Wins, Vector Clocks)
-  - Consistency Models
-    - Strong Consistency
-    - Eventual Consistency
-    - Linearizability
+  - [x] Sharding / Partitioning
+  - [ ] Replication <!-- TODO: canonical home is Distributed Systems (08) -->
+  - [ ] Consistency Models <!-- TODO: canonical home is Distributed Systems (08) -->
 - **Data Warehousing & OLAP**
-  - Star Schema / Snowflake Schema
-  - Fact Tables & Dimension Tables
-  - ETL (Extract, Transform, Load)
-  - ELT (Extract, Load, Transform)
-  - Data Pipelines
-  - OLAP vs OLTP
-  - OLAP Operations (Roll-up, Drill-down, Slice, Dice, Pivot)
-  - Data Lakes
-  - Data Lakehouse
-  - Data Marts
+  - [x] Star Schema / Snowflake Schema
+  - [x] Fact Tables & Dimension Tables
+  - [x] ETL (Extract, Transform, Load)
+  - [x] ELT (Extract, Load, Transform)
+  - [x] Data Pipelines
+  - [x] OLAP vs OLTP
+  - [ ] OLAP Operations (Roll-up, Drill-down, Slice, Dice, Pivot) <!-- TODO: real concept set, no single satisfying craftable artifact beyond OLAP vs OLTP -->
+  - [x] Data Lakes
+  - [x] Data Lakehouse
+  - [ ] Data Marts <!-- TODO: real but narrow specialization of Data Warehouse, no distinct craftable artifact -->
 - **Vector Databases & Embeddings Storage**
-  - Approximate Nearest Neighbor Search (ANN)
-  - HNSW (Hierarchical Navigable Small World)
-  - Locality-Sensitive Hashing (for ANN)
+  - [x] Approximate Nearest Neighbor Search (ANN)
+  - [x] HNSW (Hierarchical Navigable Small World)
+  - [x] Locality-Sensitive Hashing (for ANN)
 - **Database Administration & Reliability**
-  - Database Connection Pooling
-  - High Availability & Failover
-  - Database Migrations / Versioning
-  - Multi-Tenancy Patterns
+  - [x] Database Connection Pooling
+  - [ ] High Availability & Failover <!-- TODO: depends on Replication, whose canonical home is Distributed Systems (08) -->
+  - [x] Database Migrations / Versioning <!-- already implemented as 'schema-migration' -->
+  - [ ] Multi-Tenancy Patterns <!-- TODO: real architectural pattern, no satisfying craftable artifact -->

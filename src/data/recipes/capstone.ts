@@ -9,4 +9,5 @@ export const RECIPES_CAPSTONE: Recipe[] = [
   { inputs: ['qubit', 'cpu'], result: 'quantum-computer' },
   { inputs: ['llm', 'deep-learning'], result: 'agi' },
   { inputs: ['agi', 'quantum-computer'], result: 'singularity' },
+  { inputs: ['quantum-computer', 'shors-algorithm'], result: 'quantum-supremacy' },
 ]

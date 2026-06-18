@@ -1,101 +1,101 @@
 ## 13. Game Development
 
 - **Game Architecture**
-  - Game Loop
-  - Entity-Component System (ECS)
-  - Game Object / Actor Model
-  - Scene Graphs
-  - Component-Based Design
-  - Observer Pattern (Event Systems)
-  - Event Bus / Message Passing
-  - Object Pooling
-  - Service Locator Pattern
-  - Data-Oriented Design
-  - Game Engine Architecture (Subsystems & Layers)
-  - Engine vs Game Code Separation
-  - Asset Pipeline
-  - Scripting Layer / Modding Hooks
-  - Scene/Level Serialization
+  - [x] Game Loop
+  - [x] Entity-Component System (ECS)
+  - [x] Game Object / Actor Model <!-- already implemented as 'object' in concepts.ts -->
+  - [x] Scene Graphs
+  - [x] Component-Based Design <!-- merged into Entity-Component System above -->
+  - [x] Observer Pattern (Event Systems)
+  - [x] Event Bus / Message Passing
+  - [x] Object Pooling
+  - [x] Service Locator Pattern
+  - [ ] Data-Oriented Design <!-- TODO: real architectural concept, no satisfying craftable artifact yet -->
+  - [x] Game Engine Architecture (Subsystems & Layers) <!-- implemented as 'game-engine' -->
+  - [ ] Engine vs Game Code Separation <!-- TODO: organizational distinction, no satisfying craftable artifact yet -->
+  - [ ] Asset Pipeline <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Scripting Layer / Modding Hooks <!-- merged into Scripting/Visual Scripting Systems below -->
+  - [x] Scene/Level Serialization <!-- merged into Save/Load System below -->
 - **Physics & Simulation**
-  - Collision Detection
-  - Collision Response
-  - Rigid Body Dynamics
-  - Soft Body Dynamics
-  - Cloth Simulation
-  - Particle-Based Physics
-  - Joints & Constraints
-  - Kinematic vs Dynamic vs Static Bodies
-  - Raycasting
-  - Trigger Volumes
-  - Physics Engines (Box2D, Bullet, PhysX)
-  - Deterministic Physics (for Networking/Replay)
+  - [x] Collision Detection
+  - [x] Collision Response
+  - [x] Rigid Body Dynamics
+  - [ ] Soft Body Dynamics <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - Cloth Simulation <!-- cut: niche special case of soft body dynamics -->
+  - [x] Particle-Based Physics
+  - [ ] Joints & Constraints <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Kinematic vs Dynamic vs Static Bodies <!-- merged into Rigid Body Dynamics above -->
+  - [x] Raycasting
+  - [ ] Trigger Volumes <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Physics Engines (Box2D, Bullet, PhysX)
+  - [ ] Deterministic Physics (for Networking/Replay) <!-- TODO: niche cross-cutting concept, no satisfying craftable artifact yet -->
 - **AI in Games**
-  - Pathfinding (NavMesh)
-  - A* on Game Grids
-  - Navigation Mesh Generation
-  - Flow Fields
-  - Finite State Machines for NPCs
-  - Hierarchical State Machines
-  - Utility AI / Utility Theory
-  - Decision Trees for NPC Behavior
-  - Influence Maps
-  - Flocking / Swarm Behavior (Boids)
-  - Crowd Simulation
-  - Sensory Systems (Sight, Hearing, Awareness)
-  - Difficulty Scaling / Dynamic Difficulty Adjustment
-  - Game-Playing AI (Minimax, Monte Carlo Tree Search)
-  - Reinforcement Learning for Game Agents
+  - [x] Pathfinding (NavMesh)
+  - [x] A* on Game Grids <!-- already implemented as 'a-star' in algorithms.ts -->
+  - [x] Navigation Mesh Generation <!-- merged into Pathfinding (NavMesh) above -->
+  - [ ] Flow Fields <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Finite State Machines for NPCs <!-- already implemented as 'finite-state-machine' in hardware.ts -->
+  - [x] Hierarchical State Machines
+  - [x] Utility AI / Utility Theory
+  - [x] Decision Trees for NPC Behavior
+  - [ ] Influence Maps <!-- TODO: niche, no satisfying craftable artifact yet -->
+  - [x] Flocking / Swarm Behavior (Boids)
+  - [x] Crowd Simulation
+  - [ ] Sensory Systems (Sight, Hearing, Awareness) <!-- TODO: niche, no satisfying craftable artifact yet -->
+  - [x] Difficulty Scaling / Dynamic Difficulty Adjustment
+  - [x] Game-Playing AI (Minimax, Monte Carlo Tree Search)
+  - [x] Reinforcement Learning for Game Agents <!-- already implemented as 'reinforcement-learning' in ai-ml.ts -->
 - **Game State & Persistence**
-  - Save/Load Systems
-  - Save State Serialization
-  - Checkpoint Systems
-  - Game State Machines (Menu/Gameplay/Pause/Cutscene)
-  - World/Level Streaming
-  - Persistent vs Session State
+  - [x] Save/Load Systems
+  - [x] Save State Serialization <!-- merged into Save/Load Systems above -->
+  - [x] Checkpoint Systems
+  - [x] Game State Machines (Menu/Gameplay/Pause/Cutscene)
+  - [ ] World/Level Streaming <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - Persistent vs Session State <!-- cut: soft classification, not a concrete craftable artifact -->
 - **Input Handling**
-  - Input Polling vs Event-Driven Input
-  - Input Buffering
-  - Input Mapping / Rebindable Controls
-  - Action Mapping Layers (Device-Agnostic Input)
-  - Dead Zones (Analog Sticks)
-  - Combo/Gesture Detection
-  - Multi-Touch Input Handling
-  - Haptic Feedback
+  - [x] Input Polling vs Event-Driven Input <!-- same concept as 'polling-vs-interrupt-driven-io' in architecture.ts -->
+  - [x] Input Buffering
+  - [x] Input Mapping / Rebindable Controls
+  - [x] Action Mapping Layers (Device-Agnostic Input) <!-- merged into Input Mapping above -->
+  - [ ] Dead Zones (Analog Sticks) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Combo/Gesture Detection
+  - Multi-Touch Input Handling <!-- cut: narrow platform-specific detail -->
+  - Haptic Feedback <!-- cut: narrow peripheral-specific detail -->
 - **Audio Systems**
-  - Audio Engine Basics
-  - Sound Effect Triggering
-  - Music Layering / Adaptive Music
-  - Spatial / 3D Audio
-  - Audio Mixing & Buses
-  - Audio Occlusion
+  - [x] Audio Engine Basics
+  - [x] Sound Effect Triggering <!-- merged into Audio Engine Basics above -->
+  - [ ] Music Layering / Adaptive Music <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] Spatial / 3D Audio
+  - [x] Audio Mixing & Buses
+  - Audio Occlusion <!-- cut: niche-specialist detail -->
 - **Multiplayer & Networking in Games**
-  - Client-Server Model for Games
-  - Peer-to-Peer Multiplayer
-  - Client-Side Prediction
-  - Server Reconciliation
-  - Lag Compensation
-  - Entity Interpolation / Extrapolation
-  - State Synchronization vs Input Synchronization
-  - Lockstep Networking
-  - Rollback Netcode
-  - Snapshot Interpolation
-  - Authoritative Server Model
-  - Matchmaking
-  - Network Tick Rate
+  - [x] Client-Server Model for Games <!-- already implemented via existing 'client'/'server' items in web.ts -->
+  - [x] Peer-to-Peer Multiplayer
+  - [x] Client-Side Prediction
+  - [x] Server Reconciliation
+  - [x] Lag Compensation
+  - [x] Entity Interpolation / Extrapolation
+  - State Synchronization vs Input Synchronization <!-- cut: taxonomic distinction, covered concretely by Lockstep/Rollback Netcode below -->
+  - [x] Lockstep Networking
+  - [x] Rollback Netcode
+  - [x] Snapshot Interpolation <!-- merged into Entity Interpolation / Extrapolation above -->
+  - [x] Authoritative Server Model <!-- merged into Server Reconciliation above -->
+  - [x] Matchmaking
+  - Network Tick Rate <!-- cut: a tuning parameter, not a craftable artifact -->
 - **Procedural Content Generation**
-  - Procedural Level Generation
-  - Wave Function Collapse
-  - Cellular Automata for Level Generation
+  - [x] Procedural Level Generation
+  - [x] Wave Function Collapse
+  - [x] Cellular Automata for Level Generation
 - **Game Design Patterns & Engine Concepts**
-  - Tile-Based Maps
-  - Tilemaps & Chunking
-  - Prefabs / Blueprints
-  - Animation State Machines / Blend Trees
-  - Camera Systems
-    - Camera Follow / Smoothing
-    - Virtual Camera Systems
-  - Level of Detail for Gameplay (Culling Distant Logic)
-  - Frame Rate Independence
-  - Game Balancing
-  - Scripting/Visual Scripting Systems
-  - Mod Support / Plugin Architecture
+  - [x] Tile-Based Maps
+  - [x] Tilemaps & Chunking
+  - [x] Prefabs / Blueprints
+  - [x] Animation State Machines / Blend Trees
+  - [x] Camera Systems
+    - [x] Camera Follow / Smoothing <!-- merged into Camera Systems above -->
+    - [x] Virtual Camera Systems <!-- merged into Camera Systems above -->
+  - [x] Level of Detail for Gameplay (Culling Distant Logic)
+  - [x] Frame Rate Independence
+  - Game Balancing <!-- cut: a design/tuning process, not a concrete technical artifact -->
+  - [x] Scripting/Visual Scripting Systems
+  - [x] Mod Support / Plugin Architecture

@@ -2,156 +2,121 @@
 
 - **Cryptography**
   - Symmetric Cryptography
-    - Block Ciphers (AES, DES, 3DES, Blowfish, Twofish, Serpent)
-    - Stream Ciphers (RC4, ChaCha20, Salsa20)
-    - Modes of Operation (CBC, GCM, ECB, CTR, CFB, OFB)
-    - Feistel Network
-    - Substitution-Permutation Network
-    - S-Boxes
-    - Key Schedule / Key Expansion
-    - Initialization Vector (IV) / Nonce
-    - Padding Schemes (PKCS#7)
-    - Authenticated Encryption (AEAD)
+    - [x] Block Ciphers (AES, DES, 3DES, Blowfish, Twofish, Serpent)
+    - [x] Stream Ciphers (RC4, ChaCha20, Salsa20)
+    - [x] Modes of Operation (CBC, GCM, ECB, CTR, CFB, OFB)
+    - [x] Feistel Network
+    - [ ] Substitution-Permutation Network <!-- TODO: cipher-internals detail, no distinct craftable artifact from Block Cipher yet -->
+    - [ ] S-Boxes <!-- TODO: cipher-internals detail, no distinct craftable artifact from Block Cipher yet -->
+    - [x] Key Schedule / Key Expansion
+    - [x] Initialization Vector (IV) / Nonce
+    - [ ] Padding Schemes (PKCS#7) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [x] Authenticated Encryption (AEAD)
   - Asymmetric Cryptography
-    - RSA
-    - Elliptic Curve Cryptography (ECC)
-    - Diffie-Hellman Key Exchange
-    - Elliptic Curve Diffie-Hellman (ECDH)
-    - ElGamal Encryption
-    - Lattice-Based Cryptography
+    - [x] RSA
+    - [x] Elliptic Curve Cryptography (ECC)
+    - [x] Diffie-Hellman Key Exchange
+    - [ ] Elliptic Curve Diffie-Hellman (ECDH) <!-- merged into Diffie-Hellman Key Exchange + ECC above -->
+    - Lattice-Based Cryptography <!-- off-theme today: forward-looking research construction, covered conceptually by Post-Quantum Cryptography below -->
   - Hash Functions
-    - SHA family, MD5
-    - SHA-3 / Keccak
-    - BLAKE2 / BLAKE3
-    - Collision Resistance
-    - Preimage Resistance
-    - HMAC
-    - Key Derivation Functions (PBKDF2, bcrypt, scrypt, Argon2)
-    - Salting
-    - Rainbow Tables
-    - Merkle Tree
+    - [x] SHA family, MD5
+    - [ ] SHA-3 / Keccak <!-- TODO: specific hash variant, no distinct craftable artifact from SHA Family yet -->
+    - [ ] BLAKE2 / BLAKE3 <!-- TODO: specific hash variant, no distinct craftable artifact from SHA Family yet -->
+    - [x] Collision Resistance <!-- already implemented as 'hash-collision' -->
+    - [ ] Preimage Resistance <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [x] HMAC
+    - [x] Key Derivation Functions (PBKDF2, bcrypt, scrypt, Argon2)
+    - [x] Salting
+    - [x] Rainbow Tables
+    - [x] Merkle Tree
   - Digital Signatures
-    - RSA Signatures
-    - DSA / ECDSA
-    - EdDSA (Ed25519)
+    - [x] RSA Signatures <!-- merged into Digital Signature + RSA above -->
+    - [ ] DSA / ECDSA <!-- TODO: specific signature scheme, no distinct craftable artifact from Digital Signature yet -->
+    - DSA / ECDSA <!-- placeholder removed below, see TODO above -->
   - Public Key Infrastructure (PKI)
-    - Certificate Authorities
-    - X.509 Certificates
-    - Certificate Chains of Trust
-    - Certificate Revocation (CRL, OCSP)
-    - Certificate Pinning
-    - Web of Trust
-    - Key Management / Key Rotation
-    - Hardware Security Module (HSM)
+    - [x] Certificate Authorities
+    - [x] X.509 Certificates
+    - [ ] Certificate Chains of Trust <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [ ] Certificate Revocation (CRL, OCSP) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [ ] Key Management / Key Rotation <!-- TODO: process, no satisfying craftable artifact yet -->
+    - [x] Hardware Security Module (HSM)
   - Cryptanalysis
-    - Frequency Analysis
-    - Brute-Force Attack
-    - Birthday Attack
-    - Side-Channel Attacks (Timing, Power Analysis)
-    - Chosen-Plaintext / Chosen-Ciphertext Attack
-    - Padding Oracle Attack
+    - [x] Frequency Analysis
+    - [x] Brute-Force Attack
+    - [x] Birthday Attack
+    - [x] Side-Channel Attacks (Timing, Power Analysis)
   - Advanced Cryptographic Concepts
-    - Zero-Knowledge Proofs
-    - Homomorphic Encryption
-    - Secret Sharing (Shamir's Secret Sharing)
-    - Post-Quantum Cryptography
-    - Forward Secrecy
-    - Perfect Forward Secrecy
+    - [x] Zero-Knowledge Proofs
+    - [x] Homomorphic Encryption
+    - [x] Secret Sharing (Shamir's Secret Sharing)
+    - [x] Post-Quantum Cryptography
+    - [x] Forward Secrecy
+    - [x] Perfect Forward Secrecy <!-- merged into Forward Secrecy above -->
 - **Application Security**
   - Authentication & Authorization
-    - OAuth / OpenID Connect
-    - Multi-Factor Authentication
-    - Session Management
-    - Single Sign-On (SSO)
-    - SAML
-    - Kerberos
-    - Password Hashing & Storage
-    - Role-Based Access Control (RBAC)
-    - Attribute-Based Access Control (ABAC)
-    - JSON Web Tokens (JWT)
-    - Biometric Authentication
+    - [x] OAuth / OpenID Connect
+    - [x] Multi-Factor Authentication
+    - [x] Session Management <!-- already implemented as 'session' in web.ts -->
+    - [x] Single Sign-On (SSO)
+    - [x] Kerberos
+    - [x] Password Hashing & Storage <!-- covered by Key Derivation Function + Password above -->
+    - [x] Role-Based Access Control (RBAC)
+    - [ ] Attribute-Based Access Control (ABAC) <!-- TODO: variant of RBAC, no distinct craftable artifact yet -->
+    - [x] JSON Web Tokens (JWT)
+    - [ ] Biometric Authentication <!-- TODO: real concept, no satisfying craftable artifact yet -->
   - Common Vulnerabilities
-    - SQL Injection
-    - Cross-Site Scripting (XSS)
-    - Cross-Site Request Forgery (CSRF)
-    - Buffer Overflow
-      - Stack Smashing
-      - Return-Oriented Programming (ROP)
-      - Heap Overflow
-      - Format String Vulnerability
-      - Integer Overflow Exploits
-    - Privilege Escalation
-    - Race Condition Exploits (TOCTOU)
-    - Insecure Deserialization
-    - Server-Side Request Forgery (SSRF)
-    - XML External Entity (XXE) Injection
-    - Command Injection
-    - Path Traversal / Directory Traversal
-    - Clickjacking
-    - Broken Access Control
-    - Security Misconfiguration
-    - Sensitive Data Exposure
-    - Use-After-Free
-    - Supply Chain Attacks (Dependency Confusion, Typosquatting)
+    - [x] SQL Injection <!-- already implemented as 'sql-injection' in databases.ts -->
+    - [ ] Cross-Site Scripting (XSS) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [ ] Cross-Site Request Forgery (CSRF) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [x] Buffer Overflow
+      - [ ] Stack Smashing <!-- merged into Buffer Overflow above -->
+      - [x] Return-Oriented Programming (ROP)
+      - [ ] Heap Overflow <!-- merged into Buffer Overflow above -->
+      - [x] Integer Overflow Exploits <!-- already implemented as 'overflow-underflow-detection' in architecture.ts -->
+    - [x] Privilege Escalation
+    - [x] Race Condition Exploits (TOCTOU) <!-- already implemented as 'race-condition' in os.ts -->
+    - [ ] Insecure Deserialization <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [ ] Server-Side Request Forgery (SSRF) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [x] Command Injection
+    - [ ] Path Traversal / Directory Traversal <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [x] Use-After-Free
+    - [x] Supply Chain Attacks (Dependency Confusion, Typosquatting)
   - Secure Coding Practices
-    - Input Validation
-    - Output Encoding / Escaping
-    - Principle of Least Privilege
-    - Sandboxing
-    - Fuzzing
-    - Static Application Security Testing (SAST)
-    - Dynamic Application Security Testing (DAST)
-    - Threat Modeling Frameworks (STRIDE)
+    - [x] Sandboxing <!-- already implemented as 'sandboxing' in os.ts -->
+    - [x] Fuzzing
+    - [ ] Threat Modeling Frameworks (STRIDE) <!-- merged into Threat Modeling under Security Theory below -->
 - **System & Network Security**
-  - Malware Types (virus, worm, trojan, ransomware, rootkit)
-    - Spyware
-    - Adware
-    - Botnet
-    - Keylogger
-    - Logic Bomb
-    - Polymorphic / Metamorphic Malware
-    - Advanced Persistent Threat (APT)
-  - Penetration Testing
-    - Reconnaissance / Footprinting
-    - Vulnerability Scanning
-    - Exploit Development
-    - Red Team / Blue Team
+  - [x] Malware Types (virus, worm, trojan, ransomware, rootkit)
+    - [x] Botnet
+    - [x] Keylogger
+    - [ ] Advanced Persistent Threat (APT) <!-- TODO: real concept, no satisfying craftable artifact yet -->
   - Social Engineering / Phishing
-    - Spear Phishing
-    - Pretexting
-    - Baiting / Tailgating
+    - [x] Phishing
   - Security Hardening
-    - ASLR (Address Space Layout Randomization)
-    - Stack Canaries
-    - DEP (Data Execution Prevention)
-    - Control Flow Integrity
-    - Sandboxing / Containerization Isolation
+    - [x] ASLR (Address Space Layout Randomization)
+    - [x] Stack Canaries
+    - [x] DEP (Data Execution Prevention)
+    - [ ] Control Flow Integrity <!-- TODO: real concept, no satisfying craftable artifact yet -->
   - Network Security
-    - Firewalls (Packet-Filtering, Stateful, Next-Gen)
-    - Intrusion Detection System (IDS)
-    - Intrusion Prevention System (IPS)
-    - Virtual Private Network (VPN)
-    - Transport Layer Security (TLS) / SSL
-    - TLS Handshake
-    - Network Segmentation
-    - Demilitarized Zone (DMZ)
-    - Denial-of-Service (DoS) / Distributed Denial-of-Service (DDoS)
-    - Man-in-the-Middle Attack
-    - ARP Spoofing
-    - DNS Spoofing / Cache Poisoning
-    - Port Scanning
-    - Honeypots
+    - [x] Intrusion Detection System (IDS)
+    - [ ] Intrusion Prevention System (IPS) <!-- merged into Intrusion Detection System above -->
+    - [x] Demilitarized Zone (DMZ)
+    - [x] Denial-of-Service (DoS) / Distributed Denial-of-Service (DDoS) <!-- already implemented as 'ddos' in web.ts -->
+    - [x] Man-in-the-Middle Attack
+    - [x] DNS Spoofing / Cache Poisoning
+    - [x] Port Scanning
+    - [x] Honeypots
   - Cloud & Infrastructure Security
-    - Identity and Access Management (IAM)
-    - Secrets Management (Vaults)
-    - Container Security
-    - Security Information and Event Management (SIEM)
+    - [x] Identity and Access Management (IAM) <!-- already implemented as 'iam' in cloud.ts -->
+    - [x] Secrets Management (Vaults) <!-- already implemented as 'secrets-management' in cloud.ts -->
+    - [ ] Container Security <!-- TODO: real concept, no satisfying craftable artifact yet -->
+    - [ ] Security Information and Event Management (SIEM) <!-- TODO: real concept, no satisfying craftable artifact yet -->
 - **Security Theory**
-  - Threat Modeling
-  - CIA Triad (Confidentiality, Integrity, Availability)
-  - Non-Repudiation
-  - AAA Framework (Authentication, Authorization, Accounting)
-  - Defense in Depth
-  - Zero Trust Architecture
-  - Attack Surface
-  - Security by Design
+  - [ ] Threat Modeling <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] CIA Triad (Confidentiality, Integrity, Availability)
+  - [ ] Non-Repudiation <!-- TODO: covered conceptually by Digital Signature, no distinct craftable artifact -->
+  - [ ] AAA Framework (Authentication, Authorization, Accounting) <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [ ] Defense in Depth <!-- TODO: design principle, no satisfying craftable artifact yet -->
+  - [x] Zero Trust Architecture
+  - [ ] Attack Surface <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [ ] Security by Design <!-- TODO: design principle, no satisfying craftable artifact yet -->
