@@ -2,45 +2,15 @@
 
 - **Frontend**
   - HTML
-    - Semantic HTML
-    - Forms & Form Validation
-    - HTML5 APIs (Canvas, Geolocation, Drag and Drop)
-  - DOM & Rendering
-    - DOM Tree
-    - DOM Manipulation
-    - Event Bubbling / Capturing
-    - Event Delegation
-    - Shadow DOM
+  - DOM
   - CSS
-    - CSS Layout (Flexbox, Grid, Box Model)
-    - CSS Selectors & Specificity
-    - Cascade & Inheritance
-    - Positioning (Static, Relative, Absolute, Fixed, Sticky)
-    - Responsive Design
-      - Media Queries
-      - Mobile-First Design
-      - Fluid Typography / Viewport Units
-    - CSS Preprocessors (Sass, Less)
-    - CSS-in-JS
-    - CSS Custom Properties (Variables)
-    - BEM / Naming Methodologies
-    - Utility-First CSS (Tailwind)
-    - Animations & Transitions
-  - JavaScript in the Browser
-    - Closures & Scope
-    - Promises / Async-Await
-    - Fetch API / AJAX
-    - Web Storage (localStorage, sessionStorage)
-    - IndexedDB
+  - JavaScript
   - Single Page Applications (SPA)
   - Multi-Page Applications (MPA)
   - Component-Based Frameworks (React, Vue, Angular concepts)
   - Virtual DOM
   - Reconciliation / Diffing Algorithm
   - State Management
-    - Unidirectional Data Flow
-    - Reactive State / Signals
-    - Centralized Stores (Redux, Vuex pattern)
   - Client-Side Routing
   - Static Site Generation (SSG)
   - Hydration
@@ -51,11 +21,6 @@
   - Code Splitting / Lazy Loading
   - CSS/JS Minification
 - **Browser Internals**
-  - Critical Rendering Path
-  - Parsing (HTML Parsing, CSSOM Construction)
-  - Render Tree Construction
-  - Layout (Reflow)
-  - Paint & Compositing
   - Browser Rendering Engines (Blink, Gecko, WebKit)
   - JavaScript Engines (V8, SpiderMonkey)
   - Event Loop & Microtasks/Macrotasks
@@ -65,15 +30,10 @@
   - Server-Side Rendering vs Client-Side Rendering
   - Incremental Static Regeneration
   - Web Servers
-    - Request/Response Cycle
-    - Reverse Proxies (Nginx, Apache)
-    - Application Servers (WSGI, ASGI, Servlet Containers)
   - Middleware
-  - Routing (URL-to-Handler Mapping)
+  - Routing
   - Templating Engines
   - Session/State Management
-    - Stateless vs Stateful Servers
-    - Session Storage Backends
   - MVC / MVVM Architecture
   - Backend-for-Frontend (BFF) Pattern
   - API Gateways
@@ -96,23 +56,9 @@
     - Offline-First Caching Strategies
     - Background Sync
   - Headless CMS
-- **Web Performance**
-  - Core Web Vitals (LCP, FID/INP, CLS)
-  - Time to First Byte (TTFB)
-  - Lighthouse Audits
-  - Resource Hints (Preload, Prefetch, Preconnect)
-  - Image Optimization (Lazy Loading, Responsive Images, srcset)
-  - CDN Edge Caching for Web Assets
 - **Web Accessibility**
-  - WAI-ARIA Roles & Attributes
-  - Keyboard Navigation / Focus Management
-  - Screen Reader Compatibility
-  - Color Contrast Standards (WCAG)
-  - Alt Text / Accessible Media
-- **Web App Security (Web-Specific)**
-  - Secure Cookie Attributes (HttpOnly, Secure, SameSite)
-  - Cross-Origin Resource Sharing (CORS) Preflight
+  - Accessibility
 - **Testing & Tooling**
   - Browser DevTools
-  - End-to-End Testing (Selenium, Playwright, Cypress)
-  - Linting & Formatting (ESLint, Prettier)
+  - End-to-End Testing
+  - Linting & Formatting
