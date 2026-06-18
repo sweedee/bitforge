@@ -16,4 +16,11 @@ export const ALGORITHMS: Item[] = [
   { id: 'greedy-algorithm', name: 'Greedy Algorithm', emoji: '🍰', category: 'algorithms', rarity: 'rare', description: 'An algorithm that makes the locally optimal choice at each step, hoping to reach a global optimum.' },
   { id: 'backtracking', name: 'Backtracking', emoji: '↩️', category: 'algorithms', rarity: 'uncommon', description: 'A technique that builds a solution incrementally and abandons paths that fail to satisfy constraints.' },
   { id: 'big-o-notation', name: 'Big O Notation', emoji: '📈', category: 'algorithms', rarity: 'rare', description: "Mathematical notation describing how an algorithm's running time or memory use grows with input size." },
+  { id: 'knapsack-problem', name: 'Knapsack Problem', emoji: '🎒', category: 'algorithms', rarity: 'epic', description: 'A classic optimization problem: choose items with given weights and values to maximize value within a capacity.' },
+  { id: 'approximation-algorithm', name: 'Approximation Algorithm', emoji: '📐', category: 'algorithms', rarity: 'rare', description: 'An algorithm that finds a provably near-optimal solution to a hard problem in polynomial time.' },
+  { id: 'master-theorem', name: 'Master Theorem', emoji: '👑', category: 'algorithms', rarity: 'epic', description: 'A formula for directly solving the running time of divide-and-conquer recurrences.' },
+  { id: 'amortized-analysis', name: 'Amortized Analysis', emoji: '⏳', category: 'algorithms', rarity: 'rare', description: 'Averaging the cost of an operation over a sequence of operations, even when individual costs vary.' },
+  { id: 'randomized-algorithm', name: 'Randomized Algorithm', emoji: '🎲', category: 'algorithms', rarity: 'rare', description: 'An algorithm that uses random choices during execution to simplify logic or improve expected performance.' },
+  { id: 'monte-carlo-algorithm', name: 'Monte Carlo Algorithm', emoji: '🎰', category: 'algorithms', rarity: 'epic', description: 'A randomized algorithm that may produce an incorrect result with some bounded probability.' },
+  { id: 'randomized-quicksort', name: 'Randomized Quicksort', emoji: '🃏', category: 'algorithms', rarity: 'rare', description: 'Quicksort with a randomly chosen pivot, guaranteeing good expected performance regardless of input order.' },
 ]

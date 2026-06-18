@@ -2,109 +2,77 @@
 
 - **Automata Theory & Formal Languages**
   - Finite Automata
-    - Deterministic Finite Automaton (DFA)
-    - Nondeterministic Finite Automaton (NFA)
-  - Pushdown Automata
-    - Context-Free Grammars (CFG)
-  - Turing Machines
-    - Deterministic / Nondeterministic TMs
-    - Universal Turing Machine
-    - Church-Turing Thesis
-  - Chomsky Hierarchy (regular, context-free, context-sensitive, recursively enumerable)
-  - Regular Expressions
-    - Pumping Lemma (for regular languages)
-  - Parsing
-    - Top-Down Parsing (LL parsing)
-    - Bottom-Up Parsing (LR, LALR parsing)
-    - Recursive Descent Parsing
+    - [x] Deterministic Finite Automaton (DFA)
+    - [x] Nondeterministic Finite Automaton (NFA)
+  - [x] Pushdown Automata
+    - [x] Context-Free Grammars (CFG)
+  - [x] Turing Machines
+    - [x] Universal Turing Machine
+    - [x] Church-Turing Thesis
+  - [x] Chomsky Hierarchy (regular, context-free, context-sensitive, recursively enumerable)
+  - [x] Regular Expressions
+    - [x] Pumping Lemma (for regular languages)
+  - [x] Parsing
+    - [x] Recursive Descent Parsing
 - **Computability Theory**
-  - Decidability
-    - Halting Problem
-    - Rice's Theorem
-  - Undecidability & Reductions
-    - Many-One Reduction
-    - Turing Reduction
-  - Recursive & Recursively Enumerable Sets
-  - Computable Functions
+  - [x] Decidability
+    - [x] Halting Problem
+    - [x] Rice's Theorem
+  - [x] Undecidability & Reductions
 - **Computational Complexity Theory**
-  - Complexity Classes
-    - P, NP, NP-Complete, NP-Hard
-    - PSPACE, EXPTIME, EXPSPACE
-  - NP-Completeness
-    - Reduction techniques (polynomial-time reduction)
-    - Classic NP-complete problems (SAT, 3-SAT, Vertex Cover, Hamiltonian Path, Knapsack)
-  - P vs NP Problem
-  - Approximation Algorithms
-    - Approximation Ratio
-    - Hardness of Approximation
+  - [x] Complexity Classes
+    - [x] P, NP, NP-Complete, NP-Hard
+  - [x] NP-Completeness
+    - [x] Reduction techniques (polynomial-time reduction)
+    - [x] Classic NP-complete problems (Knapsack)
+  - [x] P vs NP Problem
+  - [x] Approximation Algorithms
 - **Algorithm Analysis**
-  - Asymptotic Notation (Big-O, Big-Theta, Big-Omega, little-o, little-omega)
-  - Recurrence Relations
-    - Master Theorem
-    - Substitution Method
-    - Recursion Tree Method
-  - Amortized Analysis
-    - Aggregate Method
-    - Accounting Method
-    - Potential Method
-  - Average-Case vs Worst-Case Analysis
-  - Randomized Algorithms
-    - Las Vegas Algorithms
-    - Monte Carlo Algorithms
-    - Randomized Quicksort
+  - [x] Asymptotic Notation (Big-O, Big-Theta, Big-Omega)
+  - [x] Recurrence Relations
+    - [x] Master Theorem
+  - [x] Amortized Analysis
+  - [ ] Average-Case vs Worst-Case Analysis <!-- TODO: worth keeping, no satisfying craftable recipe yet -->
+  - [x] Randomized Algorithms
+    - [x] Monte Carlo Algorithms
+    - [x] Randomized Quicksort
 - **Mathematical Logic & Foundations**
-  - Propositional Logic
-    - Truth Tables
-    - Boolean Satisfiability
-    - Conjunctive / Disjunctive Normal Form
-    - Resolution Proof System
-  - First-Order Logic
-    - Quantifiers (universal, existential)
-    - Predicate Logic
-  - Proof Theory
-    - Natural Deduction
-    - Proof by Induction
-  - Lambda Calculus
-    - Beta Reduction
-    - Alpha Conversion
-    - Church Encoding
-    - Y Combinator / Fixed-Point Combinators
-    - Untyped vs Typed Lambda Calculus
-  - Type Theory
-    - Curry-Howard Correspondence
-    - Dependent Types
-    - Polymorphism (Parametric, System F)
-    - Type Inference (Hindley-Milner)
-  - Set Theory Basics
-    - Cardinality
-    - Countable & Uncountable Sets
-    - Diagonalization Argument
-    - Russell's Paradox
-  - Combinatorics
-    - Pigeonhole Principle
-    - Permutations & Combinations
-    - Inclusion-Exclusion Principle
-  - Graph Theory
-    - Trees, DAGs, Bipartite Graphs
-    - Graph Coloring
-    - Planarity
-    - Network Flow (Max-Flow Min-Cut)
-    - Eulerian & Hamiltonian Paths
+  - [x] Propositional Logic
+    - [x] Truth Tables
+    - [x] Boolean Satisfiability
+    - [x] Conjunctive / Disjunctive Normal Form
+  - [x] First-Order Logic
+    - [x] Quantifiers (universal, existential)
+  - [x] Proof Theory
+    - [x] Proof by Induction
+  - [x] Lambda Calculus
+    - [x] Beta Reduction
+    - [x] Church Encoding
+    - [x] Y Combinator / Fixed-Point Combinators
+  - [x] Type Theory
+    - [x] Curry-Howard Correspondence
+    - [x] Dependent Types
+    - [x] Type Inference (Hindley-Milner)
+  - [x] Set Theory Basics
+    - [x] Cardinality
+    - [x] Diagonalization Argument
+    - [x] Russell's Paradox
+  - [x] Combinatorics
+    - [x] Pigeonhole Principle
+    - [x] Permutations & Combinations
+    - [x] Inclusion-Exclusion Principle
 - **Information Theory**
-  - Entropy (Shannon Entropy)
-    - Cross-Entropy
-    - KL Divergence (Relative Entropy)
-  - Mutual Information
-  - Channel Capacity
-    - Shannon's Noisy Channel Coding Theorem
-  - Error-Correcting Codes
-    - Hamming Code
-    - Hamming Distance
-    - Reed-Solomon Code
-    - Cyclic Redundancy Check (CRC)
-    - Checksum
-    - Parity Bit
-  - Data Compression Theory
-    - Huffman Coding
-    - Lempel-Ziv (LZ77/LZ78)
-    - Lossless vs Lossy Compression
+  - [x] Entropy (Shannon Entropy)
+  - [x] Mutual Information
+  - [x] Channel Capacity
+    - [x] Shannon's Noisy Channel Coding Theorem
+  - [x] Error-Correcting Codes
+    - [x] Hamming Code
+    - [x] Hamming Distance
+    - [x] Reed-Solomon Code
+    - [x] Cyclic Redundancy Check (CRC)
+    - [x] Checksum
+    - [x] Parity Bit
+  - [x] Data Compression Theory
+    - [x] Huffman Coding
+    - [x] Lempel-Ziv (LZ77/LZ78)
