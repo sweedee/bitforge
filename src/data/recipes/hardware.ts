@@ -19,4 +19,12 @@ export const RECIPES_HARDWARE: Recipe[] = [
   { inputs: ['or-gate', 'not-gate'], result: 'multiplexer' },
   { inputs: ['xor-gate', 'and-gate'], result: 'adder' },
   { inputs: ['transistor', 'wafer'], result: 'integrated-circuit' },
+  { inputs: ['and-gate', 'nand-gate'], result: 'boolean-algebra' },
+  { inputs: ['xor-gate', 'not-gate'], result: 'nor-gate' },
+  { inputs: ['nor-gate', 'nor-gate'], result: 'latch' },
+  { inputs: ['multiplexer', 'not-gate'], result: 'demultiplexer' },
+  { inputs: ['and-gate', 'multiplexer'], result: 'decoder' },
+  { inputs: ['flip-flop', 'adder'], result: 'counter' },
+  { inputs: ['register', 'flip-flop'], result: 'shift-register' },
+  { inputs: ['integrated-circuit', 'and-gate'], result: 'fpga' },
 ]

@@ -16,4 +16,9 @@ export const SECURITY: Item[] = [
   { id: 'malware', name: 'Malware', emoji: '🦠', category: 'security', rarity: 'epic', description: 'Malicious software designed to damage, disrupt, or gain unauthorized access to a system.' },
   { id: 'blockchain', name: 'Blockchain', emoji: '🧊', category: 'security', rarity: 'epic', milestone: '2008', description: 'A tamper-evident ledger of records cryptographically chained together by their hashes.' },
   { id: 'digital-signature', name: 'Digital Signature', emoji: '✍️', category: 'security', rarity: 'epic', description: 'A cryptographic proof that a message came from a specific sender and was not altered.' },
+  { id: 'spectre-meltdown', name: 'Spectre / Meltdown', emoji: '👻', category: 'security', rarity: 'legendary', milestone: '2018', description: 'A family of hardware vulnerabilities that abuse speculative execution to leak data across security boundaries.' },
+  { id: 'rowhammer', name: 'Rowhammer', emoji: '🔨', category: 'security', rarity: 'epic', milestone: '2014', description: 'An attack that flips bits in DRAM by rapidly hammering nearby memory rows.' },
+  { id: 'tee', name: 'Trusted Execution Environment', emoji: '🔐', category: 'security', rarity: 'epic', description: 'An isolated, secure region of a processor where code and data stay confidential even if the OS is compromised.' },
+  { id: 'tpm', name: 'Trusted Platform Module', emoji: '🔒', category: 'security', rarity: 'epic', description: 'A dedicated hardware chip that securely generates and stores cryptographic keys for a device.' },
+  { id: 'secure-boot', name: 'Secure Boot', emoji: '🥾', category: 'security', rarity: 'epic', description: "A boot process that verifies each stage's signature, refusing to run software that has been tampered with." },
 ]

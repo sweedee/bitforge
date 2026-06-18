@@ -1,107 +1,99 @@
 ## 3. Computer Architecture & Organization
 
 - **Digital Logic**
-  - Boolean Algebra
-  - Logic Gates (AND, OR, NOT, NAND, NOR, XOR)
-  - Combinational Circuits (adders, multiplexers, decoders)
-    - Half Adder / Full Adder
-    - Multiplexer / Demultiplexer
-    - Encoder / Decoder
-  - Sequential Circuits
-    - Flip-Flops (SR, D, JK, T)
-    - Latches
-    - Finite State Machines (Moore, Mealy)
-    - Registers & Register Files
-    - Counters (ripple, synchronous)
-    - Shift Registers
-  - Karnaugh Maps
+  - [x] Boolean Algebra
+  - [x] Logic Gates (AND, OR, NOT, NAND, NOR, XOR)
+  - [x] Combinational Circuits (adders, multiplexers, decoders)
+    - [x] Half Adder / Full Adder
+    - [x] Multiplexer / Demultiplexer
+    - [x] Encoder / Decoder
+  - [x] Sequential Circuits
+    - [x] Flip-Flops (SR, D, JK, T)
+    - [x] Latches
+    - [x] Finite State Machines (Moore, Mealy)
+    - [x] Registers & Register Files
+    - [x] Counters (ripple, synchronous)
+    - [x] Shift Registers
+  - [x] Karnaugh Maps
   - Number Systems & Representation
-    - Binary, Octal, Hexadecimal
-    - Two's Complement
-    - Fixed-Point Representation
-    - Floating-Point Representation (IEEE 754)
-  - Clock Signals & Timing
-    - Clock Skew & Jitter
-  - Hardware Description Languages (Verilog, VHDL)
-  - Programmable Logic
-    - FPGA (Field-Programmable Gate Array)
+    - [x] Binary, Octal, Hexadecimal
+    - [x] Two's Complement
+    - [x] Fixed-Point Representation
+    - [x] Floating-Point Representation (IEEE 754)
+  - [x] Clock Signals & Timing
+  - [x] Hardware Description Languages (Verilog, VHDL)
+  - [x] Programmable Logic
+    - [x] FPGA (Field-Programmable Gate Array)
 - **CPU Design**
-  - Instruction Set Architecture (ISA)
-    - RISC vs CISC
-    - x86, ARM, RISC-V
-  - Datapath & Control Unit
-    - Microcode
-  - Fetch-Decode-Execute Cycle
-  - Pipelining
-    - Pipeline Hazards (structural, data, control)
-    - Pipeline Stalls / Bubbles
-    - Forwarding (Bypassing)
-    - Branch Prediction
-    - Speculative Execution
-    - Out-of-Order Execution
-    - Superscalar Execution
-  - Microarchitecture
-    - Register Renaming
-    - Reorder Buffer
-    - Instruction-Level Parallelism (ILP)
-    - Multithreading (SMT / Hyper-Threading)
-  - SIMD / Vector Processing
-  - Performance Evaluation
-    - Clock Rate / CPI / IPC
-    - Amdahl's Law
+  - [x] Instruction Set Architecture (ISA)
+    - [x] RISC vs CISC
+    - [x] x86, ARM, RISC-V
+  - [x] Datapath & Control Unit
+    - [x] Microcode
+  - [x] Fetch-Decode-Execute Cycle
+  - [x] Pipelining
+    - [x] Pipeline Hazards (structural, data, control)
+    - [x] Forwarding (Bypassing)
+    - [x] Branch Prediction
+    - [x] Speculative Execution
+    - [x] Out-of-Order Execution
+    - [x] Superscalar Execution
+  - [x] Microarchitecture
+    - [x] Register Renaming
+    - [x] Reorder Buffer
+    - [x] Instruction-Level Parallelism (ILP)
+    - [x] Multithreading (SMT / Hyper-Threading)
+  - [x] SIMD / Vector Processing
+  - [x] Performance Evaluation
+    - [x] Clock Rate / CPI / IPC
+    - [x] Amdahl's Law
 - **Memory Hierarchy**
-  - Registers
-  - Cache Memory
-    - Cache Levels (L1/L2/L3)
-    - Cache Mapping (direct, associative, set-associative)
-    - Cache Replacement Policies (LRU, LFU, FIFO)
-    - Cache Write Policies (write-through, write-back, write-allocate)
-    - Cache Coherence
-      - MESI Protocol
-    - Cache Misses (compulsory, capacity, conflict)
-    - Prefetching
-  - Main Memory (DRAM, SRAM)
-    - DDR SDRAM Generations
-    - Error-Correcting Code (ECC) Memory
-  - Virtual Memory
-    - Paging
-    - Page Tables / Multi-Level Page Tables
-    - Translation Lookaside Buffer (TLB)
-    - Segmentation
-    - Page Fault Handling
-    - Page Replacement Algorithms (LRU, Clock, Optimal)
-  - Memory-Mapped I/O
-  - Storage Hierarchy
-    - Solid-State Drives (SSD) / NAND Flash
-    - Hard Disk Drives (HDD)
+  - [x] Registers
+  - [x] Cache Memory
+    - [x] Cache Levels (L1/L2/L3)
+    - [x] Cache Mapping (direct, associative, set-associative)
+    - [x] Cache Replacement Policies (LRU, LFU, FIFO)
+    - [x] Cache Write Policies (write-through, write-back, write-allocate)
+    - [x] Cache Coherence
+      - [x] MESI Protocol
+    - [x] Cache Misses (compulsory, capacity, conflict)
+    - [x] Prefetching
+  - [x] Main Memory (DRAM, SRAM)
+    - [x] Error-Correcting Code (ECC) Memory
+  - [x] Virtual Memory
+    - [x] Paging
+    - [x] Page Tables / Multi-Level Page Tables
+    - [x] Translation Lookaside Buffer (TLB)
+    - [x] Segmentation
+    - [x] Page Fault Handling
+    - [x] Page Replacement Algorithms (LRU, Clock, Optimal)
+  - [x] Memory-Mapped I/O
+  - [x] Storage Hierarchy
+    - [x] Solid-State Drives (SSD) / NAND Flash
+    - [x] Hard Disk Drives (HDD)
 - **Parallel & Distributed Architecture**
-  - Flynn's Taxonomy (SISD, SIMD, MISD, MIMD)
-  - Multicore Processors
-  - Shared-Memory vs Distributed-Memory Architectures
-  - GPU Architecture
-    - CUDA / Shader Cores
-    - Warp Scheduling
-    - SIMT (Single Instruction, Multiple Threads)
-  - NUMA (Non-Uniform Memory Access)
-  - Interconnection Networks
-    - Bus Topology
-    - Mesh / Torus Networks
+  - [x] Flynn's Taxonomy (SISD, SIMD, MISD, MIMD)
+  - [x] Multicore Processors
+  - [x] Shared-Memory vs Distributed-Memory Architectures
+  - [x] GPU Architecture
+    - [x] CUDA / Shader Cores
+    - [x] SIMT (Single Instruction, Multiple Threads)
+  - [x] NUMA (Non-Uniform Memory Access)
+  - [x] Interconnection Networks
 - **I/O Systems**
-  - Bus Architecture (PCIe, USB)
-  - System Bus Components (address bus, data bus, control bus)
-  - Interrupts & Interrupt Handling
-  - DMA (Direct Memory Access)
-  - Polling vs Interrupt-Driven I/O
-  - Peripheral Interfaces (SATA, NVMe)
+  - [x] Bus Architecture (PCIe, USB)
+  - [x] System Bus Components (address bus, data bus, control bus)
+  - [x] Interrupts & Interrupt Handling
+  - [x] DMA (Direct Memory Access)
+  - [x] Polling vs Interrupt-Driven I/O
+  - [x] Peripheral Interfaces (SATA, NVMe)
 - **Hardware Security**
-  - Spectre / Meltdown
-  - Rowhammer
-  - Trusted Execution Environment (TEE)
-  - Hardware Security Module (HSM)
-  - Trusted Platform Module (TPM)
-  - Secure Boot
+  - [x] Spectre / Meltdown
+  - [x] Rowhammer
+  - [x] Trusted Execution Environment (TEE)
+  - [x] Trusted Platform Module (TPM)
+  - [x] Secure Boot
 - **Computer Arithmetic**
-  - Integer Multiplication & Division Circuits
-  - Floating-Point Arithmetic Units (FPU)
-  - Arithmetic Logic Unit (ALU)
-  - Overflow & Underflow Detection
+  - [x] Floating-Point Arithmetic Units (FPU)
+  - [x] Arithmetic Logic Unit (ALU)
+  - [x] Overflow & Underflow Detection

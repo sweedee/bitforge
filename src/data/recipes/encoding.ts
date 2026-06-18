@@ -29,4 +29,9 @@ export const RECIPES_ENCODING: Recipe[] = [
   { inputs: ['greedy-algorithm', 'binary-tree'], result: 'huffman-coding' },
   { inputs: ['huffman-coding', 'string'], result: 'lempel-ziv' },
   { inputs: ['huffman-coding', 'lempel-ziv'], result: 'data-compression' },
+  { inputs: ['bit', 'binary'], result: 'bit-manipulation-tricks' },
+  { inputs: ['binary', 'xor-gate'], result: 'gray-code' },
+  { inputs: ['binary', 'not-gate'], result: 'twos-complement' },
+  { inputs: ['binary', 'word'], result: 'fixed-point-representation' },
+  { inputs: ['twos-complement', 'word'], result: 'floating-point-representation' },
 ]

@@ -27,6 +27,8 @@
   - Y2K Bug
   - Heartbleed
   - Left-pad Incident
+  - Heisenbug
+  - BSOD
 - **Tech Punditry & Memes**
   - Dunning-Kruger in Tech
   - Bikeshedding

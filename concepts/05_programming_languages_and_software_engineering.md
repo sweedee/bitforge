@@ -19,6 +19,7 @@
     - Monads, Functors, Applicatives
     - Pattern Matching
     - Tail Call Optimization
+    - filter, map, reduce
   - Declarative & Logic Programming
     - Prolog, Unification, Backtracking
   - Procedural Programming
@@ -136,6 +137,9 @@
   - Lisp / Scheme
     - S-Expressions
   - SQL (declarative query language)
+  - Assembly
+  - WebAssembly
+  - F#
 - **Compilers & Interpreters**
   - Lexical Analysis (Tokenization)
   - Parsing

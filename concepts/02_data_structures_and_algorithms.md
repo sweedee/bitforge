@@ -2,125 +2,115 @@
 
 - **Data Structures**
   - Linear Structures
-    - Array, Dynamic Array
-    - Linked List (singly, doubly, circular)
-    - Stack, Queue, Deque
-    - Circular Buffer (Ring Buffer)
+    - [x] Array, Dynamic Array
+    - [x] Linked List (singly, doubly, circular)
+    - [x] Stack, Queue, Deque
+    - [x] Circular Buffer (Ring Buffer)
   - Trees
-    - Binary Tree
-    - Binary Search Tree (BST)
+    - [x] Binary Tree
+    - [x] Binary Search Tree (BST)
     - Self-Balancing Trees
-      - AVL Tree
-      - Red-Black Tree
-      - B-Tree / B+ Tree
-    - Heaps
-      - Binary Heap
-    - Tries (Prefix Trees)
-    - K-D Tree
-    - Quadtree / Octree
-    - Generic/N-ary Tree
-    - Expression Tree
+      - [x] AVL Tree
+      - [x] Red-Black Tree
+      - [x] B-Tree / B+ Tree <!-- already implemented as 'b-tree' in databases.ts -->
+    - [x] Heaps
+    - [x] Tries (Prefix Trees)
+    - [x] K-D Tree
+    - [x] Quadtree / Octree
+    - [x] Expression Tree
   - Hash-Based Structures
-    - Hash Table
-      - Collision Resolution (chaining, open addressing, linear/quadratic probing)
-      - Load Factor & Rehashing
-      - Consistent Hashing
-    - Hash Set
-    - Bloom Filter
+    - [x] Hash Table
+      - [x] Collision Resolution (chaining, open addressing, linear/quadratic probing)
+      - [x] Load Factor & Rehashing
+      - [x] Consistent Hashing
+    - [x] Bloom Filter
   - Graph Representations
-    - Adjacency List / Matrix
-    - Disjoint Set (Union-Find)
-      - Union by Rank
-      - Path Compression
-  - Probabilistic & Succinct Structures
+    - [x] Adjacency List / Matrix
+    - [x] Disjoint Set (Union-Find)
 - **Sorting Algorithms**
   - Comparison-Based
-    - Bubble Sort, Insertion Sort, Selection Sort
-    - Merge Sort
-    - Quick Sort
-    - Heap Sort
+    - [x] Bubble Sort, Insertion Sort, Selection Sort
+    - [x] Merge Sort
+    - [x] Quick Sort
+    - [x] Heap Sort
   - Non-Comparison-Based
-    - Counting Sort
-    - Radix Sort (LSD/MSD)
-    - Bucket Sort
-  - Stability in Sorting
-  - In-Place vs Out-of-Place Sorting
-  - External Sorting
+    - [x] Counting Sort
+    - [x] Radix Sort (LSD/MSD)
+    - [x] Bucket Sort
+  - [ ] Stability in Sorting <!-- TODO: real concept, no satisfying craftable artifact yet -->
+  - [x] External Sorting
 - **Searching Algorithms**
-  - Linear Search, Binary Search
-  - Selection Algorithms
-    - Quickselect
-    - kth Order Statistic
+  - [x] Linear Search, Binary Search
+  - [x] Selection Algorithms
+    - [x] Quickselect
 - **Graph Algorithms**
-  - Traversal: BFS, DFS
-    - Bidirectional Search
+  - [x] Traversal: BFS, DFS
+    - [x] Bidirectional Search
   - Shortest Path
-    - Dijkstra's Algorithm
-    - Bellman-Ford Algorithm
-    - Floyd-Warshall Algorithm
-    - A* Search
+    - [x] Dijkstra's Algorithm
+    - [x] Bellman-Ford Algorithm
+    - [x] Floyd-Warshall Algorithm
+    - [x] A* Search
   - Minimum Spanning Tree
-    - Kruskal's Algorithm
-    - Prim's Algorithm
-  - Topological Sort
-  - Strongly Connected Components
-    - Tarjan's Algorithm
-    - Kosaraju's Algorithm
-  - Articulation Points & Bridges
-  - Lowest Common Ancestor
-  - Network Flow
-    - Max-Flow Min-Cut Theorem
-    - Ford-Fulkerson / Edmonds-Karp
+    - [x] Kruskal's Algorithm
+    - [x] Prim's Algorithm
+  - [x] Topological Sort
+  - [x] Strongly Connected Components
+    - [x] Tarjan's Algorithm
+  - [x] Articulation Points & Bridges
+  - [x] Lowest Common Ancestor
+  - [x] Network Flow
+    - [x] Max-Flow Min-Cut Theorem
+    - [x] Ford-Fulkerson / Edmonds-Karp
   - Matching
-    - Bipartite Matching (Hopcroft-Karp)
-    - Stable Marriage Problem
-    - Hungarian Algorithm (Assignment Problem)
-  - Graph Coloring
-  - Eulerian Path/Circuit
-  - Hamiltonian Path/Cycle
-  - Traveling Salesman Problem
-  - Minimum Vertex Cover
-  - Planarity Testing
-  - Centrality Measures (Betweenness, PageRank-style)
+    - [x] Bipartite Matching (Hopcroft-Karp)
+    - [x] Stable Marriage Problem
+    - [x] Hungarian Algorithm (Assignment Problem)
+  - [x] Graph Coloring
+  - [x] Eulerian Path/Circuit
+  - [x] Hamiltonian Path/Cycle
+  - [x] Traveling Salesman Problem
+  - [x] Minimum Vertex Cover
+  - [x] Planarity Testing
+  - [x] Centrality Measures (Betweenness, PageRank-style)
 - **Algorithm Design Paradigms**
-  - Divide and Conquer
-  - Dynamic Programming
-    - Memoization vs Tabulation
-    - Knapsack Problem
-    - Longest Common Subsequence
-    - Edit Distance
-    - Matrix Chain Multiplication
-    - Coin Change Problem
-  - Greedy Algorithms
-    - Activity Selection Problem
-    - Huffman Coding (as greedy construction)
-  - Backtracking
-    - N-Queens Problem
-    - Constraint Satisfaction Search
-  - Branch and Bound
-  - Two Pointers / Sliding Window
-  - Bit Manipulation Tricks
-  - Parallel Algorithms
-    - Prefix Sum / Scan
-    - MapReduce-Style Algorithm Design
-  - Heuristic Search
-    - Hill Climbing
-    - Simulated Annealing
-    - Genetic Algorithms
+  - [x] Divide and Conquer
+  - [x] Dynamic Programming
+    - [x] Memoization vs Tabulation
+    - [x] Knapsack Problem <!-- already implemented in algorithms.ts -->
+    - [x] Longest Common Subsequence
+    - [x] Edit Distance
+    - [x] Matrix Chain Multiplication
+    - [x] Coin Change Problem
+  - [x] Greedy Algorithms
+    - [x] Activity Selection Problem
+    - [x] Huffman Coding (as greedy construction) <!-- already implemented in encoding.ts -->
+  - [x] Backtracking
+    - [x] N-Queens Problem
+    - [x] Constraint Satisfaction Search
+  - [x] Branch and Bound
+  - [x] Two Pointers / Sliding Window
+  - [x] Bit Manipulation Tricks
+  - [x] Parallel Algorithms
+    - [x] Prefix Sum / Scan
+  - [x] Heuristic Search
+    - [x] Hill Climbing
+    - [x] Simulated Annealing
+    - [x] Genetic Algorithms
 - **String Algorithms**
-  - Pattern Matching
-    - Knuth-Morris-Pratt (KMP)
-    - Rabin-Karp
-    - Boyer-Moore
-  - Edit Distance (Levenshtein)
-  - Longest Common Substring/Subsequence
-  - Longest Palindromic Substring (Manacher's Algorithm)
-  - String Hashing
+  - [x] Pattern Matching
+    - [x] Knuth-Morris-Pratt (KMP)
+    - [x] Rabin-Karp
+    - [x] Boyer-Moore
+  - [x] Edit Distance (Levenshtein) <!-- merged into Edit Distance above -->
+  - [x] Longest Common Substring/Subsequence <!-- merged into Longest Common Subsequence above -->
+  - [x] Longest Palindromic Substring (Manacher's Algorithm)
+  - [x] String Hashing
 - **Computational Geometry**
-  - Convex Hull (Graham Scan, Jarvis March)
-  - Closest Pair of Points
-  - Point-in-Polygon Test
-  - Line Segment Intersection
+  - [x] Convex Hull (Graham Scan, Jarvis March)
+  - [x] Closest Pair of Points
+  - [x] Point-in-Polygon Test
+  - [x] Line Segment Intersection
 - **Combinatorial Generation**
-  - Generating Permutations, Combinations, Subsets
-  - Gray Code Generation
+  - [x] Generating Permutations, Combinations, Subsets
+  - [x] Gray Code Generation

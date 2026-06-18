@@ -16,4 +16,9 @@ export const RECIPES_SECURITY: Recipe[] = [
   { inputs: ['exploit', 'machine-code'], result: 'malware' },
   { inputs: ['hash', 'linked-list'], result: 'blockchain' },
   { inputs: ['public-key', 'hash'], result: 'digital-signature' },
+  { inputs: ['speculative-execution', 'exploit'], result: 'spectre-meltdown' },
+  { inputs: ['dram-sram', 'exploit'], result: 'rowhammer' },
+  { inputs: ['cpu', 'encryption'], result: 'tee' },
+  { inputs: ['tee', 'key'], result: 'tpm' },
+  { inputs: ['tpm', 'digital-signature'], result: 'secure-boot' },
 ]

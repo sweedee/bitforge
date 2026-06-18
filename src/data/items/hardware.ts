@@ -19,4 +19,12 @@ export const HARDWARE: Item[] = [
   { id: 'multiplexer', name: 'Multiplexer', emoji: '🔀', category: 'hardware', rarity: 'uncommon', description: 'A circuit that selects one of several input signals and forwards it to a single output line.' },
   { id: 'adder', name: 'Adder', emoji: '➕', category: 'hardware', rarity: 'uncommon', description: 'A digital circuit that performs addition of binary numbers.' },
   { id: 'integrated-circuit', name: 'Integrated Circuit', emoji: '🔳', category: 'hardware', rarity: 'rare', milestone: '1958', description: 'A complete electronic circuit with many transistors etched onto a single chip of silicon.' },
+  { id: 'boolean-algebra', name: 'Boolean Algebra', emoji: '🔢', category: 'hardware', rarity: 'uncommon', description: 'The algebra of true/false values and operators that underlies all digital logic design.' },
+  { id: 'nor-gate', name: 'NOR Gate', emoji: '🔲', category: 'hardware', rarity: 'common', description: 'A logic gate that outputs true only when none of its inputs are true.' },
+  { id: 'demultiplexer', name: 'Demultiplexer', emoji: '🔀', category: 'hardware', rarity: 'uncommon', description: 'A circuit that takes a single input and routes it to one of several output lines.' },
+  { id: 'decoder', name: 'Encoder / Decoder', emoji: '🗜️', category: 'hardware', rarity: 'uncommon', description: 'Circuits that translate between a compact code and one-of-many signal lines, used for memory addressing.' },
+  { id: 'latch', name: 'Latch', emoji: '🔓', category: 'hardware', rarity: 'uncommon', description: 'A level-triggered circuit that holds one bit of state, the simplest building block of memory.' },
+  { id: 'counter', name: 'Counter', emoji: '🔢', category: 'hardware', rarity: 'uncommon', description: 'A sequential circuit that steps through a fixed sequence of states, typically counting clock pulses.' },
+  { id: 'shift-register', name: 'Shift Register', emoji: '➡️', category: 'hardware', rarity: 'uncommon', description: 'A chain of flip-flops that shifts its stored bits one position on each clock pulse.' },
+  { id: 'fpga', name: 'FPGA', emoji: '🧮', category: 'hardware', rarity: 'epic', description: 'A field-programmable gate array — a chip whose logic can be rewired after manufacturing.' },
 ]

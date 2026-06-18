@@ -29,4 +29,9 @@ export const ENCODING: Item[] = [
   { id: 'huffman-coding', name: 'Huffman Coding', emoji: '🪵', category: 'encoding', rarity: 'epic', milestone: '1952', description: 'A greedy algorithm that builds an optimal prefix code by assigning shorter codes to more frequent symbols.' },
   { id: 'lempel-ziv', name: 'Lempel-Ziv (LZ77/LZ78)', emoji: '🤐', category: 'encoding', rarity: 'epic', milestone: '1977', description: 'A family of dictionary-based compression algorithms that replace repeated substrings with references.' },
   { id: 'data-compression', name: 'Data Compression', emoji: '🗜️', category: 'encoding', rarity: 'legendary', description: 'The general theory of shrinking data, distinguishing lossless schemes from lossy ones that discard detail.' },
+  { id: 'bit-manipulation-tricks', name: 'Bit Manipulation Tricks', emoji: '🪄', category: 'encoding', rarity: 'uncommon', description: 'Techniques like masking, shifting, and XOR swaps that operate directly on the bits of a value.' },
+  { id: 'gray-code', name: 'Gray Code', emoji: '🌫️', category: 'encoding', rarity: 'rare', description: 'A binary numeral ordering where consecutive values differ by only a single bit.' },
+  { id: 'twos-complement', name: "Two's Complement", emoji: '➖', category: 'encoding', rarity: 'rare', description: 'The standard way computers represent negative integers, letting addition and subtraction use the same circuitry.' },
+  { id: 'fixed-point-representation', name: 'Fixed-Point Representation', emoji: '📌', category: 'encoding', rarity: 'rare', description: 'A number format with a fixed number of digits before and after the radix point.' },
+  { id: 'floating-point-representation', name: 'Floating-Point Representation (IEEE 754)', emoji: '🌊', category: 'encoding', rarity: 'epic', milestone: '1985', description: 'A standardized format representing real numbers as a sign, exponent, and mantissa.' },
 ]

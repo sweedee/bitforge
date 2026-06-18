@@ -12,4 +12,5 @@ export const LANGUAGES: Item[] = [
   { id: 'rust', name: 'Rust', emoji: '🦀', category: 'languages', rarity: 'rare', milestone: '2010', description: 'A systems language that guarantees memory safety without a garbage collector, preventing whole classes of crashes.' },
   { id: 'typescript', name: 'TypeScript', emoji: '🔷', category: 'languages', rarity: 'uncommon', milestone: '2012', description: 'A superset of JavaScript that adds static typing to help catch errors before code runs.' },
   { id: 'compiler', name: 'Compiler', emoji: '🏭', category: 'languages', rarity: 'legendary', milestone: '1952', description: 'A program that translates source code written in a high-level language into machine code.' },
+  { id: 'hardware-description-language', name: 'Hardware Description Language', emoji: '🔌', category: 'languages', rarity: 'rare', description: 'A language, like Verilog or VHDL, used to describe and simulate digital circuits before they are fabricated.' },
 ]

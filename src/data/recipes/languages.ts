@@ -12,4 +12,5 @@ export const RECIPES_LANGUAGES: Recipe[] = [
   { inputs: ['cpp', 'segmentation-fault'], result: 'rust' },
   { inputs: ['javascript', 'java'], result: 'typescript' },
   { inputs: ['c', 'assembly-language'], result: 'compiler' },
+  { inputs: ['integrated-circuit', 'assembly-language'], result: 'hardware-description-language' },
 ]
