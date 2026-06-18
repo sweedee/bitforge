@@ -1,0 +1,67 @@
+## 7. Computer Networks
+
+- **Network Models**
+  - OSI Model (7 layers)
+  - TCP/IP Model
+- **Physical & Data Link Layer**
+  - Ethernet
+  - MAC Addressing
+  - Switching
+  - VLANs
+  - ARP (Address Resolution Protocol)
+  - Collision Domains / CSMA-CD / CSMA-CA
+- **Network Layer**
+  - IP Addressing (IPv4, IPv6)
+  - Subnetting / CIDR
+  - Routing
+    - Static vs Dynamic Routing
+    - Distance Vector Routing (RIP)
+    - Link State Routing (OSPF)
+    - BGP
+  - NAT (Network Address Translation)
+  - ICMP
+- **Transport Layer**
+  - TCP
+    - Three-Way Handshake
+    - Flow Control (sliding window)
+    - Congestion Control
+      - Slow Start
+      - AIMD (Additive Increase Multiplicative Decrease)
+      - TCP Tahoe/Reno/Cubic/BBR
+    - Sequence Numbers & Acknowledgments
+  - UDP
+  - QUIC
+- **Application Layer**
+  - DNS
+    - DNS Resolution Process
+    - DNS Caching
+    - DNSSEC
+  - HTTP/HTTPS
+    - HTTP Methods, Status Codes
+    - HTTP/1.1 vs HTTP/2 vs HTTP/3
+    - Cookies & Sessions
+  - Email Protocols (SMTP, IMAP, POP3)
+  - FTP/SFTP
+  - WebSockets
+- **Network Security**
+  - Firewalls
+  - VPNs
+  - TLS/SSL Handshake
+  - Intrusion Detection Systems (IDS/IPS)
+  - DDoS Attacks
+    - SYN Flood
+    - Slowloris Attack
+    - Amplification Attacks
+- **Wireless & Mobile Networking**
+  - Wi-Fi Standards (802.11)
+  - Cellular Networks (3G/4G/5G)
+  - Bluetooth
+  - Mesh Networks
+- **Performance & Reliability**
+  - Latency vs Bandwidth vs Throughput
+  - Jitter
+  - Quality of Service (QoS)
+  - Load Balancing
+    - Round Robin, Least Connections
+    - Layer 4 vs Layer 7 Load Balancing
+  - Content Delivery Networks (CDN)

@@ -1,0 +1,23 @@
+## 18. Web Development
+
+- **Frontend**
+  - DOM & Rendering
+  - CSS Layout (Flexbox, Grid, Box Model)
+  - Single Page Applications (SPA)
+  - Component-Based Frameworks (React, Vue, Angular concepts)
+  - State Management
+  - Virtual DOM
+- **Backend**
+  - Server-Side Rendering vs Client-Side Rendering
+  - Middleware
+  - Session/State Management
+  - Templating Engines
+- **Web Architecture**
+  - RESTful Design
+  - GraphQL
+  - WebSockets / Real-Time Communication
+  - Progressive Web Apps (PWA)
+- **Browser Internals**
+  - Same-Origin Policy / CORS
+  - Critical Rendering Path
+  - Event Loop & Microtasks/Macrotasks

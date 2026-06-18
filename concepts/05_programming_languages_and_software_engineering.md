@@ -1,0 +1,138 @@
+## 5. Programming Languages & Software Engineering
+
+- **Programming Paradigms**
+  - Imperative Programming
+  - Object-Oriented Programming
+    - Encapsulation, Inheritance, Polymorphism, Abstraction
+    - Composition over Inheritance
+    - SOLID Principles
+    - Design Patterns
+      - Singleton, Factory, Builder, Observer, Strategy, Decorator, Adapter, Visitor, Composite
+  - Functional Programming
+    - Pure Functions
+    - Immutability
+    - Higher-Order Functions
+    - Currying / Partial Application
+    - Monads, Functors, Applicatives
+    - Pattern Matching
+    - Tail Call Optimization
+  - Declarative & Logic Programming
+    - Prolog, Unification, Backtracking
+  - Procedural Programming
+  - Event-Driven Programming
+  - Concurrent / Reactive Programming
+    - Actor Model
+    - Reactive Streams / Observables
+- **Programming Languages**
+  - C
+    - Pointers
+      - Pointer Arithmetic
+      - Null Pointer
+        - Null Pointer Dereference -> Segfault
+      - Dangling Pointers
+      - Function Pointers
+      - Void Pointers
+    - Manual Memory Management (malloc/free)
+    - Undefined Behavior
+    - Preprocessor & Macros
+  - C++
+    - RAII
+    - Templates / Generic Programming
+    - Smart Pointers (unique_ptr, shared_ptr)
+    - Move Semantics / Rvalue References
+    - Operator Overloading
+    - Virtual Functions & vtables
+  - Java
+    - JVM & Bytecode
+    - Garbage Collection Tuning
+    - Interfaces vs Abstract Classes
+  - Python
+    - Dynamic Typing
+    - GIL (Global Interpreter Lock)
+    - Decorators
+    - Generators / Iterators
+    - List Comprehensions
+  - JavaScript / TypeScript
+    - Event Loop
+    - Closures
+    - Prototype-Based Inheritance
+    - Promises / async-await
+    - Type Inference (TypeScript)
+  - Rust
+    - Ownership & Borrowing
+    - Lifetimes
+    - Memory Safety without GC
+  - Go
+    - Goroutines
+    - Channels
+  - Haskell
+    - Lazy Evaluation
+    - Type Classes
+  - SQL (declarative query language)
+  - Assembly Languages
+- **Compilers & Interpreters**
+  - Lexical Analysis (Tokenization)
+  - Parsing
+    - Recursive Descent Parsing
+    - LL / LR Parsing
+    - Abstract Syntax Tree (AST)
+  - Semantic Analysis
+    - Type Checking
+    - Scope Resolution / Symbol Tables
+  - Intermediate Representation (IR)
+    - Three-Address Code
+    - Static Single Assignment (SSA)
+  - Optimization
+    - Constant Folding
+    - Dead Code Elimination
+    - Loop Unrolling
+    - Inlining
+    - Register Allocation (Graph Coloring)
+  - Code Generation
+  - Just-In-Time (JIT) Compilation
+  - Bytecode Interpreters
+  - Linking
+    - Static vs Dynamic Linking
+    - Symbol Resolution
+- **Software Engineering Practices**
+  - Software Development Life Cycle (SDLC)
+    - Waterfall Model
+    - Agile / Scrum / Kanban
+    - DevOps Culture
+  - Version Control
+    - Git
+      - Branching & Merging
+      - Rebase vs Merge
+      - Merge Conflicts
+      - Git Blame / Bisect
+    - Trunk-Based Development
+  - Testing
+    - Unit Testing
+    - Integration Testing
+    - End-to-End Testing
+    - Test-Driven Development (TDD)
+    - Mocking & Stubbing
+    - Mutation Testing
+    - Fuzz Testing
+    - Regression Testing
+  - Code Quality
+    - Code Smells
+    - Refactoring
+    - Technical Debt
+    - Cyclomatic Complexity
+    - Static Analysis / Linting
+  - Software Architecture
+    - Monolith vs Microservices
+    - Layered Architecture
+    - Event-Driven Architecture
+    - Hexagonal / Clean Architecture
+    - Domain-Driven Design
+    - Service-Oriented Architecture (SOA)
+  - CI/CD
+    - Continuous Integration
+    - Continuous Deployment/Delivery
+    - Build Pipelines
+  - Documentation & API Design
+    - REST API Design Principles
+    - API Versioning
+    - OpenAPI/Swagger

@@ -1,0 +1,21 @@
+## 15. Cloud Computing
+
+- **Service Models**
+  - IaaS, PaaS, SaaS
+- **Deployment Models**
+  - Public, Private, Hybrid Cloud
+- **Core Concepts**
+  - Virtualization & Containers
+    - Docker
+    - Kubernetes
+      - Pods, Services, Deployments
+      - Orchestration & Auto-scaling
+  - Serverless Computing / FaaS
+  - Infrastructure as Code (Terraform, CloudFormation)
+- **Reliability Engineering**
+  - SLAs, SLOs, SLIs
+  - Observability
+    - Logging, Metrics, Tracing
+    - Distributed Tracing (OpenTelemetry)
+  - Site Reliability Engineering (SRE)
+  - Blue-Green & Canary Deployments

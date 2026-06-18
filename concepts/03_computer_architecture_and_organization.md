@@ -1,0 +1,65 @@
+## 3. Computer Architecture & Organization
+
+- **Digital Logic**
+  - Boolean Algebra
+  - Logic Gates (AND, OR, NOT, NAND, NOR, XOR)
+  - Combinational Circuits (adders, multiplexers, decoders)
+  - Sequential Circuits
+    - Flip-Flops (SR, D, JK, T)
+    - Latches
+    - Finite State Machines (Moore, Mealy)
+  - Karnaugh Maps
+- **CPU Design**
+  - Instruction Set Architecture (ISA)
+    - RISC vs CISC
+    - x86, ARM, RISC-V
+  - Datapath & Control Unit
+  - Pipelining
+    - Pipeline Hazards (structural, data, control)
+    - Branch Prediction
+    - Speculative Execution
+    - Out-of-Order Execution
+    - Superscalar Execution
+  - Microarchitecture
+    - Register Renaming
+    - Reservation Stations
+    - Reorder Buffer
+  - SIMD / Vector Processing
+  - VLIW Architecture
+- **Memory Hierarchy**
+  - Registers
+  - Cache Memory
+    - Cache Levels (L1/L2/L3)
+    - Cache Mapping (direct, associative, set-associative)
+    - Cache Replacement Policies (LRU, LFU, FIFO)
+    - Cache Coherence
+      - MESI Protocol
+      - Snooping vs Directory-Based
+    - False Sharing
+  - Main Memory (DRAM, SRAM)
+  - Virtual Memory
+    - Paging
+    - Page Tables / Multi-Level Page Tables
+    - Translation Lookaside Buffer (TLB)
+    - Segmentation
+    - Page Fault Handling
+  - Memory-Mapped I/O
+- **Parallel & Distributed Architecture**
+  - Flynn's Taxonomy (SISD, SIMD, MISD, MIMD)
+  - Multicore Processors
+  - GPU Architecture
+    - CUDA / Shader Cores
+    - Warp Scheduling
+  - NUMA (Non-Uniform Memory Access)
+  - Interconnection Networks
+- **I/O Systems**
+  - Bus Architecture (PCIe, USB)
+  - Interrupts & Interrupt Handling
+  - DMA (Direct Memory Access)
+  - Polling vs Interrupt-Driven I/O
+- **Hardware Security**
+  - Side-Channel Attacks (timing, power analysis)
+  - Spectre / Meltdown
+  - Rowhammer
+  - Trusted Execution Environment (TEE)
+  - Hardware Security Module (HSM)

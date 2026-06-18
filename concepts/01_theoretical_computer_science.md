@@ -1,0 +1,91 @@
+## 1. Theoretical Computer Science
+
+- **Automata Theory & Formal Languages**
+  - Finite Automata
+    - Deterministic Finite Automaton (DFA)
+    - Nondeterministic Finite Automaton (NFA)
+    - NFA-to-DFA conversion (subset construction)
+    - DFA minimization (Myhill-Nerode theorem)
+  - Pushdown Automata
+    - Context-Free Grammars (CFG)
+    - Chomsky Normal Form
+    - CYK Algorithm
+  - Turing Machines
+    - Deterministic / Nondeterministic TMs
+    - Multi-tape Turing Machines
+    - Universal Turing Machine
+    - Church-Turing Thesis
+  - Chomsky Hierarchy (regular, context-free, context-sensitive, recursively enumerable)
+  - Regular Expressions
+    - Thompson's Construction
+    - Pumping Lemma
+- **Computability Theory**
+  - Decidability
+    - Halting Problem
+    - Rice's Theorem
+  - Undecidability & Reductions
+  - Recursive & Recursively Enumerable Sets
+  - Kolmogorov Complexity
+- **Computational Complexity Theory**
+  - Complexity Classes
+    - P, NP, NP-Complete, NP-Hard
+    - co-NP
+    - PSPACE, EXPTIME
+    - BPP, RP, ZPP (probabilistic classes)
+    - L, NL (logarithmic space)
+    - #P (counting problems)
+  - NP-Completeness
+    - Cook-Levin Theorem
+    - Reduction techniques (polynomial-time reduction)
+    - Classic NP-complete problems (SAT, 3-SAT, Vertex Cover, Hamiltonian Path, Knapsack)
+  - P vs NP Problem
+  - Approximation Algorithms
+    - Approximation Ratio
+    - PTAS / FPTAS
+  - Parameterized Complexity
+    - Fixed-Parameter Tractability
+  - Circuit Complexity
+- **Algorithm Analysis**
+  - Asymptotic Notation (Big-O, Big-Theta, Big-Omega)
+  - Recurrence Relations
+    - Master Theorem
+    - Substitution Method
+  - Amortized Analysis
+    - Aggregate Method
+    - Accounting Method
+    - Potential Method
+  - Average-Case vs Worst-Case Analysis
+  - Randomized Algorithms
+    - Las Vegas Algorithms
+    - Monte Carlo Algorithms
+- **Mathematical Logic & Foundations**
+  - Propositional Logic
+  - First-Order Logic
+  - Lambda Calculus
+    - Beta Reduction
+    - Church Encoding
+    - Y Combinator / Fixed-Point Combinators
+  - Type Theory
+    - Curry-Howard Correspondence
+    - Dependent Types
+  - Set Theory Basics
+  - Combinatorics
+    - Pigeonhole Principle
+    - Generating Functions
+  - Graph Theory
+    - Trees, DAGs, Bipartite Graphs
+    - Graph Coloring
+    - Planarity
+    - Network Flow (Max-Flow Min-Cut)
+- **Information Theory**
+  - Entropy (Shannon Entropy)
+  - Mutual Information
+  - Channel Capacity
+  - Error-Correcting Codes
+    - Hamming Code
+    - Reed-Solomon Code
+    - Convolutional Codes
+  - Data Compression Theory
+    - Huffman Coding
+    - Arithmetic Coding
+    - Lempel-Ziv (LZ77/LZ78)

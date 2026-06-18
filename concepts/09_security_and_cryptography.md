@@ -1,0 +1,54 @@
+## 9. Security & Cryptography
+
+- **Cryptography**
+  - Symmetric Cryptography
+    - Block Ciphers (AES, DES)
+    - Stream Ciphers
+    - Modes of Operation (CBC, GCM, ECB)
+  - Asymmetric Cryptography
+    - RSA
+    - Elliptic Curve Cryptography (ECC)
+    - Diffie-Hellman Key Exchange
+  - Hash Functions
+    - SHA family, MD5
+    - Collision Resistance
+    - HMAC
+  - Digital Signatures
+  - Public Key Infrastructure (PKI)
+    - Certificate Authorities
+    - X.509 Certificates
+  - Advanced Cryptographic Concepts
+    - Zero-Knowledge Proofs
+    - Homomorphic Encryption
+    - Secret Sharing (Shamir's Secret Sharing)
+    - Post-Quantum Cryptography
+- **Application Security**
+  - Authentication & Authorization
+    - OAuth / OpenID Connect
+    - Multi-Factor Authentication
+    - Session Management
+  - Common Vulnerabilities
+    - SQL Injection
+    - Cross-Site Scripting (XSS)
+    - Cross-Site Request Forgery (CSRF)
+    - Buffer Overflow
+      - Stack Smashing
+      - Return-Oriented Programming (ROP)
+    - Privilege Escalation
+    - Race Condition Exploits (TOCTOU)
+  - Secure Coding Practices
+    - Input Validation
+    - Principle of Least Privilege
+- **System & Network Security**
+  - Malware Types (virus, worm, trojan, ransomware, rootkit)
+  - Penetration Testing
+  - Social Engineering / Phishing
+  - Security Hardening
+    - ASLR (Address Space Layout Randomization)
+    - Stack Canaries
+    - DEP (Data Execution Prevention)
+- **Security Theory**
+  - Threat Modeling
+  - CIA Triad (Confidentiality, Integrity, Availability)
+  - Defense in Depth
+  - Zero Trust Architecture

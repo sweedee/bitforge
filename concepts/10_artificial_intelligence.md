@@ -1,0 +1,107 @@
+## 10. Artificial Intelligence
+
+- **Search & Planning**
+  - Uninformed Search (BFS, DFS, Iterative Deepening)
+  - Informed Search
+    - A* Search
+    - Greedy Best-First Search
+  - Adversarial Search
+    - Minimax Algorithm
+    - Alpha-Beta Pruning
+    - Monte Carlo Tree Search
+  - Constraint Satisfaction Problems
+    - Backtracking Search
+    - Arc Consistency
+  - Classical Planning (STRIPS)
+- **Knowledge Representation & Reasoning**
+  - Semantic Networks
+  - Ontologies
+  - Rule-Based Systems / Expert Systems
+  - Bayesian Networks
+  - Fuzzy Logic
+- **Machine Learning**
+  - Supervised Learning
+    - Regression
+      - Linear Regression
+      - Logistic Regression
+    - Classification
+      - Decision Trees
+      - Random Forests
+      - Support Vector Machines (SVM)
+        - Kernel Trick
+      - Naive Bayes
+      - k-Nearest Neighbors
+  - Unsupervised Learning
+    - Clustering
+      - k-Means
+      - Hierarchical Clustering
+      - DBSCAN
+    - Dimensionality Reduction
+      - Principal Component Analysis (PCA)
+      - t-SNE
+      - Autoencoders
+  - Ensemble Methods
+    - Bagging
+    - Boosting (AdaBoost, Gradient Boosting, XGBoost)
+    - Stacking
+  - Model Evaluation
+    - Cross-Validation
+    - Bias-Variance Tradeoff
+    - Overfitting / Underfitting / Regularization (L1/L2)
+    - Confusion Matrix, Precision/Recall, ROC-AUC
+  - Reinforcement Learning
+    - Markov Decision Processes
+    - Q-Learning
+    - Policy Gradient Methods
+    - Reward Shaping
+    - Exploration vs Exploitation
+- **Recommender Systems**
+  - Collaborative Filtering
+  - Content-Based Filtering
+- **Deep Learning**
+  - Neural Network Fundamentals
+    - Perceptron
+    - Activation Functions (ReLU, Sigmoid, Tanh)
+    - Backpropagation
+    - Gradient Descent Variants (SGD, Adam, RMSProp)
+    - Vanishing/Exploding Gradients
+  - Architectures
+    - Convolutional Neural Networks (CNNs)
+      - Pooling Layers
+      - Feature Maps
+    - Recurrent Neural Networks (RNNs)
+      - LSTM / GRU
+    - Transformers
+      - Self-Attention Mechanism
+      - Positional Encoding
+      - Multi-Head Attention
+    - Generative Adversarial Networks (GANs)
+    - Diffusion Models
+    - Autoencoders / Variational Autoencoders
+  - Training Techniques
+    - Dropout
+    - Batch Normalization
+    - Transfer Learning
+    - Fine-Tuning
+- **Natural Language Processing**
+  - Tokenization
+    - Byte Pair Encoding (BPE)
+  - Word Embeddings (Word2Vec, GloVe)
+  - Language Models
+    - n-gram Models
+    - Large Language Models (LLMs)
+  - Named Entity Recognition
+  - Sentiment Analysis
+  - Machine Translation
+  - Retrieval-Augmented Generation (RAG)
+- **Computer Vision**
+  - Image Processing Basics
+    - Convolution / Filters
+    - Edge Detection
+  - Object Detection (YOLO, R-CNN)
+  - Image Segmentation
+  - Optical Character Recognition (OCR)
+- **AI Ethics & Safety**
+  - Bias & Fairness
+  - Explainability / Interpretability
+  - AI Alignment

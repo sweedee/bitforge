@@ -1,0 +1,45 @@
+## 8. Distributed Systems
+
+- **Foundational Concepts**
+  - Distributed System Properties (transparency, scalability)
+  - Logical Clocks
+    - Lamport Timestamps
+    - Vector Clocks
+  - Happens-Before Relation
+- **Consensus**
+  - Byzantine Fault Tolerance
+  - Paxos
+  - Raft
+  - Zab (ZooKeeper Atomic Broadcast)
+  - Quorum Systems
+- **Fault Tolerance**
+  - Replication Strategies
+  - Failure Detection
+    - Heartbeats
+    - Gossip Protocols
+  - Split-Brain Problem
+  - Chaos Engineering
+- **Distributed Data Structures**
+  - Distributed Hash Tables (DHT)
+    - Consistent Hashing
+    - Chord Protocol
+  - CRDTs (Conflict-free Replicated Data Types)
+- **Coordination & Communication**
+  - Remote Procedure Calls (RPC)
+    - gRPC
+  - Message Queues / Brokers
+    - Publish-Subscribe Pattern
+    - Kafka-style Log-Based Messaging
+  - Service Discovery
+  - Leader Election
+- **Scalability Patterns**
+  - Horizontal vs Vertical Scaling
+  - Sharding
+  - Caching Strategies
+    - Cache-Aside, Write-Through, Write-Back
+    - Cache Invalidation
+    - Thundering Herd Problem
+  - Rate Limiting
+    - Token Bucket / Leaky Bucket Algorithms
+  - Circuit Breaker Pattern
+  - Idempotency

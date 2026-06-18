@@ -1,0 +1,119 @@
+## 2. Data Structures & Algorithms
+
+- **Data Structures**
+  - Linear Structures
+    - Array, Dynamic Array
+    - Linked List (singly, doubly, circular)
+    - Stack, Queue, Deque
+  - Trees
+    - Binary Tree
+    - Binary Search Tree (BST)
+    - Self-Balancing Trees
+      - AVL Tree
+      - Red-Black Tree
+      - Splay Tree
+      - Treap
+      - B-Tree / B+ Tree
+      - 2-3 Tree
+    - Heaps
+      - Binary Heap
+      - Fibonacci Heap
+      - Binomial Heap
+      - Pairing Heap
+    - Tries (Prefix Trees)
+      - Radix Tree / Patricia Trie
+      - Suffix Tree / Suffix Array
+    - Segment Tree
+    - Fenwick Tree (Binary Indexed Tree)
+    - Interval Tree
+    - K-D Tree
+    - Quadtree / Octree
+    - R-Tree
+  - Hash-Based Structures
+    - Hash Table
+      - Collision Resolution (chaining, open addressing, linear/quadratic probing)
+      - Load Factor & Rehashing
+      - Universal Hashing
+      - Cuckoo Hashing
+      - Robin Hood Hashing
+    - Bloom Filter
+    - HyperLogLog
+  - Graph Representations
+    - Adjacency List / Matrix
+    - Disjoint Set (Union-Find)
+      - Union by Rank
+      - Path Compression
+  - Probabilistic & Succinct Structures
+    - Skip List
+    - Count-Min Sketch
+    - Merkle Tree
+- **Sorting Algorithms**
+  - Comparison-Based
+    - Bubble Sort, Insertion Sort, Selection Sort
+    - Merge Sort
+    - Quick Sort (and Median-of-Medians pivot selection)
+    - Heap Sort
+    - Tim Sort
+    - Introsort
+  - Non-Comparison-Based
+    - Counting Sort
+    - Radix Sort
+    - Bucket Sort
+  - Stability in Sorting
+  - External Sorting
+- **Searching Algorithms**
+  - Linear Search, Binary Search
+  - Interpolation Search
+  - Exponential Search
+  - Ternary Search
+- **Graph Algorithms**
+  - Traversal: BFS, DFS
+  - Shortest Path
+    - Dijkstra's Algorithm
+    - Bellman-Ford Algorithm
+    - Floyd-Warshall Algorithm
+    - A* Search
+    - Johnson's Algorithm
+  - Minimum Spanning Tree
+    - Kruskal's Algorithm
+    - Prim's Algorithm
+    - Borůvka's Algorithm
+  - Topological Sort
+  - Strongly Connected Components
+    - Tarjan's Algorithm
+    - Kosaraju's Algorithm
+  - Articulation Points & Bridges
+  - Network Flow
+    - Ford-Fulkerson / Edmonds-Karp
+    - Dinic's Algorithm
+  - Matching
+    - Bipartite Matching (Hopcroft-Karp)
+    - Stable Marriage Problem
+- **Algorithm Design Paradigms**
+  - Divide and Conquer
+  - Dynamic Programming
+    - Memoization vs Tabulation
+    - Knapsack Problem
+    - Longest Common Subsequence
+    - Edit Distance
+    - Bitmask DP
+  - Greedy Algorithms
+  - Backtracking
+  - Branch and Bound
+  - Two Pointers / Sliding Window
+  - Bit Manipulation Tricks
+- **String Algorithms**
+  - Pattern Matching
+    - Knuth-Morris-Pratt (KMP)
+    - Rabin-Karp
+    - Boyer-Moore
+    - Z-Algorithm
+  - Edit Distance (Levenshtein)
+  - Longest Common Substring/Subsequence
+  - String Hashing
+- **Computational Geometry**
+  - Convex Hull (Graham Scan, Jarvis March)
+  - Line Sweep Algorithms
+  - Closest Pair of Points
+  - Voronoi Diagrams
+  - Delaunay Triangulation

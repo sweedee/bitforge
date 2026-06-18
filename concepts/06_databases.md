@@ -1,0 +1,65 @@
+## 6. Databases
+
+- **Relational Databases**
+  - Relational Model
+    - Tables, Tuples, Attributes, Keys
+    - Primary/Foreign/Candidate Keys
+  - Normalization
+    - 1NF, 2NF, 3NF, BCNF
+  - SQL
+    - DDL, DML, DCL, TCL
+    - Joins (inner, outer, cross, self)
+    - Subqueries
+    - Window Functions
+  - Query Processing & Optimization
+    - Query Execution Plans
+    - Indexing
+      - B-Tree Index
+      - Hash Index
+      - Bitmap Index
+    - Cost-Based Optimization
+  - Transactions
+    - ACID Properties
+    - Isolation Levels
+      - Read Uncommitted, Read Committed, Repeatable Read, Serializable
+    - Concurrency Control
+      - Two-Phase Locking
+      - Optimistic Concurrency Control
+      - Multi-Version Concurrency Control (MVCC)
+    - Deadlock in Transactions
+  - Recovery
+    - Write-Ahead Logging (WAL)
+    - Checkpointing
+    - ARIES Recovery Algorithm
+- **NoSQL Databases**
+  - Key-Value Stores (Redis, DynamoDB)
+  - Document Stores (MongoDB)
+  - Column-Family Stores (Cassandra, HBase)
+  - Graph Databases (Neo4j)
+    - Property Graph Model
+    - Graph Query Languages (Cypher, Gremlin)
+  - Time-Series Databases
+- **Distributed Databases**
+  - CAP Theorem
+  - PACELC Theorem
+  - Sharding / Partitioning
+  - Replication
+    - Master-Slave / Leader-Follower
+    - Multi-Master Replication
+    - Quorum-Based Replication
+  - Consistency Models
+    - Strong Consistency
+    - Eventual Consistency
+    - Causal Consistency
+  - Distributed Transactions
+    - Two-Phase Commit
+    - Three-Phase Commit
+    - Saga Pattern
+- **Data Warehousing & OLAP**
+  - Star Schema / Snowflake Schema
+  - ETL (Extract, Transform, Load)
+  - OLAP vs OLTP
+  - Data Lakes
+- **Vector Databases & Embeddings Storage**
+  - Approximate Nearest Neighbor Search (ANN)
+  - HNSW (Hierarchical Navigable Small World)

@@ -1,0 +1,64 @@
+## 4. Operating Systems
+
+- **Process Management**
+  - Process vs Thread
+  - Process Control Block (PCB)
+  - Context Switching
+  - Scheduling Algorithms
+    - FCFS, Round Robin
+    - Shortest Job First
+    - Priority Scheduling
+    - Multilevel Feedback Queue
+    - Completely Fair Scheduler (CFS)
+  - Inter-Process Communication (IPC)
+    - Pipes, Named Pipes (FIFOs)
+    - Message Queues
+    - Shared Memory
+    - Sockets
+    - Signals
+- **Concurrency & Synchronization**
+  - Race Conditions
+  - Critical Section Problem
+  - Mutexes, Semaphores
+  - Monitors
+  - Deadlock
+    - Coffman Conditions
+    - Deadlock Detection / Prevention / Avoidance
+    - Banker's Algorithm
+  - Livelock & Starvation
+  - Producer-Consumer Problem
+  - Readers-Writers Problem
+  - Dining Philosophers Problem
+  - Lock-Free / Wait-Free Programming
+    - Compare-And-Swap (CAS)
+    - ABA Problem
+    - Memory Ordering / Barriers
+- **Memory Management**
+  - Dynamic Memory Allocation
+    - Heap vs Stack
+    - Memory Fragmentation (internal/external)
+    - Buddy Allocation
+  - Garbage Collection
+    - Mark-and-Sweep
+    - Reference Counting
+    - Generational GC
+    - Copying / Compacting GC
+  - Swapping & Thrashing
+- **File Systems**
+  - File Allocation Methods (contiguous, linked, indexed)
+  - inodes
+  - Journaling File Systems
+  - Common File Systems (ext4, NTFS, FAT32, ZFS, Btrfs)
+  - Directory Structures
+- **OS Design**
+  - Kernel Architectures (monolithic, microkernel, hybrid)
+  - System Calls
+  - User Mode vs Kernel Mode
+  - Virtualization
+    - Hypervisors (Type 1 / Type 2)
+    - Containers vs VMs
+    - Namespaces & cgroups
+  - Boot Process (BIOS/UEFI, Bootloader)
+- **Device Management**
+  - Device Drivers
+  - I/O Scheduling
