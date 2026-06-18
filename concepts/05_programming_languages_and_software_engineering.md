@@ -1,3 +1,6 @@
+
+
+
 ## 5. Programming Languages & Software Engineering
 
 - **Programming Paradigms**
@@ -23,14 +26,6 @@
   - Concurrent / Reactive Programming
     - Actor Model
     - Reactive Streams / Observables
-  - Generic Programming
-  - Metaprogramming
-    - Reflection
-    - Macros (Lisp-style)
-    - Code Generation / Templates
-  - Aspect-Oriented Programming
-  - Stack-Based / Concatenative Programming (Forth, Factor)
-  - Structured Programming
 - **Type Systems**
   - Static vs Dynamic Typing
   - Strong vs Weak Typing
@@ -140,11 +135,7 @@
     - Let It Crash Philosophy
   - Lisp / Scheme
     - S-Expressions
-    - Homoiconicity
   - SQL (declarative query language)
-  - Assembly Languages
-  - Shell Scripting (Bash/PowerShell)
-  - WebAssembly (Wasm)
 - **Compilers & Interpreters**
   - Lexical Analysis (Tokenization)
   - Parsing
@@ -161,11 +152,8 @@
     - Constant Folding
     - Dead Code Elimination
     - Loop Unrolling
-    - Common Subexpression Elimination
     - Inlining
     - Tail Call Elimination
-    - Escape Analysis
-    - Register Allocation (Graph Coloring)
   - Code Generation
   - Just-In-Time (JIT) Compilation
   - Ahead-of-Time (AOT) Compilation
