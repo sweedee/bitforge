@@ -3,13 +3,31 @@
 - **Process Management**
   - Process vs Thread
   - Process Control Block (PCB)
+  - Process Lifecycle / States (new, ready, running, waiting, terminated)
+  - Process Creation (fork, exec, spawn)
+  - Zombie & Orphan Processes
+  - Threads
+    - Thread Control Block (TCB)
+    - User-Level vs Kernel-Level Threads
+    - Thread Pools
+    - Green Threads / Fibers
+    - Multithreading Models (many-to-one, one-to-one, many-to-many)
   - Context Switching
   - Scheduling Algorithms
     - FCFS, Round Robin
     - Shortest Job First
+    - Shortest Remaining Time First
     - Priority Scheduling
+    - Multilevel Queue Scheduling
     - Multilevel Feedback Queue
     - Completely Fair Scheduler (CFS)
+    - Earliest Deadline First (Real-Time Scheduling) <!-- flag: obscure -->
+    - Rate-Monotonic Scheduling <!-- flag: obscure -->
+    - Lottery Scheduling <!-- flag: obscure -->
+    - Scheduling Metrics (turnaround time, waiting time, response time, throughput)
+    - Preemptive vs Non-Preemptive Scheduling
+    - Affinity Scheduling / CPU Pinning <!-- flag: obscure -->
+    - Gang Scheduling <!-- flag: obscure -->
   - Inter-Process Communication (IPC)
     - Pipes, Named Pipes (FIFOs)
     - Message Queues
@@ -20,45 +38,105 @@
   - Race Conditions
   - Critical Section Problem
   - Mutexes, Semaphores
+  - Spinlocks
+  - Condition Variables
+  - Read-Write Locks
+  - Barriers (Synchronization Primitive)
   - Monitors
+  - Atomic Operations
   - Deadlock
     - Coffman Conditions
     - Deadlock Detection / Prevention / Avoidance
     - Banker's Algorithm
+    - Resource Allocation Graph
   - Livelock & Starvation
+  - Priority Inversion
+    - Priority Inheritance Protocol <!-- flag: obscure -->
   - Producer-Consumer Problem
   - Readers-Writers Problem
   - Dining Philosophers Problem
+  - Sleeping Barber Problem <!-- flag: obscure -->
   - Lock-Free / Wait-Free Programming
     - Compare-And-Swap (CAS)
     - ABA Problem
     - Memory Ordering / Barriers
+  - Peterson's Algorithm <!-- flag: obscure -->
 - **Memory Management**
   - Dynamic Memory Allocation
     - Heap vs Stack
     - Memory Fragmentation (internal/external)
     - Buddy Allocation
+    - Slab Allocation
+    - First-Fit / Best-Fit / Worst-Fit Allocation
+  - Virtual Memory Management (OS Policy)
+    - Demand Paging
+    - Page Replacement Algorithms
+      - LRU, FIFO, Optimal (Belady's Algorithm)
+      - Clock / Second-Chance Algorithm
+      - Working Set Model
+    - Belady's Anomaly <!-- flag: obscure -->
+    - Copy-on-Write
+    - Memory-Mapped Files (mmap)
+    - Overcommit & Swap Space
   - Garbage Collection
     - Mark-and-Sweep
     - Reference Counting
     - Generational GC
     - Copying / Compacting GC
   - Swapping & Thrashing
+  - Out-of-Memory (OOM) Killer <!-- flag: obscure -->
 - **File Systems**
   - File Allocation Methods (contiguous, linked, indexed)
   - inodes
+  - File Allocation Table (FAT)
+  - Superblock
+  - Free Space Management (bitmap, free list)
   - Journaling File Systems
+  - Log-Structured File Systems <!-- flag: obscure -->
+  - Copy-on-Write File Systems
   - Common File Systems (ext4, NTFS, FAT32, ZFS, Btrfs)
+  - Network File Systems (NFS, SMB/CIFS)
+  - Distributed File Systems (HDFS, GFS) <!-- flag: obscure -->
   - Directory Structures
+    - Hard Links vs Symbolic Links
+    - Mount Points
+  - File Permissions & Access Control Lists (ACLs)
+  - File Locking
+  - Virtual File System (VFS) Abstraction
+  - Buffer Cache / Page Cache
 - **OS Design**
   - Kernel Architectures (monolithic, microkernel, hybrid)
+  - Exokernel <!-- flag: obscure -->
+  - Unikernel <!-- flag: obscure -->
   - System Calls
   - User Mode vs Kernel Mode
+  - Interrupts & Interrupt Handlers
+    - Traps & Exceptions
+    - Interrupt Vector Table
   - Virtualization
     - Hypervisors (Type 1 / Type 2)
+    - Full Virtualization vs Paravirtualization
     - Containers vs VMs
     - Namespaces & cgroups
+    - Emulation
   - Boot Process (BIOS/UEFI, Bootloader)
+  - Init Systems (init, systemd)
+  - Shells & Command Interpreters
+- **Protection & Security**
+  - Access Control Models (DAC, MAC, RBAC)
+  - Protection Rings
+  - Capability-Based Security <!-- flag: obscure -->
+  - Sandboxing
+  - System Call Filtering (seccomp) <!-- flag: obscure -->
+  - Pluggable Authentication Modules (PAM) <!-- flag: obscure -->
 - **Device Management**
   - Device Drivers
   - I/O Scheduling
+    - Disk Scheduling Algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK)
+  - I/O Techniques
+    - Polling
+    - Interrupt-Driven I/O
+    - Direct Memory Access (DMA)
+  - Spooling
+  - Buffering
+  - Device-Independent I/O Software

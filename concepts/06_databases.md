@@ -4,62 +4,183 @@
   - Relational Model
     - Tables, Tuples, Attributes, Keys
     - Primary/Foreign/Candidate Keys
+    - Relational Algebra
+      - Selection, Projection, Union, Set Difference
+      - Cartesian Product
+      - Join (Theta, Equijoin, Natural Join)
+      - Division <!-- flag: obscure -->
+    - Tuple Relational Calculus <!-- flag: obscure -->
+    - Domain Relational Calculus <!-- flag: obscure -->
+    - Closed-World Assumption <!-- flag: obscure -->
+    - Null Value Semantics (Three-Valued Logic) <!-- flag: obscure -->
+  - Database Design
+    - Entity-Relationship (ER) Modeling
+      - Entities, Attributes, Relationships
+      - Cardinality & Participation Constraints
+      - Weak Entities
+      - Enhanced ER (EER) / Generalization-Specialization <!-- flag: obscure -->
+    - Functional Dependencies
+      - Armstrong's Axioms <!-- flag: obscure -->
+      - Closure of Attributes <!-- flag: obscure -->
+      - Candidate Key Derivation
+    - Multivalued Dependencies <!-- flag: obscure -->
+    - Schema Mapping (Logical/Physical Design)
   - Normalization
     - 1NF, 2NF, 3NF, BCNF
+    - 4NF, 5NF (Project-Join Normal Form) <!-- flag: obscure -->
+    - 6NF <!-- flag: obscure -->
+    - Denormalization
   - SQL
     - DDL, DML, DCL, TCL
     - Joins (inner, outer, cross, self)
     - Subqueries
+      - Correlated Subqueries
+      - Common Table Expressions (CTEs)
+      - Recursive CTEs
     - Window Functions
+    - Aggregate Functions & GROUP BY / HAVING
+    - Set Operations (UNION, INTERSECT, EXCEPT)
+    - Views
+      - Materialized Views
+    - Stored Procedures & Triggers
+    - User-Defined Functions
+    - PIVOT / UNPIVOT <!-- flag: obscure -->
+    - Constraints (CHECK, UNIQUE, NOT NULL, FOREIGN KEY)
+    - Schema Migrations
+    - SQL Injection <!-- flag: off-theme -->
+    - Object-Relational Mapping (ORM)
+    - Query-by-Example (QBE) <!-- flag: obscure -->
   - Query Processing & Optimization
+    - Query Parsing & Rewriting
+    - Relational Algebra Optimization (Predicate Pushdown, Projection Pushdown)
     - Query Execution Plans
+    - Join Algorithms
+      - Nested Loop Join
+      - Sort-Merge Join
+      - Hash Join
     - Indexing
       - B-Tree Index
       - Hash Index
       - Bitmap Index
+      - Covering Index
+      - Composite (Multi-Column) Index
+      - Clustered vs Non-Clustered Index
+      - Partial Index <!-- flag: obscure -->
+      - Index-Organized Table <!-- flag: obscure -->
+      - Inverted Index
+      - Full-Text Index
+      - GiST / GIN Index <!-- flag: obscure -->
     - Cost-Based Optimization
+      - Cardinality Estimation
+      - Selectivity Estimation
+      - Histogram-Based Statistics <!-- flag: obscure -->
+      - Join Order Optimization
+    - Rule-Based Optimization <!-- flag: obscure -->
+    - Query Caching
+    - Explain/Analyze Tooling
+  - Storage & File Organization
+    - Heap Files
+    - Sorted Files (ISAM) <!-- flag: obscure -->
+    - Row-Oriented Storage
+    - Column-Oriented Storage
+    - Page/Block Structure
+    - Buffer Pool Management
+    - Tablespaces <!-- flag: obscure -->
+    - Data Compression (Dictionary Encoding, Run-Length Encoding)
   - Transactions
     - ACID Properties
     - Isolation Levels
       - Read Uncommitted, Read Committed, Repeatable Read, Serializable
     - Concurrency Control
       - Two-Phase Locking
+      - Strict Two-Phase Locking <!-- flag: obscure -->
       - Optimistic Concurrency Control
       - Multi-Version Concurrency Control (MVCC)
+      - Timestamp Ordering <!-- flag: obscure -->
+      - Serializable Snapshot Isolation <!-- flag: obscure -->
+    - Concurrency Anomalies
+      - Dirty Read, Non-Repeatable Read, Phantom Read
+      - Lost Update, Write Skew <!-- flag: obscure -->
     - Deadlock in Transactions
+      - Deadlock Detection (Wait-For Graph) <!-- flag: obscure -->
+      - Deadlock Prevention
+    - Savepoints <!-- flag: obscure -->
   - Recovery
     - Write-Ahead Logging (WAL)
     - Checkpointing
     - ARIES Recovery Algorithm
+    - Shadow Paging <!-- flag: obscure -->
+    - Log-Based Recovery (Undo/Redo Logging) <!-- flag: obscure -->
+    - Backup Strategies
+      - Full, Incremental, Differential Backup
+      - Point-in-Time Recovery
 - **NoSQL Databases**
   - Key-Value Stores (Redis, DynamoDB)
   - Document Stores (MongoDB)
   - Column-Family Stores (Cassandra, HBase)
+  - Wide-Column Stores (BigTable) <!-- flag: obscure -->
   - Graph Databases (Neo4j)
     - Property Graph Model
     - Graph Query Languages (Cypher, Gremlin)
+    - SPARQL / RDF Triple Stores <!-- flag: obscure -->
   - Time-Series Databases
+  - Search Engines / Search Indexes (Elasticsearch, Solr) <!-- flag: obscure -->
+  - NewSQL Databases <!-- flag: obscure -->
+  - Multi-Model Databases <!-- flag: obscure -->
+  - Schema-on-Read vs Schema-on-Write
+  - BASE Properties (Basically Available, Soft state, Eventual consistency)
 - **Distributed Databases**
   - CAP Theorem
   - PACELC Theorem
   - Sharding / Partitioning
+    - Horizontal vs Vertical Partitioning
+    - Range Partitioning
+    - Hash Partitioning
+    - Consistent Hashing (for Sharding)
+    - Partition Key Design / Hotspots <!-- flag: obscure -->
   - Replication
     - Master-Slave / Leader-Follower
     - Multi-Master Replication
     - Quorum-Based Replication
+    - Synchronous vs Asynchronous Replication
+    - Conflict Resolution (Last-Write-Wins, Vector Clocks) <!-- flag: obscure -->
   - Consistency Models
     - Strong Consistency
     - Eventual Consistency
     - Causal Consistency
+    - Read-Your-Writes Consistency <!-- flag: obscure -->
+    - Linearizability <!-- flag: obscure -->
   - Distributed Transactions
     - Two-Phase Commit
     - Three-Phase Commit
     - Saga Pattern
+    - Distributed Query Processing <!-- flag: obscure -->
+  - Federated Databases <!-- flag: obscure -->
 - **Data Warehousing & OLAP**
   - Star Schema / Snowflake Schema
+  - Fact Tables & Dimension Tables
+  - Slowly Changing Dimensions <!-- flag: obscure -->
   - ETL (Extract, Transform, Load)
+  - ELT (Extract, Load, Transform) <!-- flag: obscure -->
+  - Data Pipelines
   - OLAP vs OLTP
+  - OLAP Operations (Roll-up, Drill-down, Slice, Dice, Pivot) <!-- flag: obscure -->
+  - Data Cubes <!-- flag: obscure -->
   - Data Lakes
+  - Data Lakehouse <!-- flag: obscure -->
+  - Data Marts <!-- flag: obscure -->
+  - Data Mining (Association Rule Mining, Apriori Algorithm) <!-- flag: obscure -->
+  - Master Data Management <!-- flag: off-theme -->
+  - Data Governance & Lineage <!-- flag: off-theme -->
 - **Vector Databases & Embeddings Storage**
   - Approximate Nearest Neighbor Search (ANN)
   - HNSW (Hierarchical Navigable Small World)
+  - Product Quantization <!-- flag: obscure -->
+  - Locality-Sensitive Hashing (for ANN) <!-- flag: obscure -->
+  - Inverted File Index (IVF) <!-- flag: obscure -->
+- **Database Administration & Reliability**
+  - Database Connection Pooling
+  - High Availability & Failover
+  - Database Migrations / Versioning
+  - Database Monitoring & Profiling <!-- flag: off-theme -->
+  - Multi-Tenancy Patterns <!-- flag: obscure -->

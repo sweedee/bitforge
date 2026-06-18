@@ -2,31 +2,82 @@
 
 - **Cryptography**
   - Symmetric Cryptography
-    - Block Ciphers (AES, DES)
-    - Stream Ciphers
-    - Modes of Operation (CBC, GCM, ECB)
+    - Block Ciphers (AES, DES, 3DES, Blowfish, Twofish, Serpent)
+    - Stream Ciphers (RC4 <!-- flag: obscure -->, ChaCha20, Salsa20)
+    - Modes of Operation (CBC, GCM, ECB, CTR, CFB, OFB)
+    - Feistel Network
+    - Substitution-Permutation Network
+    - S-Boxes
+    - Key Schedule / Key Expansion
+    - Initialization Vector (IV) / Nonce
+    - Padding Schemes (PKCS#7) <!-- flag: obscure -->
+    - Authenticated Encryption (AEAD)
   - Asymmetric Cryptography
     - RSA
     - Elliptic Curve Cryptography (ECC)
     - Diffie-Hellman Key Exchange
+    - Elliptic Curve Diffie-Hellman (ECDH)
+    - ElGamal Encryption <!-- flag: obscure -->
+    - Lattice-Based Cryptography
+    - Trapdoor Function
+    - Key Encapsulation Mechanism (KEM) <!-- flag: obscure -->
   - Hash Functions
     - SHA family, MD5
+    - SHA-3 / Keccak
+    - BLAKE2 / BLAKE3 <!-- flag: obscure -->
     - Collision Resistance
+    - Preimage Resistance
+    - Avalanche Effect
     - HMAC
+    - Key Derivation Functions (PBKDF2, bcrypt, scrypt, Argon2)
+    - Salting
+    - Rainbow Tables
+    - Merkle Tree
   - Digital Signatures
+    - RSA Signatures
+    - DSA / ECDSA
+    - EdDSA (Ed25519) <!-- flag: obscure -->
+    - Schnorr Signatures <!-- flag: obscure -->
+    - Blind Signatures <!-- flag: obscure -->
   - Public Key Infrastructure (PKI)
     - Certificate Authorities
     - X.509 Certificates
+    - Certificate Chains of Trust
+    - Certificate Revocation (CRL, OCSP) <!-- flag: obscure -->
+    - Certificate Pinning
+    - Web of Trust <!-- flag: obscure -->
+    - Key Management / Key Rotation
+    - Hardware Security Module (HSM) <!-- flag: obscure -->
+  - Cryptanalysis
+    - Frequency Analysis
+    - Brute-Force Attack
+    - Birthday Attack
+    - Side-Channel Attacks (Timing, Power Analysis) <!-- flag: obscure -->
+    - Chosen-Plaintext / Chosen-Ciphertext Attack <!-- flag: obscure -->
+    - Padding Oracle Attack <!-- flag: obscure -->
+    - Meet-in-the-Middle Attack <!-- flag: obscure -->
   - Advanced Cryptographic Concepts
     - Zero-Knowledge Proofs
     - Homomorphic Encryption
     - Secret Sharing (Shamir's Secret Sharing)
     - Post-Quantum Cryptography
+    - Forward Secrecy
+    - Perfect Forward Secrecy
+    - Quantum Key Distribution <!-- flag: obscure -->
+    - Blockchain Cryptographic Foundations <!-- flag: obscure -->
 - **Application Security**
   - Authentication & Authorization
     - OAuth / OpenID Connect
     - Multi-Factor Authentication
     - Session Management
+    - Single Sign-On (SSO)
+    - SAML <!-- flag: obscure -->
+    - Kerberos
+    - Password Hashing & Storage
+    - Role-Based Access Control (RBAC)
+    - Attribute-Based Access Control (ABAC) <!-- flag: obscure -->
+    - JSON Web Tokens (JWT)
+    - Biometric Authentication
   - Common Vulnerabilities
     - SQL Injection
     - Cross-Site Scripting (XSS)
@@ -34,21 +85,90 @@
     - Buffer Overflow
       - Stack Smashing
       - Return-Oriented Programming (ROP)
+      - Heap Overflow <!-- flag: obscure -->
+      - Format String Vulnerability <!-- flag: obscure -->
+      - Integer Overflow Exploits
     - Privilege Escalation
     - Race Condition Exploits (TOCTOU)
+    - Insecure Deserialization
+    - Server-Side Request Forgery (SSRF)
+    - XML External Entity (XXE) Injection <!-- flag: obscure -->
+    - Command Injection
+    - Path Traversal / Directory Traversal
+    - Clickjacking <!-- flag: obscure -->
+    - Broken Access Control
+    - Security Misconfiguration
+    - Sensitive Data Exposure
+    - Use-After-Free <!-- flag: obscure -->
+    - Supply Chain Attacks (Dependency Confusion, Typosquatting) <!-- flag: obscure -->
   - Secure Coding Practices
     - Input Validation
+    - Output Encoding / Escaping
     - Principle of Least Privilege
+    - Sandboxing
+    - Fuzzing
+    - Static Application Security Testing (SAST) <!-- flag: obscure -->
+    - Dynamic Application Security Testing (DAST) <!-- flag: obscure -->
+    - Threat Modeling Frameworks (STRIDE) <!-- flag: obscure -->
 - **System & Network Security**
   - Malware Types (virus, worm, trojan, ransomware, rootkit)
+    - Spyware <!-- flag: obscure -->
+    - Adware <!-- flag: obscure -->
+    - Botnet
+    - Keylogger
+    - Logic Bomb <!-- flag: obscure -->
+    - Polymorphic / Metamorphic Malware <!-- flag: obscure -->
+    - Advanced Persistent Threat (APT) <!-- flag: obscure -->
   - Penetration Testing
+    - Reconnaissance / Footprinting <!-- flag: obscure -->
+    - Vulnerability Scanning
+    - Exploit Development <!-- flag: obscure -->
+    - Red Team / Blue Team
+    - Capture the Flag (CTF) <!-- flag: off-theme -->
+    - Bug Bounty Programs <!-- flag: off-theme -->
   - Social Engineering / Phishing
+    - Spear Phishing <!-- flag: obscure -->
+    - Pretexting <!-- flag: obscure -->
+    - Baiting / Tailgating <!-- flag: obscure -->
   - Security Hardening
     - ASLR (Address Space Layout Randomization)
     - Stack Canaries
     - DEP (Data Execution Prevention)
+    - Control Flow Integrity <!-- flag: obscure -->
+    - Sandboxing / Containerization Isolation
+    - Patch Management <!-- flag: off-theme -->
+  - Network Security
+    - Firewalls (Packet-Filtering, Stateful, Next-Gen)
+    - Intrusion Detection System (IDS)
+    - Intrusion Prevention System (IPS)
+    - Virtual Private Network (VPN)
+    - Transport Layer Security (TLS) / SSL
+    - TLS Handshake
+    - Perfect Forward Secrecy in TLS <!-- flag: obscure -->
+    - Network Segmentation
+    - Demilitarized Zone (DMZ) <!-- flag: obscure -->
+    - Denial-of-Service (DoS) / Distributed Denial-of-Service (DDoS)
+    - Man-in-the-Middle Attack
+    - ARP Spoofing <!-- flag: obscure -->
+    - DNS Spoofing / Cache Poisoning <!-- flag: obscure -->
+    - Port Scanning
+    - Honeypots <!-- flag: obscure -->
+    - Network Access Control (802.1X) <!-- flag: obscure -->
+  - Cloud & Infrastructure Security
+    - Identity and Access Management (IAM)
+    - Secrets Management (Vaults) <!-- flag: obscure -->
+    - Container Security <!-- flag: obscure -->
+    - Security Information and Event Management (SIEM) <!-- flag: obscure -->
+    - Data Loss Prevention (DLP) <!-- flag: off-theme -->
 - **Security Theory**
   - Threat Modeling
   - CIA Triad (Confidentiality, Integrity, Availability)
+  - Non-Repudiation <!-- flag: obscure -->
+  - AAA Framework (Authentication, Authorization, Accounting) <!-- flag: obscure -->
   - Defense in Depth
   - Zero Trust Architecture
+  - Attack Surface
+  - Security by Design
+  - Principle of Fail-Safe Defaults <!-- flag: obscure -->
+  - Risk Assessment / Risk Management <!-- flag: off-theme -->
+  - Security Compliance Frameworks (ISO 27001, NIST) <!-- flag: off-theme -->

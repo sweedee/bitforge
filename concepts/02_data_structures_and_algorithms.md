@@ -5,6 +5,9 @@
     - Array, Dynamic Array
     - Linked List (singly, doubly, circular)
     - Stack, Queue, Deque
+    - Circular Buffer (Ring Buffer)
+    - Sparse Array
+    - Skip-List-Based Ordered List <!-- flag: obscure -->
   - Trees
     - Binary Tree
     - Binary Search Tree (BST)
@@ -15,20 +18,44 @@
       - Treap
       - B-Tree / B+ Tree
       - 2-3 Tree
+      - 2-3-4 Tree <!-- flag: obscure -->
+      - Scapegoat Tree <!-- flag: obscure -->
+      - AA Tree <!-- flag: obscure -->
+      - Weight-Balanced Tree <!-- flag: obscure -->
     - Heaps
       - Binary Heap
       - Fibonacci Heap
       - Binomial Heap
       - Pairing Heap
+      - Leftist Heap <!-- flag: obscure -->
+      - Skew Heap <!-- flag: obscure -->
+      - Min-Max Heap <!-- flag: obscure -->
+      - d-ary Heap <!-- flag: obscure -->
     - Tries (Prefix Trees)
       - Radix Tree / Patricia Trie
       - Suffix Tree / Suffix Array
+      - Suffix Automaton <!-- flag: obscure -->
+      - Ternary Search Tree <!-- flag: obscure -->
+      - DAWG (Directed Acyclic Word Graph) <!-- flag: obscure -->
     - Segment Tree
+      - Persistent Segment Tree <!-- flag: obscure -->
+      - Merge Sort Tree <!-- flag: obscure -->
     - Fenwick Tree (Binary Indexed Tree)
     - Interval Tree
     - K-D Tree
     - Quadtree / Octree
     - R-Tree
+      - R*-Tree <!-- flag: obscure -->
+    - BSP Tree (Binary Space Partitioning)
+    - Van Emde Boas Tree <!-- flag: obscure -->
+    - Cartesian Tree <!-- flag: obscure -->
+    - Link-Cut Tree <!-- flag: obscure -->
+    - Heavy-Light Decomposition <!-- flag: obscure -->
+    - Sparse Table <!-- flag: obscure -->
+    - Exponential Tree <!-- flag: obscure -->
+    - Generic/N-ary Tree
+    - Expression Tree
+    - Decision Tree (as a data structure)
   - Hash-Based Structures
     - Hash Table
       - Collision Resolution (chaining, open addressing, linear/quadratic probing)
@@ -36,17 +63,35 @@
       - Universal Hashing
       - Cuckoo Hashing
       - Robin Hood Hashing
+      - Hopscotch Hashing <!-- flag: obscure -->
+      - Perfect Hashing <!-- flag: obscure -->
+      - Consistent Hashing
+      - Rendezvous Hashing <!-- flag: obscure -->
+    - Hash Set
+    - Multimap / Multiset
     - Bloom Filter
+      - Counting Bloom Filter <!-- flag: obscure -->
+      - Cuckoo Filter <!-- flag: obscure -->
     - HyperLogLog
   - Graph Representations
     - Adjacency List / Matrix
+    - Edge List
+    - Incidence Matrix <!-- flag: obscure -->
     - Disjoint Set (Union-Find)
       - Union by Rank
       - Path Compression
+      - Weighted Union-Find <!-- flag: obscure -->
   - Probabilistic & Succinct Structures
     - Skip List
     - Count-Min Sketch
+    - Count Sketch <!-- flag: obscure -->
+    - AMQ Filters (Approximate Membership Query) <!-- flag: obscure -->
+    - T-Digest <!-- flag: obscure -->
     - Merkle Tree
+    - Bit Vector / Bitset
+    - Succinct Trees (LOUDS) <!-- flag: obscure -->
+    - Wavelet Tree <!-- flag: obscure -->
+    - XOR Filter <!-- flag: obscure -->
 - **Sorting Algorithms**
   - Comparison-Based
     - Bubble Sort, Insertion Sort, Selection Sort
@@ -55,40 +100,82 @@
     - Heap Sort
     - Tim Sort
     - Introsort
+    - Shell Sort
+    - Cocktail Shaker Sort <!-- flag: obscure -->
+    - Comb Sort <!-- flag: obscure -->
+    - Gnome Sort <!-- flag: obscure -->
+    - Cycle Sort <!-- flag: obscure -->
+    - Tree Sort <!-- flag: obscure -->
+    - Smoothsort <!-- flag: obscure -->
+    - Block Sort (WikiSort/Grailsort) <!-- flag: obscure -->
   - Non-Comparison-Based
     - Counting Sort
-    - Radix Sort
+    - Radix Sort (LSD/MSD)
     - Bucket Sort
+    - Pigeonhole Sort <!-- flag: obscure -->
+  - Sorting Network / Bitonic Sort <!-- flag: obscure -->
   - Stability in Sorting
+  - In-Place vs Out-of-Place Sorting
   - External Sorting
+  - Parallel/Distributed Sorting (Sample Sort) <!-- flag: obscure -->
 - **Searching Algorithms**
   - Linear Search, Binary Search
   - Interpolation Search
   - Exponential Search
   - Ternary Search
+  - Fibonacci Search <!-- flag: obscure -->
+  - Jump Search <!-- flag: obscure -->
+  - Selection Algorithms
+    - Quickselect
+    - Median of Medians
+    - kth Order Statistic
 - **Graph Algorithms**
   - Traversal: BFS, DFS
+    - Iterative Deepening DFS
+    - Bidirectional Search
   - Shortest Path
     - Dijkstra's Algorithm
     - Bellman-Ford Algorithm
     - Floyd-Warshall Algorithm
     - A* Search
     - Johnson's Algorithm
+    - SPFA (Shortest Path Faster Algorithm) <!-- flag: obscure -->
+    - Yen's Algorithm (k-shortest paths) <!-- flag: obscure -->
+    - Contraction Hierarchies <!-- flag: obscure -->
   - Minimum Spanning Tree
     - Kruskal's Algorithm
     - Prim's Algorithm
     - Borůvka's Algorithm
+    - Steiner Tree Problem <!-- flag: obscure -->
   - Topological Sort
   - Strongly Connected Components
     - Tarjan's Algorithm
     - Kosaraju's Algorithm
+    - Gabow's Algorithm <!-- flag: obscure -->
   - Articulation Points & Bridges
+  - Lowest Common Ancestor
+    - Binary Lifting
+    - Euler Tour Technique <!-- flag: obscure -->
   - Network Flow
+    - Max-Flow Min-Cut Theorem
     - Ford-Fulkerson / Edmonds-Karp
     - Dinic's Algorithm
+    - Push-Relabel Algorithm <!-- flag: obscure -->
+    - Minimum Cost Flow <!-- flag: obscure -->
   - Matching
     - Bipartite Matching (Hopcroft-Karp)
     - Stable Marriage Problem
+    - Hungarian Algorithm (Assignment Problem)
+    - Blossom Algorithm (General Graph Matching) <!-- flag: obscure -->
+  - Graph Coloring
+  - Eulerian Path/Circuit (Hierholzer's Algorithm)
+  - Hamiltonian Path/Cycle
+  - Traveling Salesman Problem
+  - Maximum Clique / Independent Set
+  - Minimum Vertex Cover
+  - Graph Isomorphism <!-- flag: obscure -->
+  - Planarity Testing <!-- flag: obscure -->
+  - Centrality Measures (Betweenness, PageRank-style) <!-- flag: obscure -->
 - **Algorithm Design Paradigms**
   - Divide and Conquer
   - Dynamic Programming
@@ -97,23 +184,59 @@
     - Longest Common Subsequence
     - Edit Distance
     - Bitmask DP
+    - Digit DP <!-- flag: obscure -->
+    - Tree DP <!-- flag: obscure -->
+    - DP on Convex Hull Trick / Divide-and-Conquer Optimization <!-- flag: obscure -->
+    - Matrix Chain Multiplication
+    - Coin Change Problem
   - Greedy Algorithms
+    - Activity Selection Problem <!-- flag: obscure -->
+    - Huffman Coding (as greedy construction)
   - Backtracking
+    - N-Queens Problem
+    - Constraint Satisfaction Search
   - Branch and Bound
   - Two Pointers / Sliding Window
   - Bit Manipulation Tricks
+  - Parallel Algorithms
+    - Prefix Sum / Scan
+    - MapReduce-Style Algorithm Design
+  - Heuristic Search
+    - Hill Climbing
+    - Simulated Annealing
+    - Genetic Algorithms
 - **String Algorithms**
   - Pattern Matching
     - Knuth-Morris-Pratt (KMP)
     - Rabin-Karp
     - Boyer-Moore
     - Z-Algorithm
+    - Aho-Corasick Algorithm
+    - Suffix Automaton Matching <!-- flag: obscure -->
+    - Shift-Or / Bitap Algorithm <!-- flag: obscure -->
   - Edit Distance (Levenshtein)
   - Longest Common Substring/Subsequence
+  - Longest Palindromic Substring (Manacher's Algorithm)
   - String Hashing
+  - Suffix Array Construction (SA-IS) <!-- flag: obscure -->
+  - Burrows-Wheeler Transform
+  - Trie-Based String Matching
+  - Regular Expression Matching (NFA/DFA construction)
+  - Longest Repeated Substring <!-- flag: obscure -->
 - **Computational Geometry**
   - Convex Hull (Graham Scan, Jarvis March)
+    - QuickHull <!-- flag: obscure -->
+    - Chan's Algorithm <!-- flag: obscure -->
   - Line Sweep Algorithms
   - Closest Pair of Points
   - Voronoi Diagrams
   - Delaunay Triangulation
+  - Point-in-Polygon Test
+  - Line Segment Intersection
+  - Polygon Triangulation <!-- flag: obscure -->
+  - Rotating Calipers <!-- flag: obscure -->
+  - Sweep Line + Doubly Connected Edge List <!-- flag: obscure -->
+  - Minimum Bounding Box / Enclosing Circle <!-- flag: obscure -->
+- **Combinatorial Generation**
+  - Generating Permutations, Combinations, Subsets
+  - Gray Code Generation <!-- flag: obscure -->

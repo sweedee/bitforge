@@ -2,12 +2,142 @@
 
 - **Game Architecture**
   - Game Loop
+    - Fixed Timestep
+    - Variable Timestep
+    - Semi-Fixed Timestep (Gaffer's "Fix Your Timestep") <!-- flag: obscure -->
   - Entity-Component System (ECS)
+  - Game Object / Actor Model <!-- flag: obscure -->
   - Scene Graphs
+  - Component-Based Design
+  - Model-View-Controller in Games <!-- flag: obscure -->
+  - Observer Pattern (Event Systems)
+  - Event Bus / Message Passing
+  - Object Pooling
+  - Singleton Pattern (Managers) <!-- flag: obscure -->
+  - Service Locator Pattern <!-- flag: obscure -->
+  - State Pattern (Game States: Menu, Playing, Paused)
+  - Command Pattern (Input/Replay) <!-- flag: obscure -->
+  - Flyweight Pattern (Shared Game Data) <!-- flag: obscure -->
+  - Data-Oriented Design <!-- flag: obscure -->
+  - Game Engine Architecture (Subsystems & Layers) <!-- flag: obscure -->
+  - Engine vs Game Code Separation <!-- flag: obscure -->
+  - Asset Pipeline
+    - Asset Importing / Cooking <!-- flag: obscure -->
+    - Asset Bundles
+    - Hot Reloading
+  - Scripting Layer / Modding Hooks
+  - Scene/Level Serialization
+  - Rendering Pipeline <!-- owned by 12_computer_graphics.md, not detailed here -->
 - **Physics & Simulation**
   - Collision Detection
+    - Broad Phase vs Narrow Phase
+    - Spatial Partitioning (Grids, Quadtrees, Octrees) <!-- flag: obscure -->
+    - Sweep and Prune <!-- flag: obscure -->
+    - Separating Axis Theorem (SAT) <!-- flag: obscure -->
+    - GJK Algorithm <!-- flag: obscure -->
+    - Continuous Collision Detection <!-- flag: obscure -->
+  - Collision Response
+    - Impulse Resolution <!-- flag: obscure -->
+    - Penetration Resolution <!-- flag: obscure -->
   - Rigid Body Dynamics
+  - Soft Body Dynamics <!-- flag: obscure -->
+  - Ragdoll Physics
+  - Cloth Simulation <!-- flag: obscure -->
+  - Particle-Based Physics
+  - Verlet Integration <!-- flag: obscure -->
+  - Joints & Constraints
+  - Kinematic vs Dynamic vs Static Bodies <!-- flag: obscure -->
+  - Raycasting
+  - Trigger Volumes
+  - Physics Engines (Box2D, Bullet, PhysX) <!-- flag: obscure -->
+  - Deterministic Physics (for Networking/Replay) <!-- flag: obscure -->
 - **AI in Games**
   - Pathfinding (NavMesh)
+  - A* on Game Grids
+  - Navigation Mesh Generation <!-- flag: obscure -->
+  - Flow Fields <!-- flag: obscure -->
   - Finite State Machines for NPCs
+  - Hierarchical State Machines <!-- flag: obscure -->
   - Behavior Trees
+  - Goal-Oriented Action Planning (GOAP) <!-- flag: obscure -->
+  - Utility AI / Utility Theory <!-- flag: obscure -->
+  - Decision Trees for NPC Behavior
+  - Influence Maps <!-- flag: obscure -->
+  - Steering Behaviors (Seek, Flee, Wander, Arrival)
+  - Flocking / Swarm Behavior (Boids)
+  - Crowd Simulation <!-- flag: obscure -->
+  - Sensory Systems (Sight, Hearing, Awareness) <!-- flag: obscure -->
+  - Squad / Group Tactics AI <!-- flag: obscure -->
+  - Difficulty Scaling / Dynamic Difficulty Adjustment
+  - Procedural Dialogue / Barks <!-- flag: obscure -->
+  - Game-Playing AI (Minimax, Monte Carlo Tree Search) <!-- flag: off-theme -->
+  - Reinforcement Learning for Game Agents <!-- flag: off-theme -->
+- **Game State & Persistence**
+  - Save/Load Systems
+  - Save State Serialization
+  - Checkpoint Systems
+  - Game State Machines (Menu/Gameplay/Pause/Cutscene)
+  - World/Level Streaming
+  - Persistent vs Session State
+  - Cloud Save Sync <!-- flag: off-theme -->
+  - New Game+ / Progression State <!-- flag: off-theme -->
+- **Input Handling**
+  - Input Polling vs Event-Driven Input
+  - Input Buffering
+  - Input Mapping / Rebindable Controls
+  - Action Mapping Layers (Device-Agnostic Input)
+  - Dead Zones (Analog Sticks) <!-- flag: obscure -->
+  - Combo/Gesture Detection <!-- flag: obscure -->
+  - Multi-Touch Input Handling <!-- flag: obscure -->
+  - Haptic Feedback <!-- flag: obscure -->
+- **Audio Systems**
+  - Audio Engine Basics
+  - Sound Effect Triggering
+  - Music Layering / Adaptive Music <!-- flag: obscure -->
+  - Spatial / 3D Audio
+  - Audio Mixing & Buses <!-- flag: obscure -->
+  - Audio Occlusion <!-- flag: obscure -->
+  - Doppler Effect Simulation <!-- flag: obscure -->
+  - Procedural Audio <!-- flag: obscure -->
+- **Multiplayer & Networking in Games**
+  - Client-Server Model for Games
+  - Peer-to-Peer Multiplayer
+  - Client-Side Prediction
+  - Server Reconciliation
+  - Lag Compensation
+  - Entity Interpolation / Extrapolation <!-- flag: obscure -->
+  - State Synchronization vs Input Synchronization
+  - Lockstep Networking <!-- flag: obscure -->
+  - Rollback Netcode
+  - Snapshot Interpolation <!-- flag: obscure -->
+  - Authoritative Server Model <!-- flag: obscure -->
+  - Matchmaking
+  - Network Tick Rate <!-- flag: obscure -->
+  - Cheat Prevention / Anti-Cheat <!-- flag: off-theme -->
+- **Procedural Content Generation**
+  - Procedural Level Generation
+  - Procedural Terrain Generation
+  - Wave Function Collapse <!-- flag: obscure -->
+  - Cellular Automata for Level Generation <!-- flag: obscure -->
+  - Dungeon Generation Algorithms <!-- flag: obscure -->
+  - Markov Chains for Content Generation <!-- flag: obscure -->
+  - L-Systems for Procedural Geometry <!-- flag: obscure -->
+  - Noise-Based Generation (Perlin/Simplex) <!-- owned by 12_computer_graphics.md -->
+  - Procedural Quest/Narrative Generation <!-- flag: obscure -->
+- **Game Design Patterns & Engine Concepts**
+  - Tile-Based Maps
+  - Tilemaps & Chunking <!-- flag: obscure -->
+  - Prefabs / Blueprints
+  - Inheritance vs Composition for Game Objects
+  - Animation State Machines / Blend Trees
+  - Camera Systems
+    - Camera Follow / Smoothing <!-- flag: obscure -->
+    - Cinemachine-Style Virtual Cameras <!-- flag: obscure -->
+  - Level of Detail for Gameplay (Culling Distant Logic) <!-- flag: obscure -->
+  - Frame Rate Independence
+  - Game Balancing
+  - Scripting/Visual Scripting Systems
+  - Mod Support / Plugin Architecture
+  - Localization Systems <!-- flag: off-theme -->
+  - Achievement/Trophy Systems <!-- flag: off-theme -->
+  - Telemetry & Analytics in Games <!-- flag: off-theme -->

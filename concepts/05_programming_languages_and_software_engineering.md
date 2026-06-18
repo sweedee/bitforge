@@ -23,6 +23,41 @@
   - Concurrent / Reactive Programming
     - Actor Model
     - Reactive Streams / Observables
+  - Generic Programming
+  - Metaprogramming
+    - Reflection
+    - Macros (Lisp-style)
+    - Code Generation / Templates
+  - Aspect-Oriented Programming <!-- flag: obscure -->
+  - Dataflow Programming <!-- flag: obscure -->
+  - Array Programming (APL-style) <!-- flag: obscure -->
+  - Stack-Based / Concatenative Programming (Forth, Factor) <!-- flag: obscure -->
+  - Literate Programming <!-- flag: obscure -->
+  - Visual / Block-Based Programming (Scratch) <!-- flag: off-theme -->
+  - Structured Programming
+    - Single-Entry Single-Exit
+    - Goto Considered Harmful <!-- flag: obscure -->
+- **Type Systems**
+  - Static vs Dynamic Typing
+  - Strong vs Weak Typing
+  - Type Inference
+  - Nominal vs Structural Typing
+  - Duck Typing
+  - Parametric Polymorphism (Generics)
+  - Ad-hoc Polymorphism (Overloading)
+  - Subtype Polymorphism
+  - Variance (Covariance, Contravariance, Invariance)
+  - Algebraic Data Types
+    - Sum Types / Tagged Unions
+    - Product Types
+  - Option/Maybe Types
+  - Result/Either Types
+  - Dependent Types <!-- flag: obscure -->
+  - Linear Types <!-- flag: obscure -->
+  - Gradual Typing
+  - Type Erasure
+  - Hindley-Milner Type Inference <!-- flag: obscure -->
+  - Curry-Howard Correspondence <!-- flag: obscure -->
 - **Programming Languages**
   - C
     - Pointers
@@ -35,104 +70,268 @@
     - Manual Memory Management (malloc/free)
     - Undefined Behavior
     - Preprocessor & Macros
+    - Structs & Unions
+    - Header Files & Translation Units
+    - Storage Classes (static, extern, volatile, const)
+    - Bitfields
+    - Variadic Functions (stdarg.h) <!-- flag: obscure -->
+    - setjmp/longjmp <!-- flag: obscure -->
   - C++
     - RAII
     - Templates / Generic Programming
-    - Smart Pointers (unique_ptr, shared_ptr)
+      - Template Metaprogramming
+      - SFINAE <!-- flag: obscure -->
+      - Concepts (C++20)
+    - Smart Pointers (unique_ptr, shared_ptr, weak_ptr)
     - Move Semantics / Rvalue References
     - Operator Overloading
     - Virtual Functions & vtables
+    - Multiple Inheritance & Diamond Problem
+    - Name Mangling <!-- flag: obscure -->
+    - Standard Template Library (STL)
+    - Modules (C++20) <!-- flag: obscure -->
+    - Coroutines (C++20)
+  - C#
+    - .NET Runtime (CLR)
+    - LINQ
+    - Properties & Indexers
+    - Delegates & Events
+    - async/await (Task-based Asynchrony)
+    - Nullable Reference Types
+    - Extension Methods
   - Java
     - JVM & Bytecode
     - Garbage Collection Tuning
     - Interfaces vs Abstract Classes
+    - Checked vs Unchecked Exceptions
+    - Annotations
+    - Generics & Type Erasure (Java)
+    - Streams API
+    - Records (Java)
+    - Classloading
+  - Kotlin
+    - Null Safety
+    - Coroutines (Kotlin)
+    - Data Classes
+    - Extension Functions
   - Python
     - Dynamic Typing
     - GIL (Global Interpreter Lock)
     - Decorators
     - Generators / Iterators
     - List Comprehensions
+    - Context Managers (with statement)
+    - Duck Typing & Magic/Dunder Methods
+    - Metaclasses <!-- flag: obscure -->
+    - Virtual Environments / Packaging (pip, venv)
+    - Type Hints
   - JavaScript / TypeScript
     - Event Loop
     - Closures
     - Prototype-Based Inheritance
     - Promises / async-await
     - Type Inference (TypeScript)
+    - Hoisting
+    - this Binding
+    - Generators & Iterators (JS)
+    - Structural Typing (TypeScript)
+    - Module Systems (CommonJS, ESM)
   - Rust
     - Ownership & Borrowing
     - Lifetimes
     - Memory Safety without GC
+    - Traits
+    - Pattern Matching & Enums (Rust)
+    - Cargo & Crates
+    - Unsafe Rust
   - Go
     - Goroutines
     - Channels
+    - Interfaces (Go, structural)
+    - Defer Statement
+    - Error Handling (explicit error values)
   - Haskell
     - Lazy Evaluation
     - Type Classes
+    - Monads (do-notation)
+    - Purity & Referential Transparency
+  - Swift
+    - Optionals
+    - Protocol-Oriented Programming
+    - Automatic Reference Counting (ARC)
+  - Scala <!-- flag: obscure -->
+    - Case Classes <!-- flag: obscure -->
+    - Implicits <!-- flag: obscure -->
+  - Erlang / Elixir <!-- flag: obscure -->
+    - BEAM VM <!-- flag: obscure -->
+    - Let It Crash Philosophy <!-- flag: obscure -->
+  - Lisp / Scheme
+    - S-Expressions
+    - Homoiconicity <!-- flag: obscure -->
   - SQL (declarative query language)
   - Assembly Languages
+  - Shell Scripting (Bash/PowerShell)
+  - WebAssembly (Wasm)
 - **Compilers & Interpreters**
   - Lexical Analysis (Tokenization)
+    - Regular Expressions for Lexing
+    - Finite Automata-Based Scanners
   - Parsing
     - Recursive Descent Parsing
     - LL / LR Parsing
+    - LALR Parsing <!-- flag: obscure -->
+    - Parser Combinators
+    - Operator Precedence Parsing
     - Abstract Syntax Tree (AST)
+    - Parse Tree vs AST
+    - Error Recovery in Parsing
   - Semantic Analysis
     - Type Checking
     - Scope Resolution / Symbol Tables
+    - Name Resolution
   - Intermediate Representation (IR)
     - Three-Address Code
     - Static Single Assignment (SSA)
+    - Control Flow Graph (CFG)
+    - Abstract Interpretation <!-- flag: obscure -->
   - Optimization
     - Constant Folding
     - Dead Code Elimination
     - Loop Unrolling
+    - Loop-Invariant Code Motion
+    - Common Subexpression Elimination
     - Inlining
+    - Strength Reduction <!-- flag: obscure -->
+    - Tail Call Elimination
+    - Escape Analysis
     - Register Allocation (Graph Coloring)
+    - Peephole Optimization
   - Code Generation
   - Just-In-Time (JIT) Compilation
+    - Tracing JIT <!-- flag: obscure -->
+    - Method JIT <!-- flag: obscure -->
+    - Inline Caching
+  - Ahead-of-Time (AOT) Compilation
   - Bytecode Interpreters
+  - Tree-Walking Interpreters
+  - Transpilers / Source-to-Source Compilation
+  - Single-Pass vs Multi-Pass Compilers <!-- flag: obscure -->
+  - Compiler Bootstrapping <!-- flag: obscure -->
   - Linking
     - Static vs Dynamic Linking
     - Symbol Resolution
+    - Relocation
+    - Shared Libraries / DLLs
+  - Calling Conventions
+  - Stack Frames & Activation Records
+  - Closures Implementation (Capture by Reference/Value) <!-- flag: obscure -->
 - **Software Engineering Practices**
   - Software Development Life Cycle (SDLC)
     - Waterfall Model
     - Agile / Scrum / Kanban
     - DevOps Culture
+    - Extreme Programming (XP) <!-- flag: obscure -->
+    - Pair Programming <!-- flag: off-theme -->
+    - Spiral Model <!-- flag: obscure -->
   - Version Control
     - Git
       - Branching & Merging
       - Rebase vs Merge
       - Merge Conflicts
       - Git Blame / Bisect
+      - Cherry-Picking
+      - Submodules
+      - Git Hooks
     - Trunk-Based Development
+    - GitFlow <!-- flag: obscure -->
+    - Monorepo vs Polyrepo
   - Testing
     - Unit Testing
     - Integration Testing
     - End-to-End Testing
     - Test-Driven Development (TDD)
+    - Behavior-Driven Development (BDD)
     - Mocking & Stubbing
+    - Test Doubles (Fakes, Spies)
     - Mutation Testing
     - Fuzz Testing
+    - Property-Based Testing
     - Regression Testing
+    - Snapshot Testing
+    - Smoke Testing
+    - Code Coverage
+    - Golden Master Testing <!-- flag: obscure -->
+    - Contract Testing <!-- flag: obscure -->
   - Code Quality
     - Code Smells
     - Refactoring
     - Technical Debt
     - Cyclomatic Complexity
     - Static Analysis / Linting
+    - Code Review
+    - Pull Requests
+    - Style Guides / Formatters
+    - DRY / KISS / YAGNI Principles
   - Software Architecture
     - Monolith vs Microservices
     - Layered Architecture
     - Event-Driven Architecture
     - Hexagonal / Clean Architecture
     - Domain-Driven Design
+      - Bounded Contexts <!-- flag: obscure -->
+      - Aggregates <!-- flag: obscure -->
     - Service-Oriented Architecture (SOA)
+    - Model-View-Controller (MVC)
+    - Model-View-ViewModel (MVVM)
+    - Pipe-and-Filter Architecture
+    - Plugin / Microkernel Architecture
+    - CQRS (Command Query Responsibility Segregation)
+    - Event Sourcing
+    - Dependency Injection
+    - Inversion of Control
+    - Anti-Corruption Layer <!-- flag: obscure -->
   - CI/CD
     - Continuous Integration
     - Continuous Deployment/Delivery
     - Build Pipelines
+    - Build Automation Tools (Make, Gradle, Maven, Bazel)
+    - Artifact Repositories
+    - Feature Flags
+  - Dependency & Package Management
+    - Package Managers (npm, pip, Cargo, NuGet, Maven)
+    - Semantic Versioning
+    - Dependency Resolution
+    - Lockfiles
+    - Transitive Dependencies
+    - Dependency Hell / Diamond Dependency Problem <!-- flag: obscure -->
+    - Monorepo Build Tools (Bazel, Nx) <!-- flag: obscure -->
+    - Vendoring <!-- flag: obscure -->
+    - Software Bill of Materials (SBOM) <!-- flag: obscure -->
+  - Observability & Operations
+    - Logging
+    - Structured Logging
+    - Application Performance Monitoring (APM)
+    - Error Tracking / Crash Reporting
+    - Alerting
+    - Debugging Techniques
+      - Breakpoints & Step Debugging
+      - Print/Log Debugging
+      - Core Dumps
+      - Profiling (CPU, Memory)
+      - Tracepoints <!-- flag: obscure -->
   - Documentation & API Design
     - REST API Design Principles
     - API Versioning
     - OpenAPI/Swagger
+    - Idempotent API Design
+    - Pagination Strategies (Offset, Cursor)
+    - Backward & Forward Compatibility
+    - Webhooks
+    - Software Development Kits (SDKs)
+    - Code Documentation (Docstrings, Javadoc)
+    - Architecture Decision Records (ADRs) <!-- flag: obscure -->
+  - Software Licensing <!-- flag: off-theme -->
+    - Open Source Licenses (MIT, GPL, Apache) <!-- flag: off-theme -->
+  - Estimation & Project Practices <!-- flag: off-theme -->
+    - Story Points <!-- flag: off-theme -->
+    - Code Ownership / CODEOWNERS <!-- flag: off-theme -->

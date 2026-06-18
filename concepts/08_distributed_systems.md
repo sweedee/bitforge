@@ -2,36 +2,119 @@
 
 - **Foundational Concepts**
   - Distributed System Properties (transparency, scalability)
+  - Fallacies of Distributed Computing <!-- flag: obscure -->
+  - Network Partitions
+  - Partial Failure <!-- flag: obscure -->
+  - System Models
+    - Synchronous vs Asynchronous Systems <!-- flag: obscure -->
+    - Fail-Stop vs Byzantine Failure Models <!-- flag: obscure -->
   - Logical Clocks
     - Lamport Timestamps
     - Vector Clocks
   - Happens-Before Relation
+  - Causality
+  - Hybrid Logical Clocks <!-- flag: obscure -->
+  - Interval Tree Clocks <!-- flag: obscure -->
+  - Total Order vs Partial Order
+  - Clock Synchronization
+    - Network Time Protocol (NTP)
+    - Cristian's Algorithm <!-- flag: obscure -->
+    - Berkeley Algorithm <!-- flag: obscure -->
+    - TrueTime <!-- flag: obscure -->
+  - Snapshot Algorithms
+    - Chandy-Lamport Snapshot Algorithm <!-- flag: obscure -->
+  - Distributed Mutual Exclusion <!-- flag: obscure -->
 - **Consensus**
+  - FLP Impossibility Result <!-- flag: obscure -->
   - Byzantine Fault Tolerance
+    - Byzantine Generals Problem
+    - PBFT (Practical Byzantine Fault Tolerance) <!-- flag: obscure -->
   - Paxos
+    - Multi-Paxos <!-- flag: obscure -->
+    - Fast Paxos <!-- flag: obscure -->
   - Raft
+    - Leader Election (Raft)
+    - Log Replication (Raft)
   - Zab (ZooKeeper Atomic Broadcast)
+  - Viewstamped Replication <!-- flag: obscure -->
   - Quorum Systems
+  - Atomic Broadcast / Atomic Commit <!-- flag: obscure -->
+  - State Machine Replication
+- **Consistency Models**
+  - Strong Consistency
+  - Linearizability
+  - Sequential Consistency <!-- flag: obscure -->
+  - Causal Consistency
+  - Eventual Consistency
+  - Strong Eventual Consistency <!-- flag: obscure -->
+  - Read-Your-Writes Consistency
+  - Monotonic Reads / Monotonic Writes <!-- flag: obscure -->
+  - Session Consistency <!-- flag: obscure -->
+  - Quorum Consistency (Read/Write Quorums)
+  - CAP Theorem
+  - PACELC Theorem
+  - BASE Properties (Basically Available, Soft state, Eventual consistency)
+- **Distributed Transactions**
+  - Two-Phase Commit (2PC)
+  - Three-Phase Commit (3PC) <!-- flag: obscure -->
+  - Saga Pattern
+  - Distributed Deadlock Detection <!-- flag: obscure -->
+  - Spanner-style Distributed Transactions <!-- flag: obscure -->
 - **Fault Tolerance**
   - Replication Strategies
+    - Primary-Backup Replication
+    - Multi-Master Replication
+    - Chain Replication <!-- flag: obscure -->
   - Failure Detection
     - Heartbeats
     - Gossip Protocols
+    - Phi Accrual Failure Detector <!-- flag: obscure -->
   - Split-Brain Problem
   - Chaos Engineering
+  - Bulkhead Pattern <!-- flag: obscure -->
+  - Retry with Backoff & Jitter
+  - Self-Healing Systems <!-- flag: obscure -->
 - **Distributed Data Structures**
   - Distributed Hash Tables (DHT)
     - Consistent Hashing
     - Chord Protocol
+    - Kademlia <!-- flag: obscure -->
+    - Pastry <!-- flag: obscure -->
   - CRDTs (Conflict-free Replicated Data Types)
+    - State-Based CRDTs (CvRDT) <!-- flag: obscure -->
+    - Operation-Based CRDTs (CmRDT) <!-- flag: obscure -->
+    - G-Counter / PN-Counter <!-- flag: obscure -->
+    - OR-Set (Observed-Remove Set) <!-- flag: obscure -->
+  - Operational Transformation <!-- flag: obscure -->
 - **Coordination & Communication**
   - Remote Procedure Calls (RPC)
     - gRPC
   - Message Queues / Brokers
     - Publish-Subscribe Pattern
     - Kafka-style Log-Based Messaging
+  - Coordination Services
+    - ZooKeeper
+    - etcd
+    - Consul
   - Service Discovery
   - Leader Election
+  - Distributed Locking
+    - Lease-Based Locking <!-- flag: obscure -->
+  - Event Sourcing
+  - Distributed Tracing (causal request tracking) <!-- flag: obscure -->
+- **Distributed Computing Paradigms & Frameworks**
+  - MapReduce
+  - Bulk Synchronous Parallel (BSP) Model <!-- flag: obscure -->
+  - Apache Spark / Resilient Distributed Datasets (RDDs)
+  - Stream Processing
+    - Apache Flink <!-- flag: obscure -->
+    - Windowing (Tumbling, Sliding, Session Windows) <!-- flag: obscure -->
+    - Exactly-Once / At-Least-Once Processing Semantics <!-- flag: obscure -->
+  - Actor Model
+    - Erlang/OTP <!-- flag: obscure -->
+    - Akka <!-- flag: obscure -->
+  - Dataflow Programming <!-- flag: obscure -->
+  - Distributed Shared Memory <!-- flag: obscure -->
 - **Scalability Patterns**
   - Horizontal vs Vertical Scaling
   - Sharding
@@ -43,3 +126,4 @@
     - Token Bucket / Leaky Bucket Algorithms
   - Circuit Breaker Pattern
   - Idempotency
+  - Backpressure <!-- flag: obscure -->

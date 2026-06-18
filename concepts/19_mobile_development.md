@@ -4,7 +4,68 @@
   - Native vs Cross-Platform Development
   - App Lifecycle Management
   - Mobile UI Frameworks
+  - iOS App Lifecycle (Not Running, Inactive, Active, Background, Suspended)
+  - Android Activity Lifecycle (onCreate, onStart, onResume, onPause, onStop, onDestroy)
+  - Android Fragment Lifecycle
+  - App Sandboxing
+  - Permission Models (Runtime Permissions, Scoped Storage)
+  - Intents & Deep Linking <!-- flag: obscure -->
+  - App Widgets / Home Screen Widgets <!-- flag: obscure -->
+  - Background Execution Limits (Background App Refresh, Doze Mode, App Standby)
+  - Foreground Services <!-- flag: obscure -->
+  - Inter-Process Communication on Mobile (Content Providers, Broadcast Receivers) <!-- flag: obscure -->
+  - Mobile Operating System Internals (iOS, Android) <!-- flag: obscure -->
+- **App Architecture Patterns**
+  - Model-View-ViewModel (MVVM)
+  - Model-View-Intent (MVI)
+  - Model-View-Controller (MVC) for Mobile
+  - Model-View-Presenter (MVP)
+  - Unidirectional Data Flow
+  - Reactive Programming for Mobile (Observables, Streams)
+  - Dependency Injection for Mobile Apps
+  - Modular App Architecture (Feature Modules) <!-- flag: obscure -->
+  - Clean Architecture for Mobile <!-- flag: obscure -->
+- **Cross-Platform Approaches**
+  - Hybrid Apps (WebView-Based)
+  - Cross-Compiled Native Apps (React Native, Flutter)
+  - Shared Business Logic / Multiplatform Code Sharing (Kotlin Multiplatform) <!-- flag: obscure -->
+  - Declarative UI Toolkits (SwiftUI, Jetpack Compose, Flutter Widgets)
+  - Platform Channels / Native Bridges <!-- flag: obscure -->
 - **Mobile-Specific Concerns**
   - Battery & Resource Optimization
   - Offline-First Design
   - Push Notifications
+  - Local Notifications <!-- flag: obscure -->
+  - Mobile Sensors (GPS, Accelerometer, Gyroscope, Magnetometer)
+  - Geofencing <!-- flag: obscure -->
+  - Mobile Networking & Intermittent Connectivity
+  - Data Synchronization & Conflict Resolution
+  - On-Device Caching for Mobile
+  - App Size Optimization
+  - Cold Start vs Warm Start Performance
+  - Memory Management on Mobile
+  - Mobile Security (Keychain/Keystore, Biometric Authentication, Secure Storage)
+  - Mobile Accessibility (VoiceOver, TalkBack)
+  - In-App Purchases & Subscriptions <!-- flag: obscure -->
+  - Mobile Analytics & Crash Reporting <!-- flag: obscure -->
+  - Mobile Device Fragmentation <!-- flag: obscure -->
+- **Mobile UI/UX Toolkits & Layout**
+  - Responsive Layouts for Mobile
+  - Adaptive Layouts (Size Classes, Window Size Classes)
+  - Constraint-Based Layout Systems (Auto Layout, ConstraintLayout)
+  - Mobile Navigation Patterns (Tab Bars, Navigation Drawers, Stack Navigation)
+  - Gesture Recognition (Tap, Swipe, Pinch, Long Press)
+  - Touch Target Sizing & Mobile Ergonomics <!-- flag: obscure -->
+  - Material Design / Human Interface Guidelines <!-- flag: obscure -->
+- **App Distribution & Delivery**
+  - App Store Distribution
+  - App Signing & Provisioning Profiles
+  - App Review / App Store Guidelines <!-- flag: off-theme -->
+  - Beta Distribution (TestFlight, Internal App Sharing) <!-- flag: obscure -->
+  - Over-the-Air Updates / Code Push <!-- flag: obscure -->
+  - App Bundles & Dynamic Delivery <!-- flag: obscure -->
+  - Mobile CI/CD Pipelines <!-- flag: obscure -->
+- **Mobile Testing**
+  - Mobile UI Testing (Espresso, XCUITest) <!-- flag: obscure -->
+  - Device Farm / Cross-Device Testing <!-- flag: obscure -->
+  - Mobile Emulators & Simulators

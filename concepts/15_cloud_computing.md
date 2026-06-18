@@ -2,20 +2,136 @@
 
 - **Service Models**
   - IaaS, PaaS, SaaS
+  - FaaS (Function as a Service)
+  - DaaS (Desktop as a Service) <!-- flag: obscure -->
+  - BaaS / Mobile Backend as a Service <!-- flag: obscure -->
+  - CaaS (Container as a Service) <!-- flag: obscure -->
+  - Shared Responsibility Model
 - **Deployment Models**
   - Public, Private, Hybrid Cloud
-- **Core Concepts**
-  - Virtualization & Containers
+  - Multi-Cloud
+  - Community Cloud <!-- flag: obscure -->
+  - On-Premises vs Cloud-Native
+- **Virtualization**
+  - Hypervisors
+    - Type 1 (Bare-Metal) vs Type 2 (Hosted) Hypervisors
+    - Hardware-Assisted Virtualization (Intel VT-x, AMD-V) <!-- flag: obscure -->
+  - Virtual Machines
+    - VM Images / Snapshots
+    - Live Migration <!-- flag: obscure -->
+  - Paravirtualization <!-- flag: obscure -->
+  - Full Virtualization vs Emulation <!-- flag: obscure -->
+  - Virtual Disks (VHD, VMDK, qcow2) <!-- flag: obscure -->
+  - Resource Overcommitment <!-- flag: obscure -->
+- **Containers & Orchestration**
+  - Containerization
     - Docker
-    - Kubernetes
-      - Pods, Services, Deployments
-      - Orchestration & Auto-scaling
+      - Container Images & Layers
+      - Dockerfile
+      - Container Registries
+      - Container Runtime (containerd, runc) <!-- flag: obscure -->
+      - OCI (Open Container Initiative) Spec <!-- flag: obscure -->
+    - Namespaces & cgroups (Linux container primitives) <!-- flag: obscure -->
+    - Container vs Virtual Machine Isolation
+  - Kubernetes
+    - Pods, Services, Deployments
+    - ReplicaSets <!-- flag: obscure -->
+    - StatefulSets <!-- flag: obscure -->
+    - DaemonSets <!-- flag: obscure -->
+    - Namespaces (Kubernetes) <!-- flag: obscure -->
+    - ConfigMaps & Secrets
+    - Ingress Controllers
+    - Helm Charts <!-- flag: obscure -->
+    - Operators / Custom Resource Definitions (CRDs) <!-- flag: obscure -->
+    - Service Mesh (Istio, Linkerd) <!-- flag: obscure -->
+    - Sidecar Pattern <!-- flag: obscure -->
+    - Horizontal Pod Autoscaler <!-- flag: obscure -->
+    - Scheduling & Bin Packing <!-- flag: obscure -->
+    - Liveness & Readiness Probes <!-- flag: obscure -->
+  - Container Orchestration (general)
+    - Orchestration & Auto-scaling
+    - Rolling Updates / Rollbacks <!-- flag: obscure -->
+  - Serverless Containers <!-- flag: obscure -->
+- **Serverless Computing**
   - Serverless Computing / FaaS
+  - Event-Driven Invocation
+  - Cold Start
+  - Stateless Execution Model <!-- flag: obscure -->
+  - Function Composition / Step Functions <!-- flag: obscure -->
+  - Backend for Frontend (BFF) Pattern <!-- flag: obscure -->
+- **Infrastructure as Code**
   - Infrastructure as Code (Terraform, CloudFormation)
+  - Declarative vs Imperative Provisioning <!-- flag: obscure -->
+  - Configuration Management (Ansible, Chef, Puppet) <!-- flag: obscure -->
+  - Immutable Infrastructure
+  - GitOps <!-- flag: obscure -->
+  - Drift Detection <!-- flag: obscure -->
+- **Cloud Storage**
+  - Object Storage
+  - Block Storage
+  - File Storage (Network File Systems)
+  - Storage Tiers (Hot, Cool, Cold, Archive) <!-- flag: obscure -->
+  - Data Replication Across Regions <!-- flag: obscure -->
+  - Content-Addressable Storage <!-- flag: obscure -->
+  - Cloud Databases (Managed Relational, NoSQL, Data Warehouses) <!-- flag: obscure -->
+- **Elasticity & Scaling**
+  - Auto-Scaling
+    - Horizontal Auto-Scaling
+    - Vertical Auto-Scaling <!-- flag: obscure -->
+    - Predictive / Scheduled Scaling <!-- flag: obscure -->
+  - Elasticity vs Scalability <!-- flag: obscure -->
+  - Load Balancing (Cloud-Managed)
+  - Resource Pooling
+- **Cloud Networking**
+  - Virtual Private Cloud (VPC)
+  - Subnets (Cloud)
+  - Security Groups / Network ACLs <!-- flag: obscure -->
+  - Cloud Load Balancers (L4/L7)
+  - API Gateways
+  - Content Delivery Networks (CDN) <!-- flag: obscure -->
+  - VPC Peering <!-- flag: obscure -->
+  - Direct Connect / Private Interconnects <!-- flag: obscure -->
+  - DNS-Based Service Routing <!-- flag: obscure -->
+  - NAT Gateways <!-- flag: obscure -->
+- **Identity & Access (Cloud)**
+  - Identity and Access Management (IAM)
+  - Role-Based Access Control (Cloud IAM)
+  - Federated Identity / Single Sign-On (Cloud) <!-- flag: obscure -->
+  - Service Accounts <!-- flag: obscure -->
+  - Secrets Management (Vault, KMS) <!-- flag: obscure -->
+- **Multi-Tenancy**
+  - Multi-Tenant Architecture
+  - Tenant Isolation Models (Silo, Pool, Bridge) <!-- flag: obscure -->
+  - Noisy Neighbor Problem <!-- flag: obscure -->
+  - Resource Quotas & Throttling <!-- flag: obscure -->
+- **Cost Management**
+  - Pay-as-you-go Pricing
+  - Reserved vs On-Demand vs Spot Instances <!-- flag: obscure -->
+  - Cost Allocation & Tagging <!-- flag: obscure -->
+  - FinOps <!-- flag: obscure -->
+  - Total Cost of Ownership (TCO) <!-- flag: obscure -->
+  - Cloud Cost Optimization (Rightsizing) <!-- flag: obscure -->
+- **Cloud Provider Service Categories** (conceptual, not branded)
+  - Managed Compute (VM Hosting Services)
+  - Managed Container Platforms <!-- flag: obscure -->
+  - Managed Database Services <!-- flag: obscure -->
+  - Managed Message Queues / Event Buses <!-- flag: obscure -->
+  - Managed Data Warehousing & Analytics <!-- flag: obscure -->
+  - Managed Machine Learning Platforms <!-- flag: obscure -->
+  - Managed CI/CD Pipelines (Cloud) <!-- flag: obscure -->
+  - Edge Computing
 - **Reliability Engineering**
   - SLAs, SLOs, SLIs
+  - Error Budgets <!-- flag: obscure -->
   - Observability
     - Logging, Metrics, Tracing
     - Distributed Tracing (OpenTelemetry)
+    - Metrics Aggregation & Time-Series Monitoring <!-- flag: obscure -->
+    - Health Checks <!-- flag: obscure -->
   - Site Reliability Engineering (SRE)
   - Blue-Green & Canary Deployments
+  - High Availability & Multi-Region Failover <!-- flag: obscure -->
+  - Disaster Recovery
+    - Backup & Restore Strategies <!-- flag: obscure -->
+    - RTO / RPO (Recovery Time/Point Objective) <!-- flag: obscure -->
+  - Chaos Engineering (Cloud-Scale) <!-- flag: obscure -->

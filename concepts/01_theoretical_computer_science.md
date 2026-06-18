@@ -18,74 +18,216 @@
   - Chomsky Hierarchy (regular, context-free, context-sensitive, recursively enumerable)
   - Regular Expressions
     - Thompson's Construction
-    - Pumping Lemma
+    - Pumping Lemma (for regular languages)
+    - Pumping Lemma for Context-Free Languages
+  - Linear Bounded Automata <!-- flag: obscure -->
+  - Closure Properties of Language Classes
+  - Ogden's Lemma <!-- flag: obscure -->
+  - DPDA vs NPDA (deterministic vs nondeterministic pushdown automata) <!-- flag: obscure -->
+  - Two-Way Finite Automata <!-- flag: obscure -->
+  - Moore Machine / Mealy Machine (finite state transducers)
+  - Greibach Normal Form <!-- flag: obscure -->
+  - Parsing
+    - Top-Down Parsing (LL parsing)
+    - Bottom-Up Parsing (LR, LALR parsing)
+    - Earley Parser <!-- flag: obscure -->
+    - Recursive Descent Parsing
 - **Computability Theory**
   - Decidability
     - Halting Problem
     - Rice's Theorem
   - Undecidability & Reductions
+    - Many-One Reduction <!-- flag: obscure -->
+    - Turing Reduction <!-- flag: obscure -->
+    - Mapping Reduction
   - Recursive & Recursively Enumerable Sets
   - Kolmogorov Complexity
+  - Computable Functions
+    - Primitive Recursive Functions
+    - Mu Recursion (unbounded minimization) <!-- flag: obscure -->
+    - Ackermann Function
+  - Post Correspondence Problem <!-- flag: obscure -->
+  - Arithmetic Hierarchy <!-- flag: obscure -->
+  - Oracle Machines <!-- flag: obscure -->
+  - Recursion Theorem (Kleene's Recursion Theorem) <!-- flag: obscure -->
+  - Computability Models
+    - Recursive Functions
+    - Register Machines <!-- flag: obscure -->
+    - Post Machines <!-- flag: obscure -->
+  - Church-Turing Thesis Variants
+    - Extended Church-Turing Thesis <!-- flag: obscure -->
 - **Computational Complexity Theory**
   - Complexity Classes
     - P, NP, NP-Complete, NP-Hard
     - co-NP
-    - PSPACE, EXPTIME
+    - PSPACE, EXPTIME, EXPSPACE
     - BPP, RP, ZPP (probabilistic classes)
     - L, NL (logarithmic space)
     - #P (counting problems)
+    - PH (polynomial hierarchy) <!-- flag: obscure -->
+    - BQP (bounded-error quantum polynomial time)
+    - IP (interactive polynomial time) <!-- flag: obscure -->
+    - NC (Nick's Class, parallel complexity) <!-- flag: obscure -->
+    - AC0 / ACC0 (circuit complexity classes) <!-- flag: obscure -->
+    - UP, FewP <!-- flag: obscure -->
+    - EXPTIME-complete problems <!-- flag: obscure -->
+  - Complexity Class Relationships
+    - Time Hierarchy Theorem <!-- flag: obscure -->
+    - Space Hierarchy Theorem <!-- flag: obscure -->
+    - Savitch's Theorem <!-- flag: obscure -->
+    - Ladner's Theorem <!-- flag: obscure -->
   - NP-Completeness
     - Cook-Levin Theorem
     - Reduction techniques (polynomial-time reduction)
     - Classic NP-complete problems (SAT, 3-SAT, Vertex Cover, Hamiltonian Path, Knapsack)
+    - PSPACE-Completeness <!-- flag: obscure -->
+    - NP-Intermediate Problems <!-- flag: obscure -->
   - P vs NP Problem
   - Approximation Algorithms
     - Approximation Ratio
     - PTAS / FPTAS
+    - Inapproximability & PCP Theorem <!-- flag: obscure -->
+    - Hardness of Approximation <!-- flag: obscure -->
   - Parameterized Complexity
     - Fixed-Parameter Tractability
+    - Kernelization <!-- flag: obscure -->
+    - W-Hierarchy <!-- flag: obscure -->
   - Circuit Complexity
+    - Boolean Circuits
+    - Circuit Depth & Size
+    - Monotone Circuits <!-- flag: obscure -->
+  - Communication Complexity <!-- flag: obscure -->
+  - Descriptive Complexity <!-- flag: obscure -->
+  - Average-Case Complexity <!-- flag: obscure -->
+  - Quantum Complexity Theory
+    - Quantum Circuit Model
+    - Quantum Supremacy
+  - Interactive Proof Systems
+    - Probabilistically Checkable Proofs (PCP) <!-- flag: obscure -->
 - **Algorithm Analysis**
-  - Asymptotic Notation (Big-O, Big-Theta, Big-Omega)
+  - Asymptotic Notation (Big-O, Big-Theta, Big-Omega, little-o, little-omega)
   - Recurrence Relations
     - Master Theorem
     - Substitution Method
+    - Recursion Tree Method
   - Amortized Analysis
     - Aggregate Method
     - Accounting Method
     - Potential Method
   - Average-Case vs Worst-Case Analysis
+  - Best-Case Analysis <!-- flag: obscure -->
   - Randomized Algorithms
     - Las Vegas Algorithms
     - Monte Carlo Algorithms
+    - Randomized Quicksort
+    - Reservoir Sampling
+    - Randomized Rounding <!-- flag: obscure -->
+  - Lower Bound Techniques
+    - Adversary Arguments <!-- flag: obscure -->
+    - Decision Tree Lower Bounds <!-- flag: obscure -->
+    - Information-Theoretic Lower Bounds <!-- flag: obscure -->
+  - Linear Programming Theory
+    - Simplex Algorithm
+    - LP Duality <!-- flag: obscure -->
 - **Mathematical Logic & Foundations**
   - Propositional Logic
+    - Truth Tables
+    - Boolean Satisfiability
+    - Conjunctive / Disjunctive Normal Form
+    - Resolution Proof System <!-- flag: obscure -->
   - First-Order Logic
+    - Quantifiers (universal, existential)
+    - Predicate Logic
+    - Unification <!-- flag: obscure -->
+    - Skolemization <!-- flag: obscure -->
+  - Second-Order Logic <!-- flag: obscure -->
+  - Modal Logic <!-- flag: obscure -->
+  - Temporal Logic
+    - Linear Temporal Logic (LTL) <!-- flag: obscure -->
+    - Computation Tree Logic (CTL) <!-- flag: obscure -->
+  - Proof Theory
+    - Natural Deduction <!-- flag: obscure -->
+    - Sequent Calculus <!-- flag: obscure -->
+    - Proof by Induction
+    - Structural Induction <!-- flag: obscure -->
+  - Model Theory <!-- flag: obscure -->
+  - Godel's Incompleteness Theorems
   - Lambda Calculus
     - Beta Reduction
+    - Alpha Conversion <!-- flag: obscure -->
+    - Eta Conversion <!-- flag: obscure -->
     - Church Encoding
     - Y Combinator / Fixed-Point Combinators
+    - Untyped vs Typed Lambda Calculus
+    - Combinatory Logic (SKI Combinators) <!-- flag: obscure -->
   - Type Theory
     - Curry-Howard Correspondence
     - Dependent Types
+    - Simply Typed Lambda Calculus <!-- flag: obscure -->
+    - Polymorphism (Parametric, System F) <!-- flag: obscure -->
+    - Type Inference (Hindley-Milner) <!-- flag: obscure -->
+    - Linear Type Systems <!-- flag: obscure -->
+  - Denotational Semantics <!-- flag: obscure -->
+  - Operational Semantics <!-- flag: obscure -->
+  - Axiomatic Semantics (Hoare Logic) <!-- flag: obscure -->
   - Set Theory Basics
+    - Cardinality
+    - Countable & Uncountable Sets
+    - Diagonalization Argument
+    - Russell's Paradox <!-- flag: obscure -->
   - Combinatorics
     - Pigeonhole Principle
     - Generating Functions
+    - Permutations & Combinations
+    - Inclusion-Exclusion Principle
+    - Recurrence Relations (combinatorial)
+    - Ramsey Theory <!-- flag: obscure -->
   - Graph Theory
     - Trees, DAGs, Bipartite Graphs
     - Graph Coloring
     - Planarity
     - Network Flow (Max-Flow Min-Cut)
+    - Graph Isomorphism <!-- flag: obscure -->
+    - Eulerian & Hamiltonian Paths
+    - Matching Theory (Hall's Theorem) <!-- flag: obscure -->
+    - Spectral Graph Theory <!-- flag: obscure -->
+  - Boolean Algebra
+    - Boolean Functions
+    - Karnaugh Maps <!-- flag: obscure -->
+  - Order Theory
+    - Partial Orders, Lattices <!-- flag: obscure -->
+    - Fixed-Point Theorems (Knaster-Tarski) <!-- flag: obscure -->
 - **Information Theory**
   - Entropy (Shannon Entropy)
+    - Joint Entropy <!-- flag: obscure -->
+    - Conditional Entropy <!-- flag: obscure -->
+    - Cross-Entropy
+    - KL Divergence (Relative Entropy)
   - Mutual Information
   - Channel Capacity
+    - Shannon's Noisy Channel Coding Theorem
+    - Shannon-Hartley Theorem <!-- flag: obscure -->
+  - Source Coding Theorem <!-- flag: obscure -->
+  - Rate-Distortion Theory <!-- flag: obscure -->
   - Error-Correcting Codes
     - Hamming Code
+    - Hamming Distance
     - Reed-Solomon Code
     - Convolutional Codes
+    - BCH Codes <!-- flag: obscure -->
+    - Low-Density Parity-Check (LDPC) Codes <!-- flag: obscure -->
+    - Turbo Codes <!-- flag: obscure -->
+    - Cyclic Redundancy Check (CRC)
+    - Checksum
+    - Parity Bit
   - Data Compression Theory
     - Huffman Coding
     - Arithmetic Coding
     - Lempel-Ziv (LZ77/LZ78)
+    - Lossless vs Lossy Compression
+    - Kolmogorov Complexity & Compression Limits <!-- flag: obscure -->
+    - Run-Length Encoding
+  - Algorithmic Information Theory <!-- flag: obscure -->
+  - Coding Theory
+    - Block Codes <!-- flag: obscure -->
+    - Singleton Bound <!-- flag: obscure -->

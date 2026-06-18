@@ -2,14 +2,146 @@
 
 - **Bioinformatics**
   - Sequence Alignment (BLAST, dynamic programming alignment)
+    - Global Alignment (Needleman-Wunsch) <!-- flag: obscure -->
+    - Local Alignment (Smith-Waterman) <!-- flag: obscure -->
+    - Multiple Sequence Alignment <!-- flag: obscure -->
+    - Heuristic Alignment Tools (BLAST, BLAT, BWA) <!-- flag: obscure -->
+    - Hidden Markov Model Profiles (HMMER) <!-- flag: obscure -->
+    - Scoring Matrices (PAM, BLOSUM) <!-- flag: obscure -->
+    - Gap Penalty Models (Affine Gap Penalties) <!-- flag: obscure -->
   - Phylogenetic Trees
+    - Maximum Likelihood Phylogenetics <!-- flag: obscure -->
+    - Neighbor-Joining Method <!-- flag: obscure -->
+    - Maximum Parsimony <!-- flag: obscure -->
   - Genome Assembly
+    - De Bruijn Graph Assembly <!-- flag: obscure -->
+    - Overlap-Layout-Consensus Assembly <!-- flag: obscure -->
+    - Reference-Guided Assembly <!-- flag: obscure -->
+    - Genome Annotation <!-- flag: obscure -->
+  - Protein Structure
+    - Protein Folding Prediction
+    - Primary / Secondary / Tertiary / Quaternary Structure <!-- flag: obscure -->
+    - Homology Modeling <!-- flag: obscure -->
+    - Molecular Docking <!-- flag: obscure -->
+    - Contact Map Prediction <!-- flag: obscure -->
+    - AlphaFold / Deep Learning Structure Prediction <!-- flag: obscure -->
+  - Gene Expression Analysis
+    - Microarray Analysis <!-- flag: obscure -->
+    - RNA-Seq Analysis <!-- flag: obscure -->
+    - Differential Expression Analysis <!-- flag: obscure -->
+    - Gene Ontology Enrichment Analysis <!-- flag: obscure -->
+    - Clustering of Expression Profiles <!-- flag: obscure -->
+  - Variant Calling / Genome-Wide Association Studies <!-- flag: obscure -->
+  - Systems Biology / Gene Regulatory Network Modeling <!-- flag: obscure -->
+  - Biological Pathway Modeling <!-- flag: obscure -->
+  - DNA/RNA Secondary Structure Prediction <!-- flag: obscure -->
 - **Computational Linguistics**
   - Parsing Natural Language (dependency/constituency)
+  - Computational Semantics
+    - Formal / Model-Theoretic Semantics <!-- flag: obscure -->
+    - Lambda Calculus Semantics (Montague Grammar) <!-- flag: obscure -->
+    - Distributional Semantics <!-- flag: obscure -->
+    - Semantic Role Labeling <!-- flag: obscure -->
+    - Word Sense Disambiguation <!-- flag: obscure -->
+    - Compositional Semantics <!-- flag: obscure -->
+  - Computational Phonology / Phonetics <!-- flag: obscure -->
+  - Computational Morphology
+    - Finite-State Morphological Analysis <!-- flag: obscure -->
+    - Stemming Algorithms (Porter Stemmer) <!-- flag: obscure -->
+  - Speech Processing Theory
+    - Acoustic Modeling <!-- flag: obscure -->
+    - Source-Filter Model of Speech <!-- flag: obscure -->
+    - Mel-Frequency Cepstral Coefficients (MFCC) <!-- flag: obscure -->
+    - Prosody Modeling <!-- flag: obscure -->
+    - Speaker Diarization <!-- flag: obscure -->
+    - Forced Alignment <!-- flag: obscure -->
+  - Pragmatics & Discourse Modeling <!-- flag: obscure -->
+  - Psycholinguistic Computational Models <!-- flag: obscure -->
+  - Corpus Linguistics
+    - Concordancing <!-- flag: obscure -->
+    - Collocation Extraction <!-- flag: obscure -->
+  - Computational Etymology / Historical Linguistics <!-- flag: obscure -->
 - **Numerical & Scientific Computing**
   - Floating-Point Representation (IEEE 754)
   - Numerical Stability
+    - Condition Number <!-- flag: obscure -->
+    - Catastrophic Cancellation <!-- flag: obscure -->
+    - Error Propagation Analysis <!-- flag: obscure -->
   - Root-Finding Methods (Newton-Raphson)
+    - Bisection Method <!-- flag: obscure -->
+    - Secant Method <!-- flag: obscure -->
+    - Fixed-Point Iteration <!-- flag: obscure -->
   - Linear Algebra Computation (LU Decomposition, SVD)
-  - Finite Element Methods
-  - Monte Carlo Simulation
+    - QR Decomposition <!-- flag: obscure -->
+    - Cholesky Decomposition <!-- flag: obscure -->
+    - Eigenvalue Algorithms (Power Iteration, QR Algorithm) <!-- flag: obscure -->
+    - Iterative Solvers (Conjugate Gradient, GMRES) <!-- flag: obscure -->
+    - Sparse Matrix Computation <!-- flag: obscure -->
+    - Preconditioning <!-- flag: obscure -->
+  - Numerical Integration (Quadrature)
+    - Trapezoidal Rule <!-- flag: obscure -->
+    - Simpson's Rule <!-- flag: obscure -->
+    - Gaussian Quadrature <!-- flag: obscure -->
+    - Adaptive Quadrature <!-- flag: obscure -->
+  - Interpolation
+    - Linear Interpolation
+    - Polynomial Interpolation (Lagrange, Newton) <!-- flag: obscure -->
+    - Spline Interpolation (Cubic Splines) <!-- flag: obscure -->
+    - Bilinear / Trilinear Interpolation <!-- flag: obscure -->
+  - Numerical Differentiation <!-- flag: obscure -->
+  - Solving Differential Equations
+    - Euler's Method <!-- flag: obscure -->
+    - Runge-Kutta Methods <!-- flag: obscure -->
+    - Finite Difference Methods <!-- flag: obscure -->
+    - Finite Element Methods
+    - Finite Volume Methods <!-- flag: obscure -->
+    - Stiff ODE Solvers <!-- flag: obscure -->
+    - Boundary Value Problems / Shooting Method <!-- flag: obscure -->
+    - Partial Differential Equation Solvers <!-- flag: obscure -->
+  - Optimization Methods
+    - Linear Programming (Simplex Method)
+    - Integer Programming <!-- flag: obscure -->
+    - Convex Optimization <!-- flag: obscure -->
+    - Gradient-Based Optimization (Gradient Descent, Newton's Method) <!-- flag: obscure -->
+    - Lagrange Multipliers <!-- flag: obscure -->
+    - Constrained Optimization (KKT Conditions) <!-- flag: obscure -->
+    - Least Squares Fitting <!-- flag: obscure -->
+    - Nonlinear Programming <!-- flag: obscure -->
+  - Simulation Techniques
+    - Monte Carlo Simulation
+    - Markov Chain Monte Carlo (MCMC) <!-- flag: obscure -->
+    - Discrete Event Simulation <!-- flag: obscure -->
+    - Agent-Based Modeling <!-- flag: obscure -->
+    - Cellular Automata
+    - Molecular Dynamics Simulation <!-- flag: obscure -->
+    - N-Body Simulation <!-- flag: obscure -->
+  - Computational Physics
+    - Lattice Models (Ising Model) <!-- flag: obscure -->
+    - Computational Fluid Dynamics <!-- flag: obscure -->
+    - Quantum Chemistry Simulation <!-- flag: obscure -->
+    - Density Functional Theory <!-- flag: obscure -->
+  - Computational Chemistry
+    - Force Field Modeling <!-- flag: obscure -->
+    - Ab Initio Methods <!-- flag: obscure -->
+  - Geographic Information Systems (GIS)
+    - Spatial Indexing (R-Tree, Quadtree) <!-- flag: obscure -->
+    - Map Projections <!-- flag: obscure -->
+    - Geocoding <!-- flag: obscure -->
+    - Raster vs Vector Data Models <!-- flag: obscure -->
+    - Spatial Interpolation (Kriging) <!-- flag: obscure -->
+    - Route Planning / Shortest-Path on Road Networks <!-- flag: off-theme -->
+  - Computational Geometry for Scientific Computing
+    - Mesh Generation <!-- flag: obscure -->
+    - Delaunay Triangulation <!-- flag: obscure -->
+    - Voronoi Diagrams <!-- flag: obscure -->
+  - Symbolic Computation / Computer Algebra Systems <!-- flag: obscure -->
+  - High-Performance / Parallel Scientific Computing
+    - Vectorization / SIMD for Numerical Code <!-- flag: obscure -->
+    - Parallel Numerical Libraries (BLAS, LAPACK) <!-- flag: obscure -->
+- **Computational Social Science & Economics** <!-- flag: off-theme -->
+  - Agent-Based Economic Modeling <!-- flag: off-theme -->
+  - Network Analysis of Social Systems <!-- flag: off-theme -->
+  - Computational Epidemiology (SIR/SEIR Models) <!-- flag: obscure -->
+- **Computational Astronomy** <!-- flag: obscure -->
+  - Orbital Mechanics Simulation <!-- flag: obscure -->
+  - Astronomical Image Processing <!-- flag: obscure -->

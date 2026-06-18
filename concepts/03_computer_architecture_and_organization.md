@@ -3,63 +3,152 @@
 - **Digital Logic**
   - Boolean Algebra
   - Logic Gates (AND, OR, NOT, NAND, NOR, XOR)
+  - Universal Gates (NAND/NOR completeness) <!-- flag: obscure -->
   - Combinational Circuits (adders, multiplexers, decoders)
+    - Half Adder / Full Adder
+    - Ripple-Carry Adder
+    - Carry-Lookahead Adder
+    - Multiplexer / Demultiplexer
+    - Encoder / Decoder
+    - Comparator Circuits
   - Sequential Circuits
     - Flip-Flops (SR, D, JK, T)
     - Latches
     - Finite State Machines (Moore, Mealy)
+    - Registers & Register Files
+    - Counters (ripple, synchronous)
+    - Shift Registers
   - Karnaugh Maps
+  - Quine–McCluskey Method <!-- flag: obscure -->
+  - Number Systems & Representation
+    - Binary, Octal, Hexadecimal
+    - Two's Complement
+    - Sign-Magnitude / One's Complement <!-- flag: obscure -->
+    - Fixed-Point Representation
+    - Floating-Point Representation (IEEE 754)
+    - Binary-Coded Decimal (BCD) <!-- flag: obscure -->
+  - Clock Signals & Timing
+    - Setup Time / Hold Time
+    - Clock Skew & Jitter
+    - Propagation Delay
+    - Metastability
+  - Hardware Description Languages (Verilog, VHDL)
+  - Programmable Logic
+    - PLA / PAL <!-- flag: obscure -->
+    - FPGA (Field-Programmable Gate Array)
+    - ASIC (Application-Specific Integrated Circuit)
 - **CPU Design**
   - Instruction Set Architecture (ISA)
     - RISC vs CISC
     - x86, ARM, RISC-V
+    - Instruction Formats & Encoding
+    - Addressing Modes
+    - Endianness (Big-Endian vs Little-Endian)
   - Datapath & Control Unit
+    - Hardwired Control
+    - Microprogrammed Control
+    - Microcode
+  - Fetch-Decode-Execute Cycle
   - Pipelining
     - Pipeline Hazards (structural, data, control)
+    - Pipeline Stalls / Bubbles
+    - Forwarding (Bypassing)
     - Branch Prediction
+      - Static vs Dynamic Branch Prediction
+      - Branch Target Buffer (BTB)
+      - Branch History Table
     - Speculative Execution
     - Out-of-Order Execution
     - Superscalar Execution
+    - In-Order vs Out-of-Order Issue <!-- flag: obscure -->
   - Microarchitecture
     - Register Renaming
     - Reservation Stations
     - Reorder Buffer
+    - Scoreboarding <!-- flag: obscure -->
+    - Tomasulo's Algorithm <!-- flag: obscure -->
+    - Instruction-Level Parallelism (ILP)
+    - Multithreading (SMT / Hyper-Threading)
   - SIMD / Vector Processing
   - VLIW Architecture
+  - Stack Machines <!-- flag: obscure -->
+  - Performance Evaluation
+    - Clock Rate / CPI / IPC
+    - Amdahl's Law
+    - Benchmarking (SPEC)
 - **Memory Hierarchy**
   - Registers
   - Cache Memory
     - Cache Levels (L1/L2/L3)
     - Cache Mapping (direct, associative, set-associative)
     - Cache Replacement Policies (LRU, LFU, FIFO)
+    - Cache Write Policies (write-through, write-back, write-allocate)
     - Cache Coherence
       - MESI Protocol
+      - MOESI Protocol <!-- flag: obscure -->
       - Snooping vs Directory-Based
     - False Sharing
+    - Cache Misses (compulsory, capacity, conflict) <!-- flag: obscure -->
+    - Prefetching
+    - Multi-Level Inclusion Policies <!-- flag: obscure -->
   - Main Memory (DRAM, SRAM)
+    - Memory Controllers
+    - Memory Interleaving <!-- flag: obscure -->
+    - DDR SDRAM Generations
+    - Error-Correcting Code (ECC) Memory
   - Virtual Memory
     - Paging
     - Page Tables / Multi-Level Page Tables
     - Translation Lookaside Buffer (TLB)
     - Segmentation
     - Page Fault Handling
+    - Page Replacement Algorithms (LRU, Clock, Optimal) <!-- flag: obscure -->
   - Memory-Mapped I/O
+  - Storage Hierarchy
+    - Solid-State Drives (SSD) / NAND Flash
+    - Hard Disk Drives (HDD)
+    - Non-Volatile Memory (NVRAM, 3D XPoint) <!-- flag: obscure -->
 - **Parallel & Distributed Architecture**
   - Flynn's Taxonomy (SISD, SIMD, MISD, MIMD)
   - Multicore Processors
+  - Symmetric vs Asymmetric Multiprocessing
+  - Shared-Memory vs Distributed-Memory Architectures
+  - Memory Consistency Models <!-- flag: obscure -->
   - GPU Architecture
     - CUDA / Shader Cores
     - Warp Scheduling
+    - SIMT (Single Instruction, Multiple Threads) <!-- flag: obscure -->
+    - Tensor Cores <!-- flag: obscure -->
   - NUMA (Non-Uniform Memory Access)
   - Interconnection Networks
+    - Bus Topology
+    - Crossbar Switch <!-- flag: obscure -->
+    - Mesh / Torus Networks <!-- flag: obscure -->
+    - Network-on-Chip (NoC) <!-- flag: obscure -->
+  - Systolic Arrays <!-- flag: obscure -->
+  - Dataflow Architecture <!-- flag: obscure -->
 - **I/O Systems**
   - Bus Architecture (PCIe, USB)
+  - System Bus Components (address bus, data bus, control bus) <!-- flag: obscure -->
   - Interrupts & Interrupt Handling
+    - Interrupt Vector Table <!-- flag: obscure -->
+    - Maskable vs Non-Maskable Interrupts <!-- flag: obscure -->
   - DMA (Direct Memory Access)
   - Polling vs Interrupt-Driven I/O
+  - I/O Controllers
+  - Peripheral Interfaces (SATA, NVMe) <!-- flag: obscure -->
 - **Hardware Security**
   - Side-Channel Attacks (timing, power analysis)
   - Spectre / Meltdown
   - Rowhammer
   - Trusted Execution Environment (TEE)
   - Hardware Security Module (HSM)
+  - Trusted Platform Module (TPM)
+  - Secure Boot
+  - Physical Unclonable Function (PUF) <!-- flag: obscure -->
+- **Computer Arithmetic**
+  - Integer Multiplication & Division Circuits <!-- flag: obscure -->
+  - Booth's Algorithm <!-- flag: obscure -->
+  - Floating-Point Arithmetic Units (FPU)
+  - Arithmetic Logic Unit (ALU)
+  - Overflow & Underflow Detection
