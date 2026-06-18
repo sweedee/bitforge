@@ -21,13 +21,12 @@
     - Multilevel Queue Scheduling
     - Multilevel Feedback Queue
     - Completely Fair Scheduler (CFS)
-    - Earliest Deadline First (Real-Time Scheduling) <!-- flag: obscure -->
-    - Rate-Monotonic Scheduling <!-- flag: obscure -->
-    - Lottery Scheduling <!-- flag: obscure -->
+    - Earliest Deadline First (Real-Time Scheduling)
+    - Rate-Monotonic Scheduling
+    - Lottery Scheduling
     - Scheduling Metrics (turnaround time, waiting time, response time, throughput)
     - Preemptive vs Non-Preemptive Scheduling
-    - Affinity Scheduling / CPU Pinning <!-- flag: obscure -->
-    - Gang Scheduling <!-- flag: obscure -->
+    - Affinity Scheduling / CPU Pinning
   - Inter-Process Communication (IPC)
     - Pipes, Named Pipes (FIFOs)
     - Message Queues
@@ -51,16 +50,16 @@
     - Resource Allocation Graph
   - Livelock & Starvation
   - Priority Inversion
-    - Priority Inheritance Protocol <!-- flag: obscure -->
+    - Priority Inheritance Protocol
   - Producer-Consumer Problem
   - Readers-Writers Problem
   - Dining Philosophers Problem
-  - Sleeping Barber Problem <!-- flag: obscure -->
+  - Sleeping Barber Problem
   - Lock-Free / Wait-Free Programming
     - Compare-And-Swap (CAS)
     - ABA Problem
     - Memory Ordering / Barriers
-  - Peterson's Algorithm <!-- flag: obscure -->
+  - Peterson's Algorithm
 - **Memory Management**
   - Dynamic Memory Allocation
     - Heap vs Stack
@@ -74,7 +73,7 @@
       - LRU, FIFO, Optimal (Belady's Algorithm)
       - Clock / Second-Chance Algorithm
       - Working Set Model
-    - Belady's Anomaly <!-- flag: obscure -->
+    - Belady's Anomaly
     - Copy-on-Write
     - Memory-Mapped Files (mmap)
     - Overcommit & Swap Space
@@ -84,7 +83,7 @@
     - Generational GC
     - Copying / Compacting GC
   - Swapping & Thrashing
-  - Out-of-Memory (OOM) Killer <!-- flag: obscure -->
+  - Out-of-Memory (OOM) Killer
 - **File Systems**
   - File Allocation Methods (contiguous, linked, indexed)
   - inodes
@@ -92,11 +91,11 @@
   - Superblock
   - Free Space Management (bitmap, free list)
   - Journaling File Systems
-  - Log-Structured File Systems <!-- flag: obscure -->
+  - Log-Structured File Systems
   - Copy-on-Write File Systems
   - Common File Systems (ext4, NTFS, FAT32, ZFS, Btrfs)
   - Network File Systems (NFS, SMB/CIFS)
-  - Distributed File Systems (HDFS, GFS) <!-- flag: obscure -->
+  - Distributed File Systems (HDFS, GFS)
   - Directory Structures
     - Hard Links vs Symbolic Links
     - Mount Points
@@ -106,8 +105,8 @@
   - Buffer Cache / Page Cache
 - **OS Design**
   - Kernel Architectures (monolithic, microkernel, hybrid)
-  - Exokernel <!-- flag: obscure -->
-  - Unikernel <!-- flag: obscure -->
+  - Exokernel
+  - Unikernel
   - System Calls
   - User Mode vs Kernel Mode
   - Interrupts & Interrupt Handlers
@@ -125,10 +124,10 @@
 - **Protection & Security**
   - Access Control Models (DAC, MAC, RBAC)
   - Protection Rings
-  - Capability-Based Security <!-- flag: obscure -->
+  - Capability-Based Security
   - Sandboxing
-  - System Call Filtering (seccomp) <!-- flag: obscure -->
-  - Pluggable Authentication Modules (PAM) <!-- flag: obscure -->
+  - System Call Filtering (seccomp)
+  - Pluggable Authentication Modules (PAM)
 - **Device Management**
   - Device Drivers
   - I/O Scheduling

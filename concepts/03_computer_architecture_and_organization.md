@@ -3,7 +3,7 @@
 - **Digital Logic**
   - Boolean Algebra
   - Logic Gates (AND, OR, NOT, NAND, NOR, XOR)
-  - Universal Gates (NAND/NOR completeness) <!-- flag: obscure -->
+  - Universal Gates (NAND/NOR completeness)
   - Combinational Circuits (adders, multiplexers, decoders)
     - Half Adder / Full Adder
     - Ripple-Carry Adder
@@ -19,14 +19,14 @@
     - Counters (ripple, synchronous)
     - Shift Registers
   - Karnaugh Maps
-  - Quine–McCluskey Method <!-- flag: obscure -->
+  - Quine–McCluskey Method
   - Number Systems & Representation
     - Binary, Octal, Hexadecimal
     - Two's Complement
-    - Sign-Magnitude / One's Complement <!-- flag: obscure -->
+    - Sign-Magnitude / One's Complement
     - Fixed-Point Representation
     - Floating-Point Representation (IEEE 754)
-    - Binary-Coded Decimal (BCD) <!-- flag: obscure -->
+    - Binary-Coded Decimal (BCD)
   - Clock Signals & Timing
     - Setup Time / Hold Time
     - Clock Skew & Jitter
@@ -34,7 +34,7 @@
     - Metastability
   - Hardware Description Languages (Verilog, VHDL)
   - Programmable Logic
-    - PLA / PAL <!-- flag: obscure -->
+    - PLA / PAL
     - FPGA (Field-Programmable Gate Array)
     - ASIC (Application-Specific Integrated Circuit)
 - **CPU Design**
@@ -60,18 +60,17 @@
     - Speculative Execution
     - Out-of-Order Execution
     - Superscalar Execution
-    - In-Order vs Out-of-Order Issue <!-- flag: obscure -->
   - Microarchitecture
     - Register Renaming
     - Reservation Stations
     - Reorder Buffer
-    - Scoreboarding <!-- flag: obscure -->
-    - Tomasulo's Algorithm <!-- flag: obscure -->
+    - Scoreboarding
+    - Tomasulo's Algorithm
     - Instruction-Level Parallelism (ILP)
     - Multithreading (SMT / Hyper-Threading)
   - SIMD / Vector Processing
   - VLIW Architecture
-  - Stack Machines <!-- flag: obscure -->
+  - Stack Machines
   - Performance Evaluation
     - Clock Rate / CPI / IPC
     - Amdahl's Law
@@ -85,15 +84,13 @@
     - Cache Write Policies (write-through, write-back, write-allocate)
     - Cache Coherence
       - MESI Protocol
-      - MOESI Protocol <!-- flag: obscure -->
       - Snooping vs Directory-Based
     - False Sharing
-    - Cache Misses (compulsory, capacity, conflict) <!-- flag: obscure -->
+    - Cache Misses (compulsory, capacity, conflict)
     - Prefetching
-    - Multi-Level Inclusion Policies <!-- flag: obscure -->
   - Main Memory (DRAM, SRAM)
     - Memory Controllers
-    - Memory Interleaving <!-- flag: obscure -->
+    - Memory Interleaving
     - DDR SDRAM Generations
     - Error-Correcting Code (ECC) Memory
   - Virtual Memory
@@ -102,41 +99,41 @@
     - Translation Lookaside Buffer (TLB)
     - Segmentation
     - Page Fault Handling
-    - Page Replacement Algorithms (LRU, Clock, Optimal) <!-- flag: obscure -->
+    - Page Replacement Algorithms (LRU, Clock, Optimal)
   - Memory-Mapped I/O
   - Storage Hierarchy
     - Solid-State Drives (SSD) / NAND Flash
     - Hard Disk Drives (HDD)
-    - Non-Volatile Memory (NVRAM, 3D XPoint) <!-- flag: obscure -->
+    - Non-Volatile Memory (NVRAM, 3D XPoint)
 - **Parallel & Distributed Architecture**
   - Flynn's Taxonomy (SISD, SIMD, MISD, MIMD)
   - Multicore Processors
   - Symmetric vs Asymmetric Multiprocessing
   - Shared-Memory vs Distributed-Memory Architectures
-  - Memory Consistency Models <!-- flag: obscure -->
+  - Memory Consistency Models
   - GPU Architecture
     - CUDA / Shader Cores
     - Warp Scheduling
-    - SIMT (Single Instruction, Multiple Threads) <!-- flag: obscure -->
-    - Tensor Cores <!-- flag: obscure -->
+    - SIMT (Single Instruction, Multiple Threads)
+    - Tensor Cores
   - NUMA (Non-Uniform Memory Access)
   - Interconnection Networks
     - Bus Topology
-    - Crossbar Switch <!-- flag: obscure -->
-    - Mesh / Torus Networks <!-- flag: obscure -->
-    - Network-on-Chip (NoC) <!-- flag: obscure -->
-  - Systolic Arrays <!-- flag: obscure -->
-  - Dataflow Architecture <!-- flag: obscure -->
+    - Crossbar Switch
+    - Mesh / Torus Networks
+    - Network-on-Chip (NoC)
+  - Systolic Arrays
+  - Dataflow Architecture
 - **I/O Systems**
   - Bus Architecture (PCIe, USB)
-  - System Bus Components (address bus, data bus, control bus) <!-- flag: obscure -->
+  - System Bus Components (address bus, data bus, control bus)
   - Interrupts & Interrupt Handling
-    - Interrupt Vector Table <!-- flag: obscure -->
-    - Maskable vs Non-Maskable Interrupts <!-- flag: obscure -->
+    - Interrupt Vector Table
+    - Maskable vs Non-Maskable Interrupts
   - DMA (Direct Memory Access)
   - Polling vs Interrupt-Driven I/O
   - I/O Controllers
-  - Peripheral Interfaces (SATA, NVMe) <!-- flag: obscure -->
+  - Peripheral Interfaces (SATA, NVMe)
 - **Hardware Security**
   - Side-Channel Attacks (timing, power analysis)
   - Spectre / Meltdown
@@ -145,10 +142,9 @@
   - Hardware Security Module (HSM)
   - Trusted Platform Module (TPM)
   - Secure Boot
-  - Physical Unclonable Function (PUF) <!-- flag: obscure -->
 - **Computer Arithmetic**
-  - Integer Multiplication & Division Circuits <!-- flag: obscure -->
-  - Booth's Algorithm <!-- flag: obscure -->
+  - Integer Multiplication & Division Circuits
+  - Booth's Algorithm
   - Floating-Point Arithmetic Units (FPU)
   - Arithmetic Logic Unit (ALU)
   - Overflow & Underflow Detection

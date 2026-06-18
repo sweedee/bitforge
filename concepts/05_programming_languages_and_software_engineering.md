@@ -28,15 +28,13 @@
     - Reflection
     - Macros (Lisp-style)
     - Code Generation / Templates
-  - Aspect-Oriented Programming <!-- flag: obscure -->
-  - Dataflow Programming <!-- flag: obscure -->
-  - Array Programming (APL-style) <!-- flag: obscure -->
-  - Stack-Based / Concatenative Programming (Forth, Factor) <!-- flag: obscure -->
-  - Literate Programming <!-- flag: obscure -->
-  - Visual / Block-Based Programming (Scratch) <!-- flag: off-theme -->
+  - Aspect-Oriented Programming
+  - Dataflow Programming
+  - Array Programming (APL-style)
+  - Stack-Based / Concatenative Programming (Forth, Factor)
+  - Literate Programming
   - Structured Programming
     - Single-Entry Single-Exit
-    - Goto Considered Harmful <!-- flag: obscure -->
 - **Type Systems**
   - Static vs Dynamic Typing
   - Strong vs Weak Typing
@@ -52,12 +50,12 @@
     - Product Types
   - Option/Maybe Types
   - Result/Either Types
-  - Dependent Types <!-- flag: obscure -->
-  - Linear Types <!-- flag: obscure -->
+  - Dependent Types
+  - Linear Types
   - Gradual Typing
   - Type Erasure
-  - Hindley-Milner Type Inference <!-- flag: obscure -->
-  - Curry-Howard Correspondence <!-- flag: obscure -->
+  - Hindley-Milner Type Inference
+  - Curry-Howard Correspondence
 - **Programming Languages**
   - C
     - Pointers
@@ -74,22 +72,22 @@
     - Header Files & Translation Units
     - Storage Classes (static, extern, volatile, const)
     - Bitfields
-    - Variadic Functions (stdarg.h) <!-- flag: obscure -->
-    - setjmp/longjmp <!-- flag: obscure -->
+    - Variadic Functions (stdarg.h)
+    - setjmp/longjmp
   - C++
     - RAII
     - Templates / Generic Programming
       - Template Metaprogramming
-      - SFINAE <!-- flag: obscure -->
+      - SFINAE
       - Concepts (C++20)
     - Smart Pointers (unique_ptr, shared_ptr, weak_ptr)
     - Move Semantics / Rvalue References
     - Operator Overloading
     - Virtual Functions & vtables
     - Multiple Inheritance & Diamond Problem
-    - Name Mangling <!-- flag: obscure -->
+    - Name Mangling
     - Standard Template Library (STL)
-    - Modules (C++20) <!-- flag: obscure -->
+    - Modules (C++20)
     - Coroutines (C++20)
   - C#
     - .NET Runtime (CLR)
@@ -122,7 +120,7 @@
     - List Comprehensions
     - Context Managers (with statement)
     - Duck Typing & Magic/Dunder Methods
-    - Metaclasses <!-- flag: obscure -->
+    - Metaclasses
     - Virtual Environments / Packaging (pip, venv)
     - Type Hints
   - JavaScript / TypeScript
@@ -159,15 +157,15 @@
     - Optionals
     - Protocol-Oriented Programming
     - Automatic Reference Counting (ARC)
-  - Scala <!-- flag: obscure -->
-    - Case Classes <!-- flag: obscure -->
-    - Implicits <!-- flag: obscure -->
-  - Erlang / Elixir <!-- flag: obscure -->
-    - BEAM VM <!-- flag: obscure -->
-    - Let It Crash Philosophy <!-- flag: obscure -->
+  - Scala
+    - Case Classes
+    - Implicits
+  - Erlang / Elixir
+    - BEAM VM
+    - Let It Crash Philosophy
   - Lisp / Scheme
     - S-Expressions
-    - Homoiconicity <!-- flag: obscure -->
+    - Homoiconicity
   - SQL (declarative query language)
   - Assembly Languages
   - Shell Scripting (Bash/PowerShell)
@@ -179,7 +177,7 @@
   - Parsing
     - Recursive Descent Parsing
     - LL / LR Parsing
-    - LALR Parsing <!-- flag: obscure -->
+    - LALR Parsing
     - Parser Combinators
     - Operator Precedence Parsing
     - Abstract Syntax Tree (AST)
@@ -193,7 +191,7 @@
     - Three-Address Code
     - Static Single Assignment (SSA)
     - Control Flow Graph (CFG)
-    - Abstract Interpretation <!-- flag: obscure -->
+    - Abstract Interpretation
   - Optimization
     - Constant Folding
     - Dead Code Elimination
@@ -201,22 +199,22 @@
     - Loop-Invariant Code Motion
     - Common Subexpression Elimination
     - Inlining
-    - Strength Reduction <!-- flag: obscure -->
+    - Strength Reduction
     - Tail Call Elimination
     - Escape Analysis
     - Register Allocation (Graph Coloring)
     - Peephole Optimization
   - Code Generation
   - Just-In-Time (JIT) Compilation
-    - Tracing JIT <!-- flag: obscure -->
-    - Method JIT <!-- flag: obscure -->
+    - Tracing JIT
+    - Method JIT
     - Inline Caching
   - Ahead-of-Time (AOT) Compilation
   - Bytecode Interpreters
   - Tree-Walking Interpreters
   - Transpilers / Source-to-Source Compilation
-  - Single-Pass vs Multi-Pass Compilers <!-- flag: obscure -->
-  - Compiler Bootstrapping <!-- flag: obscure -->
+  - Single-Pass vs Multi-Pass Compilers
+  - Compiler Bootstrapping
   - Linking
     - Static vs Dynamic Linking
     - Symbol Resolution
@@ -224,15 +222,14 @@
     - Shared Libraries / DLLs
   - Calling Conventions
   - Stack Frames & Activation Records
-  - Closures Implementation (Capture by Reference/Value) <!-- flag: obscure -->
 - **Software Engineering Practices**
   - Software Development Life Cycle (SDLC)
     - Waterfall Model
     - Agile / Scrum / Kanban
     - DevOps Culture
-    - Extreme Programming (XP) <!-- flag: obscure -->
-    - Pair Programming <!-- flag: off-theme -->
-    - Spiral Model <!-- flag: obscure -->
+    - Extreme Programming (XP)
+    - Pair Programming
+    - Spiral Model
   - Version Control
     - Git
       - Branching & Merging
@@ -243,7 +240,7 @@
       - Submodules
       - Git Hooks
     - Trunk-Based Development
-    - GitFlow <!-- flag: obscure -->
+    - GitFlow
     - Monorepo vs Polyrepo
   - Testing
     - Unit Testing
@@ -260,8 +257,7 @@
     - Snapshot Testing
     - Smoke Testing
     - Code Coverage
-    - Golden Master Testing <!-- flag: obscure -->
-    - Contract Testing <!-- flag: obscure -->
+    - Contract Testing
   - Code Quality
     - Code Smells
     - Refactoring
@@ -278,8 +274,8 @@
     - Event-Driven Architecture
     - Hexagonal / Clean Architecture
     - Domain-Driven Design
-      - Bounded Contexts <!-- flag: obscure -->
-      - Aggregates <!-- flag: obscure -->
+      - Bounded Contexts
+      - Aggregates
     - Service-Oriented Architecture (SOA)
     - Model-View-Controller (MVC)
     - Model-View-ViewModel (MVVM)
@@ -289,7 +285,7 @@
     - Event Sourcing
     - Dependency Injection
     - Inversion of Control
-    - Anti-Corruption Layer <!-- flag: obscure -->
+    - Anti-Corruption Layer
   - CI/CD
     - Continuous Integration
     - Continuous Deployment/Delivery
@@ -303,10 +299,9 @@
     - Dependency Resolution
     - Lockfiles
     - Transitive Dependencies
-    - Dependency Hell / Diamond Dependency Problem <!-- flag: obscure -->
-    - Monorepo Build Tools (Bazel, Nx) <!-- flag: obscure -->
-    - Vendoring <!-- flag: obscure -->
-    - Software Bill of Materials (SBOM) <!-- flag: obscure -->
+    - Dependency Hell / Diamond Dependency Problem
+    - Vendoring
+    - Software Bill of Materials (SBOM)
   - Observability & Operations
     - Logging
     - Structured Logging
@@ -318,7 +313,6 @@
       - Print/Log Debugging
       - Core Dumps
       - Profiling (CPU, Memory)
-      - Tracepoints <!-- flag: obscure -->
   - Documentation & API Design
     - REST API Design Principles
     - API Versioning
@@ -329,9 +323,4 @@
     - Webhooks
     - Software Development Kits (SDKs)
     - Code Documentation (Docstrings, Javadoc)
-    - Architecture Decision Records (ADRs) <!-- flag: obscure -->
-  - Software Licensing <!-- flag: off-theme -->
-    - Open Source Licenses (MIT, GPL, Apache) <!-- flag: off-theme -->
-  - Estimation & Project Practices <!-- flag: off-theme -->
-    - Story Points <!-- flag: off-theme -->
-    - Code Ownership / CODEOWNERS <!-- flag: off-theme -->
+    - Architecture Decision Records (ADRs)

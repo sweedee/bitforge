@@ -4,127 +4,121 @@
   - HTML
     - Semantic HTML
     - Forms & Form Validation
-    - HTML5 APIs (Canvas, Geolocation, Drag and Drop) <!-- flag: obscure -->
+    - HTML5 APIs (Canvas, Geolocation, Drag and Drop)
   - DOM & Rendering
     - DOM Tree
     - DOM Manipulation
     - Event Bubbling / Capturing
-    - Event Delegation <!-- flag: obscure -->
-    - Shadow DOM <!-- flag: obscure -->
+    - Event Delegation
+    - Shadow DOM
   - CSS
     - CSS Layout (Flexbox, Grid, Box Model)
     - CSS Selectors & Specificity
     - Cascade & Inheritance
-    - Positioning (Static, Relative, Absolute, Fixed, Sticky) <!-- flag: obscure -->
+    - Positioning (Static, Relative, Absolute, Fixed, Sticky)
     - Responsive Design
       - Media Queries
-      - Mobile-First Design <!-- flag: obscure -->
-      - Fluid Typography / Viewport Units <!-- flag: obscure -->
-    - CSS Preprocessors (Sass, Less) <!-- flag: obscure -->
-    - CSS-in-JS <!-- flag: obscure -->
-    - CSS Custom Properties (Variables) <!-- flag: obscure -->
-    - BEM / Naming Methodologies <!-- flag: obscure -->
-    - Utility-First CSS (Tailwind) <!-- flag: obscure -->
-    - Animations & Transitions <!-- flag: obscure -->
+      - Mobile-First Design
+      - Fluid Typography / Viewport Units
+    - CSS Preprocessors (Sass, Less)
+    - CSS-in-JS
+    - CSS Custom Properties (Variables)
+    - BEM / Naming Methodologies
+    - Utility-First CSS (Tailwind)
+    - Animations & Transitions
   - JavaScript in the Browser
-    - DOM APIs / BOM (Browser Object Model) <!-- flag: obscure -->
-    - Closures & Scope <!-- flag: off-theme -->
-    - Promises / Async-Await <!-- flag: off-theme -->
+    - Closures & Scope
+    - Promises / Async-Await
     - Fetch API / AJAX
-    - Web Storage (localStorage, sessionStorage) <!-- flag: obscure -->
-    - IndexedDB <!-- flag: obscure -->
+    - Web Storage (localStorage, sessionStorage)
+    - IndexedDB
   - Single Page Applications (SPA)
-  - Multi-Page Applications (MPA) <!-- flag: obscure -->
+  - Multi-Page Applications (MPA)
   - Component-Based Frameworks (React, Vue, Angular concepts)
   - Virtual DOM
-  - Reconciliation / Diffing Algorithm <!-- flag: obscure -->
+  - Reconciliation / Diffing Algorithm
   - State Management
-    - Unidirectional Data Flow <!-- flag: obscure -->
-    - Reactive State / Signals <!-- flag: obscure -->
-    - Centralized Stores (Redux, Vuex pattern) <!-- flag: obscure -->
-  - Client-Side Routing <!-- flag: obscure -->
-  - Static Site Generation (SSG) <!-- flag: obscure -->
-  - Hydration <!-- flag: obscure -->
-  - Islands Architecture <!-- flag: obscure -->
-  - Web Components <!-- flag: obscure -->
-  - Module Bundlers (Webpack, Vite, Rollup) <!-- flag: obscure -->
-  - Transpilation (Babel) <!-- flag: obscure -->
-  - Tree Shaking <!-- flag: obscure -->
-  - Code Splitting / Lazy Loading <!-- flag: obscure -->
-  - CSS/JS Minification <!-- flag: obscure -->
+    - Unidirectional Data Flow
+    - Reactive State / Signals
+    - Centralized Stores (Redux, Vuex pattern)
+  - Client-Side Routing
+  - Static Site Generation (SSG)
+  - Hydration
+  - Islands Architecture
+  - Web Components
+  - Module Bundlers (Webpack, Vite, Rollup)
+  - Transpilation (Babel)
+  - Tree Shaking
+  - Code Splitting / Lazy Loading
+  - CSS/JS Minification
 - **Browser Internals**
   - Critical Rendering Path
-  - Parsing (HTML Parsing, CSSOM Construction) <!-- flag: obscure -->
-  - Render Tree Construction <!-- flag: obscure -->
-  - Layout (Reflow) <!-- flag: obscure -->
-  - Paint & Compositing <!-- flag: obscure -->
-  - Browser Rendering Engines (Blink, Gecko, WebKit) <!-- flag: obscure -->
-  - JavaScript Engines (V8, SpiderMonkey) <!-- flag: obscure -->
+  - Parsing (HTML Parsing, CSSOM Construction)
+  - Render Tree Construction
+  - Layout (Reflow)
+  - Paint & Compositing
+  - Browser Rendering Engines (Blink, Gecko, WebKit)
+  - JavaScript Engines (V8, SpiderMonkey)
   - Event Loop & Microtasks/Macrotasks
   - Same-Origin Policy / CORS
-  - Content Security Policy (CSP) <!-- flag: obscure -->
-  - Browser Storage Quotas / Eviction <!-- flag: obscure -->
+  - Content Security Policy (CSP)
 - **Backend**
   - Server-Side Rendering vs Client-Side Rendering
-  - Incremental Static Regeneration <!-- flag: obscure -->
+  - Incremental Static Regeneration
   - Web Servers
-    - Request/Response Cycle <!-- flag: obscure -->
-    - Reverse Proxies (Nginx, Apache) <!-- flag: obscure -->
-    - Application Servers (WSGI, ASGI, Servlet Containers) <!-- flag: obscure -->
+    - Request/Response Cycle
+    - Reverse Proxies (Nginx, Apache)
+    - Application Servers (WSGI, ASGI, Servlet Containers)
   - Middleware
-  - Routing (URL-to-Handler Mapping) <!-- flag: obscure -->
+  - Routing (URL-to-Handler Mapping)
   - Templating Engines
   - Session/State Management
-    - Stateless vs Stateful Servers <!-- flag: obscure -->
-    - Session Storage Backends <!-- flag: obscure -->
-  - MVC / MVVM Architecture <!-- flag: obscure -->
-  - Backend-for-Frontend (BFF) Pattern <!-- flag: obscure -->
-  - API Gateways <!-- flag: obscure -->
-  - File Uploads / Multipart Form Data <!-- flag: obscure -->
-  - Rate Limiting <!-- flag: obscure -->
-  - Webhooks <!-- flag: obscure -->
+    - Stateless vs Stateful Servers
+    - Session Storage Backends
+  - MVC / MVVM Architecture
+  - Backend-for-Frontend (BFF) Pattern
+  - API Gateways
+  - File Uploads / Multipart Form Data
+  - Rate Limiting
+  - Webhooks
 - **Web Architecture**
   - RESTful Design
-    - HATEOAS <!-- flag: obscure -->
-    - API Versioning <!-- flag: obscure -->
+    - HATEOAS
+    - API Versioning
   - GraphQL
-    - Resolvers / Schema <!-- flag: obscure -->
-    - N+1 Query Problem <!-- flag: obscure -->
-  - gRPC-Web <!-- flag: obscure -->
+    - Resolvers / Schema
+    - N+1 Query Problem
   - WebSockets / Real-Time Communication
-  - Server-Sent Events (SSE) <!-- flag: obscure -->
-  - Long Polling <!-- flag: obscure -->
+  - Server-Sent Events (SSE)
+  - Long Polling
   - Progressive Web Apps (PWA)
     - Service Workers
-    - Web App Manifest <!-- flag: obscure -->
-    - Offline-First Caching Strategies <!-- flag: obscure -->
-    - Background Sync <!-- flag: obscure -->
-  - Micro-Frontends <!-- flag: obscure -->
-  - JAMstack <!-- flag: obscure -->
-  - Headless CMS <!-- flag: obscure -->
+    - Web App Manifest
+    - Offline-First Caching Strategies
+    - Background Sync
+  - Micro-Frontends
+  - JAMstack
+  - Headless CMS
 - **Web Performance**
-  - Core Web Vitals (LCP, FID/INP, CLS) <!-- flag: obscure -->
-  - Time to First Byte (TTFB) <!-- flag: obscure -->
-  - Lighthouse Audits <!-- flag: obscure -->
-  - Resource Hints (Preload, Prefetch, Preconnect) <!-- flag: obscure -->
-  - Image Optimization (Lazy Loading, Responsive Images, srcset) <!-- flag: obscure -->
-  - CDN Edge Caching for Web Assets <!-- flag: obscure -->
-  - HTTP/2 Multiplexing & Server Push (web delivery impact) <!-- flag: obscure -->
+  - Core Web Vitals (LCP, FID/INP, CLS)
+  - Time to First Byte (TTFB)
+  - Lighthouse Audits
+  - Resource Hints (Preload, Prefetch, Preconnect)
+  - Image Optimization (Lazy Loading, Responsive Images, srcset)
+  - CDN Edge Caching for Web Assets
 - **Web Accessibility**
   - WAI-ARIA Roles & Attributes
-  - Accessible Rich Internet Applications (ARIA Landmarks) <!-- flag: obscure -->
-  - Keyboard Navigation / Focus Management <!-- flag: obscure -->
-  - Screen Reader Compatibility <!-- flag: obscure -->
-  - Color Contrast Standards (WCAG) <!-- flag: obscure -->
-  - Alt Text / Accessible Media <!-- flag: obscure -->
+  - Keyboard Navigation / Focus Management
+  - Screen Reader Compatibility
+  - Color Contrast Standards (WCAG)
+  - Alt Text / Accessible Media
 - **Web App Security (Web-Specific)**
-  - Content Security Policy (CSP) <!-- flag: obscure -->
-  - Subresource Integrity (SRI) <!-- flag: obscure -->
-  - Secure Cookie Attributes (HttpOnly, Secure, SameSite) <!-- flag: obscure -->
-  - Cross-Origin Resource Sharing (CORS) Preflight <!-- flag: obscure -->
-  - Cross-Origin Opener/Embedder Policy (COOP/COEP) <!-- flag: obscure -->
+  - Subresource Integrity (SRI)
+  - Secure Cookie Attributes (HttpOnly, Secure, SameSite)
+  - Cross-Origin Resource Sharing (CORS) Preflight
+  - Cross-Origin Opener/Embedder Policy (COOP/COEP)
 - **Testing & Tooling**
-  - Browser DevTools <!-- flag: obscure -->
-  - End-to-End Testing (Selenium, Playwright, Cypress) <!-- flag: obscure -->
-  - Visual Regression Testing <!-- flag: obscure -->
-  - Linting & Formatting (ESLint, Prettier) <!-- flag: off-theme -->
+  - Browser DevTools
+  - End-to-End Testing (Selenium, Playwright, Cypress)
+  - Visual Regression Testing
+  - Linting & Formatting (ESLint, Prettier)

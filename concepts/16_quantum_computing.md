@@ -4,97 +4,78 @@
   - Qubits & Superposition
   - Entanglement
     - Bell States
-    - EPR Pairs <!-- flag: obscure -->
+    - EPR Pairs
     - No-Cloning Theorem
     - Quantum Teleportation
   - Measurement
-    - Born Rule <!-- flag: obscure -->
+    - Born Rule
     - Wave Function Collapse
     - Measurement Basis
-    - Projective Measurement <!-- flag: obscure -->
-    - POVM (Positive Operator-Valued Measure) <!-- flag: obscure -->
   - Quantum Gates
     - Single-Qubit Gates (Pauli-X/Y/Z, Hadamard, Phase/S, T)
     - Multi-Qubit Gates (CNOT, CZ, SWAP, Toffoli)
-    - Universal Gate Sets <!-- flag: obscure -->
+    - Universal Gate Sets
     - Unitary Transformations
     - Reversibility of Quantum Gates
-    - Quantum Gate Decomposition <!-- flag: obscure -->
   - Quantum Circuits
     - Circuit Diagrams / Notation
     - Quantum Parallelism
-    - Phase Kickback <!-- flag: obscure -->
-    - Ancilla Qubits <!-- flag: obscure -->
+    - Phase Kickback
+    - Ancilla Qubits
     - Quantum Oracle
-  - Bloch Sphere <!-- flag: obscure -->
+  - Bloch Sphere
   - Qubit Representations
     - Bra-Ket Notation (Dirac Notation)
     - State Vectors
-    - Density Matrices <!-- flag: obscure -->
-    - Mixed vs Pure States <!-- flag: obscure -->
-  - No-Deleting Theorem <!-- flag: obscure -->
-  - Quantum Mechanics Postulates <!-- flag: obscure -->
+    - Density Matrices
+    - Mixed vs Pure States
 - **Algorithms**
   - Shor's Algorithm
   - Grover's Algorithm
   - Quantum Fourier Transform
   - Deutsch-Jozsa Algorithm
-  - Bernstein-Vazirani Algorithm <!-- flag: obscure -->
-  - Simon's Algorithm <!-- flag: obscure -->
-  - HHL Algorithm (Quantum Linear Systems) <!-- flag: obscure -->
+  - Bernstein-Vazirani Algorithm
+  - Simon's Algorithm
+  - HHL Algorithm (Quantum Linear Systems)
   - Quantum Phase Estimation
-  - Variational Quantum Eigensolver (VQE) <!-- flag: obscure -->
-  - Quantum Approximate Optimization Algorithm (QAOA) <!-- flag: obscure -->
-  - Quantum Amplitude Amplification <!-- flag: obscure -->
-  - Quantum Walks <!-- flag: obscure -->
-  - Quantum Counting <!-- flag: obscure -->
+  - Variational Quantum Eigensolver (VQE)
+  - Quantum Approximate Optimization Algorithm (QAOA)
+  - Quantum Walks
   - Quantum Machine Learning
-    - Quantum Neural Networks <!-- flag: obscure -->
-    - Quantum Support Vector Machines <!-- flag: obscure -->
-    - Quantum Kernel Methods <!-- flag: obscure -->
-  - Quantum Simulation (simulating physical systems) <!-- flag: obscure -->
+    - Quantum Neural Networks
+  - Quantum Simulation (simulating physical systems)
 - **Error Correction & Fault Tolerance**
   - Decoherence
   - Quantum Error Correction
     - Quantum Error Types (bit-flip, phase-flip, depolarizing)
-    - Shor Code <!-- flag: obscure -->
-    - Steane Code <!-- flag: obscure -->
+    - Shor Code
+    - Steane Code
     - Surface Code
-    - Stabilizer Codes <!-- flag: obscure -->
-    - CSS Codes (Calderbank-Shor-Steane) <!-- flag: obscure -->
-    - Toric Code <!-- flag: obscure -->
-  - Quantum Threshold Theorem <!-- flag: obscure -->
-  - Fault-Tolerant Quantum Computation <!-- flag: obscure -->
+    - Stabilizer Codes
+    - Toric Code
+  - Quantum Threshold Theorem
+  - Fault-Tolerant Quantum Computation
   - Logical vs Physical Qubits
-  - Magic State Distillation <!-- flag: obscure -->
-  - Quantum Repeaters <!-- flag: obscure -->
-  - Decoherence-Free Subspaces <!-- flag: obscure -->
-  - Dynamical Decoupling <!-- flag: obscure -->
+  - Magic State Distillation
+  - Quantum Repeaters
 - **Quantum Hardware**
   - Superconducting Qubits
-    - Transmon Qubit <!-- flag: obscure -->
-    - Josephson Junction <!-- flag: obscure -->
+    - Transmon Qubit
+    - Josephson Junction
   - Trapped Ion Qubits
   - Photonic Quantum Computing
-    - Linear Optical Quantum Computing <!-- flag: obscure -->
-    - Boson Sampling <!-- flag: obscure -->
-  - Neutral Atom Qubits <!-- flag: obscure -->
-  - Topological Qubits <!-- flag: obscure -->
-  - Quantum Dot Qubits <!-- flag: obscure -->
-  - Nuclear Magnetic Resonance (NMR) Quantum Computing <!-- flag: obscure -->
+    - Boson Sampling
+  - Neutral Atom Qubits
+  - Topological Qubits
+  - Nuclear Magnetic Resonance (NMR) Quantum Computing
   - Quantum Annealing
-  - Cryogenic Control Systems <!-- flag: obscure -->
-  - Qubit Connectivity / Coupling Maps <!-- flag: obscure -->
-  - Quantum Volume <!-- flag: obscure -->
+  - Quantum Volume
 - **Programming & Tooling**
-  - Quantum Programming Languages (Qiskit, Cirq, Q#) <!-- flag: obscure -->
-  - Quantum Assembly (QASM) <!-- flag: obscure -->
-  - Quantum Circuit Compilation / Transpilation <!-- flag: obscure -->
-  - Quantum Simulators (classical simulation of circuits) <!-- flag: obscure -->
-  - Hybrid Quantum-Classical Computing <!-- flag: obscure -->
-  - NISQ (Noisy Intermediate-Scale Quantum) Era <!-- flag: obscure -->
+  - Quantum Programming Languages (Qiskit, Cirq, Q#)
+  - Quantum Assembly (QASM)
+  - Quantum Simulators (classical simulation of circuits)
+  - Hybrid Quantum-Classical Computing
+  - NISQ (Noisy Intermediate-Scale Quantum) Era
 - **Challenges**
-  - Quantum Supremacy / Quantum Advantage <!-- flag: obscure -->
-  - Scalability of Qubit Systems <!-- flag: obscure -->
-  - Quantum Crosstalk <!-- flag: obscure -->
-  - Readout Error <!-- flag: obscure -->
+  - Quantum Supremacy / Quantum Advantage
+  - Readout Error

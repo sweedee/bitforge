@@ -8,40 +8,33 @@
 - **Physical Layer**
   - Bit Rate / Baud Rate
   - Transmission Media (Copper, Fiber Optic, Coaxial, Radio)
-  - Signal Encoding (Manchester Encoding, NRZ) <!-- flag: obscure -->
   - Multiplexing
     - Time Division Multiplexing (TDM)
     - Frequency Division Multiplexing (FDM)
-    - Wavelength Division Multiplexing (WDM) <!-- flag: obscure -->
-  - Attenuation / Noise / Crosstalk <!-- flag: obscure -->
+  - Attenuation / Noise / Crosstalk
 - **Data Link Layer**
   - Ethernet
     - Ethernet Frame Format
-    - Fast Ethernet / Gigabit Ethernet / 10GbE <!-- flag: obscure -->
   - MAC Addressing
   - Switching
-    - Store-and-Forward vs Cut-Through Switching <!-- flag: obscure -->
-    - MAC Address Table / CAM Table <!-- flag: obscure -->
+    - MAC Address Table / CAM Table
   - VLANs
-    - 802.1Q Tagging <!-- flag: obscure -->
     - Trunking
-  - Spanning Tree Protocol (STP) <!-- flag: obscure -->
+  - Spanning Tree Protocol (STP)
   - ARP (Address Resolution Protocol)
-    - ARP Spoofing <!-- flag: obscure -->
+    - ARP Spoofing
   - Collision Domains / CSMA-CD / CSMA-CA
   - Error Detection
     - Checksums
     - Cyclic Redundancy Check (CRC)
-  - PPP (Point-to-Point Protocol) <!-- flag: obscure -->
+  - PPP (Point-to-Point Protocol)
 - **Network Layer**
   - IP Addressing (IPv4, IPv6)
-    - IPv4 Address Classes (A/B/C/D/E) <!-- flag: obscure -->
+    - IPv4 Address Classes (A/B/C/D/E)
     - IPv6 Address Types (Unicast, Multicast, Anycast)
-    - IPv6 Address Autoconfiguration (SLAAC) <!-- flag: obscure -->
     - Private vs Public IP Addresses
   - Subnetting / CIDR
     - Subnet Masks
-    - VLSM (Variable Length Subnet Masking) <!-- flag: obscure -->
   - Routing
     - Static vs Dynamic Routing
     - Routing Tables
@@ -49,52 +42,51 @@
     - Link State Routing (OSPF, IS-IS)
     - BGP
       - Autonomous Systems
-      - Path Vector Routing <!-- flag: obscure -->
+      - Path Vector Routing
     - Default Gateway
     - Longest Prefix Matching
   - NAT (Network Address Translation)
-    - Port Address Translation (PAT) <!-- flag: obscure -->
+    - Port Address Translation (PAT)
   - ICMP
     - Ping / Traceroute Mechanics
   - IP Fragmentation
-  - Tunneling (GRE, IP-in-IP) <!-- flag: obscure -->
-  - Multicast (IGMP) <!-- flag: obscure -->
+  - Tunneling (GRE, IP-in-IP)
+  - Multicast (IGMP)
 - **Transport Layer**
   - TCP
     - Three-Way Handshake
-    - Connection Termination (FIN/ACK, Four-Way Close) <!-- flag: obscure -->
+    - Connection Termination (FIN/ACK, Four-Way Close)
     - Flow Control (sliding window)
     - Congestion Control
       - Slow Start
       - AIMD (Additive Increase Multiplicative Decrease)
       - TCP Tahoe/Reno/Cubic/BBR
-      - Nagle's Algorithm <!-- flag: obscure -->
+      - Nagle's Algorithm
     - Sequence Numbers & Acknowledgments
-    - Retransmission (Timeout, Fast Retransmit) <!-- flag: obscure -->
+    - Retransmission (Timeout, Fast Retransmit)
     - Port Numbers / Sockets
   - UDP
   - QUIC
-  - SCTP (Stream Control Transmission Protocol) <!-- flag: obscure -->
 - **Application Layer**
   - DNS
     - DNS Resolution Process
-    - DNS Record Types (A, AAAA, CNAME, MX, TXT, NS) <!-- flag: obscure -->
+    - DNS Record Types (A, AAAA, CNAME, MX, TXT, NS)
     - DNS Caching
-    - Authoritative vs Recursive Resolvers <!-- flag: obscure -->
+    - Authoritative vs Recursive Resolvers
     - DNSSEC
   - HTTP/HTTPS
     - HTTP Methods, Status Codes
-    - HTTP Headers <!-- flag: obscure -->
+    - HTTP Headers
     - HTTP/1.1 vs HTTP/2 vs HTTP/3
-    - HTTP Caching (ETag, Cache-Control) <!-- flag: obscure -->
+    - HTTP Caching (ETag, Cache-Control)
     - Cookies & Sessions
   - Email Protocols (SMTP, IMAP, POP3)
   - FTP/SFTP
   - WebSockets
   - DHCP (Dynamic Host Configuration Protocol)
   - Telnet / SSH
-  - SNMP (Simple Network Management Protocol) <!-- flag: obscure -->
-  - NTP (Network Time Protocol) <!-- flag: obscure -->
+  - SNMP (Simple Network Management Protocol)
+  - NTP (Network Time Protocol)
 - **Network Security**
   - Firewalls
   - VPNs
@@ -114,30 +106,27 @@
   - Access Points
 - **Wireless & Mobile Networking**
   - Wi-Fi Standards (802.11 a/b/g/n/ac/ax)
-  - Wi-Fi Channels & Frequency Bands (2.4GHz, 5GHz, 6GHz) <!-- flag: obscure -->
-  - SSID / BSSID <!-- flag: obscure -->
+  - Wi-Fi Channels & Frequency Bands (2.4GHz, 5GHz, 6GHz)
+  - SSID / BSSID
   - Cellular Networks (3G/4G/5G)
-    - Handoff / Roaming <!-- flag: obscure -->
+    - Handoff / Roaming
   - Bluetooth
   - Mesh Networks
-  - Satellite Networking <!-- flag: obscure -->
-  - Ad Hoc Networks <!-- flag: obscure -->
+  - Satellite Networking
+  - Ad Hoc Networks
 - **Network Performance, Reliability & Management**
   - Latency vs Bandwidth vs Throughput
   - Jitter
   - Packet Loss
   - Quality of Service (QoS)
-    - Traffic Shaping / Policing <!-- flag: obscure -->
-    - DiffServ / Type of Service <!-- flag: obscure -->
+    - Traffic Shaping / Policing
   - Load Balancing
     - Round Robin, Least Connections
     - Layer 4 vs Layer 7 Load Balancing
   - Content Delivery Networks (CDN)
-  - Network Address Planning (Supernetting) <!-- flag: obscure -->
-  - Software-Defined Networking (SDN) <!-- flag: obscure -->
-  - Network Function Virtualization (NFV) <!-- flag: obscure -->
+  - Software-Defined Networking (SDN)
+  - Network Function Virtualization (NFV)
 - **Network Troubleshooting & Tools**
-  - Packet Sniffing (Wireshark) <!-- flag: obscure -->
-  - Traceroute / Pathping <!-- flag: obscure -->
-  - Netstat <!-- flag: obscure -->
-  - Network Latency Diagnosis (Ping Sweeps) <!-- flag: obscure -->
+  - Packet Sniffing (Wireshark)
+  - Traceroute / Pathping
+  - Netstat

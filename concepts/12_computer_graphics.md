@@ -2,13 +2,12 @@
 
 - **Rendering Fundamentals**
   - Rasterization
-  - Scanline Rendering <!-- flag: obscure -->
+  - Scanline Rendering
   - Ray Tracing
-  - Ray Marching <!-- flag: obscure -->
+  - Ray Marching
   - Path Tracing
-  - Bidirectional Path Tracing <!-- flag: obscure -->
-  - Photon Mapping <!-- flag: obscure -->
-  - Radiosity <!-- flag: obscure -->
+  - Photon Mapping
+  - Radiosity
   - Global Illumination
   - Ambient Occlusion
     - Screen Space Ambient Occlusion (SSAO)
@@ -20,20 +19,19 @@
     - Flat Shading
     - Physically Based Rendering (PBR)
       - Bidirectional Reflectance Distribution Function (BRDF)
-      - Microfacet Models (Cook-Torrance) <!-- flag: obscure -->
+      - Microfacet Models (Cook-Torrance)
       - Fresnel Effect
       - Metalness/Roughness Workflow
-      - Subsurface Scattering <!-- flag: obscure -->
+      - Subsurface Scattering
   - Z-Buffering (Depth Buffering)
-  - Painter's Algorithm <!-- flag: obscure -->
+  - Painter's Algorithm
   - Backface Culling
   - Frustum Culling
   - Occlusion Culling
   - Clipping
     - View Frustum Clipping
-    - Sutherland-Hodgman Polygon Clipping <!-- flag: obscure -->
-  - Rendering Equation <!-- flag: obscure -->
-  - Light Transport <!-- flag: obscure -->
+  - Rendering Equation
+  - Light Transport
   - Real-Time Rendering vs Offline Rendering
 - **Geometric Transformations**
   - Affine Transformations
@@ -45,31 +43,30 @@
   - Perspective Projection
   - Quaternions (rotation representation)
   - Euler Angles
-  - Gimbal Lock <!-- flag: obscure -->
+  - Gimbal Lock
   - Coordinate Spaces (Object, World, Camera/View, Clip, Screen)
-  - Normal Mapping Space (Tangent Space) <!-- flag: obscure -->
+  - Normal Mapping Space (Tangent Space)
 - **Geometry Representation**
   - Polygon Meshes
     - Triangle Meshes
-    - Half-Edge Data Structure <!-- flag: obscure -->
-    - Winged-Edge Data Structure <!-- flag: obscure -->
+    - Half-Edge Data Structure
     - Vertex/Index Buffers
     - Normals & Vertex Attributes
-    - Mesh Simplification / Decimation <!-- flag: obscure -->
-    - Subdivision Surfaces (Catmull-Clark) <!-- flag: obscure -->
+    - Mesh Simplification / Decimation
+    - Subdivision Surfaces (Catmull-Clark)
   - Implicit Surfaces
     - Signed Distance Fields (SDF)
-    - Metaballs <!-- flag: obscure -->
-    - Marching Cubes <!-- flag: obscure -->
+    - Metaballs
+    - Marching Cubes
   - Voxels
   - Point Clouds
   - Curves & Splines
     - Bezier Curves
     - B-Splines
-    - NURBS <!-- flag: obscure -->
-    - Catmull-Rom Splines <!-- flag: obscure -->
-    - Hermite Curves <!-- flag: obscure -->
-  - Constructive Solid Geometry (CSG) <!-- flag: obscure -->
+    - NURBS
+    - Catmull-Rom Splines
+    - Hermite Curves
+  - Constructive Solid Geometry (CSG)
   - Bounding Volumes
     - Axis-Aligned Bounding Box (AABB)
     - Oriented Bounding Box (OBB)
@@ -88,84 +85,81 @@
     - Trilinear Filtering
     - Anisotropic Filtering
   - Mipmapping
-  - Texture Atlases <!-- flag: obscure -->
+  - Texture Atlases
   - Normal Mapping
   - Bump Mapping
-  - Displacement Mapping <!-- flag: obscure -->
-  - Parallax Mapping <!-- flag: obscure -->
+  - Displacement Mapping
+  - Parallax Mapping
   - Environment Mapping
     - Cube Mapping
-    - Reflection Mapping <!-- flag: obscure -->
   - Procedural Texturing
     - Perlin Noise
-    - Simplex Noise <!-- flag: obscure -->
-    - Worley Noise <!-- flag: obscure -->
+    - Simplex Noise
+    - Worley Noise
 - **Color Theory & Color Spaces**
   - RGB Color Model
   - CMYK Color Model
   - HSV / HSL Color Model
-  - Color Spaces (sRGB, Linear, Adobe RGB) <!-- flag: obscure -->
+  - Color Spaces (sRGB, Linear, Adobe RGB)
   - Gamma Correction
-  - Color Quantization <!-- flag: obscure -->
+  - Color Quantization
   - Dithering
   - Alpha Compositing
   - Color Grading / Tone Mapping
   - High Dynamic Range (HDR) Imaging
 - **Image Processing**
   - Image Convolution / Filters
-  - Edge Detection (Sobel, Canny) <!-- flag: obscure -->
+  - Edge Detection (Sobel, Canny)
   - Gaussian Blur
-  - Sharpening Filters <!-- flag: obscure -->
   - Image Compression (lossy/lossless concepts)
-  - Image Pyramids <!-- flag: obscure -->
-  - Bilateral Filtering <!-- flag: obscure -->
-  - Morphological Operations (Dilation, Erosion) <!-- flag: obscure -->
+  - Image Pyramids
+  - Bilateral Filtering
+  - Morphological Operations (Dilation, Erosion)
 - **Lighting**
   - Local Illumination Models
-  - Light Probes <!-- flag: obscure -->
-  - Lightmaps <!-- flag: obscure -->
+  - Light Probes
+  - Lightmaps
   - Shadow Mapping
-  - Shadow Volumes <!-- flag: obscure -->
-  - Soft Shadows <!-- flag: obscure -->
-  - Image-Based Lighting <!-- flag: obscure -->
+  - Shadow Volumes
+  - Soft Shadows
+  - Image-Based Lighting
 - **Animation**
   - Keyframe Animation
   - Interpolation (Linear, Spline-based)
   - Skeletal Animation / Rigging
-  - Skinning (Linear Blend Skinning) <!-- flag: obscure -->
+  - Skinning (Linear Blend Skinning)
   - Inverse Kinematics
   - Forward Kinematics
-  - Morph Target Animation / Blend Shapes <!-- flag: obscure -->
+  - Morph Target Animation / Blend Shapes
   - Motion Capture
-  - Procedural Animation <!-- flag: obscure -->
+  - Procedural Animation
   - Particle Systems
 - **GPU & Shader Concepts**
   - Graphics Pipeline (Vertex, Tessellation, Geometry, Fragment/Pixel Stages)
   - Vertex Shaders
   - Fragment / Pixel Shaders
-  - Geometry Shaders <!-- flag: obscure -->
-  - Tessellation Shaders <!-- flag: obscure -->
+  - Geometry Shaders
+  - Tessellation Shaders
   - Compute Shaders
   - Shading Languages (GLSL, HLSL)
-  - Shader Compilation / Pipeline State Objects <!-- flag: obscure -->
   - Framebuffers
   - Render Targets
-  - G-Buffer <!-- flag: obscure -->
+  - G-Buffer
   - Double Buffering / V-Sync
   - Graphics APIs (OpenGL, Vulkan, DirectX, Metal)
 - **Anti-Aliasing**
   - Supersampling (SSAA)
   - Multisampling (MSAA)
-  - Fast Approximate Anti-Aliasing (FXAA) <!-- flag: obscure -->
-  - Temporal Anti-Aliasing (TAA) <!-- flag: obscure -->
+  - Fast Approximate Anti-Aliasing (FXAA)
+  - Temporal Anti-Aliasing (TAA)
 - **Real-Time Rendering Techniques**
   - Forward Shading
   - Deferred Shading
   - Level of Detail (LOD)
-  - Instancing <!-- flag: obscure -->
-  - Screen Space Reflections <!-- flag: obscure -->
-  - Temporal Upsampling (DLSS/FSR-style) <!-- flag: obscure -->
+  - Instancing
+  - Screen Space Reflections
+  - Temporal Upsampling (DLSS/FSR-style)
 - **Volume & Special Rendering**
-  - Volumetric Rendering <!-- flag: obscure -->
-  - Fog / Atmospheric Scattering <!-- flag: obscure -->
-  - Non-Photorealistic Rendering <!-- flag: obscure -->
+  - Volumetric Rendering
+  - Fog / Atmospheric Scattering
+  - Non-Photorealistic Rendering

@@ -3,22 +3,21 @@
 - **Embedded Fundamentals**
   - Microcontrollers vs Microprocessors
   - System-on-Chip (SoC)
-  - System-in-Package (SiP) <!-- flag: obscure -->
-  - Common Microcontroller Families (AVR, PIC, ARM Cortex-M, ESP32, STM32) <!-- flag: obscure -->
-  - Single-Board Computers (Raspberry Pi, BeagleBone) <!-- flag: obscure -->
-  - Development Boards (Arduino, ESP8266) <!-- flag: obscure -->
+  - Common Microcontroller Families (AVR, PIC, ARM Cortex-M, ESP32, STM32)
+  - Single-Board Computers (Raspberry Pi, BeagleBone)
+  - Development Boards (Arduino, ESP8266)
   - Real-Time Operating Systems (RTOS)
     - Hard vs Soft Real-Time
-    - Real-Time Scheduling (Rate-Monotonic, Earliest Deadline First) <!-- flag: obscure -->
-    - Common RTOS (FreeRTOS, Zephyr, VxWorks, ThreadX, RTEMS) <!-- flag: obscure -->
+    - Real-Time Scheduling (Rate-Monotonic, Earliest Deadline First)
+    - Common RTOS (FreeRTOS, Zephyr, VxWorks, ThreadX, RTEMS)
     - Tasks & Task Priorities
-    - RTOS Tick / System Tick <!-- flag: obscure -->
+    - RTOS Tick / System Tick
     - Bare-Metal Programming (no OS)
-    - Superloop / Main Loop Architecture <!-- flag: obscure -->
+    - Superloop / Main Loop Architecture
   - Interrupt-Driven Programming
     - Interrupt Service Routines (ISR)
-    - Interrupt Latency <!-- flag: obscure -->
-    - Nested Interrupts <!-- flag: obscure -->
+    - Interrupt Latency
+    - Nested Interrupts
     - Interrupt Priority Levels
   - Memory-Mapped Registers
   - General-Purpose I/O (GPIO)
@@ -27,69 +26,67 @@
   - Digital-to-Analog Conversion (DAC)
   - Watchdog Timer
   - Cross-Compilation & Toolchains
-  - Board Support Package (BSP) <!-- flag: obscure -->
+  - Board Support Package (BSP)
   - Hardware Abstraction Layer (HAL)
   - Bootloaders (Embedded)
-  - Concurrency Without an OS (cooperative multitasking, state machines) <!-- flag: obscure -->
+  - Concurrency Without an OS (cooperative multitasking, state machines)
 - **Communication Protocols**
   - I2C
-    - Master/Slave (Controller/Peripheral) Addressing <!-- flag: obscure -->
+    - Master/Slave (Controller/Peripheral) Addressing
   - SPI
-    - Chip Select / Full-Duplex Transfer <!-- flag: obscure -->
+    - Chip Select / Full-Duplex Transfer
   - UART
-    - Baud Rate, Start/Stop Bits, Parity <!-- flag: obscure -->
+    - Baud Rate, Start/Stop Bits, Parity
   - CAN Bus (Controller Area Network)
-    - CAN Frame Format <!-- flag: obscure -->
-    - CAN FD (Flexible Data-Rate) <!-- flag: obscure -->
-  - 1-Wire Protocol <!-- flag: obscure -->
-  - RS-232 / RS-485 <!-- flag: obscure -->
+    - CAN Frame Format
+    - CAN FD (Flexible Data-Rate)
+  - 1-Wire Protocol
+  - RS-232 / RS-485
   - JTAG (as a communication/debug interface)
-  - Modbus <!-- flag: obscure -->
-  - USB (Embedded Device Profiles) <!-- flag: obscure -->
+  - Modbus
+  - USB (Embedded Device Profiles)
 - **IoT Architecture & Protocols**
   - IoT Reference Architecture (device, gateway, cloud)
   - MQTT
     - Publish/Subscribe Model
-    - QoS Levels (0/1/2) <!-- flag: obscure -->
+    - QoS Levels (0/1/2)
     - MQTT Broker
   - CoAP (Constrained Application Protocol)
-  - AMQP (Advanced Message Queuing Protocol) <!-- flag: obscure -->
+  - AMQP (Advanced Message Queuing Protocol)
   - Zigbee
   - LoRa / LoRaWAN
-  - Z-Wave <!-- flag: obscure -->
-  - Thread (Networking Protocol) <!-- flag: obscure -->
-  - Matter (Smart Home Standard) <!-- flag: obscure -->
-  - NB-IoT / LTE-M <!-- flag: obscure -->
-  - Sigfox <!-- flag: obscure -->
-  - 6LoWPAN <!-- flag: obscure -->
+  - Z-Wave
+  - Thread (Networking Protocol)
+  - Matter (Smart Home Standard)
+  - NB-IoT / LTE-M
+  - 6LoWPAN
   - BLE (Bluetooth Low Energy)
-    - GATT / BLE Profiles <!-- flag: obscure -->
-    - Beacons (iBeacon, Eddystone) <!-- flag: obscure -->
+    - GATT / BLE Profiles
+    - Beacons (iBeacon, Eddystone)
   - Edge Computing (IoT Context)
-  - Device Provisioning & Onboarding <!-- flag: obscure -->
+  - Device Provisioning & Onboarding
   - Over-the-Air (OTA) Updates
-  - Digital Twin <!-- flag: off-theme -->
+  - Digital Twin
 - **Sensors & Actuators**
   - Sensor Types (temperature, humidity, accelerometer, gyroscope, proximity, light)
-  - Inertial Measurement Unit (IMU) <!-- flag: obscure -->
+  - Inertial Measurement Unit (IMU)
   - Analog vs Digital Sensors
-  - Sensor Calibration <!-- flag: obscure -->
+  - Sensor Calibration
   - Sensor Fusion
   - Debouncing (Switches/Buttons)
   - Actuators (motors, servos, solenoids, relays)
-  - Stepper Motor Control <!-- flag: obscure -->
-  - Servo Control (PWM-based) <!-- flag: obscure -->
-  - H-Bridge Motor Drivers <!-- flag: obscure -->
+  - Stepper Motor Control
+  - Servo Control (PWM-based)
+  - H-Bridge Motor Drivers
   - Closed-Loop Control (PID Controller)
-  - Feedback Control Systems <!-- flag: obscure -->
 - **Power & Resource Constraints**
   - Low-Power Design
   - Memory-Constrained Programming
   - Power States (active, idle, sleep, deep sleep, hibernate)
-  - Dynamic Voltage and Frequency Scaling (DVFS) <!-- flag: obscure -->
-  - Energy Harvesting <!-- flag: obscure -->
-  - Battery Management Systems <!-- flag: obscure -->
-  - Duty Cycling <!-- flag: obscure -->
+  - Dynamic Voltage and Frequency Scaling (DVFS)
+  - Energy Harvesting
+  - Battery Management Systems
+  - Duty Cycling
   - Real-Time Clock (RTC)
 - **Firmware**
   - Firmware vs Software (Embedded Context)
@@ -97,22 +94,20 @@
   - Flash Memory Programming (NOR/NAND)
   - Embedded C / Embedded Rust
   - Memory-Mapped I/O (Embedded Context)
-  - Linker Scripts <!-- flag: obscure -->
-  - Startup Code / Reset Vector <!-- flag: obscure -->
+  - Linker Scripts
+  - Startup Code / Reset Vector
   - Device Drivers (Embedded Context)
   - Firmware Security (Secure Boot, Code Signing)
-  - Firmware Reverse Engineering <!-- flag: obscure -->
+  - Firmware Reverse Engineering
 - **Embedded Debugging & Testing**
   - JTAG / SWD Debugging
-  - In-Circuit Emulator (ICE) <!-- flag: obscure -->
+  - In-Circuit Emulator (ICE)
   - Logic Analyzer
-  - Oscilloscope (Embedded Debugging Use) <!-- flag: obscure -->
-  - Hardware-in-the-Loop (HIL) Testing <!-- flag: obscure -->
-  - Cross-Debugging (host/target setup) <!-- flag: obscure -->
-  - Embedded Unit Testing / Mocking Hardware <!-- flag: obscure -->
-  - Static Analysis for Embedded (MISRA C) <!-- flag: obscure -->
-- **Embedded Systems Domains** <!-- flag: off-theme -->
-  - Automotive Embedded Systems (AUTOSAR) <!-- flag: obscure -->
-  - Industrial Control Systems (SCADA, PLC) <!-- flag: obscure -->
-  - Wearable Devices <!-- flag: off-theme -->
-  - Smart Home Devices <!-- flag: off-theme -->
+  - Oscilloscope (Embedded Debugging Use)
+  - Hardware-in-the-Loop (HIL) Testing
+  - Cross-Debugging (host/target setup)
+  - Embedded Unit Testing / Mocking Hardware
+  - Static Analysis for Embedded (MISRA C)
+- **Embedded Systems Domains**
+  - Automotive Embedded Systems (AUTOSAR)
+  - Industrial Control Systems (SCADA, PLC)

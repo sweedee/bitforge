@@ -3,135 +3,135 @@
 - **Service Models**
   - IaaS, PaaS, SaaS
   - FaaS (Function as a Service)
-  - DaaS (Desktop as a Service) <!-- flag: obscure -->
-  - BaaS / Mobile Backend as a Service <!-- flag: obscure -->
-  - CaaS (Container as a Service) <!-- flag: obscure -->
+  - DaaS (Desktop as a Service)
+  - BaaS / Mobile Backend as a Service
+  - CaaS (Container as a Service)
   - Shared Responsibility Model
 - **Deployment Models**
   - Public, Private, Hybrid Cloud
   - Multi-Cloud
-  - Community Cloud <!-- flag: obscure -->
+  - Community Cloud
   - On-Premises vs Cloud-Native
 - **Virtualization**
   - Hypervisors
     - Type 1 (Bare-Metal) vs Type 2 (Hosted) Hypervisors
-    - Hardware-Assisted Virtualization (Intel VT-x, AMD-V) <!-- flag: obscure -->
+    - Hardware-Assisted Virtualization (Intel VT-x, AMD-V)
   - Virtual Machines
     - VM Images / Snapshots
-    - Live Migration <!-- flag: obscure -->
-  - Paravirtualization <!-- flag: obscure -->
-  - Full Virtualization vs Emulation <!-- flag: obscure -->
-  - Virtual Disks (VHD, VMDK, qcow2) <!-- flag: obscure -->
-  - Resource Overcommitment <!-- flag: obscure -->
+    - Live Migration
+  - Paravirtualization
+  - Full Virtualization vs Emulation
+  - Virtual Disks (VHD, VMDK, qcow2)
+  - Resource Overcommitment
 - **Containers & Orchestration**
   - Containerization
     - Docker
       - Container Images & Layers
       - Dockerfile
       - Container Registries
-      - Container Runtime (containerd, runc) <!-- flag: obscure -->
-      - OCI (Open Container Initiative) Spec <!-- flag: obscure -->
-    - Namespaces & cgroups (Linux container primitives) <!-- flag: obscure -->
+      - Container Runtime (containerd, runc)
+      - OCI (Open Container Initiative) Spec
+    - Namespaces & cgroups (Linux container primitives)
     - Container vs Virtual Machine Isolation
   - Kubernetes
     - Pods, Services, Deployments
-    - ReplicaSets <!-- flag: obscure -->
-    - StatefulSets <!-- flag: obscure -->
-    - DaemonSets <!-- flag: obscure -->
-    - Namespaces (Kubernetes) <!-- flag: obscure -->
+    - ReplicaSets
+    - StatefulSets
+    - DaemonSets
+    - Namespaces (Kubernetes)
     - ConfigMaps & Secrets
     - Ingress Controllers
-    - Helm Charts <!-- flag: obscure -->
-    - Operators / Custom Resource Definitions (CRDs) <!-- flag: obscure -->
-    - Service Mesh (Istio, Linkerd) <!-- flag: obscure -->
-    - Sidecar Pattern <!-- flag: obscure -->
-    - Horizontal Pod Autoscaler <!-- flag: obscure -->
-    - Scheduling & Bin Packing <!-- flag: obscure -->
-    - Liveness & Readiness Probes <!-- flag: obscure -->
+    - Helm Charts
+    - Operators / Custom Resource Definitions (CRDs)
+    - Service Mesh (Istio, Linkerd)
+    - Sidecar Pattern
+    - Horizontal Pod Autoscaler
+    - Scheduling & Bin Packing
+    - Liveness & Readiness Probes
   - Container Orchestration (general)
     - Orchestration & Auto-scaling
-    - Rolling Updates / Rollbacks <!-- flag: obscure -->
-  - Serverless Containers <!-- flag: obscure -->
+    - Rolling Updates / Rollbacks
+  - Serverless Containers
 - **Serverless Computing**
   - Serverless Computing / FaaS
   - Event-Driven Invocation
   - Cold Start
-  - Stateless Execution Model <!-- flag: obscure -->
-  - Function Composition / Step Functions <!-- flag: obscure -->
-  - Backend for Frontend (BFF) Pattern <!-- flag: obscure -->
+  - Stateless Execution Model
+  - Function Composition / Step Functions
+  - Backend for Frontend (BFF) Pattern
 - **Infrastructure as Code**
   - Infrastructure as Code (Terraform, CloudFormation)
-  - Declarative vs Imperative Provisioning <!-- flag: obscure -->
-  - Configuration Management (Ansible, Chef, Puppet) <!-- flag: obscure -->
+  - Declarative vs Imperative Provisioning
+  - Configuration Management (Ansible, Chef, Puppet)
   - Immutable Infrastructure
-  - GitOps <!-- flag: obscure -->
-  - Drift Detection <!-- flag: obscure -->
+  - GitOps
+  - Drift Detection
 - **Cloud Storage**
   - Object Storage
   - Block Storage
   - File Storage (Network File Systems)
-  - Storage Tiers (Hot, Cool, Cold, Archive) <!-- flag: obscure -->
-  - Data Replication Across Regions <!-- flag: obscure -->
-  - Content-Addressable Storage <!-- flag: obscure -->
-  - Cloud Databases (Managed Relational, NoSQL, Data Warehouses) <!-- flag: obscure -->
+  - Storage Tiers (Hot, Cool, Cold, Archive)
+  - Data Replication Across Regions
+  - Content-Addressable Storage
+  - Cloud Databases (Managed Relational, NoSQL, Data Warehouses)
 - **Elasticity & Scaling**
   - Auto-Scaling
     - Horizontal Auto-Scaling
-    - Vertical Auto-Scaling <!-- flag: obscure -->
-    - Predictive / Scheduled Scaling <!-- flag: obscure -->
-  - Elasticity vs Scalability <!-- flag: obscure -->
+    - Vertical Auto-Scaling
+    - Predictive / Scheduled Scaling
+  - Elasticity vs Scalability
   - Load Balancing (Cloud-Managed)
   - Resource Pooling
 - **Cloud Networking**
   - Virtual Private Cloud (VPC)
   - Subnets (Cloud)
-  - Security Groups / Network ACLs <!-- flag: obscure -->
+  - Security Groups / Network ACLs
   - Cloud Load Balancers (L4/L7)
   - API Gateways
-  - Content Delivery Networks (CDN) <!-- flag: obscure -->
-  - VPC Peering <!-- flag: obscure -->
-  - Direct Connect / Private Interconnects <!-- flag: obscure -->
-  - DNS-Based Service Routing <!-- flag: obscure -->
-  - NAT Gateways <!-- flag: obscure -->
+  - Content Delivery Networks (CDN)
+  - VPC Peering
+  - Direct Connect / Private Interconnects
+  - DNS-Based Service Routing
+  - NAT Gateways
 - **Identity & Access (Cloud)**
   - Identity and Access Management (IAM)
   - Role-Based Access Control (Cloud IAM)
-  - Federated Identity / Single Sign-On (Cloud) <!-- flag: obscure -->
-  - Service Accounts <!-- flag: obscure -->
-  - Secrets Management (Vault, KMS) <!-- flag: obscure -->
+  - Federated Identity / Single Sign-On (Cloud)
+  - Service Accounts
+  - Secrets Management (Vault, KMS)
 - **Multi-Tenancy**
   - Multi-Tenant Architecture
-  - Tenant Isolation Models (Silo, Pool, Bridge) <!-- flag: obscure -->
-  - Noisy Neighbor Problem <!-- flag: obscure -->
-  - Resource Quotas & Throttling <!-- flag: obscure -->
+  - Tenant Isolation Models (Silo, Pool, Bridge)
+  - Noisy Neighbor Problem
+  - Resource Quotas & Throttling
 - **Cost Management**
   - Pay-as-you-go Pricing
-  - Reserved vs On-Demand vs Spot Instances <!-- flag: obscure -->
-  - Cost Allocation & Tagging <!-- flag: obscure -->
-  - FinOps <!-- flag: obscure -->
-  - Total Cost of Ownership (TCO) <!-- flag: obscure -->
-  - Cloud Cost Optimization (Rightsizing) <!-- flag: obscure -->
+  - Reserved vs On-Demand vs Spot Instances
+  - Cost Allocation & Tagging
+  - FinOps
+  - Total Cost of Ownership (TCO)
+  - Cloud Cost Optimization (Rightsizing)
 - **Cloud Provider Service Categories** (conceptual, not branded)
   - Managed Compute (VM Hosting Services)
-  - Managed Container Platforms <!-- flag: obscure -->
-  - Managed Database Services <!-- flag: obscure -->
-  - Managed Message Queues / Event Buses <!-- flag: obscure -->
-  - Managed Data Warehousing & Analytics <!-- flag: obscure -->
-  - Managed Machine Learning Platforms <!-- flag: obscure -->
-  - Managed CI/CD Pipelines (Cloud) <!-- flag: obscure -->
+  - Managed Container Platforms
+  - Managed Database Services
+  - Managed Message Queues / Event Buses
+  - Managed Data Warehousing & Analytics
+  - Managed Machine Learning Platforms
+  - Managed CI/CD Pipelines (Cloud)
   - Edge Computing
 - **Reliability Engineering**
   - SLAs, SLOs, SLIs
-  - Error Budgets <!-- flag: obscure -->
+  - Error Budgets
   - Observability
     - Logging, Metrics, Tracing
     - Distributed Tracing (OpenTelemetry)
-    - Metrics Aggregation & Time-Series Monitoring <!-- flag: obscure -->
-    - Health Checks <!-- flag: obscure -->
+    - Metrics Aggregation & Time-Series Monitoring
+    - Health Checks
   - Site Reliability Engineering (SRE)
   - Blue-Green & Canary Deployments
-  - High Availability & Multi-Region Failover <!-- flag: obscure -->
+  - High Availability & Multi-Region Failover
   - Disaster Recovery
-    - Backup & Restore Strategies <!-- flag: obscure -->
-    - RTO / RPO (Recovery Time/Point Objective) <!-- flag: obscure -->
-  - Chaos Engineering (Cloud-Scale) <!-- flag: obscure -->
+    - Backup & Restore Strategies
+    - RTO / RPO (Recovery Time/Point Objective)
+  - Chaos Engineering (Cloud-Scale)

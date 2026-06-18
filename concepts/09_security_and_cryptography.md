@@ -3,28 +3,28 @@
 - **Cryptography**
   - Symmetric Cryptography
     - Block Ciphers (AES, DES, 3DES, Blowfish, Twofish, Serpent)
-    - Stream Ciphers (RC4 <!-- flag: obscure -->, ChaCha20, Salsa20)
+    - Stream Ciphers (RC4, ChaCha20, Salsa20)
     - Modes of Operation (CBC, GCM, ECB, CTR, CFB, OFB)
     - Feistel Network
     - Substitution-Permutation Network
     - S-Boxes
     - Key Schedule / Key Expansion
     - Initialization Vector (IV) / Nonce
-    - Padding Schemes (PKCS#7) <!-- flag: obscure -->
+    - Padding Schemes (PKCS#7)
     - Authenticated Encryption (AEAD)
   - Asymmetric Cryptography
     - RSA
     - Elliptic Curve Cryptography (ECC)
     - Diffie-Hellman Key Exchange
     - Elliptic Curve Diffie-Hellman (ECDH)
-    - ElGamal Encryption <!-- flag: obscure -->
+    - ElGamal Encryption
     - Lattice-Based Cryptography
     - Trapdoor Function
-    - Key Encapsulation Mechanism (KEM) <!-- flag: obscure -->
+    - Key Encapsulation Mechanism (KEM)
   - Hash Functions
     - SHA family, MD5
     - SHA-3 / Keccak
-    - BLAKE2 / BLAKE3 <!-- flag: obscure -->
+    - BLAKE2 / BLAKE3
     - Collision Resistance
     - Preimage Resistance
     - Avalanche Effect
@@ -36,26 +36,26 @@
   - Digital Signatures
     - RSA Signatures
     - DSA / ECDSA
-    - EdDSA (Ed25519) <!-- flag: obscure -->
-    - Schnorr Signatures <!-- flag: obscure -->
-    - Blind Signatures <!-- flag: obscure -->
+    - EdDSA (Ed25519)
+    - Schnorr Signatures
+    - Blind Signatures
   - Public Key Infrastructure (PKI)
     - Certificate Authorities
     - X.509 Certificates
     - Certificate Chains of Trust
-    - Certificate Revocation (CRL, OCSP) <!-- flag: obscure -->
+    - Certificate Revocation (CRL, OCSP)
     - Certificate Pinning
-    - Web of Trust <!-- flag: obscure -->
+    - Web of Trust
     - Key Management / Key Rotation
-    - Hardware Security Module (HSM) <!-- flag: obscure -->
+    - Hardware Security Module (HSM)
   - Cryptanalysis
     - Frequency Analysis
     - Brute-Force Attack
     - Birthday Attack
-    - Side-Channel Attacks (Timing, Power Analysis) <!-- flag: obscure -->
-    - Chosen-Plaintext / Chosen-Ciphertext Attack <!-- flag: obscure -->
-    - Padding Oracle Attack <!-- flag: obscure -->
-    - Meet-in-the-Middle Attack <!-- flag: obscure -->
+    - Side-Channel Attacks (Timing, Power Analysis)
+    - Chosen-Plaintext / Chosen-Ciphertext Attack
+    - Padding Oracle Attack
+    - Meet-in-the-Middle Attack
   - Advanced Cryptographic Concepts
     - Zero-Knowledge Proofs
     - Homomorphic Encryption
@@ -63,19 +63,18 @@
     - Post-Quantum Cryptography
     - Forward Secrecy
     - Perfect Forward Secrecy
-    - Quantum Key Distribution <!-- flag: obscure -->
-    - Blockchain Cryptographic Foundations <!-- flag: obscure -->
+    - Quantum Key Distribution
 - **Application Security**
   - Authentication & Authorization
     - OAuth / OpenID Connect
     - Multi-Factor Authentication
     - Session Management
     - Single Sign-On (SSO)
-    - SAML <!-- flag: obscure -->
+    - SAML
     - Kerberos
     - Password Hashing & Storage
     - Role-Based Access Control (RBAC)
-    - Attribute-Based Access Control (ABAC) <!-- flag: obscure -->
+    - Attribute-Based Access Control (ABAC)
     - JSON Web Tokens (JWT)
     - Biometric Authentication
   - Common Vulnerabilities
@@ -85,58 +84,55 @@
     - Buffer Overflow
       - Stack Smashing
       - Return-Oriented Programming (ROP)
-      - Heap Overflow <!-- flag: obscure -->
-      - Format String Vulnerability <!-- flag: obscure -->
+      - Heap Overflow
+      - Format String Vulnerability
       - Integer Overflow Exploits
     - Privilege Escalation
     - Race Condition Exploits (TOCTOU)
     - Insecure Deserialization
     - Server-Side Request Forgery (SSRF)
-    - XML External Entity (XXE) Injection <!-- flag: obscure -->
+    - XML External Entity (XXE) Injection
     - Command Injection
     - Path Traversal / Directory Traversal
-    - Clickjacking <!-- flag: obscure -->
+    - Clickjacking
     - Broken Access Control
     - Security Misconfiguration
     - Sensitive Data Exposure
-    - Use-After-Free <!-- flag: obscure -->
-    - Supply Chain Attacks (Dependency Confusion, Typosquatting) <!-- flag: obscure -->
+    - Use-After-Free
+    - Supply Chain Attacks (Dependency Confusion, Typosquatting)
   - Secure Coding Practices
     - Input Validation
     - Output Encoding / Escaping
     - Principle of Least Privilege
     - Sandboxing
     - Fuzzing
-    - Static Application Security Testing (SAST) <!-- flag: obscure -->
-    - Dynamic Application Security Testing (DAST) <!-- flag: obscure -->
-    - Threat Modeling Frameworks (STRIDE) <!-- flag: obscure -->
+    - Static Application Security Testing (SAST)
+    - Dynamic Application Security Testing (DAST)
+    - Threat Modeling Frameworks (STRIDE)
 - **System & Network Security**
   - Malware Types (virus, worm, trojan, ransomware, rootkit)
-    - Spyware <!-- flag: obscure -->
-    - Adware <!-- flag: obscure -->
+    - Spyware
+    - Adware
     - Botnet
     - Keylogger
-    - Logic Bomb <!-- flag: obscure -->
-    - Polymorphic / Metamorphic Malware <!-- flag: obscure -->
-    - Advanced Persistent Threat (APT) <!-- flag: obscure -->
+    - Logic Bomb
+    - Polymorphic / Metamorphic Malware
+    - Advanced Persistent Threat (APT)
   - Penetration Testing
-    - Reconnaissance / Footprinting <!-- flag: obscure -->
+    - Reconnaissance / Footprinting
     - Vulnerability Scanning
-    - Exploit Development <!-- flag: obscure -->
+    - Exploit Development
     - Red Team / Blue Team
-    - Capture the Flag (CTF) <!-- flag: off-theme -->
-    - Bug Bounty Programs <!-- flag: off-theme -->
   - Social Engineering / Phishing
-    - Spear Phishing <!-- flag: obscure -->
-    - Pretexting <!-- flag: obscure -->
-    - Baiting / Tailgating <!-- flag: obscure -->
+    - Spear Phishing
+    - Pretexting
+    - Baiting / Tailgating
   - Security Hardening
     - ASLR (Address Space Layout Randomization)
     - Stack Canaries
     - DEP (Data Execution Prevention)
-    - Control Flow Integrity <!-- flag: obscure -->
+    - Control Flow Integrity
     - Sandboxing / Containerization Isolation
-    - Patch Management <!-- flag: off-theme -->
   - Network Security
     - Firewalls (Packet-Filtering, Stateful, Next-Gen)
     - Intrusion Detection System (IDS)
@@ -144,31 +140,26 @@
     - Virtual Private Network (VPN)
     - Transport Layer Security (TLS) / SSL
     - TLS Handshake
-    - Perfect Forward Secrecy in TLS <!-- flag: obscure -->
     - Network Segmentation
-    - Demilitarized Zone (DMZ) <!-- flag: obscure -->
+    - Demilitarized Zone (DMZ)
     - Denial-of-Service (DoS) / Distributed Denial-of-Service (DDoS)
     - Man-in-the-Middle Attack
-    - ARP Spoofing <!-- flag: obscure -->
-    - DNS Spoofing / Cache Poisoning <!-- flag: obscure -->
+    - ARP Spoofing
+    - DNS Spoofing / Cache Poisoning
     - Port Scanning
-    - Honeypots <!-- flag: obscure -->
-    - Network Access Control (802.1X) <!-- flag: obscure -->
+    - Honeypots
+    - Network Access Control (802.1X)
   - Cloud & Infrastructure Security
     - Identity and Access Management (IAM)
-    - Secrets Management (Vaults) <!-- flag: obscure -->
-    - Container Security <!-- flag: obscure -->
-    - Security Information and Event Management (SIEM) <!-- flag: obscure -->
-    - Data Loss Prevention (DLP) <!-- flag: off-theme -->
+    - Secrets Management (Vaults)
+    - Container Security
+    - Security Information and Event Management (SIEM)
 - **Security Theory**
   - Threat Modeling
   - CIA Triad (Confidentiality, Integrity, Availability)
-  - Non-Repudiation <!-- flag: obscure -->
-  - AAA Framework (Authentication, Authorization, Accounting) <!-- flag: obscure -->
+  - Non-Repudiation
+  - AAA Framework (Authentication, Authorization, Accounting)
   - Defense in Depth
   - Zero Trust Architecture
   - Attack Surface
   - Security by Design
-  - Principle of Fail-Safe Defaults <!-- flag: obscure -->
-  - Risk Assessment / Risk Management <!-- flag: off-theme -->
-  - Security Compliance Frameworks (ISO 27001, NIST) <!-- flag: off-theme -->

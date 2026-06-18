@@ -7,53 +7,42 @@
   - Informed Search
     - A* Search
     - Greedy Best-First Search
-    - Iterative Deepening A* (IDA*) <!-- flag: obscure -->
-    - Weighted A* <!-- flag: obscure -->
+    - Iterative Deepening A* (IDA*)
     - Heuristic Design / Admissibility & Consistency
   - Local Search
     - Hill Climbing
     - Simulated Annealing
-    - Tabu Search <!-- flag: obscure -->
     - Genetic Algorithms
-    - Particle Swarm Optimization <!-- flag: obscure -->
-    - Ant Colony Optimization <!-- flag: obscure -->
+    - Particle Swarm Optimization
+    - Ant Colony Optimization
   - Adversarial Search
     - Minimax Algorithm
     - Alpha-Beta Pruning
-    - Expectimax <!-- flag: obscure -->
+    - Expectimax
     - Monte Carlo Tree Search
   - Constraint Satisfaction Problems
     - Backtracking Search
     - Arc Consistency
     - Constraint Propagation
-    - Forward Checking <!-- flag: obscure -->
-    - Min-Conflicts Heuristic <!-- flag: obscure -->
+    - Forward Checking
   - Planning
     - Classical Planning (STRIPS)
-    - PDDL (Planning Domain Definition Language) <!-- flag: obscure -->
-    - Hierarchical Task Network (HTN) Planning <!-- flag: obscure -->
-    - Partial-Order Planning <!-- flag: obscure -->
-    - Goal Stack Planning <!-- flag: obscure -->
+    - Hierarchical Task Network (HTN) Planning
   - Multi-Agent Systems
     - Game Theory Basics (Nash Equilibrium)
-    - Cooperative vs Competitive Agents <!-- flag: off-theme -->
 - **Knowledge Representation & Reasoning**
   - Semantic Networks
   - Ontologies
-  - Description Logics <!-- flag: obscure -->
-  - Frame-Based Systems <!-- flag: obscure -->
   - Rule-Based Systems / Expert Systems
     - Forward Chaining
     - Backward Chaining
   - Bayesian Networks
-    - Belief Propagation <!-- flag: obscure -->
-    - Markov Random Fields <!-- flag: obscure -->
+    - Belief Propagation
+    - Markov Random Fields
   - Hidden Markov Models
   - Fuzzy Logic
   - First-Order Logic / Predicate Logic
   - Knowledge Graphs
-  - Production Systems <!-- flag: obscure -->
-  - Default Reasoning / Non-Monotonic Logic <!-- flag: obscure -->
 - **Machine Learning**
   - Supervised Learning
     - Regression
@@ -68,60 +57,54 @@
       - Random Forests
       - Support Vector Machines (SVM)
         - Kernel Trick
-        - Soft Margin Classification <!-- flag: obscure -->
       - Naive Bayes
       - k-Nearest Neighbors
-      - Linear Discriminant Analysis <!-- flag: obscure -->
+      - Linear Discriminant Analysis
       - Perceptron Algorithm
   - Unsupervised Learning
     - Clustering
       - k-Means
-      - k-Medoids <!-- flag: obscure -->
       - Hierarchical Clustering
       - DBSCAN
       - Gaussian Mixture Models / Expectation-Maximization
-      - Mean Shift Clustering <!-- flag: obscure -->
+      - Mean Shift Clustering
     - Dimensionality Reduction
       - Principal Component Analysis (PCA)
       - t-SNE
-      - UMAP <!-- flag: obscure -->
+      - UMAP
       - Autoencoders
       - Singular Value Decomposition (SVD)
-      - Linear Discriminant Analysis (as DR) <!-- flag: obscure -->
     - Association Rule Learning
-      - Apriori Algorithm <!-- flag: obscure -->
-      - Market Basket Analysis <!-- flag: obscure -->
-  - Semi-Supervised Learning <!-- flag: obscure -->
+      - Apriori Algorithm
+  - Semi-Supervised Learning
   - Self-Supervised Learning
   - Ensemble Methods
     - Bagging
     - Boosting (AdaBoost, Gradient Boosting, XGBoost)
     - Stacking
-    - Voting Classifiers <!-- flag: obscure -->
-    - Random Subspace Method <!-- flag: obscure -->
+    - Voting Classifiers
   - Feature Engineering
     - Feature Scaling (Normalization, Standardization)
     - One-Hot Encoding
     - Feature Selection
-    - Imputation of Missing Data <!-- flag: obscure -->
+    - Imputation of Missing Data
   - Model Evaluation
     - Cross-Validation
     - Bias-Variance Tradeoff
     - Overfitting / Underfitting / Regularization (L1/L2)
     - Confusion Matrix, Precision/Recall, ROC-AUC
     - F1 Score
-    - A/B Testing <!-- flag: off-theme -->
     - Hyperparameter Tuning
       - Grid Search
       - Random Search
-      - Bayesian Optimization <!-- flag: obscure -->
+      - Bayesian Optimization
   - Reinforcement Learning
     - Markov Decision Processes
     - Q-Learning
     - Deep Q-Networks (DQN)
     - Policy Gradient Methods
-    - Actor-Critic Methods <!-- flag: obscure -->
-    - SARSA <!-- flag: obscure -->
+    - Actor-Critic Methods
+    - SARSA
     - Temporal Difference Learning
     - Reward Shaping
     - Exploration vs Exploitation
@@ -134,56 +117,47 @@
     - Perceptron
     - Multilayer Perceptron (MLP)
     - Activation Functions (ReLU, Sigmoid, Tanh)
-      - Leaky ReLU / GELU / Swish <!-- flag: obscure -->
       - Softmax Function
     - Backpropagation
     - Gradient Descent Variants (SGD, Adam, RMSProp)
-      - AdaGrad <!-- flag: obscure -->
       - Momentum
       - Learning Rate Scheduling
     - Vanishing/Exploding Gradients
     - Loss Functions (Cross-Entropy, MSE, Hinge Loss)
-    - Universal Approximation Theorem <!-- flag: obscure -->
   - Architectures
     - Convolutional Neural Networks (CNNs)
       - Pooling Layers
       - Feature Maps
       - Strides / Padding
       - Residual Networks (ResNet)
-      - Inception Networks <!-- flag: obscure -->
-      - U-Net <!-- flag: obscure -->
+      - U-Net
     - Recurrent Neural Networks (RNNs)
       - LSTM / GRU
-      - Bidirectional RNNs <!-- flag: obscure -->
       - Sequence-to-Sequence Models
     - Transformers
       - Self-Attention Mechanism
       - Positional Encoding
       - Multi-Head Attention
       - Encoder-Decoder Architecture
-      - Vision Transformers (ViT) <!-- flag: obscure -->
+      - Vision Transformers (ViT)
     - Generative Adversarial Networks (GANs)
       - Discriminator / Generator
-      - Mode Collapse <!-- flag: obscure -->
+      - Mode Collapse
     - Diffusion Models
     - Autoencoders / Variational Autoencoders
-    - Graph Neural Networks (GNNs) <!-- flag: obscure -->
-    - Siamese Networks <!-- flag: obscure -->
-    - Capsule Networks <!-- flag: obscure -->
-    - Neural Architecture Search <!-- flag: obscure -->
+    - Graph Neural Networks (GNNs)
   - Training Techniques
     - Dropout
     - Batch Normalization
-    - Layer Normalization <!-- flag: obscure -->
+    - Layer Normalization
     - Transfer Learning
     - Fine-Tuning
-    - Parameter-Efficient Fine-Tuning (LoRA, Adapters) <!-- flag: obscure -->
+    - Parameter-Efficient Fine-Tuning (LoRA, Adapters)
     - Knowledge Distillation
-    - Weight Initialization (Xavier, He) <!-- flag: obscure -->
+    - Weight Initialization (Xavier, He)
     - Early Stopping
-    - Gradient Clipping <!-- flag: obscure -->
+    - Gradient Clipping
     - Data Augmentation
-    - Curriculum Learning <!-- flag: obscure -->
     - Federated Learning
     - Model Quantization / Pruning
   - Frameworks & Tooling
@@ -193,71 +167,67 @@
 - **Natural Language Processing**
   - Tokenization
     - Byte Pair Encoding (BPE)
-    - WordPiece Tokenization <!-- flag: obscure -->
+    - WordPiece Tokenization
     - Stemming / Lemmatization
   - Text Preprocessing
     - Stop Word Removal
     - Part-of-Speech Tagging
-    - Dependency Parsing <!-- flag: obscure -->
+    - Dependency Parsing
     - Bag-of-Words Model
     - TF-IDF
   - Word Embeddings (Word2Vec, GloVe)
-    - FastText <!-- flag: obscure -->
-    - Contextual Embeddings (ELMo) <!-- flag: obscure -->
+    - FastText
+    - Contextual Embeddings (ELMo)
   - Language Models
     - n-gram Models
     - Large Language Models (LLMs)
-    - Masked Language Modeling <!-- flag: obscure -->
+    - Masked Language Modeling
     - Prompt Engineering
-    - In-Context Learning <!-- flag: obscure -->
-    - Chain-of-Thought Prompting <!-- flag: obscure -->
+    - In-Context Learning
+    - Chain-of-Thought Prompting
   - Named Entity Recognition
   - Sentiment Analysis
   - Machine Translation
-    - Statistical Machine Translation <!-- flag: obscure -->
     - Neural Machine Translation
   - Text Summarization
   - Question Answering Systems
-  - Coreference Resolution <!-- flag: obscure -->
+  - Coreference Resolution
   - Speech Recognition
-  - Text-to-Speech Synthesis <!-- flag: obscure -->
-  - Topic Modeling (Latent Dirichlet Allocation) <!-- flag: obscure -->
+  - Text-to-Speech Synthesis
+  - Topic Modeling (Latent Dirichlet Allocation)
   - Retrieval-Augmented Generation (RAG)
 - **Computer Vision**
   - Image Processing Basics
     - Convolution / Filters
     - Edge Detection
-    - Image Thresholding <!-- flag: obscure -->
-    - Morphological Operations <!-- flag: obscure -->
-    - Histogram Equalization <!-- flag: obscure -->
+    - Image Thresholding
+    - Morphological Operations
+    - Histogram Equalization
   - Feature Detection
-    - Corner Detection (Harris) <!-- flag: obscure -->
-    - SIFT / SURF <!-- flag: obscure -->
-    - Optical Flow <!-- flag: obscure -->
+    - Corner Detection (Harris)
+    - SIFT / SURF
+    - Optical Flow
   - Object Detection (YOLO, R-CNN)
-    - Bounding Box Regression <!-- flag: obscure -->
-    - Non-Maximum Suppression <!-- flag: obscure -->
+    - Bounding Box Regression
+    - Non-Maximum Suppression
   - Image Segmentation
     - Semantic Segmentation
-    - Instance Segmentation <!-- flag: obscure -->
+    - Instance Segmentation
   - Image Classification
   - Facial Recognition
-  - Pose Estimation <!-- flag: obscure -->
+  - Pose Estimation
   - Optical Character Recognition (OCR)
-  - Image Generation / Super-Resolution <!-- flag: obscure -->
-  - SLAM (Simultaneous Localization and Mapping) <!-- flag: obscure -->
+  - Image Generation / Super-Resolution
+  - SLAM (Simultaneous Localization and Mapping)
 - **MLOps & Deployment**
   - Model Versioning
   - Model Serving / Inference Pipelines
-  - Feature Stores <!-- flag: obscure -->
-  - A/B Testing for Models <!-- flag: off-theme -->
-  - Model Monitoring / Drift Detection <!-- flag: obscure -->
-  - Continuous Training / CI-CD for ML <!-- flag: off-theme -->
-  - Edge AI / On-Device Inference <!-- flag: obscure -->
+  - Model Monitoring / Drift Detection
+  - Edge AI / On-Device Inference
 - **AI Ethics & Safety**
   - Bias & Fairness
   - Explainability / Interpretability
-    - SHAP / LIME <!-- flag: obscure -->
+    - SHAP / LIME
   - AI Alignment
   - Adversarial Examples / Robustness
-  - Differential Privacy <!-- flag: obscure -->
+  - Differential Privacy

@@ -7,7 +7,6 @@
     - Stack, Queue, Deque
     - Circular Buffer (Ring Buffer)
     - Sparse Array
-    - Skip-List-Based Ordered List <!-- flag: obscure -->
   - Trees
     - Binary Tree
     - Binary Search Tree (BST)
@@ -18,41 +17,27 @@
       - Treap
       - B-Tree / B+ Tree
       - 2-3 Tree
-      - 2-3-4 Tree <!-- flag: obscure -->
-      - Scapegoat Tree <!-- flag: obscure -->
-      - AA Tree <!-- flag: obscure -->
-      - Weight-Balanced Tree <!-- flag: obscure -->
+      - 2-3-4 Tree
     - Heaps
       - Binary Heap
       - Fibonacci Heap
       - Binomial Heap
       - Pairing Heap
-      - Leftist Heap <!-- flag: obscure -->
-      - Skew Heap <!-- flag: obscure -->
-      - Min-Max Heap <!-- flag: obscure -->
-      - d-ary Heap <!-- flag: obscure -->
+      - Leftist Heap
+      - Min-Max Heap
+      - d-ary Heap
     - Tries (Prefix Trees)
       - Radix Tree / Patricia Trie
       - Suffix Tree / Suffix Array
-      - Suffix Automaton <!-- flag: obscure -->
-      - Ternary Search Tree <!-- flag: obscure -->
-      - DAWG (Directed Acyclic Word Graph) <!-- flag: obscure -->
+      - Ternary Search Tree
     - Segment Tree
-      - Persistent Segment Tree <!-- flag: obscure -->
-      - Merge Sort Tree <!-- flag: obscure -->
     - Fenwick Tree (Binary Indexed Tree)
     - Interval Tree
     - K-D Tree
     - Quadtree / Octree
     - R-Tree
-      - R*-Tree <!-- flag: obscure -->
     - BSP Tree (Binary Space Partitioning)
-    - Van Emde Boas Tree <!-- flag: obscure -->
-    - Cartesian Tree <!-- flag: obscure -->
-    - Link-Cut Tree <!-- flag: obscure -->
-    - Heavy-Light Decomposition <!-- flag: obscure -->
-    - Sparse Table <!-- flag: obscure -->
-    - Exponential Tree <!-- flag: obscure -->
+    - Cartesian Tree
     - Generic/N-ary Tree
     - Expression Tree
     - Decision Tree (as a data structure)
@@ -63,35 +48,28 @@
       - Universal Hashing
       - Cuckoo Hashing
       - Robin Hood Hashing
-      - Hopscotch Hashing <!-- flag: obscure -->
-      - Perfect Hashing <!-- flag: obscure -->
+      - Perfect Hashing
       - Consistent Hashing
-      - Rendezvous Hashing <!-- flag: obscure -->
+      - Rendezvous Hashing
     - Hash Set
     - Multimap / Multiset
     - Bloom Filter
-      - Counting Bloom Filter <!-- flag: obscure -->
-      - Cuckoo Filter <!-- flag: obscure -->
+      - Counting Bloom Filter
+      - Cuckoo Filter
     - HyperLogLog
   - Graph Representations
     - Adjacency List / Matrix
     - Edge List
-    - Incidence Matrix <!-- flag: obscure -->
     - Disjoint Set (Union-Find)
       - Union by Rank
       - Path Compression
-      - Weighted Union-Find <!-- flag: obscure -->
   - Probabilistic & Succinct Structures
     - Skip List
     - Count-Min Sketch
-    - Count Sketch <!-- flag: obscure -->
-    - AMQ Filters (Approximate Membership Query) <!-- flag: obscure -->
-    - T-Digest <!-- flag: obscure -->
+    - T-Digest
     - Merkle Tree
     - Bit Vector / Bitset
-    - Succinct Trees (LOUDS) <!-- flag: obscure -->
-    - Wavelet Tree <!-- flag: obscure -->
-    - XOR Filter <!-- flag: obscure -->
+    - XOR Filter
 - **Sorting Algorithms**
   - Comparison-Based
     - Bubble Sort, Insertion Sort, Selection Sort
@@ -101,30 +79,22 @@
     - Tim Sort
     - Introsort
     - Shell Sort
-    - Cocktail Shaker Sort <!-- flag: obscure -->
-    - Comb Sort <!-- flag: obscure -->
-    - Gnome Sort <!-- flag: obscure -->
-    - Cycle Sort <!-- flag: obscure -->
-    - Tree Sort <!-- flag: obscure -->
-    - Smoothsort <!-- flag: obscure -->
-    - Block Sort (WikiSort/Grailsort) <!-- flag: obscure -->
+    - Cycle Sort
+    - Smoothsort
   - Non-Comparison-Based
     - Counting Sort
     - Radix Sort (LSD/MSD)
     - Bucket Sort
-    - Pigeonhole Sort <!-- flag: obscure -->
-  - Sorting Network / Bitonic Sort <!-- flag: obscure -->
+  - Sorting Network / Bitonic Sort
   - Stability in Sorting
   - In-Place vs Out-of-Place Sorting
   - External Sorting
-  - Parallel/Distributed Sorting (Sample Sort) <!-- flag: obscure -->
 - **Searching Algorithms**
   - Linear Search, Binary Search
   - Interpolation Search
   - Exponential Search
   - Ternary Search
-  - Fibonacci Search <!-- flag: obscure -->
-  - Jump Search <!-- flag: obscure -->
+  - Jump Search
   - Selection Algorithms
     - Quickselect
     - Median of Medians
@@ -139,43 +109,40 @@
     - Floyd-Warshall Algorithm
     - A* Search
     - Johnson's Algorithm
-    - SPFA (Shortest Path Faster Algorithm) <!-- flag: obscure -->
-    - Yen's Algorithm (k-shortest paths) <!-- flag: obscure -->
-    - Contraction Hierarchies <!-- flag: obscure -->
+    - Yen's Algorithm (k-shortest paths)
   - Minimum Spanning Tree
     - Kruskal's Algorithm
     - Prim's Algorithm
     - Borůvka's Algorithm
-    - Steiner Tree Problem <!-- flag: obscure -->
+    - Steiner Tree Problem
   - Topological Sort
   - Strongly Connected Components
     - Tarjan's Algorithm
     - Kosaraju's Algorithm
-    - Gabow's Algorithm <!-- flag: obscure -->
   - Articulation Points & Bridges
   - Lowest Common Ancestor
     - Binary Lifting
-    - Euler Tour Technique <!-- flag: obscure -->
+    - Euler Tour Technique
   - Network Flow
     - Max-Flow Min-Cut Theorem
     - Ford-Fulkerson / Edmonds-Karp
     - Dinic's Algorithm
-    - Push-Relabel Algorithm <!-- flag: obscure -->
-    - Minimum Cost Flow <!-- flag: obscure -->
+    - Push-Relabel Algorithm
+    - Minimum Cost Flow
   - Matching
     - Bipartite Matching (Hopcroft-Karp)
     - Stable Marriage Problem
     - Hungarian Algorithm (Assignment Problem)
-    - Blossom Algorithm (General Graph Matching) <!-- flag: obscure -->
+    - Blossom Algorithm (General Graph Matching)
   - Graph Coloring
   - Eulerian Path/Circuit (Hierholzer's Algorithm)
   - Hamiltonian Path/Cycle
   - Traveling Salesman Problem
   - Maximum Clique / Independent Set
   - Minimum Vertex Cover
-  - Graph Isomorphism <!-- flag: obscure -->
-  - Planarity Testing <!-- flag: obscure -->
-  - Centrality Measures (Betweenness, PageRank-style) <!-- flag: obscure -->
+  - Graph Isomorphism
+  - Planarity Testing
+  - Centrality Measures (Betweenness, PageRank-style)
 - **Algorithm Design Paradigms**
   - Divide and Conquer
   - Dynamic Programming
@@ -184,13 +151,10 @@
     - Longest Common Subsequence
     - Edit Distance
     - Bitmask DP
-    - Digit DP <!-- flag: obscure -->
-    - Tree DP <!-- flag: obscure -->
-    - DP on Convex Hull Trick / Divide-and-Conquer Optimization <!-- flag: obscure -->
     - Matrix Chain Multiplication
     - Coin Change Problem
   - Greedy Algorithms
-    - Activity Selection Problem <!-- flag: obscure -->
+    - Activity Selection Problem
     - Huffman Coding (as greedy construction)
   - Backtracking
     - N-Queens Problem
@@ -212,31 +176,25 @@
     - Boyer-Moore
     - Z-Algorithm
     - Aho-Corasick Algorithm
-    - Suffix Automaton Matching <!-- flag: obscure -->
-    - Shift-Or / Bitap Algorithm <!-- flag: obscure -->
+    - Shift-Or / Bitap Algorithm
   - Edit Distance (Levenshtein)
   - Longest Common Substring/Subsequence
   - Longest Palindromic Substring (Manacher's Algorithm)
   - String Hashing
-  - Suffix Array Construction (SA-IS) <!-- flag: obscure -->
   - Burrows-Wheeler Transform
   - Trie-Based String Matching
   - Regular Expression Matching (NFA/DFA construction)
-  - Longest Repeated Substring <!-- flag: obscure -->
 - **Computational Geometry**
   - Convex Hull (Graham Scan, Jarvis March)
-    - QuickHull <!-- flag: obscure -->
-    - Chan's Algorithm <!-- flag: obscure -->
+    - QuickHull
   - Line Sweep Algorithms
   - Closest Pair of Points
   - Voronoi Diagrams
   - Delaunay Triangulation
   - Point-in-Polygon Test
   - Line Segment Intersection
-  - Polygon Triangulation <!-- flag: obscure -->
-  - Rotating Calipers <!-- flag: obscure -->
-  - Sweep Line + Doubly Connected Edge List <!-- flag: obscure -->
-  - Minimum Bounding Box / Enclosing Circle <!-- flag: obscure -->
+  - Polygon Triangulation
+  - Minimum Bounding Box / Enclosing Circle
 - **Combinatorial Generation**
   - Generating Permutations, Combinations, Subsets
-  - Gray Code Generation <!-- flag: obscure -->
+  - Gray Code Generation
