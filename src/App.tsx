@@ -20,6 +20,7 @@ import { HistoryModal } from '@/components/HistoryModal'
 import { TrashZone } from '@/components/TrashZone'
 import { ToastHost } from '@/components/ToastHost'
 import { MilestoneBurst } from '@/components/MilestoneBurst'
+import { CompletionModal } from '@/components/CompletionModal'
 import { DevPanel } from '@/components/DevPanel'
 import { ITEMS_BY_ID } from '@/data/items'
 import { useGameStore } from '@/store'
@@ -33,6 +34,8 @@ function clamp(value: number, min: number, max: number) {
 export default function App() {
   const addCanvasToken = useGameStore((s) => s.addCanvasToken)
   const moveCanvasToken = useGameStore((s) => s.moveCanvasToken)
+  const justCompletedDiscovery = useGameStore((s) => s.justCompletedDiscovery)
+  const acknowledgeCompletionCelebration = useGameStore((s) => s.acknowledgeCompletionCelebration)
   const removeCanvasToken = useGameStore((s) => s.removeCanvasToken)
   const combineTokens = useGameStore((s) => s.combineTokens)
   const tickPlayTime = useGameStore((s) => s.tickPlayTime)
@@ -142,6 +145,9 @@ export default function App() {
       <AnimatePresence>{journalOpen && <JournalModal onClose={() => setJournalOpen(false)} />}</AnimatePresence>
       <AnimatePresence>{statsOpen && <StatsModal onClose={() => setStatsOpen(false)} />}</AnimatePresence>
       <AnimatePresence>{historyOpen && <HistoryModal onClose={() => setHistoryOpen(false)} />}</AnimatePresence>
+      <AnimatePresence>
+        {justCompletedDiscovery && <CompletionModal onClose={acknowledgeCompletionCelebration} />}
+      </AnimatePresence>
 
       <TrashZone visible={activeDrag?.kind === 'canvas-token'} />
       <ToastHost />

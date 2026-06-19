@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { HINT_MAX_TIER, useGameStore } from '@/store'
-import { ITEMS_BY_ID } from '@/data/items'
+import { ITEMS, ITEMS_BY_ID } from '@/data/items'
 
 export function HintPanel() {
   const hintTargetId = useGameStore((s) => s.hintTargetId)
@@ -8,6 +8,7 @@ export function HintPanel() {
   const highlightedItemIds = useGameStore((s) => s.highlightedItemIds)
   const useHint = useGameStore((s) => s.useHint)
   const clearHighlight = useGameStore((s) => s.clearHighlight)
+  const isFullyDiscovered = useGameStore((s) => s.discoveredItemIds.size === ITEMS.length)
 
   const [popoverOpen, setPopoverOpen] = useState(false)
 
@@ -39,8 +40,13 @@ export function HintPanel() {
     <div className="relative">
       <button
         onClick={handleClick}
-        title="Reveal progressively more about an undiscovered combination"
-        className="shrink-0 px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-orange-500 hover:text-orange-300 transition-colors"
+        disabled={isFullyDiscovered}
+        title={isFullyDiscovered ? 'Everything discovered!' : 'Reveal progressively more about an undiscovered combination'}
+        className={`shrink-0 px-3 py-1.5 text-xs rounded border transition-colors ${
+          isFullyDiscovered
+            ? 'border-stone-800 text-stone-600 cursor-not-allowed opacity-50'
+            : 'border-stone-700 text-stone-300 hover:border-orange-500 hover:text-orange-300'
+        }`}
       >
         💡 Hint
       </button>

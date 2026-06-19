@@ -33,13 +33,16 @@ export function JournalModal({ onClose }: JournalModalProps) {
   const [rarityFilter, setRarityFilter] = useState<Rarity | 'all'>('all')
   const [hideExplored, setHideExplored] = useState(false)
 
+  const isFullyDiscovered = discoveredItemIds.size === ITEMS.length
+
   const exhaustedIds = useMemo(() => {
     const set = new Set<string>()
+    if (isFullyDiscovered) return set
     for (const id of discoveredItemIds) {
       if (isItemExhausted(id, discoveredItemIds, RECIPES_BY_INPUT)) set.add(id)
     }
     return set
-  }, [discoveredItemIds])
+  }, [discoveredItemIds, isFullyDiscovered])
 
   const groups = useMemo(() => {
     const discoveredCategories = new Set<string>()

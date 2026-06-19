@@ -4,7 +4,7 @@ import { useVirtualizer } from '@tanstack/react-virtual'
 import { AnimatePresence } from 'framer-motion'
 import type { Item, Category } from '@/types'
 import type { DragPayload } from '@/types/dnd'
-import { ITEMS_BY_ID } from '@/data/items'
+import { ITEMS, ITEMS_BY_ID } from '@/data/items'
 import { RECIPES_BY_INPUT } from '@/data/recipes'
 import { CATEGORY_LABELS, CATEGORY_ORDER } from '@/data/categories'
 import { isItemExhausted } from '@/engine/combine'
@@ -72,13 +72,16 @@ export function Sidebar() {
 
   const scrollRef = useRef<HTMLDivElement>(null)
 
+  const isFullyDiscovered = discoveredItemIds.size === ITEMS.length
+
   const exhaustedIds = useMemo(() => {
     const set = new Set<string>()
+    if (isFullyDiscovered) return set
     for (const id of discoveredItemIds) {
       if (isItemExhausted(id, discoveredItemIds, RECIPES_BY_INPUT)) set.add(id)
     }
     return set
-  }, [discoveredItemIds])
+  }, [discoveredItemIds, isFullyDiscovered])
 
   const filteredItems = useMemo(() => {
     const list = [...discoveredItemIds].map((id) => ITEMS_BY_ID.get(id)!).filter(Boolean)

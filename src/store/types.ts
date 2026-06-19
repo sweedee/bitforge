@@ -30,7 +30,11 @@ export interface DiscoverySlice {
   dequeueToast: () => void
   /** One-shot signal for MilestoneBurst — changes to a new (always-unique) item id on every discovery. */
   lastDiscoveredItemId: string | null
+  hasSeenCompletionCelebration: boolean
+  /** One-shot signal for CompletionModal — true right after the final item is discovered. */
+  justCompletedDiscovery: boolean
   discoverItem: (itemId: string) => void
+  acknowledgeCompletionCelebration: () => void
   unlockAllItems: () => void
   resetProgress: () => void
 }

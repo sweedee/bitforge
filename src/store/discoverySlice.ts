@@ -4,6 +4,7 @@ import { DEFAULT_STATS, saveAchievements, saveHistory, saveStats } from './stats
 import type { DiscoverySlice, GameStore } from './types'
 
 const LS_DISCOVERED_KEY = 'bitforge:discovered'
+const LS_COMPLETION_SEEN_KEY = 'bitforge:completion-seen'
 
 function loadDiscovered(): Set<string> {
   try {
@@ -13,6 +14,14 @@ function loadDiscovered(): Set<string> {
     /* ignore */
   }
   return new Set(STARTER_ITEM_IDS)
+}
+
+function loadCompletionSeen(): boolean {
+  try {
+    return localStorage.getItem(LS_COMPLETION_SEEN_KEY) === 'true'
+  } catch {
+    return false
+  }
 }
 
 let discoveredSaveTimer: number | undefined
@@ -53,15 +62,27 @@ export const createDiscoverySlice: StateCreator<GameStore, [], [], DiscoverySlic
   toastQueue: [],
   dequeueToast: () => set({ toastQueue: get().toastQueue.slice(1) }),
   lastDiscoveredItemId: null,
+  hasSeenCompletionCelebration: loadCompletionSeen(),
+  justCompletedDiscovery: false,
 
   discoverItem: (itemId) => {
     if (get().discoveredItemIds.has(itemId)) return
     const updated = new Set(get().discoveredItemIds)
     updated.add(itemId)
     saveDiscovered(updated)
-    set({ discoveredItemIds: updated })
+    const justCompletedDiscovery = updated.size === ITEMS.length && !get().hasSeenCompletionCelebration
+    set({ discoveredItemIds: updated, justCompletedDiscovery })
     get().addHistoryEntry({ kind: 'discovery', itemId, at: Date.now() })
     get().checkAchievements()
+  },
+
+  acknowledgeCompletionCelebration: () => {
+    try {
+      localStorage.setItem(LS_COMPLETION_SEEN_KEY, 'true')
+    } catch {
+      /* ignore */
+    }
+    set({ hasSeenCompletionCelebration: true, justCompletedDiscovery: false })
   },
 
   unlockAllItems: () => {
@@ -77,6 +98,11 @@ export const createDiscoverySlice: StateCreator<GameStore, [], [], DiscoverySlic
     saveAchievements(new Set())
     saveStats(DEFAULT_STATS)
     saveHistory([])
+    try {
+      localStorage.removeItem(LS_COMPLETION_SEEN_KEY)
+    } catch {
+      /* ignore */
+    }
     set({
       discoveredItemIds: starters,
       unlockedAchievementIds: new Set(),
@@ -89,6 +115,8 @@ export const createDiscoverySlice: StateCreator<GameStore, [], [], DiscoverySlic
       lastCombineSnapshot: null,
       toastQueue: [],
       lastDiscoveredItemId: null,
+      hasSeenCompletionCelebration: false,
+      justCompletedDiscovery: false,
     })
   },
 })
