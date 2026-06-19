@@ -10,17 +10,33 @@ interface HeaderProps {
   onOpenTechTree: () => void
 }
 
+function streakFlames(streak: number): string {
+  if (streak >= 25) return '🔥🔥🔥'
+  if (streak >= 10) return '🔥🔥'
+  return '🔥'
+}
+
 export function Header({ onOpenJournal, onOpenStats, onOpenTechTree }: HeaderProps) {
   const clearCanvas = useGameStore((s) => s.clearCanvas)
   const tidyCanvas = useGameStore((s) => s.tidyCanvas)
   const undoLastCombine = useGameStore((s) => s.undoLastCombine)
   const canUndo = useGameStore((s) => s.lastCombineSnapshot !== null)
+  const streak = useGameStore((s) => s.stats.currentDiscoveryStreak)
 
   return (
     <header className="flex items-center justify-between gap-3 px-4 py-2.5 border-b border-stone-800 shrink-0 flex-wrap">
       <div className="flex items-center gap-2 shrink-0">
         <span className="text-base tracking-widest text-orange-400 uppercase font-bold">BitForge</span>
         <LevelBadge />
+        {streak > 0 && (
+          <span
+            title={`Discovery streak: ${streak} in a row`}
+            className="flex items-center gap-1 px-2 py-1 text-xs rounded border border-orange-700/60 bg-orange-950/40 text-orange-300"
+          >
+            <span>{streakFlames(streak)}</span>
+            <span className="font-semibold">{streak}</span>
+          </span>
+        )}
       </div>
 
       <div className="flex-1 max-w-xs min-w-[6rem]">
