@@ -21,7 +21,7 @@ export type Category =
   | 'capstone'
   | 'fun'
 
-export type Rarity = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary' | 'mythic'
+export type Rarity = 'common' | 'uncommon' | 'rare' | 'advanced' | 'epic' | 'legendary' | 'mythic'
 
 export interface Item {
   id: string

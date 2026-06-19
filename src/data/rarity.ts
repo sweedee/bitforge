@@ -1,11 +1,12 @@
 import type { Rarity } from '@/types'
 
-export const RARITY_ORDER: Rarity[] = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
+export const RARITY_ORDER: Rarity[] = ['common', 'uncommon', 'rare', 'advanced', 'epic', 'legendary', 'mythic']
 
 export const RARITY_LABELS: Record<Rarity, string> = {
   common: 'Common',
   uncommon: 'Uncommon',
   rare: 'Rare',
+  advanced: 'Advanced',
   epic: 'Epic',
   legendary: 'Legendary',
   mythic: 'Mythic',
@@ -24,7 +25,7 @@ export interface RarityStyle {
 
 /**
  * Fortnite-style palette, by obscurity (not depth):
- * Common grey · Uncommon green · Rare blue · Epic purple · Legendary gold · Mythic red/orange.
+ * Common grey · Uncommon green · Rare blue · Advanced teal · Epic purple · Legendary gold · Mythic red/orange.
  * Flat design — no glow; rarity reads from border/bg/text/accent color alone.
  */
 export const RARITY_STYLES: Record<Rarity, RarityStyle> = {
@@ -45,6 +46,12 @@ export const RARITY_STYLES: Record<Rarity, RarityStyle> = {
     bg: 'bg-sky-950/40',
     text: 'text-sky-50',
     accent: 'text-sky-400',
+  },
+  advanced: {
+    border: 'border-teal-500',
+    bg: 'bg-teal-950/40',
+    text: 'text-teal-50',
+    accent: 'text-teal-400',
   },
   epic: {
     border: 'border-violet-500',
