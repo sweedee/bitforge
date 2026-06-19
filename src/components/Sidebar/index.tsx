@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from 'react'
 import { useDraggable } from '@dnd-kit/core'
 import { useVirtualizer } from '@tanstack/react-virtual'
+import { AnimatePresence } from 'framer-motion'
 import type { Item, Category } from '@/types'
 import type { DragPayload } from '@/types/dnd'
 import { ITEMS_BY_ID } from '@/data/items'
@@ -11,8 +12,11 @@ import { computeGridPositions } from '@/lib/gridLayout'
 import { useGameStore } from '@/store'
 import { sounds } from '@/sound'
 import { ItemChip } from '@/components/ItemChip'
+import { ConfirmBulkAddModal } from '@/components/ConfirmBulkAddModal'
 
 const ITEMS_PER_ROW = 3
+const BULK_ADD_WARNING_THRESHOLD = 18
+const BULK_ADD_CAPPED_COUNT = 50
 
 function randomCoord(min: number, max: number) {
   return min + Math.random() * (max - min)
@@ -140,11 +144,31 @@ export function Sidebar() {
     return [...set]
   }, [discoveredItemIds])
 
+  const [pendingBulkAddCount, setPendingBulkAddCount] = useState<number | null>(null)
+
+  function addItems(items: Item[]) {
+    const positions = computeGridPositions(items.length)
+    items.forEach((item, i) => addCanvasToken(item.id, positions[i]!.x, positions[i]!.y, { silent: true }))
+    if (items.length > 0) sounds.place()
+  }
+
   function handleAddAll() {
     const visibleItems = groups.flatMap((g) => g.items)
-    const positions = computeGridPositions(visibleItems.length)
-    visibleItems.forEach((item, i) => addCanvasToken(item.id, positions[i]!.x, positions[i]!.y, { silent: true }))
-    if (visibleItems.length > 0) sounds.place()
+    if (visibleItems.length > BULK_ADD_WARNING_THRESHOLD) {
+      setPendingBulkAddCount(visibleItems.length)
+      return
+    }
+    addItems(visibleItems)
+  }
+
+  function handleConfirmAddAll() {
+    addItems(groups.flatMap((g) => g.items))
+    setPendingBulkAddCount(null)
+  }
+
+  function handleConfirmAddCapped() {
+    addItems(groups.flatMap((g) => g.items).slice(0, BULK_ADD_CAPPED_COUNT))
+    setPendingBulkAddCount(null)
   }
 
   return (
@@ -229,6 +253,18 @@ export function Sidebar() {
           })}
         </div>
       </div>
+
+      <AnimatePresence>
+        {pendingBulkAddCount !== null && (
+          <ConfirmBulkAddModal
+            count={pendingBulkAddCount}
+            cappedCount={BULK_ADD_CAPPED_COUNT}
+            onCancel={() => setPendingBulkAddCount(null)}
+            onAddCapped={handleConfirmAddCapped}
+            onAddAll={handleConfirmAddAll}
+          />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
