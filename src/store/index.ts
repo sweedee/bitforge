@@ -139,6 +139,7 @@ export interface SettingsState {
   reducedMotion: boolean
   autoCleanup: boolean
   dedupeOnTidy: boolean
+  easyMode: boolean
 }
 
 function prefersReducedMotion(): boolean {
@@ -156,6 +157,7 @@ function loadSettings(): SettingsState {
     reducedMotion: prefersReducedMotion(),
     autoCleanup: false,
     dedupeOnTidy: false,
+    easyMode: false,
   }
   try {
     const raw = localStorage.getItem(LS_SETTINGS_KEY)
@@ -213,6 +215,11 @@ interface GameStore {
   toggleReducedMotion: () => void
   toggleAutoCleanup: () => void
   toggleDedupeOnTidy: () => void
+  toggleEasyMode: () => void
+
+  draggingItemId: string | null
+  draggingInstanceId: string | null
+  setDraggingItem: (itemId: string | null, instanceId?: string | null) => void
 
   unlockedAchievementIds: Set<string>
   checkAchievements: () => void
@@ -286,6 +293,15 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     saveSettings(next)
     set({ settings: next })
   },
+  toggleEasyMode: () => {
+    const next = { ...get().settings, easyMode: !get().settings.easyMode }
+    saveSettings(next)
+    set({ settings: next })
+  },
+
+  draggingItemId: null,
+  draggingInstanceId: null,
+  setDraggingItem: (itemId, instanceId = null) => set({ draggingItemId: itemId, draggingInstanceId: instanceId }),
 
   unlockedAchievementIds: loadAchievements(),
   checkAchievements: () => {

@@ -63,6 +63,16 @@ export function getHint(
   return candidates[candidates.length - 1].hint
 }
 
+/** All item ids that combine with `itemId` in some known recipe (used by easy mode to highlight valid drop targets). */
+export function getCompatiblePartnerIds(itemId: string, recipesByInput: Map<string, Recipe[]>): Set<string> {
+  const partners = new Set<string>()
+  for (const recipe of recipesByInput.get(itemId) ?? []) {
+    const [a, b] = recipe.inputs
+    partners.add(a === itemId ? b : a)
+  }
+  return partners
+}
+
 export function isItemExhausted(itemId: string, discoveredItemIds: Set<string>, recipes: Recipe[]): boolean {
   for (const recipe of recipes) {
     const [a, b] = recipe.inputs

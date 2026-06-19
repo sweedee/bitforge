@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useDroppable } from '@dnd-kit/core'
 import { useGameStore } from '@/store'
 import { CanvasToken } from '@/components/CanvasToken'
+import { RECIPES_BY_INPUT } from '@/data/recipes'
+import { getCompatiblePartnerIds } from '@/engine/combine'
 import type { DropPayload } from '@/types/dnd'
 
 export function CombineCanvas() {
@@ -13,8 +15,16 @@ export function CombineCanvas() {
   const clearFailedCombo = useGameStore((s) => s.clearFailedCombo)
   const justMergedInstanceId = useGameStore((s) => s.justMergedInstanceId)
   const clearJustMerged = useGameStore((s) => s.clearJustMerged)
+  const easyMode = useGameStore((s) => s.settings.easyMode)
+  const draggingItemId = useGameStore((s) => s.draggingItemId)
+  const draggingInstanceId = useGameStore((s) => s.draggingInstanceId)
 
   const [selectedInstanceId, setSelectedInstanceId] = useState<string | null>(null)
+
+  const compatiblePartnerIds = useMemo(() => {
+    if (!easyMode || !draggingItemId) return null
+    return getCompatiblePartnerIds(draggingItemId, RECIPES_BY_INPUT)
+  }, [easyMode, draggingItemId])
 
   const dropzoneData: DropPayload = { kind: 'canvas-dropzone' }
   const { setNodeRef } = useDroppable({ id: 'canvas-dropzone', data: dropzoneData })
@@ -64,6 +74,9 @@ export function CombineCanvas() {
             selected={token.instanceId === selectedInstanceId}
             shake={lastFailedComboInstanceIds?.includes(token.instanceId) ?? false}
             justMerged={token.instanceId === justMergedInstanceId}
+            compatible={
+              token.instanceId !== draggingInstanceId && (compatiblePartnerIds?.has(token.itemId) ?? false)
+            }
             onClick={() => handleTokenClick(token.instanceId)}
             onDelete={() => handleTokenDelete(token.instanceId)}
           />

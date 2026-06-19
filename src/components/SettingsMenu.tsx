@@ -8,11 +8,13 @@ export function SettingsMenu() {
   const reducedMotion = useGameStore((s) => s.settings.reducedMotion)
   const autoCleanup = useGameStore((s) => s.settings.autoCleanup)
   const dedupeOnTidy = useGameStore((s) => s.settings.dedupeOnTidy)
+  const easyMode = useGameStore((s) => s.settings.easyMode)
   const toggleMute = useGameStore((s) => s.toggleMute)
   const setVolume = useGameStore((s) => s.setVolume)
   const toggleReducedMotion = useGameStore((s) => s.toggleReducedMotion)
   const toggleAutoCleanup = useGameStore((s) => s.toggleAutoCleanup)
   const toggleDedupeOnTidy = useGameStore((s) => s.toggleDedupeOnTidy)
+  const toggleEasyMode = useGameStore((s) => s.toggleEasyMode)
 
   return (
     <div className="relative shrink-0">
@@ -58,6 +60,10 @@ export function SettingsMenu() {
             <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
               <input type="checkbox" checked={dedupeOnTidy} onChange={toggleDedupeOnTidy} className="accent-orange-500" />
               <span>Remove duplicate items on Tidy</span>
+            </label>
+            <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
+              <input type="checkbox" checked={easyMode} onChange={toggleEasyMode} className="accent-orange-500" />
+              <span>Easy mode: highlight matches on drag</span>
             </label>
           </div>
         </>

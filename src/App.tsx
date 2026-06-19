@@ -38,6 +38,7 @@ export default function App() {
   const tickPlayTime = useGameStore((s) => s.tickPlayTime)
   const muted = useGameStore((s) => s.settings.muted)
   const volume = useGameStore((s) => s.settings.volume)
+  const setDraggingItem = useGameStore((s) => s.setDraggingItem)
 
   const [activeDrag, setActiveDrag] = useState<DragPayload | null>(null)
   const [journalOpen, setJournalOpen] = useState(false)
@@ -64,11 +65,15 @@ export default function App() {
 
   function handleDragStart(event: DragStartEvent) {
     const drag = event.active.data.current as DragPayload | undefined
-    if (drag) setActiveDrag(drag)
+    if (drag) {
+      setActiveDrag(drag)
+      setDraggingItem(drag.itemId, drag.kind === 'canvas-token' ? drag.instanceId : null)
+    }
   }
 
   function handleDragEnd(event: DragEndEvent) {
     setActiveDrag(null)
+    setDraggingItem(null)
 
     const drag = event.active.data.current as DragPayload | undefined
     const drop = event.over?.data.current as DropPayload | undefined

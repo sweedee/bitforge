@@ -11,11 +11,12 @@ interface CanvasTokenProps {
   selected: boolean
   shake: boolean
   justMerged: boolean
+  compatible?: boolean
   onClick: () => void
   onDelete: () => void
 }
 
-export function CanvasToken({ token, selected, shake, justMerged, onClick, onDelete }: CanvasTokenProps) {
+export function CanvasToken({ token, selected, shake, justMerged, compatible = false, onClick, onDelete }: CanvasTokenProps) {
   const item = ITEMS_BY_ID.get(token.itemId)
   const reducedMotion = useGameStore((s) => s.settings.reducedMotion)
   const addCanvasToken = useGameStore((s) => s.addCanvasToken)
@@ -56,7 +57,7 @@ export function CanvasToken({ token, selected, shake, justMerged, onClick, onDel
       whileTap={{ scale: 0.95 }}
       transition={reducedMotion ? { duration: 0.12 } : { type: 'spring', stiffness: 400, damping: 25 }}
     >
-      <ItemChip item={item} selected={selected} />
+      <ItemChip item={item} selected={selected} highlighted={compatible} />
       <button
         type="button"
         title="Remove from canvas"
