@@ -138,6 +138,7 @@ export interface SettingsState {
   volume: number
   reducedMotion: boolean
   autoCleanup: boolean
+  dedupeOnTidy: boolean
 }
 
 function prefersReducedMotion(): boolean {
@@ -149,7 +150,13 @@ function prefersReducedMotion(): boolean {
 }
 
 function loadSettings(): SettingsState {
-  const defaults: SettingsState = { muted: false, volume: 1, reducedMotion: prefersReducedMotion(), autoCleanup: false }
+  const defaults: SettingsState = {
+    muted: false,
+    volume: 1,
+    reducedMotion: prefersReducedMotion(),
+    autoCleanup: false,
+    dedupeOnTidy: false,
+  }
   try {
     const raw = localStorage.getItem(LS_SETTINGS_KEY)
     if (raw) return { ...defaults, ...(JSON.parse(raw) as Partial<SettingsState>) }
@@ -205,6 +212,7 @@ interface GameStore {
   setVolume: (volume: number) => void
   toggleReducedMotion: () => void
   toggleAutoCleanup: () => void
+  toggleDedupeOnTidy: () => void
 
   unlockedAchievementIds: Set<string>
   checkAchievements: () => void
@@ -273,6 +281,11 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     saveSettings(next)
     set({ settings: next })
   },
+  toggleDedupeOnTidy: () => {
+    const next = { ...get().settings, dedupeOnTidy: !get().settings.dedupeOnTidy }
+    saveSettings(next)
+    set({ settings: next })
+  },
 
   unlockedAchievementIds: loadAchievements(),
   checkAchievements: () => {
@@ -315,9 +328,17 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
   tidyCanvas: () => {
     const { canvasTokens, discoveredItemIds, settings } = get()
-    const tokens = settings.autoCleanup
+    let tokens = settings.autoCleanup
       ? canvasTokens.filter((t) => !isItemExhausted(t.itemId, discoveredItemIds, RECIPES))
       : canvasTokens
+    if (settings.dedupeOnTidy) {
+      const seen = new Set<string>()
+      tokens = tokens.filter((t) => {
+        if (seen.has(t.itemId)) return false
+        seen.add(t.itemId)
+        return true
+      })
+    }
     const positions = computeGridPositions(tokens.length)
     set({ canvasTokens: tokens.map((t, i) => ({ ...t, x: positions[i].x, y: positions[i].y })) })
   },

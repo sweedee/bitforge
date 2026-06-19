@@ -7,10 +7,12 @@ export function SettingsMenu() {
   const volume = useGameStore((s) => s.settings.volume)
   const reducedMotion = useGameStore((s) => s.settings.reducedMotion)
   const autoCleanup = useGameStore((s) => s.settings.autoCleanup)
+  const dedupeOnTidy = useGameStore((s) => s.settings.dedupeOnTidy)
   const toggleMute = useGameStore((s) => s.toggleMute)
   const setVolume = useGameStore((s) => s.setVolume)
   const toggleReducedMotion = useGameStore((s) => s.toggleReducedMotion)
   const toggleAutoCleanup = useGameStore((s) => s.toggleAutoCleanup)
+  const toggleDedupeOnTidy = useGameStore((s) => s.toggleDedupeOnTidy)
 
   return (
     <div className="relative shrink-0">
@@ -52,6 +54,10 @@ export function SettingsMenu() {
             <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
               <input type="checkbox" checked={autoCleanup} onChange={toggleAutoCleanup} className="accent-orange-500" />
               <span>Auto-cleanup explored items on Tidy</span>
+            </label>
+            <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
+              <input type="checkbox" checked={dedupeOnTidy} onChange={toggleDedupeOnTidy} className="accent-orange-500" />
+              <span>Remove duplicate items on Tidy</span>
             </label>
           </div>
         </>
