@@ -1,9 +1,8 @@
 import { create } from 'zustand'
 import type { CanvasToken } from '@/types'
-import { ITEMS, ITEMS_BY_ID, STARTER_ITEM_IDS } from '@/data/items'
+import { ITEMS, STARTER_ITEM_IDS } from '@/data/items'
 import { RECIPE_BY_RESULT, RECIPE_INDEX, RECIPES_BY_INPUT } from '@/data/recipes'
 import { getHint, isItemExhausted, tryCombine } from '@/engine/combine'
-import { getLevelIndex, getTotalXp } from '@/engine/level'
 import { computeGridPositions } from '@/lib/gridLayout'
 import { ACHIEVEMENTS } from '@/data/achievements'
 import { sounds } from '@/sound'
@@ -127,10 +126,7 @@ export function isStreakMilestone(streak: number): boolean {
   return streak === 3 || (streak >= 5 && streak % 5 === 0)
 }
 
-export type ToastEntry =
-  | { kind: 'discovery'; itemId: string }
-  | { kind: 'achievement'; achievementId: string }
-  | { kind: 'levelUnlock'; itemId: string }
+export type ToastEntry = { kind: 'discovery'; itemId: string } | { kind: 'achievement'; achievementId: string }
 
 export interface StatsState {
   totalAttempts: number
@@ -199,20 +195,6 @@ function loadSettings(): SettingsState {
 
 function saveSettings(settings: SettingsState) {
   localStorage.setItem(LS_SETTINGS_KEY, JSON.stringify(settings))
-}
-
-/** Auto-discovers any item whose unlocksAtLevel is met by the given discovered set. */
-function applyLevelUnlocks(discoveredItemIds: Set<string>): { updated: Set<string>; newlyUnlockedId: string | null } {
-  const xp = getTotalXp(discoveredItemIds, ITEMS_BY_ID)
-  const levelIndex = getLevelIndex(xp)
-  const updated = new Set(discoveredItemIds)
-  let newlyUnlockedId: string | null = null
-  for (const item of ITEMS) {
-    if (item.unlocksAtLevel === undefined || updated.has(item.id) || levelIndex < item.unlocksAtLevel) continue
-    updated.add(item.id)
-    newlyUnlockedId ??= item.id
-  }
-  return { updated, newlyUnlockedId }
 }
 
 let nextInstanceId = 0
@@ -412,9 +394,8 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
     if (result.isNewDiscovery) {
       sounds.chime()
-      const discoveredWithResult = new Set(discoveredItemIds)
-      discoveredWithResult.add(result.resultId)
-      const { updated, newlyUnlockedId } = applyLevelUnlocks(discoveredWithResult)
+      const updated = new Set(discoveredItemIds)
+      updated.add(result.resultId)
       saveDiscovered(updated)
       const currentDiscoveryStreak = stats.currentDiscoveryStreak + 1
       const nextStats: StatsState = {
@@ -426,11 +407,9 @@ export const useGameStore = create<GameStore>()((set, get) => ({
       }
       saveStats(nextStats)
       const hintResolved = get().hintTargetId === result.resultId
-      const newToasts: ToastEntry[] = [{ kind: 'discovery', itemId: result.resultId }]
-      if (newlyUnlockedId) newToasts.push({ kind: 'levelUnlock', itemId: newlyUnlockedId })
       set({
         discoveredItemIds: updated,
-        toastQueue: [...get().toastQueue, ...newToasts],
+        toastQueue: [...get().toastQueue, { kind: 'discovery', itemId: result.resultId }],
         lastDiscoveredItemId: result.resultId,
         canvasTokens: [...remaining, resultToken],
         justMergedInstanceId: resultToken.instanceId,
@@ -521,9 +500,8 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
   discoverItem: (itemId) => {
     if (get().discoveredItemIds.has(itemId)) return
-    const discoveredWithItem = new Set(get().discoveredItemIds)
-    discoveredWithItem.add(itemId)
-    const { updated } = applyLevelUnlocks(discoveredWithItem)
+    const updated = new Set(get().discoveredItemIds)
+    updated.add(itemId)
     saveDiscovered(updated)
     set({ discoveredItemIds: updated })
     get().checkAchievements()

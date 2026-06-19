@@ -32,8 +32,6 @@ export interface Item {
   rarity: Rarity
   description: string
   isStarter?: boolean
-  /** Auto-discovered (like a starter) once the player reaches this level index. */
-  unlocksAtLevel?: number
 }
 
 export interface Recipe {

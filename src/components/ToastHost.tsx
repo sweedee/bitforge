@@ -6,7 +6,7 @@ import { RARITY_LABELS, RARITY_STYLES, rarityRank } from '@/data/rarity'
 import { getItemStars } from '@/engine/depth'
 import { isStreakMilestone, useGameStore } from '@/store'
 
-const TOAST_DURATION_MS = { discovery: 2600, achievement: 3200, levelUnlock: 3200 } as const
+const TOAST_DURATION_MS = { discovery: 2600, achievement: 3200 } as const
 
 export function ToastHost() {
   const entry = useGameStore((s) => s.toastQueue[0])
@@ -26,8 +26,6 @@ export function ToastHost() {
   const discoveryBig = discoveryItem ? rarityRank(discoveryItem.rarity) >= 3 && !reducedMotion : false
 
   const achievement = entry?.kind === 'achievement' ? ACHIEVEMENTS.find((a) => a.id === entry.achievementId) : undefined
-
-  const levelUnlockItem = entry?.kind === 'levelUnlock' ? ITEMS_BY_ID.get(entry.itemId) : undefined
 
   return (
     <div className="fixed top-24 sm:top-16 right-4 z-50 pointer-events-none">
@@ -75,22 +73,6 @@ export function ToastHost() {
               <span className="text-[10px] uppercase tracking-widest text-amber-300">Achievement unlocked</span>
               <span className="text-sm font-bold text-stone-100">{achievement.name}</span>
               <span className="text-[11px] text-stone-400">{achievement.description}</span>
-            </div>
-          </motion.div>
-        )}
-        {levelUnlockItem && (
-          <motion.div
-            key={`levelUnlock:${levelUnlockItem.id}`}
-            initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -16, scale: 0.9 }}
-            animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
-            exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -16, scale: 0.9 }}
-            transition={reducedMotion ? { duration: 0.15 } : { type: 'spring', stiffness: 380, damping: 16 }}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-orange-400 bg-stone-900 shadow-2xl shadow-[0_0_16px_0px_rgba(251,146,60,0.4)]"
-          >
-            <span className="text-2xl">{levelUnlockItem.emoji}</span>
-            <div className="flex flex-col">
-              <span className="text-[10px] uppercase tracking-widest text-orange-300">New starter unlocked</span>
-              <span className="text-sm font-bold text-stone-100">{levelUnlockItem.name}</span>
             </div>
           </motion.div>
         )}
