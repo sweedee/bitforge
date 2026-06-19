@@ -56,7 +56,7 @@ export function JournalModal({ onClose }: JournalModalProps) {
           {groups.map(({ category, items, discovered }) => (
             <div key={category}>
               <div className={`text-xs uppercase tracking-widest mb-2 ${discovered ? 'text-orange-400' : 'text-stone-600'}`}>
-                {discovered ? CATEGORY_LABELS[category] : `${CATEGORY_LABELS[category]} (Locked)`}
+                {CATEGORY_LABELS[category]}
               </div>
               <div className="flex flex-wrap gap-2">
                 {items.map((item) =>
