@@ -42,7 +42,7 @@ export const RECIPES_WEB: Recipe[] = [
   { inputs: ['protocol', 'file'], result: 'ftp' },
   { inputs: ['tcp', 'http'], result: 'websocket' },
   { inputs: ['ip-address', 'server'], result: 'dhcp' },
-  { inputs: ['encryption', 'protocol'], result: 'ssh' },
+  { inputs: ['tls', 'shell'], result: 'ssh' },
   { inputs: ['packet', 'malware'], result: 'ddos' },
   { inputs: ['router', 'protocol'], result: 'gateway' },
   { inputs: ['wire', 'computer'], result: 'network-interface-card' },

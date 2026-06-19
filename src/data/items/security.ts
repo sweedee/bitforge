@@ -81,4 +81,5 @@ export const SECURITY: Item[] = [
   { id: 'dep', name: 'Data Execution Prevention', emoji: '🚷', category: 'security', rarity: 'rare', description: 'A hardware-enforced policy that marks memory as non-executable, blocking attacks that try to run injected code from data regions.' },
   { id: 'phishing', name: 'Phishing', emoji: '🎣', category: 'security', rarity: 'uncommon', description: 'Tricking a victim into revealing credentials or installing malware through deceptive messages impersonating a trusted source.' },
   { id: 'use-after-free', name: 'Use-After-Free', emoji: '👻', category: 'security', rarity: 'epic', description: 'A memory bug where a program keeps using a pointer after the memory it refers to has been freed.' },
+  { id: 'heartbleed', name: 'Heartbleed', emoji: '💔', category: 'security', rarity: 'legendary', milestone: '2014', description: 'A buffer over-read bug in OpenSSL that let attackers leak server memory, including private keys, through a single crafted request.' },
 ]

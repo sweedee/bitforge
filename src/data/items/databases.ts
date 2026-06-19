@@ -51,7 +51,6 @@ export const DATABASES: Item[] = [
   { id: 'graph-database', name: 'Graph Database', emoji: '🕸️', category: 'databases', rarity: 'rare', description: 'A database that stores nodes and edges directly, optimized for traversing relationships.' },
   { id: 'time-series-database', name: 'Time-Series Database', emoji: '📈', category: 'databases', rarity: 'rare', description: 'A database optimized for storing and querying data points indexed by time.' },
   { id: 'search-index', name: 'Search Index', emoji: '🔎', category: 'databases', rarity: 'uncommon', description: 'An inverted index over documents that powers fast full-text and faceted search.' },
-  { id: 'sharding', name: 'Sharding', emoji: '🍰', category: 'databases', rarity: 'epic', description: 'Splitting a dataset across multiple machines so no single node has to hold or serve all of it.' },
   { id: 'star-schema', name: 'Star Schema', emoji: '⭐', category: 'databases', rarity: 'rare', description: 'A warehouse schema with a central fact table connected to surrounding dimension tables.' },
   { id: 'fact-table', name: 'Fact Table', emoji: '📊', category: 'databases', rarity: 'uncommon', description: 'The central table in a star schema, holding measurable events linked out to dimension tables.' },
   { id: 'etl', name: 'ETL', emoji: '🏭', category: 'databases', rarity: 'rare', description: 'Extract, Transform, Load — the pipeline that moves data from sources into a warehouse in a usable shape.' },

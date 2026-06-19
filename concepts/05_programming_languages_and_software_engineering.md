@@ -1,255 +1,252 @@
-
-
-
 ## 5. Programming Languages & Software Engineering
 
 - **Programming Paradigms**
-  - Imperative Programming
-  - Object-Oriented Programming
-    - Encapsulation, Inheritance, Polymorphism, Abstraction
-    - Composition over Inheritance
-    - SOLID Principles
-    - Design Patterns
-      - Singleton, Factory, Builder, Observer, Strategy, Decorator, Adapter, Visitor, Composite
-  - Functional Programming
-    - Pure Functions
-    - Immutability
-    - Higher-Order Functions
-    - Currying / Partial Application
-    - Monads, Functors, Applicatives
-    - Pattern Matching
-    - Tail Call Optimization
-    - filter, map, reduce
-  - Declarative & Logic Programming
-    - Prolog, Unification, Backtracking
-  - Procedural Programming
-  - Event-Driven Programming
-  - Concurrent / Reactive Programming
-    - Actor Model
-    - Reactive Streams / Observables
+  - [x] Imperative Programming <!-- already implemented as 'algorithm'/'function' baseline -->
+  - [x] Object-Oriented Programming <!-- already implemented as 'oop' -->
+    - [x] Encapsulation, Inheritance, Polymorphism, Abstraction
+    - [x] Composition over Inheritance
+    - [ ] SOLID Principles <!-- merged item exists but the five named principles individually have no satisfying craftable artifact beyond it -->
+    - [x] Design Patterns <!-- already implemented as 'design-pattern' -->
+      - [x] Singleton, Factory, Builder, Observer, Strategy, Decorator, Adapter, Visitor, Composite <!-- too granular to craft individually, covered by Design Patterns -->
+  - [x] Functional Programming <!-- already implemented as 'functional-programming' -->
+    - [x] Pure Functions
+    - [x] Immutability
+    - [x] Higher-Order Functions <!-- already implemented as 'higher-order-function' -->
+    - [x] Currying / Partial Application
+    - [x] Monads, Functors, Applicatives <!-- Functors/Applicatives merged into Monads -->
+    - [x] Pattern Matching
+    - [x] Tail Call Optimization
+    - [x] filter, map, reduce
+  - [ ] Declarative & Logic Programming <!-- TODO: real paradigm, no satisfying craftable artifact yet -->
+    - [ ] Prolog, Unification, Backtracking <!-- Backtracking already implemented elsewhere; Prolog/Unification TODO -->
+  - [x] Procedural Programming <!-- merged into Imperative Programming above -->
+  - [x] Event-Driven Programming
+    - [x] Reactive Streams / Observables
+  - [ ] Concurrent / Reactive Programming <!-- TODO: covered piecemeal by Reactive Streams + concurrency primitives elsewhere, no single satisfying artifact -->
+    - [x] Actor Model <!-- already implemented as 'actor-model' in distributed.ts -->
 - **Type Systems**
-  - Static vs Dynamic Typing
-  - Strong vs Weak Typing
-  - Type Inference
-  - Nominal vs Structural Typing
-  - Duck Typing
-  - Parametric Polymorphism (Generics)
-  - Ad-hoc Polymorphism (Overloading)
-  - Subtype Polymorphism
-  - Variance (Covariance, Contravariance, Invariance)
-  - Algebraic Data Types
-    - Sum Types / Tagged Unions
-    - Product Types
-  - Option/Maybe Types
-  - Result/Either Types
-  - Gradual Typing
-  - Type Erasure
+  - [x] Static vs Dynamic Typing
+  - [ ] Strong vs Weak Typing <!-- TODO: real distinction, no satisfying craftable artifact beyond Static/Dynamic Typing -->
+  - [x] Type Inference <!-- already implemented as 'type-inference' in theory.ts -->
+  - [ ] Nominal vs Structural Typing <!-- TODO: real distinction, no satisfying craftable artifact -->
+  - [x] Duck Typing
+  - [x] Parametric Polymorphism (Generics)
+  - [x] Ad-hoc Polymorphism (Overloading)
+  - [ ] Subtype Polymorphism <!-- TODO: covered conceptually by 'polymorphism', no distinct craftable artifact -->
+  - [ ] Variance (Covariance, Contravariance, Invariance) <!-- TODO: real concept, too implementation-detail for a satisfying craftable artifact -->
+  - [x] Algebraic Data Types
+    - [x] Sum Types / Tagged Unions <!-- merged into Algebraic Data Types above -->
+    - [x] Product Types <!-- merged into Algebraic Data Types above -->
+  - [x] Option/Maybe Types
+  - [x] Result/Either Types
+  - [x] Gradual Typing
+  - [x] Type Erasure
 - **Programming Languages**
-  - C
-    - Pointers
-      - Pointer Arithmetic
-      - Null Pointer
-      - Dangling Pointers
-      - Function Pointers
-    - Manual Memory Management (malloc/free)
-    - Undefined Behavior
-    - Preprocessor & Macros
-    - Structs & Unions
-    - Header Files & Translation Units
-    - Storage Classes (static, extern, volatile, const)
-  - C++
-    - RAII
-    - Templates / Generic Programming
-      - Template Metaprogramming
-    - Smart Pointers (unique_ptr, shared_ptr, weak_ptr)
-    - Move Semantics / Rvalue References
-    - Operator Overloading
-    - Virtual Functions & vtables
-    - Multiple Inheritance & Diamond Problem
-    - Standard Template Library (STL)
-    - Coroutines (C++20)
-  - C#
-    - .NET Runtime (CLR)
-    - LINQ
-    - Properties & Indexers
-    - Delegates & Events
-    - async/await (Task-based Asynchrony)
-    - Extension Methods
-  - Java
-    - JVM & Bytecode
-    - Garbage Collection Tuning
-    - Interfaces vs Abstract Classes
-    - Checked vs Unchecked Exceptions
-    - Annotations
-    - Generics & Type Erasure (Java)
-    - Streams API
-  - Kotlin
-    - Null Safety
-    - Coroutines (Kotlin)
-    - Data Classes
-    - Extension Functions
-  - Python
-    - Dynamic Typing
-    - GIL (Global Interpreter Lock)
-    - Decorators
-    - Generators / Iterators
-    - List Comprehensions
-    - Context Managers (with statement)
-    - Duck Typing & Magic/Dunder Methods
-    - Virtual Environments / Packaging (pip, venv)
-    - Type Hints
-  - JavaScript / TypeScript
-    - Event Loop
-    - Closures
-    - Prototype-Based Inheritance
-    - Promises / async-await
-    - Type Inference (TypeScript)
-    - Hoisting
-    - this Binding
-    - Generators & Iterators (JS)
-    - Module Systems (CommonJS, ESM)
-  - Rust
-    - Ownership & Borrowing
-    - Lifetimes
-    - Memory Safety without GC
-    - Traits
-    - Pattern Matching & Enums (Rust)
-    - Cargo & Crates
-    - Unsafe Rust
-  - Go
-    - Goroutines
-    - Channels
-    - Interfaces (Go, structural)
-    - Defer Statement
-    - Error Handling (explicit error values)
-  - Haskell
-    - Lazy Evaluation
-    - Type Classes
-    - Monads (do-notation)
-    - Purity & Referential Transparency
-  - Swift
-    - Optionals
-    - Protocol-Oriented Programming
-    - Automatic Reference Counting (ARC)
-  - Erlang / Elixir
-    - BEAM VM
-    - Let It Crash Philosophy
-  - Lisp / Scheme
-    - S-Expressions
-  - SQL (declarative query language)
-  - Assembly
-  - WebAssembly
-  - F#
+  - [x] C <!-- already implemented as 'c' -->
+    - [x] Pointers <!-- already implemented as 'pointer' in concepts.ts -->
+      - [x] Pointer Arithmetic
+      - [x] Null Pointer <!-- already implemented as 'null-pointer' in concepts.ts -->
+      - [x] Dangling Pointers
+      - [x] Function Pointers
+    - [x] Manual Memory Management (malloc/free)
+    - [x] Undefined Behavior
+    - [x] Preprocessor & Macros
+    - [ ] Structs & Unions <!-- TODO: covered conceptually by 'record', no distinct craftable artifact -->
+    - [x] Header Files & Translation Units <!-- already implemented as 'header-file' -->
+    - [ ] Storage Classes (static, extern, volatile, const) <!-- TODO: real concept, too implementation-detail for a satisfying craftable artifact -->
+  - [x] C++ <!-- already implemented as 'cpp' -->
+    - [x] RAII
+    - [x] Templates / Generic Programming
+      - [x] Template Metaprogramming <!-- merged into Templates / Generic Programming above -->
+    - [x] Smart Pointers (unique_ptr, shared_ptr, weak_ptr)
+    - [x] Move Semantics / Rvalue References
+    - [ ] Operator Overloading <!-- TODO: covered conceptually by Overloading, no distinct craftable artifact -->
+    - [x] Virtual Functions & vtables
+    - [ ] Multiple Inheritance & Diamond Problem <!-- TODO: real concept, no satisfying craftable artifact beyond Inheritance -->
+    - [ ] Standard Template Library (STL) <!-- TODO: real but a library, not a craftable concept -->
+    - [x] Coroutines (C++20) <!-- merged into Coroutines below -->
+  - [x] C# <!-- already implemented as 'csharp' -->
+    - [ ] .NET Runtime (CLR) <!-- TODO: covered conceptually by 'virtual-machine', no distinct craftable artifact -->
+    - [ ] LINQ <!-- TODO: real feature, no satisfying craftable artifact -->
+    - [ ] Properties & Indexers <!-- TODO: minor language feature, no satisfying craftable artifact -->
+    - [x] Delegates & Events
+    - [x] async/await (Task-based Asynchrony)
+    - [ ] Extension Methods <!-- TODO: minor language feature, no satisfying craftable artifact -->
+  - [x] Java <!-- already implemented as 'java' -->
+    - [ ] JVM & Bytecode <!-- TODO: covered conceptually by 'virtual-machine'/'bytecode', no distinct craftable artifact -->
+    - [ ] Garbage Collection Tuning <!-- TODO: covered by 'garbage-collection' in os.ts, tuning specifically has no distinct artifact -->
+    - [x] Interfaces vs Abstract Classes
+    - [ ] Checked vs Unchecked Exceptions <!-- TODO: covered conceptually by 'exception', no distinct craftable artifact -->
+    - [x] Annotations
+    - [x] Generics & Type Erasure (Java) <!-- merged into Generics / Type Erasure above -->
+    - [ ] Streams API <!-- TODO: covered conceptually by filter/map/reduce, no distinct craftable artifact -->
+  - [x] Kotlin <!-- already implemented as 'kotlin' -->
+    - [x] Null Safety <!-- merged into Option/Maybe Types above -->
+    - [x] Coroutines (Kotlin) <!-- merged into Coroutines below -->
+    - [ ] Data Classes <!-- TODO: covered conceptually by 'record', no distinct craftable artifact -->
+    - [ ] Extension Functions <!-- TODO: minor language feature, no satisfying craftable artifact -->
+  - [x] Python <!-- already implemented as 'python' -->
+    - [x] Dynamic Typing <!-- already implemented above -->
+    - [x] GIL (Global Interpreter Lock)
+    - [x] Decorators
+    - [x] Generators / Iterators <!-- already implemented as 'iterator' in concepts.ts -->
+    - [x] List Comprehensions
+    - [x] Context Managers (with statement)
+    - [x] Duck Typing & Magic/Dunder Methods <!-- Dunder Methods merged into Duck Typing above -->
+    - [ ] Virtual Environments / Packaging (pip, venv) <!-- TODO: covered conceptually by Package Manager, no distinct craftable artifact -->
+    - [ ] Type Hints <!-- TODO: minor language feature, no satisfying craftable artifact beyond Static Typing -->
+  - [x] JavaScript / TypeScript <!-- already implemented as 'javascript'/'typescript' -->
+    - [x] Event Loop <!-- already implemented as 'event-loop' in web.ts -->
+    - [x] Closures <!-- already implemented as 'closure' in concepts.ts -->
+    - [x] Prototype-Based Inheritance
+    - [ ] Promises / async-await <!-- TODO: covered conceptually by async/await above, no distinct craftable artifact -->
+    - [x] Type Inference (TypeScript) <!-- merged into Type Inference above -->
+    - [ ] Hoisting <!-- TODO: minor language quirk, no satisfying craftable artifact -->
+    - [ ] this Binding <!-- TODO: minor language quirk, no satisfying craftable artifact -->
+    - [ ] Generators & Iterators (JS) <!-- merged into Generators/Iterators above -->
+    - [x] Module Systems (CommonJS, ESM)
+  - [x] Rust <!-- already implemented as 'rust' -->
+    - [x] Ownership & Borrowing
+    - [x] Lifetimes
+    - [ ] Memory Safety without GC <!-- TODO: covered conceptually by Ownership & Borrowing, no distinct craftable artifact -->
+    - [x] Traits
+    - [ ] Pattern Matching & Enums (Rust) <!-- merged into Pattern Matching / Algebraic Data Types above -->
+    - [ ] Cargo & Crates <!-- TODO: covered conceptually by Package Manager, no distinct craftable artifact -->
+    - [ ] Unsafe Rust <!-- TODO: real concept, no satisfying craftable artifact -->
+  - [x] Go <!-- already implemented as 'go' -->
+    - [x] Goroutines
+    - [x] Channels
+    - [ ] Interfaces (Go, structural) <!-- merged into Interfaces above -->
+    - [x] Defer Statement
+    - [ ] Error Handling (explicit error values) <!-- TODO: covered conceptually by Result/Either Types, no distinct craftable artifact -->
+  - [x] Haskell <!-- already implemented as 'haskell' -->
+    - [x] Lazy Evaluation
+    - [x] Type Classes
+    - [ ] Monads (do-notation) <!-- merged into Monads above -->
+    - [ ] Purity & Referential Transparency <!-- merged into Pure Functions above -->
+  - [x] Swift <!-- already implemented as 'swift' -->
+    - [x] Optionals <!-- merged into Option/Maybe Types above -->
+    - [ ] Protocol-Oriented Programming <!-- TODO: covered conceptually by Traits/Interfaces, no distinct craftable artifact -->
+    - [x] Automatic Reference Counting (ARC)
+  - [x] Erlang / Elixir <!-- already implemented as 'erlang-elixir' -->
+    - [ ] BEAM VM <!-- TODO: covered conceptually by 'virtual-machine', no distinct craftable artifact -->
+    - [ ] Let It Crash Philosophy <!-- cut: soft design philosophy, not a concrete artifact -->
+  - [x] Lisp / Scheme <!-- already implemented as 'lisp-scheme' -->
+    - [ ] S-Expressions <!-- TODO: covered conceptually by Lisp/Scheme itself, no distinct craftable artifact -->
+  - [ ] SQL (declarative query language) <!-- already implemented as 'sql' in databases.ts -->
+  - [x] Assembly <!-- already implemented as 'assembly-language' in encoding.ts -->
+  - [x] WebAssembly
+  - [x] F#
 - **Compilers & Interpreters**
-  - Lexical Analysis (Tokenization)
-  - Parsing
-    - Recursive Descent Parsing
-    - LL / LR Parsing
-    - Abstract Syntax Tree (AST)
-  - Semantic Analysis
-    - Type Checking
-    - Scope Resolution / Symbol Tables
-  - Intermediate Representation (IR)
-    - Static Single Assignment (SSA)
-    - Control Flow Graph (CFG)
-  - Optimization
-    - Constant Folding
-    - Dead Code Elimination
-    - Loop Unrolling
-    - Inlining
-    - Tail Call Elimination
-  - Code Generation
-  - Just-In-Time (JIT) Compilation
-  - Ahead-of-Time (AOT) Compilation
-  - Bytecode Interpreters
-  - Transpilers / Source-to-Source Compilation
-  - Linking
-    - Static vs Dynamic Linking
-    - Shared Libraries / DLLs
-  - Calling Conventions
-  - Stack Frames & Activation Records
+  - [x] Lexical Analysis (Tokenization)
+  - [x] Parsing <!-- already implemented as 'recursive-descent-parser' in theory.ts -->
+    - [x] Recursive Descent Parsing <!-- already implemented in theory.ts -->
+    - [ ] LL / LR Parsing <!-- TODO: real parsing technique, no satisfying craftable artifact beyond Recursive Descent Parsing -->
+    - [x] Abstract Syntax Tree (AST)
+  - [x] Semantic Analysis
+    - [x] Type Checking <!-- merged into Semantic Analysis above -->
+    - [x] Scope Resolution / Symbol Tables
+  - [x] Intermediate Representation (IR)
+    - [x] Static Single Assignment (SSA)
+    - [x] Control Flow Graph (CFG)
+  - [x] Optimization (Constant Folding, Dead Code Elimination, Inlining, etc.)
+    - [x] Constant Folding <!-- merged into Optimization above -->
+    - [x] Dead Code Elimination <!-- merged into Optimization above -->
+    - [x] Loop Unrolling <!-- merged into Optimization above -->
+    - [x] Inlining <!-- merged into Optimization above -->
+    - [x] Tail Call Elimination <!-- merged into Tail Call Optimization above -->
+  - [x] Code Generation
+  - [x] Just-In-Time (JIT) Compilation
+  - [x] Ahead-of-Time (AOT) Compilation
+  - [ ] Bytecode Interpreters <!-- TODO: covered conceptually by 'bytecode'/'virtual-machine', no distinct craftable artifact -->
+  - [x] Transpilers / Source-to-Source Compilation <!-- already implemented as 'transpiler' in web.ts -->
+  - [x] Linking
+    - [x] Static vs Dynamic Linking <!-- merged into Linking above -->
+    - [x] Shared Libraries / DLLs
+  - [ ] Calling Conventions <!-- TODO: real concept, too implementation-detail for a satisfying craftable artifact -->
+  - [x] Stack Frames & Activation Records
 - **Software Engineering Practices**
-  - Software Development Life Cycle (SDLC)
-    - Waterfall Model
-    - Agile / Scrum / Kanban
-    - DevOps Culture
-    - Pair Programming
-  - Version Control
-    - Git
-      - Branching & Merging
-      - Rebase vs Merge
-      - Merge Conflicts
-      - Cherry-Picking
-      - Git Hooks
-    - Trunk-Based Development
-    - GitFlow
-    - Monorepo vs Polyrepo
-  - Testing
-    - Unit Testing
-    - Integration Testing
-    - End-to-End Testing
-    - Test-Driven Development (TDD)
-    - Behavior-Driven Development (BDD)
-    - Mocking & Stubbing
-    - Fuzz Testing
-    - Regression Testing
-    - Smoke Testing
-    - Code Coverage
-  - Code Quality
-    - Code Smells
-    - Refactoring
-    - Technical Debt
-    - Cyclomatic Complexity
-    - Static Analysis / Linting
-    - Code Review
-    - Pull Requests
-    - Style Guides / Formatters
-    - DRY / KISS / YAGNI Principles
-  - Software Architecture
-    - Monolith vs Microservices
-    - Layered Architecture
-    - Event-Driven Architecture
-    - Hexagonal / Clean Architecture
-    - Domain-Driven Design
-      - Bounded Contexts
-    - Service-Oriented Architecture (SOA)
-    - Model-View-Controller (MVC)
-    - Model-View-ViewModel (MVVM)
-    - CQRS (Command Query Responsibility Segregation)
-    - Event Sourcing
-    - Dependency Injection
-    - Inversion of Control
-  - CI/CD
-    - Continuous Integration
-    - Continuous Deployment/Delivery
-    - Build Pipelines
-    - Build Automation Tools (Make, Gradle, Maven, Bazel)
-    - Artifact Repositories
-    - Feature Flags
-  - Dependency & Package Management
-    - Package Managers (npm, pip, Cargo, NuGet, Maven)
-    - Semantic Versioning
-    - Dependency Resolution
-    - Lockfiles
-    - Transitive Dependencies
-    - Vendoring
-  - Observability & Operations
-    - Logging
-    - Structured Logging
-    - Application Performance Monitoring (APM)
-    - Error Tracking / Crash Reporting
-    - Alerting
-    - Debugging Techniques
-      - Breakpoints & Step Debugging
-      - Core Dumps
-      - Profiling (CPU, Memory)
-  - Documentation & API Design
-    - REST API Design Principles
-    - API Versioning
-    - OpenAPI/Swagger
-    - Idempotent API Design
-    - Pagination Strategies (Offset, Cursor)
-    - Backward & Forward Compatibility
-    - Webhooks
-    - Software Development Kits (SDKs)
-    - Code Documentation (Docstrings, Javadoc)
+  - [ ] Software Development Life Cycle (SDLC) <!-- TODO: real umbrella concept, no satisfying craftable artifact -->
+    - [ ] Waterfall Model <!-- TODO: real methodology, no satisfying craftable artifact -->
+    - [x] Agile / Scrum / Kanban <!-- already implemented as 'agile' -->
+    - [ ] DevOps Culture <!-- cut: soft cultural/organizational topic, no concrete artifact -->
+    - [ ] Pair Programming <!-- cut: soft process practice, no concrete artifact -->
+  - [x] Version Control <!-- already implemented as 'git' -->
+    - [x] Git <!-- already implemented as 'git' -->
+      - [x] Branching & Merging <!-- already implemented as 'branch'/'merge-conflict' -->
+      - [ ] Rebase vs Merge <!-- TODO: real workflow distinction, no satisfying craftable artifact beyond Branching/Merging -->
+      - [x] Merge Conflicts <!-- already implemented as 'merge-conflict' -->
+      - [ ] Cherry-Picking <!-- TODO: real git operation, no satisfying craftable artifact beyond Git -->
+      - [x] Git Hooks
+    - [ ] Trunk-Based Development <!-- TODO: real workflow, no satisfying craftable artifact -->
+    - [ ] GitFlow <!-- TODO: real branching model, no satisfying craftable artifact -->
+    - [ ] Monorepo vs Polyrepo <!-- TODO: real distinction, no satisfying craftable artifact -->
+  - [x] Testing <!-- already implemented as 'test' -->
+    - [x] Unit Testing <!-- already implemented as 'test' -->
+    - [x] Integration Testing
+    - [x] End-to-End Testing <!-- already implemented as 'e2e-testing' in web.ts -->
+    - [x] Test-Driven Development (TDD)
+    - [x] Behavior-Driven Development (BDD) <!-- merged into TDD above -->
+    - [x] Mocking & Stubbing
+    - [x] Fuzz Testing <!-- already implemented as 'fuzzing' in security.ts -->
+    - [ ] Regression Testing <!-- TODO: real testing practice, no satisfying craftable artifact beyond Unit Testing -->
+    - [ ] Smoke Testing <!-- TODO: real testing practice, no satisfying craftable artifact beyond Unit Testing -->
+    - [x] Code Coverage
+  - [x] Code Quality <!-- already implemented as 'technical-debt'/'refactoring' -->
+    - [ ] Code Smells <!-- TODO: covered conceptually by Technical Debt, no distinct craftable artifact -->
+    - [x] Refactoring <!-- already implemented as 'refactoring' -->
+    - [x] Technical Debt <!-- already implemented as 'technical-debt' -->
+    - [x] Cyclomatic Complexity
+    - [x] Static Analysis / Linting <!-- already implemented as 'linter' in web.ts -->
+    - [x] Code Review <!-- already implemented as 'code-review' -->
+    - [x] Pull Requests
+    - [ ] Style Guides / Formatters <!-- TODO: real practice, no satisfying craftable artifact beyond Linter -->
+    - [ ] DRY / KISS / YAGNI Principles <!-- cut: soft design heuristics/mnemonics, no concrete artifact -->
+  - [x] Software Architecture
+    - [x] Monolith vs Microservices
+    - [x] Layered Architecture
+    - [ ] Event-Driven Architecture <!-- TODO: covered conceptually by Event-Driven Programming + Message Queue, no distinct craftable artifact -->
+    - [x] Hexagonal / Clean Architecture
+    - [x] Domain-Driven Design
+      - [ ] Bounded Contexts <!-- TODO: covered conceptually by Domain-Driven Design, no distinct craftable artifact -->
+    - [ ] Service-Oriented Architecture (SOA) <!-- TODO: covered conceptually by Microservices, no distinct craftable artifact -->
+    - [x] Model-View-Controller (MVC) <!-- already implemented as 'mvc' in web.ts -->
+    - [x] Model-View-ViewModel (MVVM) <!-- already implemented as 'mvc' in web.ts (covers both) -->
+    - [x] CQRS (Command Query Responsibility Segregation)
+    - [x] Event Sourcing <!-- already implemented as 'event-sourcing' in distributed.ts -->
+    - [x] Dependency Injection
+    - [ ] Inversion of Control <!-- merged into Dependency Injection above -->
+  - [x] CI/CD <!-- already implemented as 'ci-cd' -->
+    - [x] Continuous Integration <!-- merged into CI/CD above -->
+    - [x] Continuous Deployment/Delivery <!-- merged into CI/CD above -->
+    - [x] Build Pipelines
+    - [x] Build Automation Tools (Make, Gradle, Maven, Bazel) <!-- merged into Build Pipelines above -->
+    - [x] Artifact Repositories
+    - [x] Feature Flags
+  - [x] Dependency & Package Management
+    - [x] Package Managers (npm, pip, Cargo, NuGet, Maven)
+    - [x] Semantic Versioning
+    - [x] Dependency Resolution
+    - [x] Lockfiles
+    - [ ] Transitive Dependencies <!-- TODO: covered conceptually by Dependency Resolution, no distinct craftable artifact -->
+    - [ ] Vendoring <!-- TODO: real practice, no satisfying craftable artifact -->
+  - [x] Observability & Operations <!-- already implemented as 'observability' in cloud.ts -->
+    - [x] Logging
+    - [x] Structured Logging
+    - [x] Application Performance Monitoring (APM)
+    - [x] Error Tracking / Crash Reporting
+    - [x] Alerting
+    - [x] Debugging Techniques
+      - [ ] Breakpoints & Step Debugging <!-- merged into Debugger -->
+      - [ ] Core Dumps <!-- TODO: real concept, no satisfying craftable artifact -->
+      - [x] Profiling (CPU, Memory)
+  - [x] Documentation & API Design
+    - [ ] REST API Design Principles <!-- already implemented as 'rest' in web.ts -->
+    - [ ] API Versioning <!-- TODO: real concept, no satisfying craftable artifact -->
+    - [ ] OpenAPI/Swagger <!-- TODO: real tooling standard, no satisfying craftable artifact -->
+    - [x] Idempotent API Design <!-- already implemented as 'idempotency' in distributed.ts -->
+    - [ ] Pagination Strategies (Offset, Cursor) <!-- TODO: real concept, no satisfying craftable artifact -->
+    - [ ] Backward & Forward Compatibility <!-- TODO: real concept, no satisfying craftable artifact -->
+    - [x] Webhooks <!-- already implemented as 'webhook' in web.ts -->
+    - [ ] Software Development Kits (SDKs) <!-- TODO: real artifact, no satisfying craftable recipe yet -->
+    - [x] Code Documentation (Docstrings, Javadoc) <!-- already implemented as 'documentation' -->

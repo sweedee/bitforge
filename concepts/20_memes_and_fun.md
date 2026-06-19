@@ -1,37 +1,37 @@
 # 20. Memes & Fun
 
 - **Esoteric & Joke Languages**
-  - Brainfuck
-  - Malbolge
+  - [x] Brainfuck <!-- already implemented as 'esoteric-language' -->
+  - [x] Malbolge <!-- merged into Esoteric Programming Language above -->
 - **Cursed / Legendary Code**
-  - Holy C
-  - Duff's Device
-  - FizzBuzz
-  - Quine
-  - Code Golf
-  - Hello World
+  - [ ] Holy C <!-- cut: niche personality-specific artifact (TempleOS), not a general CS concept -->
+  - [x] Duff's Device <!-- already implemented as 'compiler-optimization' (loop unrolling) in languages.ts -->
+  - [x] FizzBuzz
+  - [x] Quine
+  - [ ] Code Golf <!-- TODO: real recognizable practice, no satisfying craftable artifact -->
+  - [x] Hello World
 - **Internet & Tech Culture Lore**
-  - TempleOS
-  - Roko's Basilisk
-  - AI Waifu
-  - Works On My Machine
+  - [ ] TempleOS <!-- cut: niche personality-specific artifact, not a general CS concept -->
+  - [ ] Roko's Basilisk <!-- cut: philosophical thought experiment, off-theme for a CS-crafting game -->
+  - [ ] AI Waifu <!-- cut: meme, off-theme -->
+  - [ ] Works On My Machine <!-- cut: joke phrase, no concrete artifact -->
 - **Hacker & Programmer Folklore**
-  - Ctrl+C Ctrl+V Programming
-  - Rubber Duck Debugging
-  - There Are Only Two Hard Things in CS
-  - 10x Engineer
-  - Brogrammer
-  - Spaghetti Code
-  - Ninja/Rockstar Developer
+  - [ ] Ctrl+C Ctrl+V Programming <!-- cut: meme, no concrete artifact -->
+  - [x] Rubber Duck Debugging
+  - [ ] There Are Only Two Hard Things in CS <!-- cut: joke aphorism, no concrete artifact -->
+  - [ ] 10x Engineer <!-- cut: meme, off-theme -->
+  - [ ] Brogrammer <!-- cut: meme, off-theme -->
+  - [x] Spaghetti Code <!-- already implemented as 'technical-debt' in software-eng.ts -->
+  - [ ] Ninja/Rockstar Developer <!-- cut: meme, off-theme -->
 - **Cursed Engineering Artifacts**
-  - Y2K Bug
-  - Heartbleed
-  - Left-pad Incident
-  - Heisenbug
-  - BSOD
+  - [x] Y2K Bug
+  - [x] Heartbleed
+  - [ ] Left-pad Incident <!-- cut: one-time historical anecdote, not a general craftable concept -->
+  - [x] Heisenbug
+  - [x] BSOD
 - **Tech Punditry & Memes**
-  - Dunning-Kruger in Tech
-  - Bikeshedding
-  - Yak Shaving
-  - Premature Optimization
-  - Resume-Driven Development
+  - [ ] Dunning-Kruger in Tech <!-- cut: general psychological bias, off-theme -->
+  - [ ] Bikeshedding <!-- cut: soft process meme, no concrete artifact -->
+  - [ ] Yak Shaving <!-- cut: soft process meme, no concrete artifact -->
+  - [ ] Premature Optimization <!-- cut: soft engineering aphorism, no concrete artifact -->
+  - [ ] Resume-Driven Development <!-- cut: meme, off-theme -->

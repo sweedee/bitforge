@@ -62,7 +62,7 @@
   - [ ] NewSQL Databases <!-- TODO: marketing umbrella term, not a distinct craftable artifact -->
   - [ ] BASE Properties (Basically Available, Soft state, Eventual consistency) <!-- TODO: canonical home is Distributed Systems (08), kept out of databases.ts to avoid duplicating that item -->
 - **Distributed Databases**
-  - [x] Sharding / Partitioning
+  - [x] Sharding / Partitioning <!-- already implemented as 'sharding' in distributed.ts -->
   - [ ] Replication <!-- TODO: canonical home is Distributed Systems (08) -->
   - [ ] Consistency Models <!-- TODO: canonical home is Distributed Systems (08) -->
 - **Data Warehousing & OLAP**

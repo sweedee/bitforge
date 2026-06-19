@@ -81,4 +81,5 @@ export const RECIPES_SECURITY: Recipe[] = [
   { inputs: ['buffer-overflow', 'protection-ring'], result: 'dep' },
   { inputs: ['email', 'authentication'], result: 'phishing' },
   { inputs: ['pointer', 'exploit'], result: 'use-after-free' },
+  { inputs: ['tls', 'exploit'], result: 'heartbleed' },
 ]

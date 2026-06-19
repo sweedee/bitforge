@@ -67,4 +67,5 @@ export const RECIPES_OS: Recipe[] = [
   { inputs: ['scheduler', 'hdd'], result: 'disk-scheduling' },
   { inputs: ['queue', 'peripheral-interfaces'], result: 'spooling' },
   { inputs: ['queue', 'memory-address'], result: 'buffering' },
+  { inputs: ['kernel', 'exception'], result: 'bsod' },
 ]

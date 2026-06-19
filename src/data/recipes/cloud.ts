@@ -19,7 +19,7 @@ export const RECIPES_CLOUD: Recipe[] = [
   { inputs: ['firewall', 'ip-address'], result: 'virtual-private-cloud' },
   { inputs: ['ip-address', 'virtual-private-cloud'], result: 'subnet' },
   { inputs: ['firewall', 'virtual-private-cloud'], result: 'security-group' },
-  { inputs: ['api', 'load-balancer'], result: 'cloud-api-gateway' },
+  { inputs: ['api-gateway', 'virtual-private-cloud'], result: 'cloud-api-gateway' },
   { inputs: ['object-storage', 'the-internet'], result: 'cdn' },
   { inputs: ['authentication', 'the-internet'], result: 'iam' },
   { inputs: ['authentication', 'iam'], result: 'cloud-rbac' },

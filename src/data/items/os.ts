@@ -67,4 +67,5 @@ export const OS: Item[] = [
   { id: 'disk-scheduling', name: 'Disk Scheduling', emoji: '💽', category: 'os', rarity: 'rare', description: 'Algorithms that reorder pending disk requests, like SCAN or SSTF, to minimize seek time across the platter.' },
   { id: 'spooling', name: 'Spooling', emoji: '📤', category: 'os', rarity: 'uncommon', description: 'Queuing jobs, like print jobs, onto a disk buffer so a slow device can consume them at its own pace.' },
   { id: 'buffering', name: 'Buffering', emoji: '🫙', category: 'os', rarity: 'uncommon', description: 'Temporarily holding data in memory to smooth out speed differences between a producer and a consumer.' },
+  { id: 'bsod', name: 'Blue Screen of Death', emoji: '🟦', category: 'os', rarity: 'rare', description: 'A fatal-error screen an OS shows after a kernel-level crash it cannot safely recover from.' },
 ]
