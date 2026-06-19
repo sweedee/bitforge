@@ -6,7 +6,7 @@ import { RARITY_LABELS, RARITY_STYLES, rarityRank } from '@/data/rarity'
 import { getItemStars } from '@/engine/depth'
 import { isStreakMilestone, useGameStore } from '@/store'
 
-const TOAST_DURATION_MS = { discovery: 4000, achievement: 4500 } as const
+const TOAST_DURATION_MS = { discovery: 3000, achievement: 4000 } as const
 
 export function ToastHost() {
   const entry = useGameStore((s) => s.toastQueue[0])
@@ -28,14 +28,14 @@ export function ToastHost() {
   const achievement = entry?.kind === 'achievement' ? ACHIEVEMENTS.find((a) => a.id === entry.achievementId) : undefined
 
   return (
-    <div className="fixed top-24 sm:top-16 right-4 z-50 pointer-events-none">
-      <AnimatePresence>
+    <div className="fixed top-4 sm:top-16 left-4 right-4 sm:left-auto sm:right-4 z-50 pointer-events-none flex justify-center sm:justify-end">
+      <AnimatePresence mode="wait">
         {discoveryItem && discoveryRarity && (
           <motion.div
             key={`discovery:${discoveryItem.id}`}
             initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -16, scale: discoveryBig ? 0.8 : 0.9 }}
             animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
-            exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -16, scale: 0.9 }}
+            exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.95 }}
             transition={
               reducedMotion ? { duration: 0.15 } : discoveryBig ? { type: 'spring', stiffness: 380, damping: 16 } : { duration: 0.25 }
             }
@@ -64,7 +64,7 @@ export function ToastHost() {
             key={`achievement:${achievement.id}`}
             initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -16, scale: 0.9 }}
             animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
-            exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -16, scale: 0.9 }}
+            exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.95 }}
             transition={reducedMotion ? { duration: 0.15 } : { type: 'spring', stiffness: 380, damping: 16 }}
             className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-amber-400 bg-stone-900 shadow-2xl shadow-[0_0_16px_0px_rgba(251,191,36,0.4)]"
           >
