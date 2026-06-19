@@ -28,13 +28,18 @@ export interface Hint {
  * Hints are weighted toward results with more downstream fan-out (recipes
  * that consume them), since rarity tracks historical obscurity rather than
  * how much further progress a discovery unlocks.
+ *
+ * Recipes with both inputs already discovered (immediately craftable) are
+ * strictly preferred over ones needing an undiscovered ingredient too —
+ * otherwise the hint can point at something the player can't actually make yet.
  */
 export function getHint(
   discoveredItemIds: Set<string>,
   recipes: Recipe[],
   recipesByInput: Map<string, Recipe[]>,
 ): Hint | null {
-  const candidates: { hint: Hint; weight: number }[] = []
+  const readyCandidates: { hint: Hint; weight: number }[] = []
+  const partialCandidates: { hint: Hint; weight: number }[] = []
   for (const recipe of recipes) {
     if (discoveredItemIds.has(recipe.result)) continue
     const [a, b] = recipe.inputs
@@ -42,8 +47,11 @@ export function getHint(
     const bKnown = discoveredItemIds.has(b)
     if (!aKnown && !bKnown) continue
     const fanOut = recipesByInput.get(recipe.result)?.length ?? 0
-    candidates.push({ hint: { resultId: recipe.result, knownIngredientId: aKnown ? a : b }, weight: fanOut + 1 })
+    const candidate = { hint: { resultId: recipe.result, knownIngredientId: aKnown ? a : b }, weight: fanOut + 1 }
+    if (aKnown && bKnown) readyCandidates.push(candidate)
+    else partialCandidates.push(candidate)
   }
+  const candidates = readyCandidates.length > 0 ? readyCandidates : partialCandidates
   if (candidates.length === 0) return null
 
   const totalWeight = candidates.reduce((sum, c) => sum + c.weight, 0)
