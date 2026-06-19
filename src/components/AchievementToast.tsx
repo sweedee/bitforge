@@ -32,6 +32,7 @@ export function AchievementToast() {
             <div className="flex flex-col">
               <span className="text-[10px] uppercase tracking-widest text-amber-300">Achievement unlocked</span>
               <span className="text-sm font-bold text-stone-100">{achievement.name}</span>
+              <span className="text-[11px] text-stone-400">{achievement.description}</span>
             </div>
           </motion.div>
         )}

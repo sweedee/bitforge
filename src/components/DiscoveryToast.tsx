@@ -32,7 +32,7 @@ export function DiscoveryToast() {
             animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -16, scale: 0.9 }}
             transition={reducedMotion ? { duration: 0.15 } : big ? { type: 'spring', stiffness: 380, damping: 16 } : { duration: 0.25 }}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border bg-stone-900 shadow-2xl ${rarity.border} ${rarity.glow}`}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border bg-stone-900 shadow-2xl ${rarity.border}`}
           >
             <span className="text-2xl">{item.emoji}</span>
             <div className="flex flex-col">

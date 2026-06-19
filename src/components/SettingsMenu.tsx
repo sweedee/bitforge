@@ -6,9 +6,11 @@ export function SettingsMenu() {
   const muted = useGameStore((s) => s.settings.muted)
   const volume = useGameStore((s) => s.settings.volume)
   const reducedMotion = useGameStore((s) => s.settings.reducedMotion)
+  const autoCleanup = useGameStore((s) => s.settings.autoCleanup)
   const toggleMute = useGameStore((s) => s.toggleMute)
   const setVolume = useGameStore((s) => s.setVolume)
   const toggleReducedMotion = useGameStore((s) => s.toggleReducedMotion)
+  const toggleAutoCleanup = useGameStore((s) => s.toggleAutoCleanup)
 
   return (
     <div className="relative shrink-0">
@@ -46,6 +48,10 @@ export function SettingsMenu() {
             <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
               <input type="checkbox" checked={reducedMotion} onChange={toggleReducedMotion} className="accent-orange-500" />
               <span>Reduced motion</span>
+            </label>
+            <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
+              <input type="checkbox" checked={autoCleanup} onChange={toggleAutoCleanup} className="accent-orange-500" />
+              <span>Auto-cleanup explored items on Tidy</span>
             </label>
           </div>
         </>

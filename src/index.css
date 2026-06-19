@@ -19,3 +19,27 @@
 .animate-merge-pop {
   animation: merge-pop 0.4s ease-out;
 }
+
+* {
+  scrollbar-color: #57534e #1c1917; /* stone-600 thumb on stone-900 track */
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #1c1917; /* stone-900 */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #57534e; /* stone-600 */
+  border-radius: 9999px;
+  border: 2px solid #1c1917;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #d97706; /* amber-600 */
+}

@@ -8,6 +8,7 @@ import type { DropPayload } from '@/types/dnd'
 export function CombineCanvas() {
   const canvasTokens = useGameStore((s) => s.canvasTokens)
   const combineTokens = useGameStore((s) => s.combineTokens)
+  const removeCanvasToken = useGameStore((s) => s.removeCanvasToken)
   const lastFailedComboInstanceIds = useGameStore((s) => s.lastFailedComboInstanceIds)
   const clearFailedCombo = useGameStore((s) => s.clearFailedCombo)
   const justMergedInstanceId = useGameStore((s) => s.justMergedInstanceId)
@@ -43,6 +44,11 @@ export function CombineCanvas() {
     setSelectedInstanceId(null)
   }
 
+  function handleTokenDelete(instanceId: string) {
+    if (selectedInstanceId === instanceId) setSelectedInstanceId(null)
+    removeCanvasToken(instanceId)
+  }
+
   return (
     <div ref={setNodeRef} data-testid="combine-canvas" className="relative flex-1 min-h-0 overflow-hidden bg-stone-950">
       {canvasTokens.length === 0 && (
@@ -59,6 +65,7 @@ export function CombineCanvas() {
             shake={lastFailedComboInstanceIds?.includes(token.instanceId) ?? false}
             justMerged={token.instanceId === justMergedInstanceId}
             onClick={() => handleTokenClick(token.instanceId)}
+            onDelete={() => handleTokenDelete(token.instanceId)}
           />
         ))}
       </AnimatePresence>

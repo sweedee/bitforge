@@ -154,7 +154,7 @@ export function Sidebar() {
                   item={item}
                   highlighted={item.id === highlightedItemId}
                   exhausted={exhaustedIds.has(item.id)}
-                  onTap={() => addCanvasToken(item.id, randomCoord(15, 85), randomCoord(20, 80))}
+                  onTap={() => addCanvasToken(item.id, randomCoord(25, 75), randomCoord(30, 70))}
                 />
               ))}
             </div>

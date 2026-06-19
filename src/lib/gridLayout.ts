@@ -3,7 +3,7 @@ export interface GridPosition {
   y: number
 }
 
-/** Evenly spreads `count` items across a 10–90% grid, centered when a row/column has only one slot. */
+/** Evenly spreads `count` items across a 25–75% grid, centered when a row/column has only one slot. */
 export function computeGridPositions(count: number): GridPosition[] {
   if (count === 0) return []
   const cols = Math.max(1, Math.ceil(Math.sqrt(count)))
@@ -12,8 +12,8 @@ export function computeGridPositions(count: number): GridPosition[] {
     const col = i % cols
     const row = Math.floor(i / cols)
     return {
-      x: cols === 1 ? 50 : 10 + (col / (cols - 1)) * 80,
-      y: rows === 1 ? 50 : 10 + (row / (rows - 1)) * 80,
+      x: cols === 1 ? 50 : 25 + (col / (cols - 1)) * 50,
+      y: rows === 1 ? 50 : 25 + (row / (rows - 1)) * 50,
     }
   })
 }

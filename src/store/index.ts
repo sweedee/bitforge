@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import type { CanvasToken } from '@/types'
 import { STARTER_ITEM_IDS } from '@/data/items'
 import { RECIPES, RECIPE_INDEX, RECIPES_BY_INPUT } from '@/data/recipes'
-import { getHint, tryCombine } from '@/engine/combine'
+import { getHint, isItemExhausted, tryCombine } from '@/engine/combine'
 import { computeGridPositions } from '@/lib/gridLayout'
 import { ACHIEVEMENTS } from '@/data/achievements'
 import { sounds } from '@/sound'
@@ -130,6 +130,7 @@ export interface SettingsState {
   muted: boolean
   volume: number
   reducedMotion: boolean
+  autoCleanup: boolean
 }
 
 function prefersReducedMotion(): boolean {
@@ -141,7 +142,7 @@ function prefersReducedMotion(): boolean {
 }
 
 function loadSettings(): SettingsState {
-  const defaults: SettingsState = { muted: false, volume: 1, reducedMotion: prefersReducedMotion() }
+  const defaults: SettingsState = { muted: false, volume: 1, reducedMotion: prefersReducedMotion(), autoCleanup: false }
   try {
     const raw = localStorage.getItem(LS_SETTINGS_KEY)
     if (raw) return { ...defaults, ...(JSON.parse(raw) as Partial<SettingsState>) }
@@ -177,6 +178,7 @@ interface GameStore {
   toggleMute: () => void
   setVolume: (volume: number) => void
   toggleReducedMotion: () => void
+  toggleAutoCleanup: () => void
 
   unlockedAchievementIds: Set<string>
   recentAchievementId: string | null
@@ -235,6 +237,11 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     saveSettings(next)
     set({ settings: next })
   },
+  toggleAutoCleanup: () => {
+    const next = { ...get().settings, autoCleanup: !get().settings.autoCleanup }
+    saveSettings(next)
+    set({ settings: next })
+  },
 
   unlockedAchievementIds: loadAchievements(),
   recentAchievementId: null,
@@ -276,7 +283,10 @@ export const useGameStore = create<GameStore>()((set, get) => ({
   clearCanvas: () => set({ canvasTokens: [], lastCombineSnapshot: null }),
 
   tidyCanvas: () => {
-    const tokens = get().canvasTokens
+    const { canvasTokens, discoveredItemIds, settings } = get()
+    const tokens = settings.autoCleanup
+      ? canvasTokens.filter((t) => !isItemExhausted(t.itemId, discoveredItemIds, RECIPES))
+      : canvasTokens
     const positions = computeGridPositions(tokens.length)
     set({ canvasTokens: tokens.map((t, i) => ({ ...t, x: positions[i].x, y: positions[i].y })) })
   },

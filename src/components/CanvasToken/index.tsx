@@ -12,9 +12,10 @@ interface CanvasTokenProps {
   shake: boolean
   justMerged: boolean
   onClick: () => void
+  onDelete: () => void
 }
 
-export function CanvasToken({ token, selected, shake, justMerged, onClick }: CanvasTokenProps) {
+export function CanvasToken({ token, selected, shake, justMerged, onClick, onDelete }: CanvasTokenProps) {
   const item = ITEMS_BY_ID.get(token.itemId)
   const reducedMotion = useGameStore((s) => s.settings.reducedMotion)
 
@@ -33,7 +34,7 @@ export function CanvasToken({ token, selected, shake, justMerged, onClick }: Can
   if (!item) return null
 
   return (
-    <motion.button
+    <motion.div
       ref={(el) => {
         setDragRef(el)
         setDropRef(el)
@@ -51,6 +52,18 @@ export function CanvasToken({ token, selected, shake, justMerged, onClick }: Can
       transition={reducedMotion ? { duration: 0.12 } : { type: 'spring', stiffness: 400, damping: 25 }}
     >
       <ItemChip item={item} selected={selected} />
-    </motion.button>
+      <button
+        type="button"
+        title="Remove from canvas"
+        onPointerDown={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation()
+          onDelete()
+        }}
+        className="absolute -top-1.5 -right-1.5 flex items-center justify-center w-4 h-4 rounded-full bg-stone-800 border border-stone-600 text-stone-400 text-[10px] leading-none opacity-70 hover:opacity-100 hover:bg-red-900 hover:text-red-200 hover:border-red-500 transition-colors"
+      >
+        ×
+      </button>
+    </motion.div>
   )
 }

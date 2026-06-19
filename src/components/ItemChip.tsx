@@ -18,7 +18,7 @@ export function ItemChip({ item, selected = false, highlighted = false, dim = fa
     ? 'border-orange-400 bg-orange-950/60 text-orange-200'
     : highlighted
       ? 'border-orange-500 bg-orange-900/30 text-orange-300 animate-pulse'
-      : `${rarity.border} ${rarity.bg} ${rarity.text} ${rarity.glow}`
+      : `${rarity.border} ${rarity.bg} ${rarity.text}`
 
   return (
     <div
@@ -31,7 +31,7 @@ export function ItemChip({ item, selected = false, highlighted = false, dim = fa
       {item.milestone && (
         <span
           title={`Milestone · ${item.milestone}`}
-          className="absolute -top-1.5 -left-1.5 text-[9px] leading-none"
+          className="shrink-0 flex items-center justify-center w-3.5 h-3.5 rounded-full bg-amber-400/20 text-[8px] leading-none"
         >
           🏆
         </span>
