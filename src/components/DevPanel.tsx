@@ -40,7 +40,7 @@ export function DevPanel() {
           </div>
           <button
             onClick={unlockAllItems}
-            className="w-full px-2 py-1 rounded border border-stone-700 text-stone-300 hover:border-orange-500 hover:text-orange-300 transition-colors"
+            className="w-full px-2 py-1 rounded border border-stone-700 text-stone-300 hover:border-amber-600 hover:text-amber-300 transition-colors"
           >
             Unlock all items
           </button>
@@ -55,7 +55,7 @@ export function DevPanel() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Jump to item…"
-              className="w-full px-2 py-1 rounded border border-stone-700 bg-stone-900 text-stone-200 placeholder:text-stone-500 focus:outline-none focus:border-orange-500"
+              className="w-full px-2 py-1 rounded border border-stone-700 bg-stone-900 text-stone-200 placeholder:text-stone-500 focus:outline-none focus:border-stone-400"
             />
             {matches.length > 0 && (
               <div className="max-h-40 overflow-y-auto space-y-0.5">

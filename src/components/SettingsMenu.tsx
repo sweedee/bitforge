@@ -46,23 +46,23 @@ export function SettingsMenu() {
                 value={volume}
                 disabled={muted}
                 onChange={(e) => setVolume(Number(e.target.value))}
-                className="accent-orange-500 disabled:opacity-40"
+                className="accent-stone-400 disabled:opacity-40"
               />
             </label>
             <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
-              <input type="checkbox" checked={reducedMotion} onChange={toggleReducedMotion} className="accent-orange-500" />
+              <input type="checkbox" checked={reducedMotion} onChange={toggleReducedMotion} className="accent-stone-400" />
               <span>Reduced motion</span>
             </label>
             <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
-              <input type="checkbox" checked={autoCleanup} onChange={toggleAutoCleanup} className="accent-orange-500" />
+              <input type="checkbox" checked={autoCleanup} onChange={toggleAutoCleanup} className="accent-stone-400" />
               <span>Auto-cleanup explored items on Tidy</span>
             </label>
             <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
-              <input type="checkbox" checked={dedupeOnTidy} onChange={toggleDedupeOnTidy} className="accent-orange-500" />
+              <input type="checkbox" checked={dedupeOnTidy} onChange={toggleDedupeOnTidy} className="accent-stone-400" />
               <span>Remove duplicate items on Tidy</span>
             </label>
             <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
-              <input type="checkbox" checked={easyMode} onChange={toggleEasyMode} className="accent-orange-500" />
+              <input type="checkbox" checked={easyMode} onChange={toggleEasyMode} className="accent-stone-400" />
               <span>Easy mode: highlight matches on drag</span>
             </label>
           </div>

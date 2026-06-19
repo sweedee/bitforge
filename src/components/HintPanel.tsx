@@ -45,7 +45,7 @@ export function HintPanel() {
         className={`shrink-0 px-3 py-1.5 text-xs rounded border transition-colors ${
           isFullyDiscovered
             ? 'border-stone-800 text-stone-600 cursor-not-allowed opacity-50'
-            : 'border-stone-700 text-stone-300 hover:border-orange-500 hover:text-orange-300'
+            : 'border-stone-700 text-stone-300 hover:border-amber-600 hover:text-amber-300'
         }`}
       >
         💡 Hint

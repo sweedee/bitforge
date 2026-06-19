@@ -54,7 +54,7 @@ export function ToastHost() {
                 </span>
               )}
               {isStreakMilestone(currentStreak) && (
-                <span className="text-[10px] text-orange-400 font-semibold">🔥 {currentStreak} in a row!</span>
+                <span className="text-[10px] text-amber-400 font-semibold">🔥 {currentStreak} in a row!</span>
               )}
             </div>
           </motion.div>

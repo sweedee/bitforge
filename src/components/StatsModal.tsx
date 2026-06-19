@@ -81,7 +81,7 @@ export function StatsModal({ onClose }: StatsModalProps) {
           </div>
 
           <div>
-            <div className="text-xs uppercase tracking-widest text-orange-400 mb-2">
+            <div className="text-xs uppercase tracking-widest text-amber-400 mb-2">
               Achievements · {unlockedAchievementIds.size}/{ACHIEVEMENTS.length}
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">

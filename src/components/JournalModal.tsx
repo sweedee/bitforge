@@ -121,14 +121,14 @@ export function JournalModal({ onClose }: JournalModalProps) {
                 type="checkbox"
                 checked={hideExplored}
                 onChange={(e) => setHideExplored(e.target.checked)}
-                className="accent-orange-500"
+                className="accent-stone-400"
               />
               <span>Hide fully explored</span>
             </label>
             <select
               value={rarityFilter}
               onChange={(e) => setRarityFilter(e.target.value as Rarity | 'all')}
-              className="px-2 py-1 text-xs rounded border border-stone-700 bg-stone-950 text-stone-200 focus:outline-none focus:border-orange-500"
+              className="px-2 py-1 text-xs rounded border border-stone-700 bg-stone-950 text-stone-200 focus:outline-none focus:border-stone-400"
             >
               <option value="all">All rarities</option>
               {RARITY_ORDER.map((rarity) => (
@@ -154,7 +154,7 @@ export function JournalModal({ onClose }: JournalModalProps) {
                   style={{ position: 'absolute', top: 0, left: 0, right: 0, transform: `translateY(${virtualRow.start}px)` }}
                 >
                   {row.kind === 'header' ? (
-                    <div className={`text-xs uppercase tracking-widest mb-2 mt-3 ${row.discovered ? 'text-orange-400' : 'text-stone-600'}`}>
+                    <div className={`text-xs uppercase tracking-widest mb-2 mt-3 ${row.discovered ? 'text-amber-400' : 'text-stone-600'}`}>
                       {row.label} <span className="text-stone-500">· {row.discoveredCount}/{row.total}</span>
                     </div>
                   ) : (

@@ -54,7 +54,7 @@ export const ItemDetailModal = memo(function ItemDetailModal({ item, onClose }: 
         onClick={(e) => e.stopPropagation()}
       >
         <div className={`flex items-center justify-between px-5 py-3 border-b ${rarity.border}`}>
-          <span className="text-xs uppercase tracking-widest text-orange-400">{CATEGORY_LABELS[item.category]}</span>
+          <span className="text-xs uppercase tracking-widest text-amber-400">{CATEGORY_LABELS[item.category]}</span>
           <button onClick={onClose} className="text-stone-500 hover:text-stone-200 text-lg leading-none transition-colors">
             ×
           </button>

@@ -26,12 +26,12 @@ export function Header({ onOpenJournal, onOpenStats, onOpenHistory }: HeaderProp
   return (
     <header className="flex items-center justify-between gap-3 px-4 py-2.5 border-b border-stone-800 shrink-0 flex-wrap">
       <div className="flex items-center gap-2 shrink-0">
-        <span className="text-base tracking-widest text-orange-400 uppercase font-bold">BitForge</span>
+        <span className="text-base tracking-widest text-amber-400 uppercase font-bold">BitForge</span>
         <LevelBadge />
         {streak > 0 && (
           <span
             title={`Discovery streak: ${streak} in a row`}
-            className="flex items-center gap-1 px-2 py-1 text-xs rounded border border-orange-700/60 bg-orange-950/40 text-orange-300"
+            className="flex items-center gap-1 px-2 py-1 text-xs rounded border border-amber-700/60 bg-amber-950/40 text-amber-300"
           >
             <span>{streakFlames(streak)}</span>
             <span className="font-semibold">{streak}</span>

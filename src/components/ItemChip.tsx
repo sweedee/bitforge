@@ -18,7 +18,7 @@ export const ItemChip = memo(function ItemChip({ item, selected = false, highlig
   const stateClasses = selected
     ? 'border-orange-400 bg-orange-950/60 text-orange-200'
     : highlighted
-      ? 'border-orange-500 bg-orange-900/30 text-orange-300 animate-pulse'
+      ? 'border-amber-500 bg-amber-900/30 text-amber-300 animate-pulse'
       : `${rarity.border} ${rarity.bg} ${rarity.text}`
 
   return (

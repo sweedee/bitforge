@@ -182,12 +182,12 @@ export function Sidebar() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search…"
-            className="flex-1 min-w-0 px-2.5 py-1.5 text-sm rounded border border-stone-700 bg-stone-900 text-stone-200 placeholder:text-stone-500 focus:outline-none focus:border-orange-500"
+            className="flex-1 min-w-0 px-2.5 py-1.5 text-sm rounded border border-stone-700 bg-stone-900 text-stone-200 placeholder:text-stone-500 focus:outline-none focus:border-stone-400"
           />
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value as Category | 'all')}
-            className="w-32 shrink-0 pl-1.5 pr-4 py-1.5 text-xs rounded border border-stone-700 bg-stone-900 text-stone-200 focus:outline-none focus:border-orange-500 truncate"
+            className="w-32 shrink-0 pl-1.5 pr-4 py-1.5 text-xs rounded border border-stone-700 bg-stone-900 text-stone-200 focus:outline-none focus:border-stone-400 truncate"
           >
             <option value="all">All domains</option>
             {CATEGORY_ORDER.filter((category) => availableCategories.includes(category)).map((category) => (
@@ -203,7 +203,7 @@ export function Sidebar() {
               type="checkbox"
               checked={hideExhausted}
               onChange={(e) => setHideExhausted(e.target.checked)}
-              className="accent-orange-500 shrink-0"
+              className="accent-stone-400 shrink-0"
             />
             <span className="truncate">Hide fully explored</span>
           </label>
@@ -212,13 +212,13 @@ export function Sidebar() {
               type="checkbox"
               checked={sortAlpha}
               onChange={(e) => setSortAlpha(e.target.checked)}
-              className="accent-orange-500 shrink-0"
+              className="accent-stone-400 shrink-0"
             />
             <span className="truncate">A–Z</span>
           </label>
           <button
             onClick={handleAddAll}
-            className="px-2 py-1 text-xs rounded border border-stone-700 text-stone-300 hover:border-orange-500 hover:text-orange-300 transition-colors shrink-0"
+            className="px-2 py-1 text-xs rounded border border-stone-700 text-stone-300 hover:border-amber-600 hover:text-amber-300 transition-colors shrink-0"
           >
             Add all
           </button>

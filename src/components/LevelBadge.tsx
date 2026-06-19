@@ -21,7 +21,7 @@ export function LevelBadge() {
       <span className="relative z-10 text-[9px] text-stone-500 leading-none">
         {next ? `${next.threshold - xp} XP to ${next.title}` : 'Max level'}
       </span>
-      <span className="absolute inset-x-0 bottom-0 h-0.5 bg-orange-500/70" style={{ width: `${pct}%` }} />
+      <span className="absolute inset-x-0 bottom-0 h-0.5 bg-amber-500/70" style={{ width: `${pct}%` }} />
     </span>
   )
 }
