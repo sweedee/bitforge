@@ -27,6 +27,8 @@ export function graphToFlow(graph: TechTreeGraph): { nodes: Node[]; edges: Edge[
     id: e.id,
     source: e.source,
     target: e.target,
+    type: 'smoothstep',
+    pathOptions: { borderRadius: 2 },
     animated: !e.locked,
     style: { stroke: e.locked ? '#57534e' : '#d97706', strokeDasharray: e.locked ? '4 4' : undefined },
   }))
