@@ -55,4 +55,6 @@ export const RECIPES_SOFTWARE_ENG: Recipe[] = [
   { inputs: ['bug', 'documentation'], result: 'rubber-duck-debugging' },
   { inputs: ['bug', 'debugger'], result: 'heisenbug' },
   { inputs: ['bug', 'technical-debt'], result: 'y2k-bug' },
+  { inputs: ['git', 'server'], result: 'github' },
+  { inputs: ['nodejs', 'package-manager'], result: 'npm' },
 ]

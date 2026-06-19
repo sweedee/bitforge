@@ -83,4 +83,8 @@ export const WEB: Item[] = [
   { id: 'linter', name: 'Linter', emoji: '🧹', category: 'web', rarity: 'uncommon', description: 'A static analysis tool that flags style violations and likely bugs in source code before it ever runs.' },
   { id: 'csp', name: 'Content Security Policy (CSP)', emoji: '🧱', category: 'web', rarity: 'rare', description: 'An HTTP response header that locks down which sources a page may load scripts and other resources from, blocking most XSS payloads outright.' },
   { id: 'headless-cms', name: 'Headless CMS', emoji: '📰', category: 'web', rarity: 'rare', description: 'A content management backend that stores and serves content purely through an API, leaving the presentation layer to be built separately.' },
+  { id: 'react', name: 'React', emoji: '⚛️', category: 'web', rarity: 'epic', milestone: '2013', description: "Facebook's UI library that popularized building interfaces out of composable components over a virtual DOM." },
+  { id: 'angular', name: 'Angular', emoji: '🅰️', category: 'web', rarity: 'rare', milestone: '2016', description: "Google's opinionated, batteries-included TypeScript framework for building full single-page applications." },
+  { id: 'nodejs', name: 'Node.js', emoji: '💚', category: 'web', rarity: 'epic', milestone: '2009', description: "A JavaScript runtime built on the browser's engine that took the event loop out of the browser and onto the server." },
+  { id: 'chrome', name: 'Chrome', emoji: '🌐', category: 'web', rarity: 'rare', milestone: '2008', description: "Google's browser, built around its own fast rendering and JavaScript engines, that came to dominate the web." },
 ]

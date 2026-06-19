@@ -64,4 +64,8 @@ export const RECIPES_DATABASES: Recipe[] = [
   { inputs: ['ann-search', 'graph'], result: 'hnsw' },
   { inputs: ['hash', 'ann-search'], result: 'lsh' },
   { inputs: ['server', 'queue'], result: 'connection-pool' },
+  { inputs: ['sql', 'database'], result: 'mysql' },
+  { inputs: ['sql', 'acid'], result: 'postgresql' },
+  { inputs: ['nosql', 'document-store'], result: 'mongodb' },
+  { inputs: ['key-value-store', 'buffer-cache'], result: 'redis' },
 ]

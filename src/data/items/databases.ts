@@ -64,4 +64,8 @@ export const DATABASES: Item[] = [
   { id: 'hnsw', name: 'HNSW', emoji: '🕸️', category: 'databases', rarity: 'epic', milestone: '2016', description: 'A graph-based index that enables fast approximate nearest-neighbor search at scale.' },
   { id: 'lsh', name: 'Locality-Sensitive Hashing', emoji: '🎲', category: 'databases', rarity: 'rare', description: 'A hashing technique that maps similar items to the same bucket with high probability, speeding up similarity search.' },
   { id: 'connection-pool', name: 'Connection Pool', emoji: '🏊', category: 'databases', rarity: 'uncommon', description: 'A reusable pool of open database connections that avoids the cost of establishing a new one per request.' },
+  { id: 'mysql', name: 'MySQL', emoji: '🐬', category: 'databases', rarity: 'rare', milestone: '1995', description: 'The open-source relational database that became the default backbone of the early web stack.' },
+  { id: 'postgresql', name: 'PostgreSQL', emoji: '🐘', category: 'databases', rarity: 'rare', milestone: '1996', description: 'An open-source relational database prized for strict ACID compliance and extensibility.' },
+  { id: 'mongodb', name: 'MongoDB', emoji: '🍃', category: 'databases', rarity: 'rare', milestone: '2009', description: 'A document-oriented NoSQL database that stores records as flexible, JSON-like BSON documents.' },
+  { id: 'redis', name: 'Redis', emoji: '🟥', category: 'databases', rarity: 'uncommon', milestone: '2009', description: 'An in-memory key-value store fast enough to double as a cache, message broker, and primary data store.' },
 ]

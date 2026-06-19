@@ -55,4 +55,6 @@ export const SOFTWARE_ENG: Item[] = [
   { id: 'rubber-duck-debugging', name: 'Rubber Duck Debugging', emoji: '🦆', category: 'software-eng', rarity: 'uncommon', description: 'Explaining a bug out loud, line by line, to an inanimate object — the act of articulating it often reveals the fix.' },
   { id: 'heisenbug', name: 'Heisenbug', emoji: '🔭', category: 'software-eng', rarity: 'epic', description: 'A bug that seems to vanish or change behavior the moment you try to observe or debug it.' },
   { id: 'y2k-bug', name: 'Y2K Bug', emoji: '📅', category: 'software-eng', rarity: 'rare', milestone: '2000', description: 'The bug where programs storing years as two digits would wrap from 99 to 00, confusing two centuries.' },
+  { id: 'github', name: 'GitHub', emoji: '🐙', category: 'software-eng', rarity: 'rare', milestone: '2008', description: 'A hosting platform for Git repositories that layered pull requests, issues, and social coding onto version control.' },
+  { id: 'npm', name: 'npm', emoji: '📦', category: 'software-eng', rarity: 'uncommon', milestone: '2010', description: "Node.js's default package manager and the registry that hosts the JavaScript ecosystem's libraries." },
 ]

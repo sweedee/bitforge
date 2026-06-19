@@ -71,4 +71,9 @@ export const OS: Item[] = [
   { id: 'thread-pool', name: 'Thread Pool', emoji: '👥', category: 'os', rarity: 'rare', description: 'A fixed group of worker threads that pull tasks from a shared queue, avoiding the cost of spawning a thread per job.' },
   { id: 'green-threads', name: 'Green Threads / Fibers', emoji: '🍃', category: 'os', rarity: 'epic', description: 'A lightweight thread scheduled entirely in user space, swapped by a language runtime instead of the kernel.' },
   { id: 'generational-gc', name: 'Generational Garbage Collection', emoji: '🪴', category: 'os', rarity: 'legendary', description: 'A garbage collector that segregates objects by age into generations, applying cheap frequent collection to young objects and rarer full sweeps to old ones.' },
+  { id: 'windows', name: 'Windows', emoji: '🪟', category: 'os', rarity: 'epic', milestone: '1985', description: "Microsoft's dominant desktop operating system, built around a graphical shell over its own NT kernel lineage." },
+  { id: 'macos', name: 'macOS', emoji: '🍏', category: 'os', rarity: 'epic', milestone: '2001', description: "Apple's desktop operating system, built on a Unix foundation with a Mach microkernel underneath." },
+  { id: 'linux', name: 'Linux', emoji: '🐧', category: 'os', rarity: 'rare', milestone: '1991', description: 'A free, open-source Unix-like kernel that grew into the dominant OS for servers, phones, and embedded devices.' },
+  { id: 'android', name: 'Android', emoji: '🤖', category: 'os', rarity: 'epic', milestone: '2008', description: "Google's mobile operating system, built on the Linux kernel and tuned for touchscreens and onboard sensors." },
+  { id: 'ios', name: 'iOS', emoji: '📱', category: 'os', rarity: 'epic', milestone: '2007', description: "Apple's mobile operating system, a touch-optimized descendant of macOS running on iPhone and iPad hardware." },
 ]

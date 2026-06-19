@@ -83,4 +83,8 @@ export const RECIPES_WEB: Recipe[] = [
   { inputs: ['compiler', 'test'], result: 'linter' },
   { inputs: ['http', 'xss'], result: 'csp' },
   { inputs: ['rest', 'database'], result: 'headless-cms' },
+  { inputs: ['virtual-dom', 'javascript'], result: 'react' },
+  { inputs: ['typescript', 'framework'], result: 'angular' },
+  { inputs: ['javascript', 'event-loop'], result: 'nodejs' },
+  { inputs: ['browser', 'rendering-engine'], result: 'chrome' },
 ]

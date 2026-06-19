@@ -71,4 +71,9 @@ export const RECIPES_OS: Recipe[] = [
   { inputs: ['thread', 'object-pool'], result: 'thread-pool' },
   { inputs: ['thread', 'context-switching'], result: 'green-threads' },
   { inputs: ['mark-and-sweep', 'reference-counting'], result: 'generational-gc' },
+  { inputs: ['operating-system', 'device-driver'], result: 'windows' },
+  { inputs: ['unix', 'microkernel'], result: 'macos' },
+  { inputs: ['unix', 'kernel'], result: 'linux' },
+  { inputs: ['linux', 'mobile-sensor'], result: 'android' },
+  { inputs: ['macos', 'mobile-sensor'], result: 'ios' },
 ]
