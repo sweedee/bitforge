@@ -113,7 +113,10 @@ export function StatsModal({ onClose }: StatsModalProps) {
         {selectedAchievement && (
           <div
             className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-            onClick={() => setSelectedAchievementId(null)}
+            onClick={(e) => {
+              e.stopPropagation()
+              setSelectedAchievementId(null)
+            }}
           >
             <motion.div
               className="bg-stone-900 border border-amber-500/50 rounded-lg shadow-2xl max-w-sm w-full p-4"
@@ -123,19 +126,21 @@ export function StatsModal({ onClose }: StatsModalProps) {
               transition={{ duration: 0.15 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-2xl leading-none">{selectedUnlocked ? selectedAchievement.emoji : '🔒'}</span>
-                <span className="text-sm font-bold text-stone-100">{selectedUnlocked ? selectedAchievement.name : '???'}</span>
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl leading-none">{selectedUnlocked ? selectedAchievement.emoji : '🔒'}</span>
+                  <span className="text-sm font-bold text-stone-100">{selectedUnlocked ? selectedAchievement.name : '???'}</span>
+                </div>
+                <button
+                  onClick={() => setSelectedAchievementId(null)}
+                  className="text-stone-500 hover:text-stone-200 text-lg leading-none transition-colors"
+                >
+                  ×
+                </button>
               </div>
               <p className="text-xs text-stone-400">
                 {selectedUnlocked ? selectedAchievement.description : 'Keep playing to unlock this achievement.'}
               </p>
-              <button
-                onClick={() => setSelectedAchievementId(null)}
-                className="mt-3 text-xs text-stone-500 hover:text-stone-300 transition-colors"
-              >
-                Close
-              </button>
             </motion.div>
           </div>
         )}
