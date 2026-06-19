@@ -1,5 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { useDraggable } from '@dnd-kit/core'
+import { useVirtualizer } from '@tanstack/react-virtual'
 import type { Item, Category } from '@/types'
 import type { DragPayload } from '@/types/dnd'
 import { ITEMS_BY_ID } from '@/data/items'
@@ -11,8 +12,16 @@ import { useGameStore } from '@/store'
 import { sounds } from '@/sound'
 import { ItemChip } from '@/components/ItemChip'
 
+const ITEMS_PER_ROW = 3
+
 function randomCoord(min: number, max: number) {
   return min + Math.random() * (max - min)
+}
+
+function chunk<T>(items: T[], size: number): T[][] {
+  const chunks: T[][] = []
+  for (let i = 0; i < items.length; i += size) chunks.push(items.slice(i, i + size))
+  return chunks
 }
 
 function DraggableSidebarItem({
@@ -45,6 +54,8 @@ function DraggableSidebarItem({
   )
 }
 
+type SidebarRow = { kind: 'header'; key: string; label: string } | { kind: 'items'; key: string; items: Item[] }
+
 export function Sidebar() {
   const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
   const highlightedItemIds = useGameStore((s) => s.highlightedItemIds)
@@ -54,6 +65,8 @@ export function Sidebar() {
   const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all')
   const [hideExhausted, setHideExhausted] = useState(false)
   const [sortAlpha, setSortAlpha] = useState(false)
+
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   const exhaustedIds = useMemo(() => {
     const set = new Set<string>()
@@ -99,6 +112,24 @@ export function Sidebar() {
       items: byCategory.get(category)!,
     }))
   }, [filteredItems, sortAlpha])
+
+  const rows = useMemo(() => {
+    const flat: SidebarRow[] = []
+    for (const group of groups) {
+      flat.push({ kind: 'header', key: `header:${group.key}`, label: group.label })
+      for (const [i, itemsChunk] of chunk(group.items, ITEMS_PER_ROW).entries()) {
+        flat.push({ kind: 'items', key: `items:${group.key}:${i}`, items: itemsChunk })
+      }
+    }
+    return flat
+  }, [groups])
+
+  const virtualizer = useVirtualizer({
+    count: rows.length,
+    getScrollElement: () => scrollRef.current,
+    estimateSize: (index) => (rows[index]?.kind === 'header' ? 24 : 40),
+    overscan: 10,
+  })
 
   const availableCategories = useMemo(() => {
     const set = new Set<Category>()
@@ -167,23 +198,36 @@ export function Sidebar() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-2.5 space-y-3">
-        {groups.map(({ key, label, items }) => (
-          <div key={key}>
-            <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">{label}</div>
-            <div className="flex flex-wrap gap-2 content-start">
-              {items.map((item) => (
-                <DraggableSidebarItem
-                  key={item.id}
-                  item={item}
-                  highlighted={highlightedItemIds.includes(item.id)}
-                  exhausted={exhaustedIds.has(item.id)}
-                  onTap={() => addCanvasToken(item.id, randomCoord(25, 75), randomCoord(30, 70))}
-                />
-              ))}
-            </div>
-          </div>
-        ))}
+      <div ref={scrollRef} className="flex-1 overflow-y-auto p-2.5">
+        <div style={{ position: 'relative', height: virtualizer.getTotalSize() }}>
+          {virtualizer.getVirtualItems().map((virtualRow) => {
+            const row = rows[virtualRow.index]!
+            return (
+              <div
+                key={row.key}
+                ref={virtualizer.measureElement}
+                data-index={virtualRow.index}
+                style={{ position: 'absolute', top: 0, left: 0, right: 0, transform: `translateY(${virtualRow.start}px)` }}
+              >
+                {row.kind === 'header' ? (
+                  <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5 mt-1">{row.label}</div>
+                ) : (
+                  <div className="flex flex-wrap gap-2 content-start pb-2">
+                    {row.items.map((item) => (
+                      <DraggableSidebarItem
+                        key={item.id}
+                        item={item}
+                        highlighted={highlightedItemIds.includes(item.id)}
+                        exhausted={exhaustedIds.has(item.id)}
+                        onTap={() => addCanvasToken(item.id, randomCoord(25, 75), randomCoord(30, 70))}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )
