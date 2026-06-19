@@ -75,6 +75,7 @@ export function StatsModal({ onClose }: StatsModalProps) {
             <StatRow label="Successful combines" value={stats.totalSuccesses} />
             <StatRow label="Success rate" value={successRate} />
             <StatRow label="Longest streak" value={stats.longestDiscoveryStreak} />
+            <StatRow label="Hints used" value={stats.hintsUsed} />
             <StatRow label="Time played" value={formatDuration(stats.totalTimePlayedMs)} />
             <StatRow label="Favorite domain" value={favoriteDomain ? CATEGORY_LABELS[favoriteDomain] : '—'} />
           </div>

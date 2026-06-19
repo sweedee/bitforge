@@ -8,13 +8,10 @@ import { ACHIEVEMENTS } from '@/data/achievements'
 import { sounds } from '@/sound'
 
 const LS_DISCOVERED_KEY = 'bitforge:discovered'
-const LS_HINTS_KEY = 'bitforge:hints'
 const LS_STATS_KEY = 'bitforge:stats'
 const LS_SETTINGS_KEY = 'bitforge:settings'
 const LS_ACHIEVEMENTS_KEY = 'bitforge:achievements'
 
-export const HINT_MAX = 3
-export const HINT_REGEN_MS = 5 * 1000
 export const HINT_MAX_TIER = 3
 
 const MIN_TOKEN_DIST = 9
@@ -93,34 +90,6 @@ function saveAchievements(ids: Set<string>) {
   localStorage.setItem(LS_ACHIEVEMENTS_KEY, JSON.stringify([...ids]))
 }
 
-interface HintState {
-  count: number
-  lastGrantedAt: number
-}
-
-function loadHintState(): HintState {
-  try {
-    const raw = localStorage.getItem(LS_HINTS_KEY)
-    if (raw) return JSON.parse(raw) as HintState
-  } catch {
-    /* ignore */
-  }
-  return { count: HINT_MAX, lastGrantedAt: Date.now() }
-}
-
-function saveHintState(state: HintState) {
-  localStorage.setItem(LS_HINTS_KEY, JSON.stringify(state))
-}
-
-function regenerateHints(state: HintState): HintState {
-  if (state.count >= HINT_MAX) return { ...state, lastGrantedAt: Date.now() }
-  const elapsed = Date.now() - state.lastGrantedAt
-  const earned = Math.floor(elapsed / HINT_REGEN_MS)
-  if (earned <= 0) return state
-  const count = Math.min(HINT_MAX, state.count + earned)
-  return { count, lastGrantedAt: state.lastGrantedAt + earned * HINT_REGEN_MS }
-}
-
 /** Streak lengths celebrated with a special toast/burst: 3, then every multiple of 5. */
 export function isStreakMilestone(streak: number): boolean {
   return streak === 3 || (streak >= 5 && streak % 5 === 0)
@@ -134,6 +103,7 @@ export interface StatsState {
   longestDiscoveryStreak: number
   currentDiscoveryStreak: number
   totalTimePlayedMs: number
+  hintsUsed: number
 }
 
 const DEFAULT_STATS: StatsState = {
@@ -142,6 +112,7 @@ const DEFAULT_STATS: StatsState = {
   longestDiscoveryStreak: 0,
   currentDiscoveryStreak: 0,
   totalTimePlayedMs: 0,
+  hintsUsed: 0,
 }
 
 function loadStats(): StatsState {
@@ -211,8 +182,6 @@ interface GameStore {
   canvasTokens: CanvasToken[]
   lastCombineSnapshot: { removed: [CanvasToken, CanvasToken]; added: CanvasToken } | null
 
-  hintsAvailable: number
-  hintLastGrantedAt: number
   highlightedItemIds: string[]
   hintTargetId: string | null
   hintTier: number
@@ -246,7 +215,6 @@ interface GameStore {
   clearJustMerged: () => void
 
   useHint: () => void
-  tickHintRegen: () => void
   clearHighlight: () => void
 
   discoverItem: (itemId: string) => void
@@ -265,8 +233,6 @@ export const useGameStore = create<GameStore>()((set, get) => ({
   canvasTokens: [],
   lastCombineSnapshot: null,
 
-  hintsAvailable: regenerateHints(loadHintState()).count,
-  hintLastGrantedAt: regenerateHints(loadHintState()).lastGrantedAt,
   highlightedItemIds: [],
   hintTargetId: null,
   hintTier: 0,
@@ -448,24 +414,13 @@ export const useGameStore = create<GameStore>()((set, get) => ({
   clearJustMerged: () => set({ justMergedInstanceId: null }),
 
   useHint: () => {
-    const hintState = regenerateHints({ count: get().hintsAvailable, lastGrantedAt: get().hintLastGrantedAt })
-    if (hintState.count <= 0) {
-      saveHintState(hintState)
-      set({ hintsAvailable: hintState.count, hintLastGrantedAt: hintState.lastGrantedAt })
-      return
-    }
-
-    const { discoveredItemIds, hintTargetId, hintTier } = get()
+    const { discoveredItemIds, hintTargetId, hintTier, stats } = get()
     const sameTargetStillValid = hintTargetId !== null && !discoveredItemIds.has(hintTargetId)
 
     let targetId: string | null = sameTargetStillValid ? hintTargetId : null
     if (!sameTargetStillValid) {
       const hint = getHint(discoveredItemIds, RECIPES_BY_INPUT)
-      if (!hint) {
-        saveHintState(hintState)
-        set({ hintsAvailable: hintState.count, hintLastGrantedAt: hintState.lastGrantedAt })
-        return
-      }
+      if (!hint) return
       targetId = hint.resultId
     }
 
@@ -476,24 +431,15 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     const [a, b] = recipe.inputs
     const highlightedItemIds = nextTier === 1 ? [] : nextTier === 2 ? [discoveredItemIds.has(a) ? a : b] : [a, b]
 
-    const nextState: HintState = { count: hintState.count - 1, lastGrantedAt: hintState.lastGrantedAt }
-    saveHintState(nextState)
+    const nextStats: StatsState = { ...stats, hintsUsed: stats.hintsUsed + 1 }
+    saveStats(nextStats)
     sounds.tierUp()
     set({
-      hintsAvailable: nextState.count,
-      hintLastGrantedAt: nextState.lastGrantedAt,
+      stats: nextStats,
       highlightedItemIds,
       hintTargetId: targetId,
       hintTier: nextTier,
     })
-  },
-
-  tickHintRegen: () => {
-    const current = { count: get().hintsAvailable, lastGrantedAt: get().hintLastGrantedAt }
-    const next = regenerateHints(current)
-    if (next.count === current.count && next.lastGrantedAt === current.lastGrantedAt) return
-    saveHintState(next)
-    set({ hintsAvailable: next.count, hintLastGrantedAt: next.lastGrantedAt })
   },
 
   clearHighlight: () => set({ highlightedItemIds: [] }),
@@ -519,13 +465,10 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     saveDiscoveredImmediate(starters)
     saveAchievements(new Set())
     saveStats(DEFAULT_STATS)
-    saveHintState({ count: HINT_MAX, lastGrantedAt: Date.now() })
     set({
       discoveredItemIds: starters,
       unlockedAchievementIds: new Set(),
       stats: { ...DEFAULT_STATS },
-      hintsAvailable: HINT_MAX,
-      hintLastGrantedAt: Date.now(),
       hintTargetId: null,
       hintTier: 0,
       highlightedItemIds: [],
