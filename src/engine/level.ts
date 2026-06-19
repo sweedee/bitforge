@@ -5,7 +5,6 @@ export const RARITY_XP: Record<Rarity, number> = {
   common: 10,
   uncommon: 20,
   rare: 40,
-  advanced: 60,
   epic: 80,
   legendary: 160,
   mythic: 320,
