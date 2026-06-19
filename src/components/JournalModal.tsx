@@ -24,7 +24,6 @@ export function JournalModal({ onClose }: JournalModalProps) {
 
     const allByCategory = new Map<string, Item[]>()
     for (const item of ITEMS) {
-      if (!discoveredCategories.has(item.category)) continue
       const list = allByCategory.get(item.category) ?? []
       list.push(item)
       allByCategory.set(item.category, list)
@@ -33,6 +32,7 @@ export function JournalModal({ onClose }: JournalModalProps) {
     return CATEGORY_ORDER.filter((category) => allByCategory.has(category)).map((category) => ({
       category,
       items: allByCategory.get(category)!,
+      discovered: discoveredCategories.has(category),
     }))
   }, [discoveredItemIds])
 
@@ -53,9 +53,11 @@ export function JournalModal({ onClose }: JournalModalProps) {
           </button>
         </div>
         <div className="overflow-y-auto px-5 py-4 space-y-5">
-          {groups.map(({ category, items }) => (
+          {groups.map(({ category, items, discovered }) => (
             <div key={category}>
-              <div className="text-xs uppercase tracking-widest text-orange-400 mb-2">{CATEGORY_LABELS[category]}</div>
+              <div className={`text-xs uppercase tracking-widest mb-2 ${discovered ? 'text-orange-400' : 'text-stone-600'}`}>
+                {discovered ? CATEGORY_LABELS[category] : `${CATEGORY_LABELS[category]} (Locked)`}
+              </div>
               <div className="flex flex-wrap gap-2">
                 {items.map((item) =>
                   discoveredItemIds.has(item.id) ? (

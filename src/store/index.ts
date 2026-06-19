@@ -150,7 +150,8 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     const remaining = canvasTokens.filter((t) => t.instanceId !== instanceIdA && t.instanceId !== instanceIdB)
     const midX = (tokenA.x + tokenB.x) / 2
     const midY = (tokenA.y + tokenB.y) / 2
-    const resultToken: CanvasToken = { instanceId: `t${nextInstanceId++}`, itemId: result.resultId, x: midX, y: midY }
+    const pos = findFreePosition(remaining, midX, midY)
+    const resultToken: CanvasToken = { instanceId: `t${nextInstanceId++}`, itemId: result.resultId, x: pos.x, y: pos.y }
 
     if (result.isNewDiscovery) {
       sounds.chime()

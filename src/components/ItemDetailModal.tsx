@@ -21,7 +21,10 @@ export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
   return (
     <div
       className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
-      onClick={onClose}
+      onClick={(e) => {
+        e.stopPropagation()
+        onClose()
+      }}
     >
       <motion.div
         className="bg-stone-900 border border-stone-700 rounded-lg shadow-2xl w-full max-w-sm overflow-hidden"
