@@ -42,14 +42,6 @@ function hasDiscoveredRarity(discoveredItemIds: Set<string>, rarity: Rarity): bo
   return false
 }
 
-function countDiscoveredMilestones(discoveredItemIds: Set<string>): number {
-  let count = 0
-  for (const id of discoveredItemIds) {
-    if (ITEMS_BY_ID.get(id)?.milestone !== undefined) count++
-  }
-  return count
-}
-
 const levelAchievements: Achievement[] = LEVEL_TIERS.slice(1).map((tier) => ({
   id: `level-${tier.title.toLowerCase().replace(/[^a-z]/g, '')}`,
   name: `Reached ${tier.title}`,
@@ -129,12 +121,5 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: 'Discover a mythic-rarity item.',
     emoji: '💎',
     check: (ctx) => hasDiscoveredRarity(ctx.discoveredItemIds, 'mythic'),
-  },
-  {
-    id: 'time-traveler',
-    name: 'Time Traveler',
-    description: 'Discover 3 historical milestone items.',
-    emoji: '🕰️',
-    check: (ctx) => countDiscoveredMilestones(ctx.discoveredItemIds) >= 3,
   },
 ]

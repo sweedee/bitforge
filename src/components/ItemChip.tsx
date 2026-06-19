@@ -29,23 +29,6 @@ export const ItemChip = memo(function ItemChip({ item, selected = false, highlig
     >
       <span className="text-base leading-none">{item.emoji}</span>
       <span className="font-semibold">{item.name}</span>
-      {item.milestone && (
-        <span title={`Milestone · ${item.milestone}`} className="relative shrink-0 flex items-center justify-center w-4 h-4 rounded-full bg-amber-400/20">
-          <span className="text-[8px] leading-none">🏆</span>
-          <span className="absolute -top-1 -left-1 text-[6px] leading-none text-amber-300 animate-pulse" style={{ animationDelay: '0ms' }}>
-            ✦
-          </span>
-          <span className="absolute -top-1 -right-1 text-[6px] leading-none text-amber-300 animate-pulse" style={{ animationDelay: '300ms' }}>
-            ✦
-          </span>
-          <span
-            className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 text-[6px] leading-none text-amber-300 animate-pulse"
-            style={{ animationDelay: '600ms' }}
-          >
-            ✦
-          </span>
-        </span>
-      )}
     </div>
   )
 })

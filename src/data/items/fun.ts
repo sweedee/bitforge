@@ -2,7 +2,7 @@ import type { Item } from '@/types'
 
 export const FUN: Item[] = [
   { id: 'holy-c', name: 'Holy C', emoji: '🔮', category: 'fun', rarity: 'epic', description: 'A C dialect built for one operating system by one person who believed God told him to write it.' },
-  { id: 'templeos', name: 'TempleOS', emoji: '🛕', category: 'fun', rarity: 'legendary', milestone: '2013', description: 'A solo-developed operating system written entirely in Holy C, intended as a modern temple.' },
+  { id: 'templeos', name: 'TempleOS', emoji: '🛕', category: 'fun', rarity: 'legendary', description: 'A solo-developed operating system written entirely in Holy C, intended as a modern temple.' },
   { id: 'rokos-basilisk', name: "Roko's Basilisk", emoji: '🦎', category: 'fun', rarity: 'legendary', description: 'A thought experiment about a future AI that punishes anyone who knew about it but failed to help create it.' },
   { id: 'ai-waifu', name: 'AI Waifu', emoji: '💘', category: 'fun', rarity: 'epic', description: 'A chatbot persona engineered through prompting alone, treated as a romantic companion by its user.' },
   { id: 'works-on-my-machine', name: 'Works On My Machine', emoji: '🤷', category: 'fun', rarity: 'rare', description: "The bug that reliably reproduces everywhere except the developer's own laptop." },

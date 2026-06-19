@@ -67,12 +67,12 @@ export function MilestoneBurst() {
     return () => clearTimeout(timer)
   }, [xp])
 
-  // Burst when an especially rare or landmark item is discovered.
+  // Burst when an especially rare item is discovered.
   useEffect(() => {
     if (!recentDiscoveryId) return
     const item = ITEMS_BY_ID.get(recentDiscoveryId)
     if (!item) return
-    const special = item.milestone !== undefined || rarityRank(item.rarity) >= 3 // epic+
+    const special = rarityRank(item.rarity) >= 3 // epic+
     if (!special) return
 
     setActive(true)

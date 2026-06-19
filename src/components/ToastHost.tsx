@@ -46,7 +46,7 @@ export function ToastHost() {
             <span className="text-2xl">{discoveryItem.emoji}</span>
             <div className="flex flex-col">
               <span className={`text-[10px] uppercase tracking-widest ${discoveryRarity.accent}`}>
-                {discoveryItem.milestone ? `⭐ Milestone · ${discoveryItem.milestone}` : `${RARITY_LABELS[discoveryItem.rarity]} discovery`}
+                {`${RARITY_LABELS[discoveryItem.rarity]} discovery`}
               </span>
               <span className="text-sm font-bold text-stone-100">{discoveryItem.name}</span>
               {discoveryStars > 0 && (

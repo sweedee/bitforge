@@ -30,8 +30,6 @@ export interface Item {
   category: Category
   /** Hand-tuned by obscurity — drives the rarity color. */
   rarity: Rarity
-  /** Year/era this landmark first appeared (e.g. '1947'). Presence marks the item as a milestone. */
-  milestone?: string
   description: string
   isStarter?: boolean
   /** Auto-discovered (like a starter) once the player reaches this level index. */

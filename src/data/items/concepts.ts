@@ -18,11 +18,11 @@ export const CONCEPTS: Item[] = [
   { id: 'method', name: 'Method', emoji: '🪛', category: 'concepts', rarity: 'uncommon', description: 'A function that belongs to an object and operates on its data.' },
   { id: 'inheritance', name: 'Inheritance', emoji: '🧬', category: 'concepts', rarity: 'rare', description: 'A mechanism allowing one class to acquire the properties and behaviors of another class.' },
   { id: 'polymorphism', name: 'Polymorphism', emoji: '🎭', category: 'concepts', rarity: 'rare', description: 'The ability of different objects to respond to the same operation in ways specific to their own type.' },
-  { id: 'oop', name: 'OOP', emoji: '🧰', category: 'concepts', rarity: 'rare', milestone: '1967', description: 'Object-oriented programming — a paradigm organizing software around objects rather than logic and functions.' },
+  { id: 'oop', name: 'OOP', emoji: '🧰', category: 'concepts', rarity: 'rare', description: 'Object-oriented programming — a paradigm organizing software around objects rather than logic and functions.' },
   { id: 'lambda', name: 'Lambda', emoji: 'λ', category: 'concepts', rarity: 'uncommon', description: 'An anonymous, inline function that can be defined without being bound to a name.' },
   { id: 'closure', name: 'Closure', emoji: '🔒', category: 'concepts', rarity: 'rare', description: 'A function bundled with references to variables from its surrounding scope at creation time.' },
   { id: 'higher-order-function', name: 'Higher-Order Function', emoji: '🎚️', category: 'concepts', rarity: 'rare', description: 'A function that takes other functions as arguments or returns a function as its result.' },
-  { id: 'functional-programming', name: 'Functional Programming', emoji: '🌀', category: 'concepts', rarity: 'epic', milestone: '1958', description: 'A paradigm treating computation as the evaluation of functions, favoring immutability and avoiding side effects.' },
+  { id: 'functional-programming', name: 'Functional Programming', emoji: '🌀', category: 'concepts', rarity: 'epic', description: 'A paradigm treating computation as the evaluation of functions, favoring immutability and avoiding side effects.' },
   { id: 'exception', name: 'Exception', emoji: '⚠️', category: 'concepts', rarity: 'uncommon', description: 'A signal raised when something goes wrong, interrupting normal flow so the error can be handled.' },
   { id: 'iterator', name: 'Iterator', emoji: '🔂', category: 'concepts', rarity: 'uncommon', description: 'An object that yields the elements of a collection one at a time without exposing its structure.' },
 ]

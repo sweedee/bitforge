@@ -12,7 +12,7 @@ export const GRAPHICS: Item[] = [
   { id: 'framebuffer', name: 'Framebuffer', emoji: '🖼️', category: 'graphics', rarity: 'rare', description: 'A block of memory holding the pixel colors of an image that is about to be displayed.' },
   { id: 'rasterization', name: 'Rasterization', emoji: '🔳', category: 'graphics', rarity: 'rare', description: 'The process of converting transformed geometry into the discrete pixels of a framebuffer.' },
   { id: 'z-buffering', name: 'Z-Buffering (Depth Buffering)', emoji: '📏', category: 'graphics', rarity: 'epic', description: 'Storing each pixel’s depth alongside its color so closer surfaces correctly occlude farther ones.' },
-  { id: 'ray-tracing', name: 'Ray Tracing', emoji: '🔫', category: 'graphics', rarity: 'legendary', milestone: '1979', description: 'A rendering technique that recursively follows simulated light rays to produce realistic reflections and shadows.' },
+  { id: 'ray-tracing', name: 'Ray Tracing', emoji: '🔫', category: 'graphics', rarity: 'legendary', description: 'A rendering technique that recursively follows simulated light rays to produce realistic reflections and shadows.' },
   { id: 'backface-culling', name: 'Backface Culling', emoji: '🙈', category: 'graphics', rarity: 'uncommon', description: 'Skipping polygons whose normal points away from the camera, since they would be invisible anyway.' },
   { id: 'frustum-culling', name: 'Frustum Culling', emoji: '📐', category: 'graphics', rarity: 'rare', description: 'Skipping objects whose bounding volume falls entirely outside the camera’s view frustum.' },
   { id: 'shading-model', name: 'Shading Model', emoji: '🌗', category: 'graphics', rarity: 'rare', description: 'A local lighting formula, evaluated per pixel or vertex, that decides how a surface reflects light toward the camera.' },
@@ -47,6 +47,6 @@ export const GRAPHICS: Item[] = [
   { id: 'voxel', name: 'Voxel', emoji: '🧊', category: 'graphics', rarity: 'rare', description: 'A value on a regular 3D grid — the volumetric equivalent of a pixel, used to represent solid space.' },
   { id: 'point-cloud', name: 'Point Cloud', emoji: '🌌', category: 'graphics', rarity: 'rare', description: 'A set of unconnected points in 3D space, often captured by scanners, representing a surface without explicit topology.' },
   { id: 'spline', name: 'Curves & Splines', emoji: '〰️', category: 'graphics', rarity: 'rare', description: 'A smooth curve defined by control points, used to model shapes and animation paths with few parameters.' },
-  { id: 'graphics-api', name: 'Graphics API', emoji: '🔌', category: 'graphics', rarity: 'legendary', milestone: '1992', description: 'A standardized interface, like OpenGL, DirectX, or Vulkan, through which programs issue commands to the GPU.' },
+  { id: 'graphics-api', name: 'Graphics API', emoji: '🔌', category: 'graphics', rarity: 'legendary', description: 'A standardized interface, like OpenGL, DirectX, or Vulkan, through which programs issue commands to the GPU.' },
   { id: 'double-buffering', name: 'Double Buffering / V-Sync', emoji: '🔁', category: 'graphics', rarity: 'rare', description: 'Rendering into an off-screen buffer and swapping it onto the display only when complete, avoiding visible tearing.' },
 ]
