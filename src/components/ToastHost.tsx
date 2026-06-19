@@ -12,6 +12,7 @@ export function ToastHost() {
   const entry = useGameStore((s) => s.toastQueue[0])
   const dequeueToast = useGameStore((s) => s.dequeueToast)
   const reducedMotion = useGameStore((s) => s.settings.reducedMotion)
+  const disableNotifications = useGameStore((s) => s.settings.disableNotifications)
   const currentStreak = useGameStore((s) => s.stats.currentDiscoveryStreak)
 
   useEffect(() => {
@@ -19,6 +20,8 @@ export function ToastHost() {
     const timer = setTimeout(dequeueToast, TOAST_DURATION_MS[entry.kind])
     return () => clearTimeout(timer)
   }, [entry, dequeueToast])
+
+  if (disableNotifications) return null
 
   const discoveryItem = entry?.kind === 'discovery' ? ITEMS_BY_ID.get(entry.itemId) : undefined
   const discoveryRarity = discoveryItem ? RARITY_STYLES[discoveryItem.rarity] : undefined

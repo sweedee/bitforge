@@ -9,12 +9,14 @@ export function SettingsMenu() {
   const autoCleanup = useGameStore((s) => s.settings.autoCleanup)
   const dedupeOnTidy = useGameStore((s) => s.settings.dedupeOnTidy)
   const easyMode = useGameStore((s) => s.settings.easyMode)
+  const disableNotifications = useGameStore((s) => s.settings.disableNotifications)
   const toggleMute = useGameStore((s) => s.toggleMute)
   const setVolume = useGameStore((s) => s.setVolume)
   const toggleReducedMotion = useGameStore((s) => s.toggleReducedMotion)
   const toggleAutoCleanup = useGameStore((s) => s.toggleAutoCleanup)
   const toggleDedupeOnTidy = useGameStore((s) => s.toggleDedupeOnTidy)
   const toggleEasyMode = useGameStore((s) => s.toggleEasyMode)
+  const toggleDisableNotifications = useGameStore((s) => s.toggleDisableNotifications)
 
   return (
     <div className="relative shrink-0">
@@ -64,6 +66,10 @@ export function SettingsMenu() {
             <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
               <input type="checkbox" checked={easyMode} onChange={toggleEasyMode} className="accent-stone-400" />
               <span>Easy mode: highlight matches on drag</span>
+            </label>
+            <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
+              <input type="checkbox" checked={disableNotifications} onChange={toggleDisableNotifications} className="accent-stone-400" />
+              <span>Disable notifications</span>
             </label>
           </div>
         </>

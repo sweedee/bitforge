@@ -19,6 +19,7 @@ function loadSettings(): SettingsState {
     autoCleanup: false,
     dedupeOnTidy: false,
     easyMode: false,
+    disableNotifications: false,
   }
   try {
     const raw = localStorage.getItem(LS_SETTINGS_KEY)
@@ -62,6 +63,11 @@ export const createSettingsSlice: StateCreator<GameStore, [], [], SettingsSlice>
   },
   toggleEasyMode: () => {
     const next = { ...get().settings, easyMode: !get().settings.easyMode }
+    saveSettings(next)
+    set({ settings: next })
+  },
+  toggleDisableNotifications: () => {
+    const next = { ...get().settings, disableNotifications: !get().settings.disableNotifications }
     saveSettings(next)
     set({ settings: next })
   },

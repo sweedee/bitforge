@@ -22,6 +22,7 @@ export interface SettingsState {
   autoCleanup: boolean
   dedupeOnTidy: boolean
   easyMode: boolean
+  disableNotifications: boolean
 }
 
 export interface DiscoverySlice {
@@ -66,6 +67,7 @@ export interface SettingsSlice {
   toggleAutoCleanup: () => void
   toggleDedupeOnTidy: () => void
   toggleEasyMode: () => void
+  toggleDisableNotifications: () => void
 }
 
 export interface StatsAchievementsSlice {
