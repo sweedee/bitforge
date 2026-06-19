@@ -20,8 +20,8 @@ export function tryCombine(
 }
 
 export interface Hint {
+  resultId: string
   knownIngredientId: string
-  recipeKey: string
 }
 
 /**
@@ -42,7 +42,7 @@ export function getHint(
     const bKnown = discoveredItemIds.has(b)
     if (!aKnown && !bKnown) continue
     const fanOut = recipesByInput.get(recipe.result)?.length ?? 0
-    candidates.push({ hint: { knownIngredientId: aKnown ? a : b, recipeKey: makeRecipeKey(a, b) }, weight: fanOut + 1 })
+    candidates.push({ hint: { resultId: recipe.result, knownIngredientId: aKnown ? a : b }, weight: fanOut + 1 })
   }
   if (candidates.length === 0) return null
 

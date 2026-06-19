@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 import type { CanvasToken } from '@/types'
-import { STARTER_ITEM_IDS } from '@/data/items'
-import { RECIPES, RECIPE_INDEX, RECIPES_BY_INPUT } from '@/data/recipes'
+import { ITEMS, ITEMS_BY_ID, STARTER_ITEM_IDS } from '@/data/items'
+import { RECIPES, RECIPE_BY_RESULT, RECIPE_INDEX, RECIPES_BY_INPUT } from '@/data/recipes'
 import { getHint, isItemExhausted, tryCombine } from '@/engine/combine'
+import { getLevelIndex, getTotalXp } from '@/engine/level'
 import { computeGridPositions } from '@/lib/gridLayout'
 import { ACHIEVEMENTS } from '@/data/achievements'
 import { sounds } from '@/sound'
@@ -15,6 +16,7 @@ const LS_ACHIEVEMENTS_KEY = 'bitforge:achievements'
 
 export const HINT_MAX = 3
 export const HINT_REGEN_MS = 5 * 1000
+export const HINT_MAX_TIER = 3
 
 const MIN_TOKEN_DIST = 18
 
@@ -156,6 +158,20 @@ function saveSettings(settings: SettingsState) {
   localStorage.setItem(LS_SETTINGS_KEY, JSON.stringify(settings))
 }
 
+/** Auto-discovers any item whose unlocksAtLevel is met by the given discovered set. */
+function applyLevelUnlocks(discoveredItemIds: Set<string>): { updated: Set<string>; newlyUnlockedId: string | null } {
+  const xp = getTotalXp(discoveredItemIds, ITEMS_BY_ID)
+  const levelIndex = getLevelIndex(xp)
+  const updated = new Set(discoveredItemIds)
+  let newlyUnlockedId: string | null = null
+  for (const item of ITEMS) {
+    if (item.unlocksAtLevel === undefined || updated.has(item.id) || levelIndex < item.unlocksAtLevel) continue
+    updated.add(item.id)
+    newlyUnlockedId ??= item.id
+  }
+  return { updated, newlyUnlockedId }
+}
+
 let nextInstanceId = 0
 
 interface GameStore {
@@ -169,7 +185,9 @@ interface GameStore {
 
   hintsAvailable: number
   hintLastGrantedAt: number
-  highlightedItemId: string | null
+  highlightedItemIds: string[]
+  hintTargetId: string | null
+  hintTier: number
 
   stats: StatsState
   tickPlayTime: (ms: number) => void
@@ -185,6 +203,9 @@ interface GameStore {
   checkAchievements: () => void
   clearRecentAchievement: () => void
 
+  recentLevelUnlockId: string | null
+  clearRecentLevelUnlock: () => void
+
   addCanvasToken: (itemId: string, x: number, y: number) => string
   removeCanvasToken: (instanceId: string) => void
   moveCanvasToken: (instanceId: string, x: number, y: number) => void
@@ -199,6 +220,10 @@ interface GameStore {
   useHint: () => void
   tickHintRegen: () => void
   clearHighlight: () => void
+
+  discoverItem: (itemId: string) => void
+  unlockAllItems: () => void
+  resetProgress: () => void
 }
 
 export const useGameStore = create<GameStore>()((set, get) => ({
@@ -212,7 +237,9 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
   hintsAvailable: regenerateHints(loadHintState()).count,
   hintLastGrantedAt: regenerateHints(loadHintState()).lastGrantedAt,
-  highlightedItemId: null,
+  highlightedItemIds: [],
+  hintTargetId: null,
+  hintTier: 0,
 
   stats: loadStats(),
   tickPlayTime: (ms) => {
@@ -260,6 +287,9 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     set({ unlockedAchievementIds: next, recentAchievementId: newlyUnlocked })
   },
   clearRecentAchievement: () => set({ recentAchievementId: null }),
+
+  recentLevelUnlockId: null,
+  clearRecentLevelUnlock: () => set({ recentLevelUnlockId: null }),
 
   addCanvasToken: (itemId, x, y) => {
     const instanceId = `t${nextInstanceId++}`
@@ -315,8 +345,9 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
     if (result.isNewDiscovery) {
       sounds.chime()
-      const updated = new Set(discoveredItemIds)
-      updated.add(result.resultId)
+      const discoveredWithResult = new Set(discoveredItemIds)
+      discoveredWithResult.add(result.resultId)
+      const { updated, newlyUnlockedId } = applyLevelUnlocks(discoveredWithResult)
       saveDiscovered(updated)
       const currentDiscoveryStreak = stats.currentDiscoveryStreak + 1
       const nextStats: StatsState = {
@@ -327,13 +358,16 @@ export const useGameStore = create<GameStore>()((set, get) => ({
         longestDiscoveryStreak: Math.max(stats.longestDiscoveryStreak, currentDiscoveryStreak),
       }
       saveStats(nextStats)
+      const hintResolved = get().hintTargetId === result.resultId
       set({
         discoveredItemIds: updated,
         recentDiscoveryId: result.resultId,
+        recentLevelUnlockId: newlyUnlockedId,
         canvasTokens: [...remaining, resultToken],
         justMergedInstanceId: resultToken.instanceId,
         stats: nextStats,
         lastCombineSnapshot: { removed: [tokenA, tokenB], added: resultToken },
+        ...(hintResolved ? { hintTargetId: null, hintTier: 0, highlightedItemIds: [] } : {}),
       })
       get().checkAchievements()
     } else {
@@ -373,15 +407,37 @@ export const useGameStore = create<GameStore>()((set, get) => ({
       set({ hintsAvailable: hintState.count, hintLastGrantedAt: hintState.lastGrantedAt })
       return
     }
-    const hint = getHint(get().discoveredItemIds, RECIPES, RECIPES_BY_INPUT)
-    if (!hint) {
-      saveHintState(hintState)
-      set({ hintsAvailable: hintState.count, hintLastGrantedAt: hintState.lastGrantedAt })
-      return
+
+    const { discoveredItemIds, hintTargetId, hintTier } = get()
+    const sameTargetStillValid = hintTargetId !== null && !discoveredItemIds.has(hintTargetId)
+
+    let targetId: string | null = sameTargetStillValid ? hintTargetId : null
+    if (!sameTargetStillValid) {
+      const hint = getHint(discoveredItemIds, RECIPES, RECIPES_BY_INPUT)
+      if (!hint) {
+        saveHintState(hintState)
+        set({ hintsAvailable: hintState.count, hintLastGrantedAt: hintState.lastGrantedAt })
+        return
+      }
+      targetId = hint.resultId
     }
+
+    const recipe = targetId ? RECIPE_BY_RESULT.get(targetId) : undefined
+    if (!targetId || !recipe) return
+
+    const nextTier = sameTargetStillValid ? Math.min(HINT_MAX_TIER, hintTier + 1) : 1
+    const [a, b] = recipe.inputs
+    const highlightedItemIds = nextTier === 1 ? [] : nextTier === 2 ? [discoveredItemIds.has(a) ? a : b] : [a, b]
+
     const nextState: HintState = { count: hintState.count - 1, lastGrantedAt: hintState.lastGrantedAt }
     saveHintState(nextState)
-    set({ hintsAvailable: nextState.count, hintLastGrantedAt: nextState.lastGrantedAt, highlightedItemId: hint.knownIngredientId })
+    set({
+      hintsAvailable: nextState.count,
+      hintLastGrantedAt: nextState.lastGrantedAt,
+      highlightedItemIds,
+      hintTargetId: targetId,
+      hintTier: nextTier,
+    })
   },
 
   tickHintRegen: () => {
@@ -392,5 +448,45 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     set({ hintsAvailable: next.count, hintLastGrantedAt: next.lastGrantedAt })
   },
 
-  clearHighlight: () => set({ highlightedItemId: null }),
+  clearHighlight: () => set({ highlightedItemIds: [] }),
+
+  discoverItem: (itemId) => {
+    if (get().discoveredItemIds.has(itemId)) return
+    const discoveredWithItem = new Set(get().discoveredItemIds)
+    discoveredWithItem.add(itemId)
+    const { updated } = applyLevelUnlocks(discoveredWithItem)
+    saveDiscovered(updated)
+    set({ discoveredItemIds: updated })
+    get().checkAchievements()
+  },
+
+  unlockAllItems: () => {
+    const updated = new Set(ITEMS.map((item) => item.id))
+    saveDiscovered(updated)
+    set({ discoveredItemIds: updated })
+    get().checkAchievements()
+  },
+
+  resetProgress: () => {
+    const starters = new Set(STARTER_ITEM_IDS)
+    saveDiscovered(starters)
+    saveAchievements(new Set())
+    saveStats(DEFAULT_STATS)
+    saveHintState({ count: HINT_MAX, lastGrantedAt: Date.now() })
+    set({
+      discoveredItemIds: starters,
+      unlockedAchievementIds: new Set(),
+      stats: { ...DEFAULT_STATS },
+      hintsAvailable: HINT_MAX,
+      hintLastGrantedAt: Date.now(),
+      hintTargetId: null,
+      hintTier: 0,
+      highlightedItemIds: [],
+      canvasTokens: [],
+      lastCombineSnapshot: null,
+      recentDiscoveryId: null,
+      recentAchievementId: null,
+      recentLevelUnlockId: null,
+    })
+  },
 }))

@@ -51,7 +51,7 @@ function DraggableSidebarItem({
 
 export function Sidebar() {
   const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
-  const highlightedItemId = useGameStore((s) => s.highlightedItemId)
+  const highlightedItemIds = useGameStore((s) => s.highlightedItemIds)
   const addCanvasToken = useGameStore((s) => s.addCanvasToken)
 
   const [query, setQuery] = useState('')
@@ -152,7 +152,7 @@ export function Sidebar() {
                 <DraggableSidebarItem
                   key={item.id}
                   item={item}
-                  highlighted={item.id === highlightedItemId}
+                  highlighted={highlightedItemIds.includes(item.id)}
                   exhausted={exhaustedIds.has(item.id)}
                   onTap={() => addCanvasToken(item.id, randomCoord(25, 75), randomCoord(30, 70))}
                 />

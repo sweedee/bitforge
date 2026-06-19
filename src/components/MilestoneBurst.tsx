@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ITEMS_BY_ID } from '@/data/items'
 import { rarityRank } from '@/data/rarity'
-import { getLevelIndex } from '@/engine/level'
+import { getLevelIndex, getTotalXp } from '@/engine/level'
 import { isStreakMilestone, useGameStore } from '@/store'
 import { sounds } from '@/sound'
 
@@ -30,14 +30,16 @@ const TROPHY_PARTICLES = Array.from({ length: 10 }, (_, i) => {
 })
 
 export function MilestoneBurst() {
-  const discoveredCount = useGameStore((s) => s.discoveredItemIds.size)
+  const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
+  const discoveredCount = discoveredItemIds.size
+  const xp = useMemo(() => getTotalXp(discoveredItemIds, ITEMS_BY_ID), [discoveredItemIds])
   const recentDiscoveryId = useGameStore((s) => s.recentDiscoveryId)
   const reducedMotion = useGameStore((s) => s.settings.reducedMotion)
   const currentStreak = useGameStore((s) => s.stats.currentDiscoveryStreak)
   const prevCountRef = useRef(discoveredCount)
   const [active, setActive] = useState(false)
   const [levelUpActive, setLevelUpActive] = useState(false)
-  const prevLevelIndexRef = useRef(getLevelIndex(discoveredCount))
+  const prevLevelIndexRef = useRef(getLevelIndex(xp))
 
   // Burst on every Nth discovery (count milestone).
   useEffect(() => {
@@ -54,7 +56,7 @@ export function MilestoneBurst() {
 
   // Burst when the player's flavor title levels up.
   useEffect(() => {
-    const levelIndex = getLevelIndex(discoveredCount)
+    const levelIndex = getLevelIndex(xp)
     const prev = prevLevelIndexRef.current
     prevLevelIndexRef.current = levelIndex
     if (levelIndex <= prev) return
@@ -63,7 +65,7 @@ export function MilestoneBurst() {
     sounds.fanfare()
     const timer = setTimeout(() => setLevelUpActive(false), 1000)
     return () => clearTimeout(timer)
-  }, [discoveredCount])
+  }, [xp])
 
   // Burst when an especially rare or landmark item is discovered.
   useEffect(() => {
