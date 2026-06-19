@@ -18,6 +18,7 @@ interface CanvasTokenProps {
 export function CanvasToken({ token, selected, shake, justMerged, onClick, onDelete }: CanvasTokenProps) {
   const item = ITEMS_BY_ID.get(token.itemId)
   const reducedMotion = useGameStore((s) => s.settings.reducedMotion)
+  const addCanvasToken = useGameStore((s) => s.addCanvasToken)
 
   const dragData: DragPayload = { kind: 'canvas-token', instanceId: token.instanceId, itemId: token.itemId, x: token.x, y: token.y }
   const dropData: DropPayload = { kind: 'canvas-token', instanceId: token.instanceId, itemId: token.itemId, x: token.x, y: token.y }
@@ -42,6 +43,10 @@ export function CanvasToken({ token, selected, shake, justMerged, onClick, onDel
       {...attributes}
       {...listeners}
       onClick={onClick}
+      onDoubleClick={(e) => {
+        e.stopPropagation()
+        addCanvasToken(token.itemId, token.x, token.y)
+      }}
       data-testid="canvas-token"
       className={`absolute touch-none cursor-grab active:cursor-grabbing ${shake && !reducedMotion ? 'animate-shake' : ''} ${justMerged && !reducedMotion ? 'animate-merge-pop' : ''} ${isDragging ? 'opacity-0' : ''}`}
       style={{ left: `${token.x}%`, top: `${token.y}%`, x: '-50%', y: '-50%' }}

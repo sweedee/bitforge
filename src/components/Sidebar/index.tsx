@@ -8,6 +8,7 @@ import { CATEGORY_LABELS, CATEGORY_ORDER } from '@/data/categories'
 import { isItemExhausted } from '@/engine/combine'
 import { computeGridPositions } from '@/lib/gridLayout'
 import { useGameStore } from '@/store'
+import { sounds } from '@/sound'
 import { ItemChip } from '@/components/ItemChip'
 
 function randomCoord(min: number, max: number) {
@@ -41,8 +42,10 @@ function DraggableSidebarItem({
     >
       <ItemChip item={item} highlighted={highlighted} dim={exhausted} />
       {exhausted && (
-        <span className="absolute -top-1.5 -right-1.5 bg-emerald-700 text-emerald-100 text-[10px] rounded-full w-4 h-4 flex items-center justify-center leading-none">
-          ✓
+        <span className="absolute -top-1.5 -right-1.5 bg-emerald-700 text-emerald-100 rounded-full w-4 h-4 flex items-center justify-center leading-none">
+          <svg viewBox="0 0 16 16" width="9" height="9" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="3,8.5 6.5,12 13,4" />
+          </svg>
         </span>
       )}
     </button>
@@ -71,7 +74,7 @@ export function Sidebar() {
     const filtered = list
       .filter((item) => categoryFilter === 'all' || item.category === categoryFilter)
       .filter((item) => item.name.toLowerCase().includes(query.toLowerCase()))
-      .filter((item) => !hideExhausted || !exhaustedIds.has(item.id))
+      .filter((item) => !hideExhausted || !exhaustedIds.has(item.id) || highlightedItemIds.includes(item.id))
 
     const byCategory = new Map<Category, Item[]>()
     for (const item of filtered) {
@@ -84,7 +87,7 @@ export function Sidebar() {
       category,
       items: byCategory.get(category)!,
     }))
-  }, [discoveredItemIds, categoryFilter, query, hideExhausted, exhaustedIds])
+  }, [discoveredItemIds, categoryFilter, query, hideExhausted, exhaustedIds, highlightedItemIds])
 
   const availableCategories = useMemo(() => {
     const set = new Set<Category>()
@@ -98,7 +101,8 @@ export function Sidebar() {
   function handleAddAll() {
     const visibleItems = groups.flatMap((g) => g.items)
     const positions = computeGridPositions(visibleItems.length)
-    visibleItems.forEach((item, i) => addCanvasToken(item.id, positions[i].x, positions[i].y))
+    visibleItems.forEach((item, i) => addCanvasToken(item.id, positions[i].x, positions[i].y, { silent: true }))
+    if (visibleItems.length > 0) sounds.place()
   }
 
   return (

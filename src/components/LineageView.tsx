@@ -1,41 +1,31 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
+import { ReactFlow, Background, Controls } from '@xyflow/react'
+import '@xyflow/react/dist/style.css'
 import type { Item } from '@/types'
-import { ITEMS_BY_ID } from '@/data/items'
-import { RECIPE_BY_RESULT } from '@/data/recipes'
-import { buildLineage, type LineageNode } from '@/engine/lineage'
-import { ItemChip } from '@/components/ItemChip'
+import { buildLineageGraph } from '@/engine/techtree'
+import { graphToFlow } from '@/lib/graphToFlow'
+import { useGameStore } from '@/store'
 
 interface LineageViewProps {
   item: Item
   onClose: () => void
 }
 
-function LineageNodeView({ node }: { node: LineageNode }) {
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <ItemChip item={node.item} size="sm" />
-      {node.children && (
-        <div className="flex items-start gap-3 pt-3 border-t border-stone-700">
-          <LineageNodeView node={node.children[0]} />
-          <span className="text-stone-500 text-xs self-center">+</span>
-          <LineageNodeView node={node.children[1]} />
-        </div>
-      )}
-    </div>
-  )
-}
-
 export function LineageView({ item, onClose }: LineageViewProps) {
-  const root = useMemo(() => buildLineage(item.id, ITEMS_BY_ID, RECIPE_BY_RESULT), [item.id])
+  const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
+  const [showConsumers, setShowConsumers] = useState(false)
+
+  const graph = useMemo(
+    () => buildLineageGraph(item.id, discoveredItemIds, showConsumers),
+    [item.id, discoveredItemIds, showConsumers],
+  )
+  const { nodes, edges } = useMemo(() => graphToFlow(graph), [graph])
 
   return (
-    <div
-      className="fixed inset-0 z-[70] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" onClick={onClose}>
       <motion.div
-        className="bg-stone-900 border border-stone-700 rounded-lg shadow-2xl w-full max-w-3xl max-h-[80vh] flex flex-col overflow-hidden"
+        className="bg-stone-900 border border-stone-700 rounded-lg shadow-2xl w-full max-w-3xl h-[70vh] flex flex-col overflow-hidden"
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.92 }}
@@ -44,12 +34,39 @@ export function LineageView({ item, onClose }: LineageViewProps) {
       >
         <div className="flex items-center justify-between px-5 py-3 border-b border-stone-700 shrink-0">
           <span className="text-sm font-bold tracking-widest text-stone-300 uppercase">Lineage · {item.name}</span>
-          <button onClick={onClose} className="text-stone-500 hover:text-stone-200 text-lg leading-none transition-colors">
-            ×
-          </button>
+          <div className="flex items-center gap-3">
+            <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
+              <input
+                type="checkbox"
+                checked={showConsumers}
+                onChange={(e) => setShowConsumers(e.target.checked)}
+                className="accent-orange-500"
+              />
+              <span>Show what uses this</span>
+            </label>
+            <button onClick={onClose} className="text-stone-500 hover:text-stone-200 text-lg leading-none transition-colors">
+              ×
+            </button>
+          </div>
         </div>
-        <div className="overflow-auto px-5 py-6 flex justify-center">
-          {root ? <LineageNodeView node={root} /> : <span className="text-xs text-stone-500">No lineage data.</span>}
+        <div className="flex-1 min-h-0 relative">
+          {nodes.length === 0 ? (
+            <div className="absolute inset-0 flex items-center justify-center text-stone-500 text-sm">No lineage data.</div>
+          ) : (
+            <ReactFlow
+              key={showConsumers ? 'with-consumers' : 'ancestors'}
+              nodes={nodes}
+              edges={edges}
+              fitView
+              colorMode="dark"
+              nodesDraggable={false}
+              nodesConnectable={false}
+              elementsSelectable={false}
+            >
+              <Background color="#44403c" />
+              <Controls showInteractive={false} />
+            </ReactFlow>
+          )}
         </div>
       </motion.div>
     </div>

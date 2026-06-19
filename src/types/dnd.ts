@@ -5,3 +5,4 @@ export type DragPayload =
 export type DropPayload =
   | { kind: 'canvas-dropzone' }
   | { kind: 'canvas-token'; instanceId: string; itemId: string; x: number; y: number }
+  | { kind: 'trash' }

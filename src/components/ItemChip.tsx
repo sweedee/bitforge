@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import type { Item } from '@/types'
 import { RARITY_STYLES } from '@/data/rarity'
 
@@ -9,7 +10,7 @@ interface ItemChipProps {
   size?: 'sm' | 'md'
 }
 
-export function ItemChip({ item, selected = false, highlighted = false, dim = false, size = 'md' }: ItemChipProps) {
+export const ItemChip = memo(function ItemChip({ item, selected = false, highlighted = false, dim = false, size = 'md' }: ItemChipProps) {
   const padding = size === 'sm' ? 'px-2 py-1 text-xs' : 'px-3 py-1.5 text-sm'
   const rarity = RARITY_STYLES[item.rarity]
 
@@ -29,13 +30,22 @@ export function ItemChip({ item, selected = false, highlighted = false, dim = fa
       <span className="text-base leading-none">{item.emoji}</span>
       <span className="font-semibold">{item.name}</span>
       {item.milestone && (
-        <span
-          title={`Milestone · ${item.milestone}`}
-          className="shrink-0 flex items-center justify-center w-3.5 h-3.5 rounded-full bg-amber-400/20 text-[8px] leading-none"
-        >
-          🏆
+        <span title={`Milestone · ${item.milestone}`} className="relative shrink-0 flex items-center justify-center w-4 h-4 rounded-full bg-amber-400/20">
+          <span className="text-[8px] leading-none">🏆</span>
+          <span className="absolute -top-1 -left-1 text-[6px] leading-none text-amber-300 animate-pulse" style={{ animationDelay: '0ms' }}>
+            ✦
+          </span>
+          <span className="absolute -top-1 -right-1 text-[6px] leading-none text-amber-300 animate-pulse" style={{ animationDelay: '300ms' }}>
+            ✦
+          </span>
+          <span
+            className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 text-[6px] leading-none text-amber-300 animate-pulse"
+            style={{ animationDelay: '600ms' }}
+          >
+            ✦
+          </span>
         </span>
       )}
     </div>
   )
-}
+})

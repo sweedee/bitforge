@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { memo, useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Item } from '@/types'
 import { CATEGORY_LABELS } from '@/data/categories'
@@ -16,7 +16,7 @@ interface ItemDetailModalProps {
 
 const USABLE_IN_LIMIT = 8
 
-export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
+export const ItemDetailModal = memo(function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
   const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
   const [lineageOpen, setLineageOpen] = useState(false)
 
@@ -133,4 +133,4 @@ export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
       <AnimatePresence>{lineageOpen && <LineageView item={item} onClose={() => setLineageOpen(false)} />}</AnimatePresence>
     </div>
   )
-}
+})

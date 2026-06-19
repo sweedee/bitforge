@@ -18,7 +18,7 @@ export const HINT_MAX = 3
 export const HINT_REGEN_MS = 5 * 1000
 export const HINT_MAX_TIER = 3
 
-const MIN_TOKEN_DIST = 18
+const MIN_TOKEN_DIST = 9
 
 function isFarFromAll(x: number, y: number, tokens: CanvasToken[], excludeInstanceId?: string) {
   return tokens.every((t) => t.instanceId === excludeInstanceId || Math.hypot(t.x - x, t.y - y) >= MIN_TOKEN_DIST)
@@ -26,7 +26,7 @@ function isFarFromAll(x: number, y: number, tokens: CanvasToken[], excludeInstan
 
 function findFreePosition(tokens: CanvasToken[], desiredX: number, desiredY: number, excludeInstanceId?: string) {
   if (isFarFromAll(desiredX, desiredY, tokens, excludeInstanceId)) return { x: desiredX, y: desiredY }
-  for (let radius = MIN_TOKEN_DIST; radius < 60; radius += MIN_TOKEN_DIST) {
+  for (let radius = MIN_TOKEN_DIST; radius < 40; radius += MIN_TOKEN_DIST) {
     for (let angle = 0; angle < 360; angle += 30) {
       const rad = (angle * Math.PI) / 180
       const x = Math.min(95, Math.max(5, desiredX + radius * Math.cos(rad)))
@@ -97,6 +97,11 @@ function regenerateHints(state: HintState): HintState {
 export function isStreakMilestone(streak: number): boolean {
   return streak === 3 || (streak >= 5 && streak % 5 === 0)
 }
+
+export type ToastEntry =
+  | { kind: 'discovery'; itemId: string }
+  | { kind: 'achievement'; achievementId: string }
+  | { kind: 'levelUnlock'; itemId: string }
 
 export interface StatsState {
   totalAttempts: number
@@ -176,7 +181,10 @@ let nextInstanceId = 0
 
 interface GameStore {
   discoveredItemIds: Set<string>
-  recentDiscoveryId: string | null
+  toastQueue: ToastEntry[]
+  dequeueToast: () => void
+  /** One-shot signal for MilestoneBurst — changes to a new (always-unique) item id on every discovery. */
+  lastDiscoveredItemId: string | null
   lastFailedComboInstanceIds: [string, string] | null
   justMergedInstanceId: string | null
 
@@ -199,21 +207,15 @@ interface GameStore {
   toggleAutoCleanup: () => void
 
   unlockedAchievementIds: Set<string>
-  recentAchievementId: string | null
   checkAchievements: () => void
-  clearRecentAchievement: () => void
 
-  recentLevelUnlockId: string | null
-  clearRecentLevelUnlock: () => void
-
-  addCanvasToken: (itemId: string, x: number, y: number) => string
+  addCanvasToken: (itemId: string, x: number, y: number, options?: { silent?: boolean }) => string
   removeCanvasToken: (instanceId: string) => void
   moveCanvasToken: (instanceId: string, x: number, y: number) => void
   clearCanvas: () => void
   tidyCanvas: () => void
   combineTokens: (instanceIdA: string, instanceIdB: string) => void
   undoLastCombine: () => void
-  clearRecentDiscovery: () => void
   clearFailedCombo: () => void
   clearJustMerged: () => void
 
@@ -228,7 +230,9 @@ interface GameStore {
 
 export const useGameStore = create<GameStore>()((set, get) => ({
   discoveredItemIds: loadDiscovered(),
-  recentDiscoveryId: null,
+  toastQueue: [],
+  dequeueToast: () => set({ toastQueue: get().toastQueue.slice(1) }),
+  lastDiscoveredItemId: null,
   lastFailedComboInstanceIds: null,
   justMergedInstanceId: null,
 
@@ -271,7 +275,6 @@ export const useGameStore = create<GameStore>()((set, get) => ({
   },
 
   unlockedAchievementIds: loadAchievements(),
-  recentAchievementId: null,
   checkAchievements: () => {
     const { discoveredItemIds, stats, unlockedAchievementIds } = get()
     const ctx = { discoveredItemIds, stats }
@@ -284,24 +287,22 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     }
     if (next.size === unlockedAchievementIds.size) return
     saveAchievements(next)
-    set({ unlockedAchievementIds: next, recentAchievementId: newlyUnlocked })
+    set({ unlockedAchievementIds: next, toastQueue: [...get().toastQueue, { kind: 'achievement', achievementId: newlyUnlocked! }] })
   },
-  clearRecentAchievement: () => set({ recentAchievementId: null }),
 
-  recentLevelUnlockId: null,
-  clearRecentLevelUnlock: () => set({ recentLevelUnlockId: null }),
-
-  addCanvasToken: (itemId, x, y) => {
+  addCanvasToken: (itemId, x, y, options) => {
     const instanceId = `t${nextInstanceId++}`
     const tokens = get().canvasTokens
     const pos = findFreePosition(tokens, x, y)
     const token: CanvasToken = { instanceId, itemId, x: pos.x, y: pos.y }
     set({ canvasTokens: [...tokens, token] })
+    if (!options?.silent) sounds.place()
     return instanceId
   },
 
   removeCanvasToken: (instanceId) => {
     set({ canvasTokens: get().canvasTokens.filter((t) => t.instanceId !== instanceId) })
+    sounds.remove()
   },
 
   moveCanvasToken: (instanceId, x, y) => {
@@ -359,10 +360,12 @@ export const useGameStore = create<GameStore>()((set, get) => ({
       }
       saveStats(nextStats)
       const hintResolved = get().hintTargetId === result.resultId
+      const newToasts: ToastEntry[] = [{ kind: 'discovery', itemId: result.resultId }]
+      if (newlyUnlockedId) newToasts.push({ kind: 'levelUnlock', itemId: newlyUnlockedId })
       set({
         discoveredItemIds: updated,
-        recentDiscoveryId: result.resultId,
-        recentLevelUnlockId: newlyUnlockedId,
+        toastQueue: [...get().toastQueue, ...newToasts],
+        lastDiscoveredItemId: result.resultId,
         canvasTokens: [...remaining, resultToken],
         justMergedInstanceId: resultToken.instanceId,
         stats: nextStats,
@@ -396,7 +399,6 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     set({ canvasTokens: [...tokens, ...snapshot.removed], lastCombineSnapshot: null })
   },
 
-  clearRecentDiscovery: () => set({ recentDiscoveryId: null }),
   clearFailedCombo: () => set({ lastFailedComboInstanceIds: null }),
   clearJustMerged: () => set({ justMergedInstanceId: null }),
 
@@ -431,6 +433,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
     const nextState: HintState = { count: hintState.count - 1, lastGrantedAt: hintState.lastGrantedAt }
     saveHintState(nextState)
+    sounds.tierUp()
     set({
       hintsAvailable: nextState.count,
       hintLastGrantedAt: nextState.lastGrantedAt,
@@ -484,9 +487,8 @@ export const useGameStore = create<GameStore>()((set, get) => ({
       highlightedItemIds: [],
       canvasTokens: [],
       lastCombineSnapshot: null,
-      recentDiscoveryId: null,
-      recentAchievementId: null,
-      recentLevelUnlockId: null,
+      toastQueue: [],
+      lastDiscoveredItemId: null,
     })
   },
 }))

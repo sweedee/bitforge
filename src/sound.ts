@@ -40,6 +40,9 @@ function safe(fn: () => void) {
 export const sounds = {
   blip: () => safe(() => tone(1100, 0.1, 'sine', 0.1)),
   buzz: () => safe(() => tone(100, 0.22, 'sawtooth', 0.1)),
+  place: () => safe(() => tone(700, 0.06, 'sine', 0.06)),
+  remove: () => safe(() => tone(300, 0.08, 'sine', 0.06)),
+  tierUp: () => safe(() => tone(900, 0.08, 'triangle', 0.08)),
   chime: () => {
     const notes = [523, 659, 784, 1047]
     notes.forEach((f, i) => setTimeout(() => safe(() => tone(f, 0.4, 'sine', 0.14)), i * 90))

@@ -17,10 +17,9 @@ import { ItemChip } from '@/components/ItemChip'
 import { JournalModal } from '@/components/JournalModal'
 import { StatsModal } from '@/components/StatsModal'
 import { TechTreeModal } from '@/components/TechTreeModal'
-import { DiscoveryToast } from '@/components/DiscoveryToast'
-import { AchievementToast } from '@/components/AchievementToast'
+import { TrashZone } from '@/components/TrashZone'
+import { ToastHost } from '@/components/ToastHost'
 import { MilestoneBurst } from '@/components/MilestoneBurst'
-import { LevelUnlockToast } from '@/components/LevelUnlockToast'
 import { DevPanel } from '@/components/DevPanel'
 import { ITEMS_BY_ID } from '@/data/items'
 import { useGameStore } from '@/store'
@@ -34,6 +33,7 @@ function clamp(value: number, min: number, max: number) {
 export default function App() {
   const addCanvasToken = useGameStore((s) => s.addCanvasToken)
   const moveCanvasToken = useGameStore((s) => s.moveCanvasToken)
+  const removeCanvasToken = useGameStore((s) => s.removeCanvasToken)
   const combineTokens = useGameStore((s) => s.combineTokens)
   const tickPlayTime = useGameStore((s) => s.tickPlayTime)
   const muted = useGameStore((s) => s.settings.muted)
@@ -98,7 +98,9 @@ export default function App() {
     }
 
     if (drag.kind === 'canvas-token') {
-      if (drop.kind === 'canvas-token' && drop.instanceId !== drag.instanceId) {
+      if (drop.kind === 'trash') {
+        removeCanvasToken(drag.instanceId)
+      } else if (drop.kind === 'canvas-token' && drop.instanceId !== drag.instanceId) {
         combineTokens(drag.instanceId, drop.instanceId)
       } else if (drop.kind === 'canvas-dropzone') {
         moveCanvasToken(drag.instanceId, xPct, yPct)
@@ -136,10 +138,9 @@ export default function App() {
       <AnimatePresence>{statsOpen && <StatsModal onClose={() => setStatsOpen(false)} />}</AnimatePresence>
       <AnimatePresence>{techTreeOpen && <TechTreeModal onClose={() => setTechTreeOpen(false)} />}</AnimatePresence>
 
-      <DiscoveryToast />
-      <AchievementToast />
+      <TrashZone visible={activeDrag?.kind === 'canvas-token'} />
+      <ToastHost />
       <MilestoneBurst />
-      <LevelUnlockToast />
       {devMode && <DevPanel />}
     </DndContext>
   )

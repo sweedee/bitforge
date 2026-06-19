@@ -1,44 +1,14 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ReactFlow, Background, Controls, type Node, type Edge } from '@xyflow/react'
+import { ReactFlow, Background, Controls } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
-import { ITEMS, ITEMS_BY_ID } from '@/data/items'
-import { buildDiscoveredGraph, buildFocusGraph, buildFrontierGraph, layoutNodes, type TechTreeGraph } from '@/engine/techtree'
+import { ITEMS } from '@/data/items'
+import { buildDiscoveredGraph, buildFocusGraph, buildFrontierGraph } from '@/engine/techtree'
+import { graphToFlow } from '@/lib/graphToFlow'
 import { useGameStore } from '@/store'
 
 interface TechTreeModalProps {
   onClose: () => void
-}
-
-function toFlow(graph: TechTreeGraph): { nodes: Node[]; edges: Edge[] } {
-  const positions = layoutNodes(graph.nodes.map((n) => n.id))
-  const nodes: Node[] = graph.nodes.map((n) => {
-    const item = ITEMS_BY_ID.get(n.id)
-    const pos = positions.get(n.id) ?? { x: 0, y: 0 }
-    return {
-      id: n.id,
-      position: pos,
-      data: { label: item ? `${item.emoji} ${item.name}` : n.id },
-      style: {
-        background: n.locked ? '#1c1917' : '#292524',
-        color: n.locked ? '#78716c' : '#e7e5e4',
-        border: n.locked ? '1px dashed #57534e' : '1px solid #d97706',
-        borderRadius: 8,
-        padding: '6px 10px',
-        fontSize: 12,
-        fontFamily: 'inherit',
-        width: 'auto',
-      },
-    }
-  })
-  const edges: Edge[] = graph.edges.map((e) => ({
-    id: e.id,
-    source: e.source,
-    target: e.target,
-    animated: !e.locked,
-    style: { stroke: e.locked ? '#57534e' : '#d97706', strokeDasharray: e.locked ? '4 4' : undefined },
-  }))
-  return { nodes, edges }
 }
 
 export function TechTreeModal({ onClose }: TechTreeModalProps) {
@@ -53,7 +23,7 @@ export function TechTreeModal({ onClose }: TechTreeModalProps) {
     return buildFrontierGraph(discoveredItemIds)
   }, [focusId, showFullDiscovered, discoveredItemIds])
 
-  const { nodes, edges } = useMemo(() => toFlow(graph), [graph])
+  const { nodes, edges } = useMemo(() => graphToFlow(graph), [graph])
 
   const matches = useMemo(() => {
     if (!query.trim()) return []

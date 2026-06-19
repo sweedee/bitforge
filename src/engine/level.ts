@@ -13,14 +13,16 @@ export const RARITY_XP: Record<Rarity, number> = {
 export interface LevelTier {
   title: string
   threshold: number
+  icon: string
+  color: string
 }
 
 export const LEVEL_TIERS: LevelTier[] = [
-  { title: 'Noob', threshold: 0 },
-  { title: "Bachelor's", threshold: 2500 },
-  { title: "Master's", threshold: 8000 },
-  { title: 'PhD', threshold: 20000 },
-  { title: 'Frontier Researcher', threshold: 40000 },
+  { title: 'Noob', threshold: 0, icon: '🌱', color: 'text-stone-300' },
+  { title: "Bachelor's", threshold: 2500, icon: '🎓', color: 'text-blue-400' },
+  { title: "Master's", threshold: 8000, icon: '🧪', color: 'text-violet-400' },
+  { title: 'PhD', threshold: 20000, icon: '🧠', color: 'text-amber-400' },
+  { title: 'Frontier Researcher', threshold: 40000, icon: '🚀', color: 'text-cyan-400' },
 ]
 
 export function getTotalXp(discoveredItemIds: Set<string>, itemsById: Map<string, Item>): number {

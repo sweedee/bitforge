@@ -29,11 +29,15 @@ export function JournalModal({ onClose }: JournalModalProps) {
       allByCategory.set(item.category, list)
     }
     for (const list of allByCategory.values()) list.sort((a, b) => a.name.localeCompare(b.name))
-    return CATEGORY_ORDER.filter((category) => allByCategory.has(category)).map((category) => ({
-      category,
-      items: allByCategory.get(category)!,
-      discovered: discoveredCategories.has(category),
-    }))
+    return CATEGORY_ORDER.filter((category) => allByCategory.has(category)).map((category) => {
+      const items = allByCategory.get(category)!
+      return {
+        category,
+        items,
+        discovered: discoveredCategories.has(category),
+        discoveredCount: items.filter((item) => discoveredItemIds.has(item.id)).length,
+      }
+    })
   }, [discoveredItemIds])
 
   return (
@@ -47,16 +51,21 @@ export function JournalModal({ onClose }: JournalModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-5 py-3 border-b border-stone-700 shrink-0">
-          <span className="text-sm font-bold tracking-widest text-stone-300 uppercase">Journal</span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-bold tracking-widest text-stone-300 uppercase">Journal</span>
+            <span className="text-xs text-stone-500">
+              {discoveredItemIds.size}/{ITEMS.length}
+            </span>
+          </div>
           <button onClick={onClose} className="text-stone-500 hover:text-stone-200 text-lg leading-none transition-colors">
             ×
           </button>
         </div>
         <div className="overflow-y-auto px-5 py-4 space-y-5">
-          {groups.map(({ category, items, discovered }) => (
+          {groups.map(({ category, items, discovered, discoveredCount }) => (
             <div key={category}>
               <div className={`text-xs uppercase tracking-widest mb-2 ${discovered ? 'text-orange-400' : 'text-stone-600'}`}>
-                {CATEGORY_LABELS[category]}
+                {CATEGORY_LABELS[category]} <span className="text-stone-500">· {discoveredCount}/{items.length}</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {items.map((item) =>

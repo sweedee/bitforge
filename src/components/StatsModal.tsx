@@ -1,5 +1,5 @@
-import { useMemo } from 'react'
-import { motion } from 'framer-motion'
+import { useMemo, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import type { Category } from '@/types'
 import { ITEMS_BY_ID } from '@/data/items'
 import { CATEGORY_LABELS } from '@/data/categories'
@@ -30,6 +30,9 @@ export function StatsModal({ onClose }: StatsModalProps) {
   const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
   const stats = useGameStore((s) => s.stats)
   const unlockedAchievementIds = useGameStore((s) => s.unlockedAchievementIds)
+  const [selectedAchievementId, setSelectedAchievementId] = useState<string | null>(null)
+  const selectedAchievement = selectedAchievementId ? ACHIEVEMENTS.find((a) => a.id === selectedAchievementId) : undefined
+  const selectedUnlocked = selectedAchievement ? unlockedAchievementIds.has(selectedAchievement.id) : false
 
   const favoriteDomain = useMemo(() => {
     const counts = new Map<Category, number>()
@@ -84,24 +87,58 @@ export function StatsModal({ onClose }: StatsModalProps) {
               {ACHIEVEMENTS.map((achievement) => {
                 const unlocked = unlockedAchievementIds.has(achievement.id)
                 return (
-                  <div
+                  <button
                     key={achievement.id}
+                    type="button"
+                    onClick={() => setSelectedAchievementId(achievement.id)}
                     title={unlocked ? achievement.description : 'Locked'}
-                    className={`flex items-center gap-2 px-2.5 py-2 rounded-lg border text-xs min-w-0 ${
+                    className={`flex items-center gap-2 px-2.5 py-2 rounded-lg border text-xs min-w-0 text-left transition-colors ${
                       unlocked
-                        ? 'border-amber-500/60 bg-amber-950/20 text-amber-100'
-                        : 'border-stone-800 bg-stone-800/40 text-stone-600'
+                        ? 'border-amber-500/60 bg-amber-950/20 text-amber-100 hover:border-amber-400'
+                        : 'border-stone-800 bg-stone-800/40 text-stone-600 hover:border-stone-600'
                     }`}
                   >
                     <span className="text-lg leading-none shrink-0">{unlocked ? achievement.emoji : '🔒'}</span>
                     <span className="truncate">{unlocked ? achievement.name : '???'}</span>
-                  </div>
+                  </button>
                 )
               })}
             </div>
           </div>
         </div>
       </motion.div>
+
+      <AnimatePresence>
+        {selectedAchievement && (
+          <div
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+            onClick={() => setSelectedAchievementId(null)}
+          >
+            <motion.div
+              className="bg-stone-900 border border-amber-500/50 rounded-lg shadow-2xl max-w-sm w-full p-4"
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.92 }}
+              transition={{ duration: 0.15 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-2xl leading-none">{selectedUnlocked ? selectedAchievement.emoji : '🔒'}</span>
+                <span className="text-sm font-bold text-stone-100">{selectedUnlocked ? selectedAchievement.name : '???'}</span>
+              </div>
+              <p className="text-xs text-stone-400">
+                {selectedUnlocked ? selectedAchievement.description : 'Keep playing to unlock this achievement.'}
+              </p>
+              <button
+                onClick={() => setSelectedAchievementId(null)}
+                className="mt-3 text-xs text-stone-500 hover:text-stone-300 transition-colors"
+              >
+                Close
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

@@ -33,7 +33,7 @@ export function MilestoneBurst() {
   const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
   const discoveredCount = discoveredItemIds.size
   const xp = useMemo(() => getTotalXp(discoveredItemIds, ITEMS_BY_ID), [discoveredItemIds])
-  const recentDiscoveryId = useGameStore((s) => s.recentDiscoveryId)
+  const recentDiscoveryId = useGameStore((s) => s.lastDiscoveredItemId)
   const reducedMotion = useGameStore((s) => s.settings.reducedMotion)
   const currentStreak = useGameStore((s) => s.stats.currentDiscoveryStreak)
   const prevCountRef = useRef(discoveredCount)

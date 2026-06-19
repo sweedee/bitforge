@@ -74,6 +74,43 @@ export function buildFocusGraph(itemId: string, discoveredItemIds: Set<string>):
   return toGraph(nodeIds, edges, discoveredItemIds)
 }
 
+/**
+ * Full ancestor DAG for a single item, back to starters, deduplicated (unlike a naive
+ * binary tree, a shared sub-ancestor used in multiple branches collapses to one node).
+ * Optionally adds one hop of consumers (what this item is used to make).
+ */
+export function buildLineageGraph(itemId: string, discoveredItemIds: Set<string>, includeConsumers = false): TechTreeGraph {
+  const nodeIds = new Set<string>([itemId])
+  const edges: TechTreeEdge[] = []
+  const visited = new Set<string>()
+
+  function addAncestors(id: string) {
+    if (visited.has(id)) return
+    visited.add(id)
+    const recipe = RECIPE_BY_RESULT.get(id)
+    if (!recipe) return
+    const [a, b] = recipe.inputs
+    nodeIds.add(a)
+    nodeIds.add(b)
+    pushInputEdges(edges, a, b, id, !discoveredItemIds.has(a), !discoveredItemIds.has(b))
+    addAncestors(a)
+    addAncestors(b)
+  }
+  addAncestors(itemId)
+
+  if (includeConsumers) {
+    const seenConsumerResults = new Set<string>()
+    for (const consumer of RECIPES_BY_INPUT.get(itemId) ?? []) {
+      if (seenConsumerResults.has(consumer.result)) continue
+      seenConsumerResults.add(consumer.result)
+      nodeIds.add(consumer.result)
+      edges.push({ id: `${itemId}->${consumer.result}`, source: itemId, target: consumer.result, locked: !discoveredItemIds.has(consumer.result) })
+    }
+  }
+
+  return toGraph(nodeIds, edges, discoveredItemIds)
+}
+
 /** Every recipe whose inputs and result are all already discovered. Heavier — opt-in only. */
 export function buildDiscoveredGraph(discoveredItemIds: Set<string>): TechTreeGraph {
   const nodeIds = new Set<string>()
