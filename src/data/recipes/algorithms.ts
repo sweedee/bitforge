@@ -14,6 +14,7 @@ export const RECIPES_ALGORITHMS: Recipe[] = [
   { inputs: ['recursion', 'hash-map'], result: 'dynamic-programming' },
   { inputs: ['recursion', 'cache'], result: 'memoization' },
   { inputs: ['dijkstras-algorithm', 'sorting-algorithm'], result: 'greedy-algorithm' },
+  { inputs: ['algorithm', 'sorting-algorithm'], result: 'greedy-algorithm' },
   { inputs: ['recursion', 'conditional'], result: 'backtracking' },
   { inputs: ['quicksort', 'bubble-sort'], result: 'big-o-notation' },
   { inputs: ['dynamic-programming', 'greedy-algorithm'], result: 'knapsack-problem' },

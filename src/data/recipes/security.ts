@@ -10,6 +10,7 @@ export const RECIPES_SECURITY: Recipe[] = [
   { inputs: ['string', 'hash'], result: 'password' },
   { inputs: ['password', 'hash'], result: 'authentication' },
   { inputs: ['server', 'boolean'], result: 'firewall' },
+  { inputs: ['packet', 'boolean'], result: 'firewall' },
   { inputs: ['encryption', 'protocol'], result: 'tls' },
   { inputs: ['encryption', 'tcp'], result: 'vpn' },
   { inputs: ['bug', 'segmentation-fault'], result: 'exploit' },

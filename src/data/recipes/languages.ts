@@ -7,6 +7,7 @@ export const RECIPES_LANGUAGES: Recipe[] = [
   { inputs: ['c', 'oop'], result: 'python' },
   { inputs: ['oop', 'virtual-machine'], result: 'java' },
   { inputs: ['c', 'lambda'], result: 'javascript' },
+  { inputs: ['browser', 'function'], result: 'javascript' },
   { inputs: ['python', 'object'], result: 'ruby' },
   { inputs: ['c', 'unix'], result: 'go' },
   { inputs: ['cpp', 'segmentation-fault'], result: 'rust' },

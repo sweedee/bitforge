@@ -11,6 +11,7 @@ export const RECIPES_DATASTRUCTURES: Recipe[] = [
   { inputs: ['binary-tree', 'array'], result: 'heap' },
   { inputs: ['tree', 'tree'], result: 'graph' },
   { inputs: ['array', 'hexadecimal'], result: 'hash-map' },
+  { inputs: ['array', 'hash'], result: 'hash-map' },
   { inputs: ['hash-map', 'boolean'], result: 'set' },
   { inputs: ['tree', 'char'], result: 'trie' },
   { inputs: ['queue', 'heap'], result: 'priority-queue' },

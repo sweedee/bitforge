@@ -7,6 +7,7 @@ export const RECIPES_CONCEPTS: Recipe[] = [
   { inputs: ['variable', 'operator'], result: 'expression' },
   { inputs: ['boolean', 'expression'], result: 'conditional' },
   { inputs: ['conditional', 'register'], result: 'loop' },
+  { inputs: ['conditional', 'variable'], result: 'loop' },
   { inputs: ['expression', 'variable'], result: 'function' },
   { inputs: ['function', 'function'], result: 'recursion' },
   { inputs: ['variable', 'variable'], result: 'record' },

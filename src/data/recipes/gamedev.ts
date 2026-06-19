@@ -30,6 +30,7 @@ export const RECIPES_GAMEDEV: Recipe[] = [
   { inputs: ['hash-map', 'function'], result: 'input-mapping' },
   { inputs: ['input-buffer', 'finite-state-machine'], result: 'gesture-detection' },
   { inputs: ['file', 'clock'], result: 'audio-engine' },
+  { inputs: ['file', 'game-loop'], result: 'audio-engine' },
   { inputs: ['audio-engine', 'matrix'], result: 'spatial-audio' },
   { inputs: ['audio-engine', 'bus'], result: 'audio-mixer' },
   { inputs: ['client', 'client'], result: 'peer-to-peer-multiplayer' },
