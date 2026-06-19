@@ -1,14 +1,19 @@
 import { ProgressBar } from '@/components/ProgressBar'
 import { HintPanel } from '@/components/HintPanel'
 import { LevelBadge } from '@/components/LevelBadge'
+import { SettingsMenu } from '@/components/SettingsMenu'
 import { useGameStore } from '@/store'
 
 interface HeaderProps {
   onOpenJournal: () => void
+  onOpenStats: () => void
 }
 
-export function Header({ onOpenJournal }: HeaderProps) {
+export function Header({ onOpenJournal, onOpenStats }: HeaderProps) {
   const clearCanvas = useGameStore((s) => s.clearCanvas)
+  const tidyCanvas = useGameStore((s) => s.tidyCanvas)
+  const undoLastCombine = useGameStore((s) => s.undoLastCombine)
+  const canUndo = useGameStore((s) => s.lastCombineSnapshot !== null)
 
   return (
     <header className="flex items-center justify-between gap-3 px-4 py-2.5 border-b border-stone-800 shrink-0 flex-wrap">
@@ -30,11 +35,32 @@ export function Header({ onOpenJournal }: HeaderProps) {
           📖 Journal
         </button>
         <button
+          onClick={onOpenStats}
+          className="px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-stone-500 hover:text-stone-100 transition-colors"
+        >
+          📊 Stats
+        </button>
+        <button
+          onClick={undoLastCombine}
+          disabled={!canUndo}
+          title="Undo last combine (the discovery itself stays unlocked)"
+          className="px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-400 hover:border-stone-500 hover:text-stone-200 disabled:opacity-40 disabled:hover:border-stone-700 disabled:hover:text-stone-400 transition-colors"
+        >
+          ↩ Undo
+        </button>
+        <button
+          onClick={tidyCanvas}
+          className="px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-400 hover:border-stone-500 hover:text-stone-200 transition-colors"
+        >
+          🧹 Tidy
+        </button>
+        <button
           onClick={clearCanvas}
           className="px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-400 hover:border-stone-500 hover:text-stone-200 transition-colors"
         >
           Clear canvas
         </button>
+        <SettingsMenu />
       </div>
     </header>
   )

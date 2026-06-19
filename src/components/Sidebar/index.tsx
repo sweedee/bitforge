@@ -6,6 +6,7 @@ import { ITEMS_BY_ID } from '@/data/items'
 import { RECIPES } from '@/data/recipes'
 import { CATEGORY_LABELS, CATEGORY_ORDER } from '@/data/categories'
 import { isItemExhausted } from '@/engine/combine'
+import { computeGridPositions } from '@/lib/gridLayout'
 import { useGameStore } from '@/store'
 import { ItemChip } from '@/components/ItemChip'
 
@@ -96,15 +97,8 @@ export function Sidebar() {
 
   function handleAddAll() {
     const visibleItems = groups.flatMap((g) => g.items)
-    const cols = Math.max(1, Math.ceil(Math.sqrt(visibleItems.length)))
-    const rows = Math.max(1, Math.ceil(visibleItems.length / cols))
-    visibleItems.forEach((item, i) => {
-      const col = i % cols
-      const row = Math.floor(i / cols)
-      const x = cols === 1 ? 50 : 10 + (col / (cols - 1)) * 80
-      const y = rows === 1 ? 50 : 10 + (row / (rows - 1)) * 80
-      addCanvasToken(item.id, x, y)
-    })
+    const positions = computeGridPositions(visibleItems.length)
+    visibleItems.forEach((item, i) => addCanvasToken(item.id, positions[i].x, positions[i].y))
   }
 
   return (

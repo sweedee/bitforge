@@ -1,22 +1,44 @@
-import { motion } from 'framer-motion'
+import { useMemo, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import type { Item } from '@/types'
 import { CATEGORY_LABELS } from '@/data/categories'
 import { RARITY_LABELS, RARITY_STYLES } from '@/data/rarity'
 import { getItemStars } from '@/engine/depth'
 import { ITEMS_BY_ID } from '@/data/items'
-import { RECIPE_BY_RESULT } from '@/data/recipes'
+import { RECIPE_BY_RESULT, RECIPES_BY_INPUT } from '@/data/recipes'
+import { useGameStore } from '@/store'
+import { LineageView } from '@/components/LineageView'
 
 interface ItemDetailModalProps {
   item: Item
   onClose: () => void
 }
 
+const USABLE_IN_LIMIT = 8
+
 export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
+  const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
+  const [lineageOpen, setLineageOpen] = useState(false)
+
   const recipe = RECIPE_BY_RESULT.get(item.id)
   const ingredientA = recipe ? ITEMS_BY_ID.get(recipe.inputs[0]) : undefined
   const ingredientB = recipe ? ITEMS_BY_ID.get(recipe.inputs[1]) : undefined
   const rarity = RARITY_STYLES[item.rarity]
   const stars = getItemStars(item.id)
+
+  const usableIn = useMemo(() => {
+    const recipes = RECIPES_BY_INPUT.get(item.id) ?? []
+    return recipes
+      .filter((r) => discoveredItemIds.has(r.inputs[0] === item.id ? r.inputs[1] : r.inputs[0]))
+      .map((r) => {
+        const otherId = r.inputs[0] === item.id ? r.inputs[1] : r.inputs[0]
+        return {
+          other: ITEMS_BY_ID.get(otherId)!,
+          result: ITEMS_BY_ID.get(r.result)!,
+          discovered: discoveredItemIds.has(r.result),
+        }
+      })
+  }, [item.id, discoveredItemIds])
 
   return (
     <div
@@ -70,8 +92,45 @@ export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
           ) : (
             <span className="mt-3 text-xs uppercase tracking-widest text-stone-500">Starting element</span>
           )}
+
+          {ingredientA && ingredientB && (
+            <button
+              onClick={() => setLineageOpen(true)}
+              className="mt-1 px-2.5 py-1 text-[11px] rounded border border-stone-700 text-stone-400 hover:border-orange-500 hover:text-orange-300 transition-colors"
+            >
+              🔗 View lineage
+            </button>
+          )}
+
+          {usableIn.length > 0 && (
+            <div className="mt-3 w-full text-left">
+              <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">Used in</div>
+              <div className="flex flex-col gap-1">
+                {usableIn.slice(0, USABLE_IN_LIMIT).map(({ other, result, discovered }) => (
+                  <div key={result.id} className="flex items-center gap-1.5 text-xs text-stone-300 min-w-0">
+                    <span className="shrink-0">{other.emoji}</span>
+                    <span className="truncate">{other.name}</span>
+                    <span className="text-stone-500 shrink-0">→</span>
+                    {discovered ? (
+                      <>
+                        <span className="shrink-0">{result.emoji}</span>
+                        <span className="truncate">{result.name}</span>
+                      </>
+                    ) : (
+                      <span className="text-stone-600">???</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+              {usableIn.length > USABLE_IN_LIMIT && (
+                <span className="text-[11px] text-stone-500">+{usableIn.length - USABLE_IN_LIMIT} more</span>
+              )}
+            </div>
+          )}
         </div>
       </motion.div>
+
+      <AnimatePresence>{lineageOpen && <LineageView item={item} onClose={() => setLineageOpen(false)} />}</AnimatePresence>
     </div>
   )
 }

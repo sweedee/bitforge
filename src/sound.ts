@@ -1,4 +1,12 @@
 let _ctx: AudioContext | null = null
+let _muted = false
+let _volume = 1
+
+/** Called from a store subscriber so this module stays framework-agnostic. */
+export function setSoundSettings(muted: boolean, volume: number) {
+  _muted = muted
+  _volume = volume
+}
 
 function ctx(): AudioContext {
   if (!_ctx) _ctx = new AudioContext()
@@ -7,6 +15,7 @@ function ctx(): AudioContext {
 }
 
 function tone(freq: number, dur: number, type: OscillatorType = 'sine', vol = 0.15) {
+  if (_muted || _volume <= 0) return
   const c = ctx()
   const osc = c.createOscillator()
   const gain = c.createGain()
@@ -14,7 +23,7 @@ function tone(freq: number, dur: number, type: OscillatorType = 'sine', vol = 0.
   gain.connect(c.destination)
   osc.type = type
   osc.frequency.value = freq
-  gain.gain.setValueAtTime(vol, c.currentTime)
+  gain.gain.setValueAtTime(vol * _volume, c.currentTime)
   gain.gain.exponentialRampToValueAtTime(0.001, c.currentTime + dur)
   osc.start()
   osc.stop(c.currentTime + dur)

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ITEMS_BY_ID } from '@/data/items'
 import { rarityRank } from '@/data/rarity'
 import { getLevelIndex } from '@/engine/level'
-import { useGameStore } from '@/store'
+import { isStreakMilestone, useGameStore } from '@/store'
 import { sounds } from '@/sound'
 
 const MILESTONE_INTERVAL = 25
@@ -32,6 +32,8 @@ const TROPHY_PARTICLES = Array.from({ length: 10 }, (_, i) => {
 export function MilestoneBurst() {
   const discoveredCount = useGameStore((s) => s.discoveredItemIds.size)
   const recentDiscoveryId = useGameStore((s) => s.recentDiscoveryId)
+  const reducedMotion = useGameStore((s) => s.settings.reducedMotion)
+  const currentStreak = useGameStore((s) => s.stats.currentDiscoveryStreak)
   const prevCountRef = useRef(discoveredCount)
   const [active, setActive] = useState(false)
   const [levelUpActive, setLevelUpActive] = useState(false)
@@ -77,10 +79,21 @@ export function MilestoneBurst() {
     return () => clearTimeout(timer)
   }, [recentDiscoveryId])
 
+  // Burst on discovery-streak milestones (3, then every multiple of 5).
+  useEffect(() => {
+    if (!recentDiscoveryId) return
+    if (!isStreakMilestone(currentStreak)) return
+
+    setActive(true)
+    sounds.fanfare()
+    const timer = setTimeout(() => setActive(false), 1000)
+    return () => clearTimeout(timer)
+  }, [recentDiscoveryId, currentStreak])
+
   return (
     <>
       <AnimatePresence>
-        {active && (
+        {active && !reducedMotion && (
           <div className="fixed inset-0 pointer-events-none overflow-hidden z-40">
             {PARTICLES.map((p, i) => (
               <motion.div
@@ -96,7 +109,7 @@ export function MilestoneBurst() {
         )}
       </AnimatePresence>
       <AnimatePresence>
-        {levelUpActive && (
+        {levelUpActive && !reducedMotion && (
           <div className="fixed inset-0 pointer-events-none overflow-hidden z-40">
             {TROPHY_PARTICLES.map((p, i) => (
               <motion.div

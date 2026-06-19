@@ -51,6 +51,16 @@ export const RECIPE_INDEX: Map<string, Recipe> = new Map(
 
 export const RECIPE_BY_RESULT: Map<string, Recipe> = new Map(RECIPES.map((recipe) => [recipe.result, recipe]))
 
+/** Recipes that consume a given item id as one of their two inputs. */
+export const RECIPES_BY_INPUT: Map<string, Recipe[]> = new Map()
+for (const recipe of RECIPES) {
+  for (const inputId of recipe.inputs) {
+    const list = RECIPES_BY_INPUT.get(inputId)
+    if (list) list.push(recipe)
+    else RECIPES_BY_INPUT.set(inputId, [recipe])
+  }
+}
+
 if (import.meta.env.DEV) {
   const seenKeys = new Set<string>()
   for (const recipe of RECIPES) {

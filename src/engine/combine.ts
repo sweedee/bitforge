@@ -24,19 +24,35 @@ export interface Hint {
   recipeKey: string
 }
 
-export function getHint(discoveredItemIds: Set<string>, recipes: Recipe[]): Hint | null {
-  const candidates: Hint[] = []
+/**
+ * Hints are weighted toward results with more downstream fan-out (recipes
+ * that consume them), since rarity tracks historical obscurity rather than
+ * how much further progress a discovery unlocks.
+ */
+export function getHint(
+  discoveredItemIds: Set<string>,
+  recipes: Recipe[],
+  recipesByInput: Map<string, Recipe[]>,
+): Hint | null {
+  const candidates: { hint: Hint; weight: number }[] = []
   for (const recipe of recipes) {
     if (discoveredItemIds.has(recipe.result)) continue
     const [a, b] = recipe.inputs
     const aKnown = discoveredItemIds.has(a)
     const bKnown = discoveredItemIds.has(b)
-    if (aKnown || bKnown) {
-      candidates.push({ knownIngredientId: aKnown ? a : b, recipeKey: makeRecipeKey(a, b) })
-    }
+    if (!aKnown && !bKnown) continue
+    const fanOut = recipesByInput.get(recipe.result)?.length ?? 0
+    candidates.push({ hint: { knownIngredientId: aKnown ? a : b, recipeKey: makeRecipeKey(a, b) }, weight: fanOut + 1 })
   }
   if (candidates.length === 0) return null
-  return candidates[Math.floor(Math.random() * candidates.length)]
+
+  const totalWeight = candidates.reduce((sum, c) => sum + c.weight, 0)
+  let roll = Math.random() * totalWeight
+  for (const candidate of candidates) {
+    roll -= candidate.weight
+    if (roll <= 0) return candidate.hint
+  }
+  return candidates[candidates.length - 1].hint
 }
 
 export function isItemExhausted(itemId: string, discoveredItemIds: Set<string>, recipes: Recipe[]): boolean {

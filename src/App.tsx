@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import {
   DndContext,
@@ -15,10 +15,13 @@ import { Sidebar } from '@/components/Sidebar'
 import { CombineCanvas } from '@/components/CombineCanvas'
 import { ItemChip } from '@/components/ItemChip'
 import { JournalModal } from '@/components/JournalModal'
+import { StatsModal } from '@/components/StatsModal'
 import { DiscoveryToast } from '@/components/DiscoveryToast'
+import { AchievementToast } from '@/components/AchievementToast'
 import { MilestoneBurst } from '@/components/MilestoneBurst'
 import { ITEMS_BY_ID } from '@/data/items'
 import { useGameStore } from '@/store'
+import { setSoundSettings } from '@/sound'
 import type { DragPayload, DropPayload } from '@/types/dnd'
 
 function clamp(value: number, min: number, max: number) {
@@ -29,9 +32,25 @@ export default function App() {
   const addCanvasToken = useGameStore((s) => s.addCanvasToken)
   const moveCanvasToken = useGameStore((s) => s.moveCanvasToken)
   const combineTokens = useGameStore((s) => s.combineTokens)
+  const tickPlayTime = useGameStore((s) => s.tickPlayTime)
+  const muted = useGameStore((s) => s.settings.muted)
+  const volume = useGameStore((s) => s.settings.volume)
 
   const [activeDrag, setActiveDrag] = useState<DragPayload | null>(null)
   const [journalOpen, setJournalOpen] = useState(false)
+  const [statsOpen, setStatsOpen] = useState(false)
+
+  useEffect(() => {
+    const TICK_MS = 5000
+    const interval = setInterval(() => {
+      if (document.visibilityState === 'visible') tickPlayTime(TICK_MS)
+    }, TICK_MS)
+    return () => clearInterval(interval)
+  }, [tickPlayTime])
+
+  useEffect(() => {
+    setSoundSettings(muted, volume)
+  }, [muted, volume])
 
   const sensors = useSensors(
     useSensor(MouseSensor, { activationConstraint: { distance: 6 } }),
@@ -87,7 +106,7 @@ export default function App() {
   return (
     <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="flex h-screen flex-col bg-stone-950 text-stone-100 font-mono">
-        <Header onOpenJournal={() => setJournalOpen(true)} />
+        <Header onOpenJournal={() => setJournalOpen(true)} onOpenStats={() => setStatsOpen(true)} />
         <div className="flex flex-1 min-h-0 flex-col md:flex-row">
           <div className="shrink-0 border-stone-800 w-full md:w-72 h-[38vh] md:h-auto border-b md:border-b-0 md:border-r">
             <Sidebar />
@@ -105,8 +124,10 @@ export default function App() {
       </DragOverlay>
 
       <AnimatePresence>{journalOpen && <JournalModal onClose={() => setJournalOpen(false)} />}</AnimatePresence>
+      <AnimatePresence>{statsOpen && <StatsModal onClose={() => setStatsOpen(false)} />}</AnimatePresence>
 
       <DiscoveryToast />
+      <AchievementToast />
       <MilestoneBurst />
     </DndContext>
   )
