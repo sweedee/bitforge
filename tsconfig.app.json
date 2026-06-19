@@ -23,6 +23,10 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+
 
     /* Path aliases — baseUrl intentionally omitted (TS 6 deprecation) */
     "paths": {
