@@ -1,5 +1,5 @@
-import { memo, useMemo, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { memo, useMemo } from 'react'
+import { motion } from 'framer-motion'
 import type { Item } from '@/types'
 import { CATEGORY_LABELS } from '@/data/categories'
 import { RARITY_LABELS, RARITY_STYLES } from '@/data/rarity'
@@ -7,7 +7,6 @@ import { getItemStars } from '@/engine/depth'
 import { ITEMS_BY_ID } from '@/data/items'
 import { RECIPE_BY_RESULT, RECIPES_BY_INPUT } from '@/data/recipes'
 import { useGameStore } from '@/store'
-import { LineageView } from '@/components/LineageView'
 
 interface ItemDetailModalProps {
   item: Item
@@ -18,7 +17,6 @@ const USABLE_IN_LIMIT = 8
 
 export const ItemDetailModal = memo(function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
   const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
-  const [lineageOpen, setLineageOpen] = useState(false)
 
   const recipe = RECIPE_BY_RESULT.get(item.id)
   const ingredientA = recipe ? ITEMS_BY_ID.get(recipe.inputs[0]) : undefined
@@ -93,15 +91,6 @@ export const ItemDetailModal = memo(function ItemDetailModal({ item, onClose }: 
             <span className="mt-3 text-xs uppercase tracking-widest text-stone-500">Starting element</span>
           )}
 
-          {ingredientA && ingredientB && (
-            <button
-              onClick={() => setLineageOpen(true)}
-              className="mt-1 px-2.5 py-1 text-[11px] rounded border border-stone-700 text-stone-400 hover:border-orange-500 hover:text-orange-300 transition-colors"
-            >
-              🔗 View lineage
-            </button>
-          )}
-
           {usableIn.length > 0 && (
             <div className="mt-3 w-full text-left">
               <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">Used in</div>
@@ -129,8 +118,6 @@ export const ItemDetailModal = memo(function ItemDetailModal({ item, onClose }: 
           )}
         </div>
       </motion.div>
-
-      <AnimatePresence>{lineageOpen && <LineageView item={item} onClose={() => setLineageOpen(false)} />}</AnimatePresence>
     </div>
   )
 })

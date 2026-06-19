@@ -16,7 +16,6 @@ import { CombineCanvas } from '@/components/CombineCanvas'
 import { ItemChip } from '@/components/ItemChip'
 import { JournalModal } from '@/components/JournalModal'
 import { StatsModal } from '@/components/StatsModal'
-import { TechTreeModal } from '@/components/TechTreeModal'
 import { TrashZone } from '@/components/TrashZone'
 import { ToastHost } from '@/components/ToastHost'
 import { MilestoneBurst } from '@/components/MilestoneBurst'
@@ -43,7 +42,6 @@ export default function App() {
   const [activeDrag, setActiveDrag] = useState<DragPayload | null>(null)
   const [journalOpen, setJournalOpen] = useState(false)
   const [statsOpen, setStatsOpen] = useState(false)
-  const [techTreeOpen, setTechTreeOpen] = useState(false)
   const [devMode] = useState(() => new URLSearchParams(window.location.search).has('dev'))
 
   useEffect(() => {
@@ -118,11 +116,7 @@ export default function App() {
   return (
     <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="flex h-screen flex-col bg-stone-950 text-stone-100 font-mono">
-        <Header
-          onOpenJournal={() => setJournalOpen(true)}
-          onOpenStats={() => setStatsOpen(true)}
-          onOpenTechTree={() => setTechTreeOpen(true)}
-        />
+        <Header onOpenJournal={() => setJournalOpen(true)} onOpenStats={() => setStatsOpen(true)} />
         <div className="flex flex-1 min-h-0 flex-col md:flex-row">
           <div className="shrink-0 border-stone-800 w-full md:w-72 h-[38vh] md:h-auto border-b md:border-b-0 md:border-r">
             <Sidebar />
@@ -141,7 +135,6 @@ export default function App() {
 
       <AnimatePresence>{journalOpen && <JournalModal onClose={() => setJournalOpen(false)} />}</AnimatePresence>
       <AnimatePresence>{statsOpen && <StatsModal onClose={() => setStatsOpen(false)} />}</AnimatePresence>
-      <AnimatePresence>{techTreeOpen && <TechTreeModal onClose={() => setTechTreeOpen(false)} />}</AnimatePresence>
 
       <TrashZone visible={activeDrag?.kind === 'canvas-token'} />
       <ToastHost />
