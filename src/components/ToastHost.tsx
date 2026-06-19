@@ -6,7 +6,7 @@ import { RARITY_LABELS, RARITY_STYLES, rarityRank } from '@/data/rarity'
 import { getItemStars } from '@/engine/depth'
 import { isStreakMilestone, useGameStore } from '@/store'
 
-const TOAST_DURATION_MS = { discovery: 2600, achievement: 3200 } as const
+const TOAST_DURATION_MS = { discovery: 4000, achievement: 4500 } as const
 
 export function ToastHost() {
   const entry = useGameStore((s) => s.toastQueue[0])
