@@ -89,7 +89,7 @@ export default function App() {
       <div className="flex h-screen flex-col bg-stone-950 text-stone-100 font-mono">
         <Header onOpenJournal={() => setJournalOpen(true)} />
         <div className="flex flex-1 min-h-0 flex-col md:flex-row">
-          <div className="shrink-0 border-stone-800 w-full md:w-72 h-56 md:h-auto border-b md:border-b-0 md:border-r">
+          <div className="shrink-0 border-stone-800 w-full md:w-72 h-[48vh] md:h-auto border-b md:border-b-0 md:border-r">
             <Sidebar />
           </div>
           <CombineCanvas />

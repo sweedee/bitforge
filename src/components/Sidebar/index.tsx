@@ -120,7 +120,7 @@ export function Sidebar() {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value as Category | 'all')}
-            className="w-28 shrink-0 px-1.5 py-1.5 text-sm rounded border border-stone-700 bg-stone-900 text-stone-200 focus:outline-none focus:border-orange-500"
+            className="w-24 shrink-0 pl-1.5 pr-4 py-1.5 text-xs rounded border border-stone-700 bg-stone-900 text-stone-200 focus:outline-none focus:border-orange-500 truncate"
           >
             <option value="all">All domains</option>
             {CATEGORY_ORDER.filter((category) => availableCategories.includes(category)).map((category) => (
