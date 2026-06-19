@@ -41,13 +41,6 @@ function DraggableSidebarItem({
       className={`relative touch-pan-y cursor-grab active:cursor-grabbing active:scale-95 transition-transform ${isDragging ? 'opacity-0' : ''}`}
     >
       <ItemChip item={item} highlighted={highlighted} dim={exhausted} />
-      {exhausted && (
-        <span className="absolute -top-1.5 -right-1.5 bg-emerald-700 text-emerald-100 rounded-full w-4 h-4 flex items-center justify-center leading-none">
-          <svg viewBox="0 0 16 16" width="9" height="9" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="3,8.5 6.5,12 13,4" />
-          </svg>
-        </span>
-      )}
     </button>
   )
 }

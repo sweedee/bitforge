@@ -113,17 +113,7 @@ export function JournalModal({ onClose }: JournalModalProps) {
                       onClick={() => setSelectedItem(item)}
                       className="relative cursor-pointer active:scale-95 transition-transform"
                     >
-                      <ItemChip item={item} />
-                      {exhaustedIds.has(item.id) && (
-                        <span
-                          title="Fully explored"
-                          className="absolute -top-1.5 -right-1.5 bg-emerald-700 text-emerald-100 rounded-full w-4 h-4 flex items-center justify-center leading-none"
-                        >
-                          <svg viewBox="0 0 16 16" width="9" height="9" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="3,8.5 6.5,12 13,4" />
-                          </svg>
-                        </span>
-                      )}
+                      <ItemChip item={item} dim={exhaustedIds.has(item.id)} />
                     </button>
                   ) : (
                     <div
