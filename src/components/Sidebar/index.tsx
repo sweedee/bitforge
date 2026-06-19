@@ -80,7 +80,17 @@ export function Sidebar() {
 
   const groups = useMemo(() => {
     if (sortAlpha) {
-      return [{ category: 'all' as const, items: [...filteredItems].sort((a, b) => a.name.localeCompare(b.name)) }]
+      const byLetter = new Map<string, Item[]>()
+      for (const item of filteredItems) {
+        const letter = /[A-Za-z]/.test(item.name[0]) ? item.name[0].toUpperCase() : '#'
+        const group = byLetter.get(letter) ?? []
+        group.push(item)
+        byLetter.set(letter, group)
+      }
+      for (const group of byLetter.values()) group.sort((a, b) => a.name.localeCompare(b.name))
+      return [...byLetter.keys()]
+        .sort((a, b) => a.localeCompare(b))
+        .map((letter) => ({ key: letter, label: letter, items: byLetter.get(letter)! }))
     }
     const byCategory = new Map<Category, Item[]>()
     for (const item of filteredItems) {
@@ -90,7 +100,8 @@ export function Sidebar() {
     }
     for (const group of byCategory.values()) group.sort((a, b) => a.name.localeCompare(b.name))
     return CATEGORY_ORDER.filter((category) => byCategory.has(category)).map((category) => ({
-      category,
+      key: category,
+      label: CATEGORY_LABELS[category],
       items: byCategory.get(category)!,
     }))
   }, [filteredItems, sortAlpha])
@@ -163,11 +174,9 @@ export function Sidebar() {
       </div>
 
       <div className="flex-1 overflow-y-auto p-2.5 space-y-3">
-        {groups.map(({ category, items }) => (
-          <div key={category}>
-            {category !== 'all' && (
-              <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">{CATEGORY_LABELS[category]}</div>
-            )}
+        {groups.map(({ key, label, items }) => (
+          <div key={key}>
+            <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">{label}</div>
             <div className="flex flex-wrap gap-2 content-start">
               {items.map((item) => (
                 <DraggableSidebarItem
