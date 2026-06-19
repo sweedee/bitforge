@@ -55,7 +55,7 @@
     - [x] Kruskal's Algorithm
     - [x] Prim's Algorithm
   - [x] Topological Sort
-  - [x] Strongly Connected Components
+  - [x] Strongly Connected Components <!-- already implemented as 'tarjans-algorithm' in algorithms.ts -->
     - [x] Tarjan's Algorithm
   - [x] Articulation Points & Bridges
   - [x] Lowest Common Ancestor
