@@ -120,7 +120,7 @@ export default function App() {
 
   return (
     <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <div className="flex h-screen flex-col bg-stone-950 text-stone-100 font-mono">
+      <div className="flex h-dvh flex-col bg-stone-950 text-stone-100 font-mono">
         <Header
           onOpenJournal={() => setJournalOpen(true)}
           onOpenStats={() => setStatsOpen(true)}
