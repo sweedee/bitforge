@@ -127,7 +127,7 @@ export default function App() {
           onOpenHistory={() => setHistoryOpen(true)}
         />
         <div className="flex flex-1 min-h-0 flex-col md:flex-row">
-          <div className="shrink-0 border-stone-800 w-full md:w-80 h-[38vh] md:h-auto border-b md:border-b-0 md:border-r">
+          <div className="shrink-0 border-stone-800 w-full md:w-96 h-[38vh] md:h-auto border-b md:border-b-0 md:border-r">
             <Sidebar />
           </div>
           <CombineCanvas />

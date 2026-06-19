@@ -14,18 +14,11 @@ import { sounds } from '@/sound'
 import { ItemChip } from '@/components/ItemChip'
 import { ConfirmBulkAddModal } from '@/components/ConfirmBulkAddModal'
 
-const ITEMS_PER_ROW = 3
 const BULK_ADD_WARNING_THRESHOLD = 18
 const BULK_ADD_CAPPED_COUNT = 50
 
 function randomCoord(min: number, max: number) {
   return min + Math.random() * (max - min)
-}
-
-function chunk<T>(items: T[], size: number): T[][] {
-  const chunks: T[][] = []
-  for (let i = 0; i < items.length; i += size) chunks.push(items.slice(i, i + size))
-  return chunks
 }
 
 function DraggableSidebarItem({
@@ -124,9 +117,7 @@ export function Sidebar() {
     const flat: SidebarRow[] = []
     for (const group of groups) {
       flat.push({ kind: 'header', key: `header:${group.key}`, label: group.label })
-      for (const [i, itemsChunk] of chunk(group.items, ITEMS_PER_ROW).entries()) {
-        flat.push({ kind: 'items', key: `items:${group.key}:${i}`, items: itemsChunk })
-      }
+      flat.push({ kind: 'items', key: `items:${group.key}`, items: group.items })
     }
     return flat
   }, [groups])
@@ -134,7 +125,11 @@ export function Sidebar() {
   const virtualizer = useVirtualizer({
     count: rows.length,
     getScrollElement: () => scrollRef.current,
-    estimateSize: (index) => (rows[index]?.kind === 'header' ? 24 : 40),
+    estimateSize: (index) => {
+      const row = rows[index]
+      if (row?.kind === 'header') return 24
+      return 8 + Math.ceil((row?.items.length ?? 0) / 8) * 40
+    },
     overscan: 10,
   })
 
