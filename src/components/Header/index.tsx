@@ -7,6 +7,7 @@ import { useGameStore } from '@/store'
 interface HeaderProps {
   onOpenJournal: () => void
   onOpenStats: () => void
+  onOpenHistory: () => void
 }
 
 function streakFlames(streak: number): string {
@@ -15,7 +16,7 @@ function streakFlames(streak: number): string {
   return '🔥'
 }
 
-export function Header({ onOpenJournal, onOpenStats }: HeaderProps) {
+export function Header({ onOpenJournal, onOpenStats, onOpenHistory }: HeaderProps) {
   const clearCanvas = useGameStore((s) => s.clearCanvas)
   const tidyCanvas = useGameStore((s) => s.tidyCanvas)
   const undoLastCombine = useGameStore((s) => s.undoLastCombine)
@@ -55,6 +56,12 @@ export function Header({ onOpenJournal, onOpenStats }: HeaderProps) {
           className="px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-stone-500 hover:text-stone-100 transition-colors"
         >
           📊 Stats
+        </button>
+        <button
+          onClick={onOpenHistory}
+          className="px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-stone-500 hover:text-stone-100 transition-colors"
+        >
+          🕘 History
         </button>
         <button
           onClick={undoLastCombine}

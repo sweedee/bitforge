@@ -1,6 +1,6 @@
 import type { StateCreator } from 'zustand'
 import { ITEMS, STARTER_ITEM_IDS } from '@/data/items'
-import { DEFAULT_STATS, saveAchievements, saveStats } from './statsAchievementsSlice'
+import { DEFAULT_STATS, saveAchievements, saveHistory, saveStats } from './statsAchievementsSlice'
 import type { DiscoverySlice, GameStore } from './types'
 
 const LS_DISCOVERED_KEY = 'bitforge:discovered'
@@ -60,6 +60,7 @@ export const createDiscoverySlice: StateCreator<GameStore, [], [], DiscoverySlic
     updated.add(itemId)
     saveDiscovered(updated)
     set({ discoveredItemIds: updated })
+    get().addHistoryEntry({ kind: 'discovery', itemId, at: Date.now() })
     get().checkAchievements()
   },
 
@@ -75,10 +76,12 @@ export const createDiscoverySlice: StateCreator<GameStore, [], [], DiscoverySlic
     saveDiscoveredImmediate(starters)
     saveAchievements(new Set())
     saveStats(DEFAULT_STATS)
+    saveHistory([])
     set({
       discoveredItemIds: starters,
       unlockedAchievementIds: new Set(),
       stats: { ...DEFAULT_STATS },
+      history: [],
       hintTargetId: null,
       hintTier: 0,
       highlightedItemIds: [],

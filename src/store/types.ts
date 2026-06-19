@@ -2,6 +2,10 @@ import type { CanvasToken } from '@/types'
 
 export type ToastEntry = { kind: 'discovery'; itemId: string } | { kind: 'achievement'; achievementId: string }
 
+export type HistoryEntry =
+  | { kind: 'discovery'; itemId: string; at: number }
+  | { kind: 'achievement'; achievementId: string; at: number }
+
 export interface StatsState {
   totalAttempts: number
   totalSuccesses: number
@@ -65,6 +69,8 @@ export interface StatsAchievementsSlice {
   tickPlayTime: (ms: number) => void
   unlockedAchievementIds: Set<string>
   checkAchievements: () => void
+  history: HistoryEntry[]
+  addHistoryEntry: (entry: HistoryEntry) => void
 }
 
 export interface HintsSlice {

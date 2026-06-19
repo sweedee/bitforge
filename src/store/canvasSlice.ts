@@ -114,6 +114,7 @@ export const createCanvasSlice: StateCreator<GameStore, [], [], CanvasSlice> = (
         longestDiscoveryStreak: Math.max(stats.longestDiscoveryStreak, currentDiscoveryStreak),
       }
       saveStats(nextStats)
+      get().addHistoryEntry({ kind: 'discovery', itemId: result.resultId, at: Date.now() })
       const hintResolved = get().hintTargetId === result.resultId
       set({
         discoveredItemIds: updated,
