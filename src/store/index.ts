@@ -356,7 +356,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
       })
     }
     const positions = computeGridPositions(tokens.length)
-    set({ canvasTokens: tokens.map((t, i) => ({ ...t, x: positions[i].x, y: positions[i].y })) })
+    set({ canvasTokens: tokens.map((t, i) => ({ ...t, x: positions[i]!.x, y: positions[i]!.y })) })
   },
 
   combineTokens: (instanceIdA, instanceIdB) => {

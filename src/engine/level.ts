@@ -38,13 +38,13 @@ export function getTotalXp(discoveredItemIds: Set<string>, itemsById: Map<string
 export function getLevelIndex(xp: number): number {
   let index = 0
   for (let i = 0; i < LEVEL_TIERS.length; i++) {
-    if (xp >= LEVEL_TIERS[i].threshold) index = i
+    if (xp >= LEVEL_TIERS[i]!.threshold) index = i
   }
   return index
 }
 
 export function getLevelTitle(xp: number): string {
-  return LEVEL_TIERS[getLevelIndex(xp)].title
+  return LEVEL_TIERS[getLevelIndex(xp)]!.title
 }
 
 export interface LevelProgress {
@@ -55,7 +55,7 @@ export interface LevelProgress {
 
 export function getLevelProgress(xp: number): LevelProgress {
   const levelIndex = getLevelIndex(xp)
-  const current = LEVEL_TIERS[levelIndex].threshold
+  const current = LEVEL_TIERS[levelIndex]!.threshold
   const next = LEVEL_TIERS[levelIndex + 1]?.threshold
   if (next === undefined) return { levelIndex, pct: 100 }
   return { levelIndex, pct: Math.min(100, Math.round(((xp - current) / (next - current)) * 100)) }

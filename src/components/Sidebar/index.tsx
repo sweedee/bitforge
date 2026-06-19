@@ -82,7 +82,8 @@ export function Sidebar() {
     if (sortAlpha) {
       const byLetter = new Map<string, Item[]>()
       for (const item of filteredItems) {
-        const letter = /[A-Za-z]/.test(item.name[0]) ? item.name[0].toUpperCase() : '#'
+        const firstChar = item.name[0]
+        const letter = firstChar && /[A-Za-z]/.test(firstChar) ? firstChar.toUpperCase() : '#'
         const group = byLetter.get(letter) ?? []
         group.push(item)
         byLetter.set(letter, group)
@@ -118,7 +119,7 @@ export function Sidebar() {
   function handleAddAll() {
     const visibleItems = groups.flatMap((g) => g.items)
     const positions = computeGridPositions(visibleItems.length)
-    visibleItems.forEach((item, i) => addCanvasToken(item.id, positions[i].x, positions[i].y, { silent: true }))
+    visibleItems.forEach((item, i) => addCanvasToken(item.id, positions[i]!.x, positions[i]!.y, { silent: true }))
     if (visibleItems.length > 0) sounds.place()
   }
 

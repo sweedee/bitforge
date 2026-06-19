@@ -6,7 +6,7 @@ export function LevelBadge() {
   const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
   const xp = getTotalXp(discoveredItemIds, ITEMS_BY_ID)
   const { levelIndex, pct } = getLevelProgress(xp)
-  const tier = LEVEL_TIERS[levelIndex]
+  const tier = LEVEL_TIERS[levelIndex]!
   const next = LEVEL_TIERS[levelIndex + 1]
 
   return (

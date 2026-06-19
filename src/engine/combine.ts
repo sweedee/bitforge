@@ -60,7 +60,7 @@ export function getHint(
     roll -= candidate.weight
     if (roll <= 0) return candidate.hint
   }
-  return candidates[candidates.length - 1].hint
+  return candidates[candidates.length - 1]!.hint
 }
 
 /** All item ids that combine with `itemId` in some known recipe (used by easy mode to highlight valid drop targets). */
