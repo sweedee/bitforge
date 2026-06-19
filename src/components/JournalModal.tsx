@@ -15,17 +15,15 @@ interface JournalModalProps {
   onClose: () => void
 }
 
-const ITEMS_PER_ROW = 8
-
-function chunk<T>(items: T[], size: number): T[][] {
-  const chunks: T[][] = []
-  for (let i = 0; i < items.length; i += size) chunks.push(items.slice(i, i + size))
-  return chunks
+type JournalRow = {
+  kind: 'category'
+  key: string
+  label: string
+  discovered: boolean
+  discoveredCount: number
+  total: number
+  items: Item[]
 }
-
-type JournalRow =
-  | { kind: 'header'; key: string; label: string; discovered: boolean; discoveredCount: number; total: number }
-  | { kind: 'items'; key: string; items: Item[] }
 
 export function JournalModal({ onClose }: JournalModalProps) {
   const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
@@ -71,31 +69,27 @@ export function JournalModal({ onClose }: JournalModalProps) {
     })
   }, [discoveredItemIds, rarityFilter, hideExplored, exhaustedIds])
 
-  const rows = useMemo(() => {
-    const flat: JournalRow[] = []
-    for (const group of groups) {
-      flat.push({
-        kind: 'header',
-        key: `header:${group.category}`,
+  const rows = useMemo(
+    () =>
+      groups.map((group): JournalRow => ({
+        kind: 'category',
+        key: group.category,
         label: CATEGORY_LABELS[group.category],
         discovered: group.discovered,
         discoveredCount: group.discoveredCount,
         total: group.items.length,
-      })
-      for (const [i, itemsChunk] of chunk(group.items, ITEMS_PER_ROW).entries()) {
-        flat.push({ kind: 'items', key: `items:${group.category}:${i}`, items: itemsChunk })
-      }
-    }
-    return flat
-  }, [groups])
+        items: group.items,
+      })),
+    [groups],
+  )
 
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const virtualizer = useVirtualizer({
     count: rows.length,
     getScrollElement: () => scrollRef.current,
-    estimateSize: (index) => (rows[index]?.kind === 'header' ? 24 : 40),
-    overscan: 10,
+    estimateSize: (index) => 24 + Math.ceil((rows[index]?.items.length ?? 0) / 8) * 40,
+    overscan: 5,
   })
 
   return (
@@ -153,33 +147,30 @@ export function JournalModal({ onClose }: JournalModalProps) {
                   data-index={virtualRow.index}
                   style={{ position: 'absolute', top: 0, left: 0, right: 0, transform: `translateY(${virtualRow.start}px)` }}
                 >
-                  {row.kind === 'header' ? (
-                    <div className={`text-xs uppercase tracking-widest mb-2 mt-3 ${row.discovered ? 'text-amber-400' : 'text-stone-600'}`}>
-                      {row.label} <span className="text-stone-500">· {row.discoveredCount}/{row.total}</span>
-                    </div>
-                  ) : (
-                    <div className="flex flex-wrap gap-2 pb-2">
-                      {row.items.map((item) =>
-                        discoveredItemIds.has(item.id) ? (
-                          <button
-                            key={item.id}
-                            onClick={() => setSelectedItem(item)}
-                            className="relative cursor-pointer active:scale-95 transition-transform"
-                          >
-                            <ItemChip item={item} dim={exhaustedIds.has(item.id)} />
-                          </button>
-                        ) : (
-                          <div
-                            key={item.id}
-                            title="Undiscovered"
-                            className="flex items-center justify-center w-9 h-9 rounded-lg border border-stone-800 bg-stone-800/40 text-stone-600 text-sm select-none"
-                          >
-                            ?
-                          </div>
-                        ),
-                      )}
-                    </div>
-                  )}
+                  <div className={`text-xs uppercase tracking-widest pb-2 pt-3 ${row.discovered ? 'text-amber-400' : 'text-stone-600'}`}>
+                    {row.label} <span className="text-stone-500">· {row.discoveredCount}/{row.total}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2 pb-2">
+                    {row.items.map((item) =>
+                      discoveredItemIds.has(item.id) ? (
+                        <button
+                          key={item.id}
+                          onClick={() => setSelectedItem(item)}
+                          className="relative cursor-pointer active:scale-95 transition-transform"
+                        >
+                          <ItemChip item={item} dim={exhaustedIds.has(item.id)} />
+                        </button>
+                      ) : (
+                        <div
+                          key={item.id}
+                          title="Undiscovered"
+                          className="flex items-center justify-center w-9 h-9 rounded-lg border border-stone-800 bg-stone-800/40 text-stone-600 text-sm select-none"
+                        >
+                          ?
+                        </div>
+                      ),
+                    )}
+                  </div>
                 </div>
               )
             })}

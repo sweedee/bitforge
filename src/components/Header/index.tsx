@@ -38,7 +38,7 @@ function MoreMenu({
   }
 
   return (
-    <div className="relative shrink-0">
+    <div className="relative shrink-0 sm:hidden">
       <button
         onClick={() => setOpen((o) => !o)}
         title="More"
@@ -129,7 +129,36 @@ export function Header({ onOpenJournal, onOpenStats, onOpenHistory }: HeaderProp
             🗑️<span className="hidden sm:inline"> Clear</span>
           </button>
 
-          <div className="hidden sm:block h-5 w-px bg-stone-800" />
+          <div className="hidden sm:flex items-center gap-1.5">
+            <div className="h-5 w-px bg-stone-800" />
+            <button
+              onClick={onOpenJournal}
+              className="px-2.5 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-stone-500 hover:text-stone-100 transition-colors"
+            >
+              📖 Journal
+            </button>
+            <button
+              onClick={onOpenStats}
+              className="px-2.5 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-stone-500 hover:text-stone-100 transition-colors"
+            >
+              📊 Stats
+            </button>
+            <button
+              onClick={onOpenHistory}
+              className="px-2.5 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-stone-500 hover:text-stone-100 transition-colors"
+            >
+              🕘 History
+            </button>
+            <button
+              onClick={undoLastCombine}
+              disabled={!canUndo}
+              title="Undo last combine (the discovery itself stays unlocked)"
+              className="px-2.5 py-1.5 text-xs rounded border border-stone-700 text-stone-400 hover:border-stone-500 hover:text-stone-200 disabled:opacity-40 disabled:hover:border-stone-700 disabled:hover:text-stone-400 transition-colors"
+            >
+              ↩ Undo
+            </button>
+            <div className="h-5 w-px bg-stone-800" />
+          </div>
 
           <MoreMenu
             onOpenJournal={onOpenJournal}
