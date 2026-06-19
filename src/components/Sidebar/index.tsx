@@ -60,6 +60,7 @@ export function Sidebar() {
   const [query, setQuery] = useState('')
   const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all')
   const [hideExhausted, setHideExhausted] = useState(false)
+  const [sortAlpha, setSortAlpha] = useState(false)
 
   const exhaustedIds = useMemo(() => {
     const set = new Set<string>()
@@ -69,15 +70,20 @@ export function Sidebar() {
     return set
   }, [discoveredItemIds])
 
-  const groups = useMemo(() => {
+  const filteredItems = useMemo(() => {
     const list = [...discoveredItemIds].map((id) => ITEMS_BY_ID.get(id)!).filter(Boolean)
-    const filtered = list
+    return list
       .filter((item) => categoryFilter === 'all' || item.category === categoryFilter)
       .filter((item) => item.name.toLowerCase().includes(query.toLowerCase()))
       .filter((item) => !hideExhausted || !exhaustedIds.has(item.id) || highlightedItemIds.includes(item.id))
+  }, [discoveredItemIds, categoryFilter, query, hideExhausted, exhaustedIds, highlightedItemIds])
 
+  const groups = useMemo(() => {
+    if (sortAlpha) {
+      return [{ category: 'all' as const, items: [...filteredItems].sort((a, b) => a.name.localeCompare(b.name)) }]
+    }
     const byCategory = new Map<Category, Item[]>()
-    for (const item of filtered) {
+    for (const item of filteredItems) {
       const group = byCategory.get(item.category) ?? []
       group.push(item)
       byCategory.set(item.category, group)
@@ -87,7 +93,7 @@ export function Sidebar() {
       category,
       items: byCategory.get(category)!,
     }))
-  }, [discoveredItemIds, categoryFilter, query, hideExhausted, exhaustedIds, highlightedItemIds])
+  }, [filteredItems, sortAlpha])
 
   const availableCategories = useMemo(() => {
     const set = new Set<Category>()
@@ -138,6 +144,15 @@ export function Sidebar() {
             />
             <span className="truncate">Hide fully explored</span>
           </label>
+          <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer min-w-0 shrink-0">
+            <input
+              type="checkbox"
+              checked={sortAlpha}
+              onChange={(e) => setSortAlpha(e.target.checked)}
+              className="accent-orange-500 shrink-0"
+            />
+            <span className="truncate">A–Z</span>
+          </label>
           <button
             onClick={handleAddAll}
             className="px-2 py-1 text-xs rounded border border-stone-700 text-stone-300 hover:border-orange-500 hover:text-orange-300 transition-colors shrink-0"
@@ -150,7 +165,9 @@ export function Sidebar() {
       <div className="flex-1 overflow-y-auto p-2.5 space-y-3">
         {groups.map(({ category, items }) => (
           <div key={category}>
-            <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">{CATEGORY_LABELS[category]}</div>
+            {category !== 'all' && (
+              <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">{CATEGORY_LABELS[category]}</div>
+            )}
             <div className="flex flex-wrap gap-2 content-start">
               {items.map((item) => (
                 <DraggableSidebarItem
