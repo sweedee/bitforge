@@ -12,8 +12,8 @@ interface CanvasTokenProps {
   shake: boolean
   justMerged: boolean
   compatible?: boolean
-  onClick: () => void
-  onDelete: () => void
+  onClick: (instanceId: string) => void
+  onDelete: (instanceId: string) => void
 }
 
 export function CanvasToken({ token, selected, shake, justMerged, compatible = false, onClick, onDelete }: CanvasTokenProps) {
@@ -43,7 +43,7 @@ export function CanvasToken({ token, selected, shake, justMerged, compatible = f
       }}
       {...attributes}
       {...listeners}
-      onClick={onClick}
+      onClick={() => onClick(token.instanceId)}
       onDoubleClick={(e) => {
         e.stopPropagation()
         addCanvasToken(token.itemId, token.x, token.y)
@@ -64,7 +64,7 @@ export function CanvasToken({ token, selected, shake, justMerged, compatible = f
         onPointerDown={(e) => e.stopPropagation()}
         onClick={(e) => {
           e.stopPropagation()
-          onDelete()
+          onDelete(token.instanceId)
         }}
         className="absolute -top-1.5 -right-1.5 flex items-center justify-center w-4 h-4 rounded-full bg-stone-800 border border-stone-600 text-stone-400 text-[10px] leading-none opacity-70 hover:opacity-100 hover:bg-red-900 hover:text-red-200 hover:border-red-500 transition-colors"
       >

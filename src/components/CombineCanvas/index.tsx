@@ -77,8 +77,8 @@ export function CombineCanvas() {
             compatible={
               token.instanceId !== draggingInstanceId && (compatiblePartnerIds?.has(token.itemId) ?? false)
             }
-            onClick={() => handleTokenClick(token.instanceId)}
-            onDelete={() => handleTokenDelete(token.instanceId)}
+            onClick={handleTokenClick}
+            onDelete={handleTokenDelete}
           />
         ))}
       </AnimatePresence>
