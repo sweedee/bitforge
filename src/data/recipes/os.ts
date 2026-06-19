@@ -68,7 +68,7 @@ export const RECIPES_OS: Recipe[] = [
   { inputs: ['queue', 'peripheral-interfaces'], result: 'spooling' },
   { inputs: ['queue', 'memory-address'], result: 'buffering' },
   { inputs: ['kernel', 'exception'], result: 'bsod' },
-  { inputs: ['thread', 'queue'], result: 'thread-pool' },
+  { inputs: ['thread', 'object-pool'], result: 'thread-pool' },
   { inputs: ['thread', 'context-switching'], result: 'green-threads' },
   { inputs: ['mark-and-sweep', 'reference-counting'], result: 'generational-gc' },
 ]
