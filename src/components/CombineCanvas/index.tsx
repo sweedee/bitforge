@@ -10,6 +10,8 @@ export function CombineCanvas() {
   const combineTokens = useGameStore((s) => s.combineTokens)
   const lastFailedComboInstanceIds = useGameStore((s) => s.lastFailedComboInstanceIds)
   const clearFailedCombo = useGameStore((s) => s.clearFailedCombo)
+  const justMergedInstanceId = useGameStore((s) => s.justMergedInstanceId)
+  const clearJustMerged = useGameStore((s) => s.clearJustMerged)
 
   const [selectedInstanceId, setSelectedInstanceId] = useState<string | null>(null)
 
@@ -21,6 +23,12 @@ export function CombineCanvas() {
     const timer = setTimeout(clearFailedCombo, 240)
     return () => clearTimeout(timer)
   }, [lastFailedComboInstanceIds, clearFailedCombo])
+
+  useEffect(() => {
+    if (!justMergedInstanceId) return
+    const timer = setTimeout(clearJustMerged, 400)
+    return () => clearTimeout(timer)
+  }, [justMergedInstanceId, clearJustMerged])
 
   function handleTokenClick(instanceId: string) {
     if (selectedInstanceId === null) {
@@ -49,6 +57,7 @@ export function CombineCanvas() {
             token={token}
             selected={token.instanceId === selectedInstanceId}
             shake={lastFailedComboInstanceIds?.includes(token.instanceId) ?? false}
+            justMerged={token.instanceId === justMergedInstanceId}
             onClick={() => handleTokenClick(token.instanceId)}
           />
         ))}

@@ -21,6 +21,7 @@ export const CATEGORY_ORDER: Category[] = [
   'gamedev',
   'cloud',
   'capstone',
+  'fun',
 ]
 
 export const CATEGORY_LABELS: Record<Category, string> = {
@@ -44,4 +45,5 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   gamedev: 'Game Development',
   cloud: 'Cloud Computing',
   capstone: 'Capstone',
+  fun: 'Fun & Memes',
 }

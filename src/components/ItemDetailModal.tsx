@@ -51,7 +51,7 @@ export function ItemDetailModal({ item, onClose }: ItemDetailModalProps) {
             )}
           </div>
           {item.milestone && (
-            <span className="text-[11px] text-amber-300 tracking-wide">⭐ Milestone · {item.milestone}</span>
+            <span className="text-[11px] text-amber-300 tracking-wide">🏆 Milestone · {item.milestone}</span>
           )}
 
           <p className="text-sm text-stone-400">{item.description}</p>

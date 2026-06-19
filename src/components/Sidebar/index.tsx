@@ -94,6 +94,19 @@ export function Sidebar() {
     return [...set]
   }, [discoveredItemIds])
 
+  function handleAddAll() {
+    const visibleItems = groups.flatMap((g) => g.items)
+    const cols = Math.max(1, Math.ceil(Math.sqrt(visibleItems.length)))
+    const rows = Math.max(1, Math.ceil(visibleItems.length / cols))
+    visibleItems.forEach((item, i) => {
+      const col = i % cols
+      const row = Math.floor(i / cols)
+      const x = cols === 1 ? 50 : 10 + (col / (cols - 1)) * 80
+      const y = rows === 1 ? 50 : 10 + (row / (rows - 1)) * 80
+      addCanvasToken(item.id, x, y)
+    })
+  }
+
   return (
     <div className="flex flex-col h-full min-h-0">
       <div className="p-2.5 border-b border-stone-800 shrink-0 flex flex-col gap-2">
@@ -115,15 +128,23 @@ export function Sidebar() {
             </option>
           ))}
         </select>
-        <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
-          <input
-            type="checkbox"
-            checked={hideExhausted}
-            onChange={(e) => setHideExhausted(e.target.checked)}
-            className="accent-orange-500"
-          />
-          Hide fully explored
-        </label>
+        <div className="flex items-center justify-between gap-2">
+          <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
+            <input
+              type="checkbox"
+              checked={hideExhausted}
+              onChange={(e) => setHideExhausted(e.target.checked)}
+              className="accent-orange-500"
+            />
+            Hide fully explored
+          </label>
+          <button
+            onClick={handleAddAll}
+            className="px-2 py-1 text-xs rounded border border-stone-700 text-stone-300 hover:border-orange-500 hover:text-orange-300 transition-colors shrink-0"
+          >
+            Add all
+          </button>
+        </div>
       </div>
 
       <div className="flex-1 overflow-y-auto p-2.5 space-y-3">

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Item } from '@/types'
-import { ITEMS_BY_ID } from '@/data/items'
+import { ITEMS, ITEMS_BY_ID } from '@/data/items'
 import { CATEGORY_LABELS, CATEGORY_ORDER } from '@/data/categories'
 import { useGameStore } from '@/store'
 import { ItemChip } from '@/components/ItemChip'
@@ -16,18 +16,23 @@ export function JournalModal({ onClose }: JournalModalProps) {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
 
   const groups = useMemo(() => {
-    const byCategory = new Map<string, Item[]>()
+    const discoveredCategories = new Set<string>()
     for (const id of discoveredItemIds) {
       const item = ITEMS_BY_ID.get(id)
-      if (!item) continue
-      const list = byCategory.get(item.category) ?? []
-      list.push(item)
-      byCategory.set(item.category, list)
+      if (item) discoveredCategories.add(item.category)
     }
-    for (const list of byCategory.values()) list.sort((a, b) => a.name.localeCompare(b.name))
-    return CATEGORY_ORDER.filter((category) => byCategory.has(category)).map((category) => ({
+
+    const allByCategory = new Map<string, Item[]>()
+    for (const item of ITEMS) {
+      if (!discoveredCategories.has(item.category)) continue
+      const list = allByCategory.get(item.category) ?? []
+      list.push(item)
+      allByCategory.set(item.category, list)
+    }
+    for (const list of allByCategory.values()) list.sort((a, b) => a.name.localeCompare(b.name))
+    return CATEGORY_ORDER.filter((category) => allByCategory.has(category)).map((category) => ({
       category,
-      items: byCategory.get(category)!,
+      items: allByCategory.get(category)!,
     }))
   }, [discoveredItemIds])
 
@@ -52,11 +57,21 @@ export function JournalModal({ onClose }: JournalModalProps) {
             <div key={category}>
               <div className="text-xs uppercase tracking-widest text-orange-400 mb-2">{CATEGORY_LABELS[category]}</div>
               <div className="flex flex-wrap gap-2">
-                {items.map((item) => (
-                  <button key={item.id} onClick={() => setSelectedItem(item)} className="cursor-pointer active:scale-95 transition-transform">
-                    <ItemChip item={item} />
-                  </button>
-                ))}
+                {items.map((item) =>
+                  discoveredItemIds.has(item.id) ? (
+                    <button key={item.id} onClick={() => setSelectedItem(item)} className="cursor-pointer active:scale-95 transition-transform">
+                      <ItemChip item={item} />
+                    </button>
+                  ) : (
+                    <div
+                      key={item.id}
+                      title="Undiscovered"
+                      className="flex items-center justify-center w-9 h-9 rounded-lg border border-stone-800 bg-stone-800/40 text-stone-600 text-sm select-none"
+                    >
+                      ?
+                    </div>
+                  ),
+                )}
               </div>
             </div>
           ))}

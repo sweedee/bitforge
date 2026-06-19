@@ -9,10 +9,11 @@ interface CanvasTokenProps {
   token: CanvasTokenData
   selected: boolean
   shake: boolean
+  justMerged: boolean
   onClick: () => void
 }
 
-export function CanvasToken({ token, selected, shake, onClick }: CanvasTokenProps) {
+export function CanvasToken({ token, selected, shake, justMerged, onClick }: CanvasTokenProps) {
   const item = ITEMS_BY_ID.get(token.itemId)
 
   const dragData: DragPayload = { kind: 'canvas-token', instanceId: token.instanceId, itemId: token.itemId, x: token.x, y: token.y }
@@ -39,11 +40,11 @@ export function CanvasToken({ token, selected, shake, onClick }: CanvasTokenProp
       {...listeners}
       onClick={onClick}
       data-testid="canvas-token"
-      className={`absolute touch-none cursor-grab active:cursor-grabbing ${shake ? 'animate-shake' : ''} ${isDragging ? 'opacity-0' : ''}`}
+      className={`absolute touch-none cursor-grab active:cursor-grabbing ${shake ? 'animate-shake' : ''} ${justMerged ? 'animate-merge-pop' : ''} ${isDragging ? 'opacity-0' : ''}`}
       style={{ left: `${token.x}%`, top: `${token.y}%`, x: '-50%', y: '-50%' }}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0, opacity: 0 }}
+      exit={{ scale: 1.3, opacity: 0 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: 'spring', stiffness: 400, damping: 25 }}
     >

@@ -19,6 +19,7 @@ import { GRAPHICS } from './graphics'
 import { GAMEDEV } from './gamedev'
 import { CLOUD } from './cloud'
 import { CAPSTONE } from './capstone'
+import { FUN } from './fun'
 
 export const ITEMS: Item[] = [
   ...ELEMENTS,
@@ -41,6 +42,7 @@ export const ITEMS: Item[] = [
   ...GAMEDEV,
   ...CLOUD,
   ...CAPSTONE,
+  ...FUN,
 ]
 
 export const ITEMS_BY_ID: Map<string, Item> = new Map(ITEMS.map((item) => [item.id, item]))

@@ -78,6 +78,7 @@ interface GameStore {
   discoveredItemIds: Set<string>
   recentDiscoveryId: string | null
   lastFailedComboInstanceIds: [string, string] | null
+  justMergedInstanceId: string | null
 
   canvasTokens: CanvasToken[]
 
@@ -92,6 +93,7 @@ interface GameStore {
   combineTokens: (instanceIdA: string, instanceIdB: string) => void
   clearRecentDiscovery: () => void
   clearFailedCombo: () => void
+  clearJustMerged: () => void
 
   useHint: () => void
   tickHintRegen: () => void
@@ -102,6 +104,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
   discoveredItemIds: loadDiscovered(),
   recentDiscoveryId: null,
   lastFailedComboInstanceIds: null,
+  justMergedInstanceId: null,
 
   canvasTokens: [],
 
@@ -158,15 +161,17 @@ export const useGameStore = create<GameStore>()((set, get) => ({
         discoveredItemIds: updated,
         recentDiscoveryId: result.resultId,
         canvasTokens: [...remaining, resultToken],
+        justMergedInstanceId: resultToken.instanceId,
       })
     } else {
       sounds.blip()
-      set({ canvasTokens: [...remaining, resultToken] })
+      set({ canvasTokens: [...remaining, resultToken], justMergedInstanceId: resultToken.instanceId })
     }
   },
 
   clearRecentDiscovery: () => set({ recentDiscoveryId: null }),
   clearFailedCombo: () => set({ lastFailedComboInstanceIds: null }),
+  clearJustMerged: () => set({ justMergedInstanceId: null }),
 
   useHint: () => {
     const hintState = regenerateHints({ count: get().hintsAvailable, lastGrantedAt: get().hintLastGrantedAt })

@@ -33,7 +33,7 @@ export function ItemChip({ item, selected = false, highlighted = false, dim = fa
           title={`Milestone · ${item.milestone}`}
           className="absolute -top-1.5 -left-1.5 text-[9px] leading-none"
         >
-          ⭐
+          🏆
         </span>
       )}
     </div>

@@ -32,15 +32,6 @@ export default function App() {
 
   const [activeDrag, setActiveDrag] = useState<DragPayload | null>(null)
   const [journalOpen, setJournalOpen] = useState(false)
-  const [sidebarSide, setSidebarSide] = useState(() => localStorage.getItem('bitforge:sidebarSide') === '1')
-
-  function toggleSidebarSide() {
-    setSidebarSide((prev) => {
-      const next = !prev
-      localStorage.setItem('bitforge:sidebarSide', next ? '1' : '0')
-      return next
-    })
-  }
 
   const sensors = useSensors(
     useSensor(MouseSensor, { activationConstraint: { distance: 6 } }),
@@ -96,15 +87,9 @@ export default function App() {
   return (
     <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="flex h-screen flex-col bg-stone-950 text-stone-100 font-mono">
-        <Header onOpenJournal={() => setJournalOpen(true)} sidebarSide={sidebarSide} onToggleSidebarSide={toggleSidebarSide} />
-        <div className={`flex flex-1 min-h-0 ${sidebarSide ? 'flex-row' : 'flex-col md:flex-row'}`}>
-          <div
-            className={`shrink-0 border-stone-800 ${
-              sidebarSide
-                ? 'w-40 sm:w-72 h-auto border-r'
-                : 'w-full md:w-72 h-56 md:h-auto border-b md:border-b-0 md:border-r'
-            }`}
-          >
+        <Header onOpenJournal={() => setJournalOpen(true)} />
+        <div className="flex flex-1 min-h-0 flex-col md:flex-row">
+          <div className="shrink-0 border-stone-800 w-full md:w-72 h-56 md:h-auto border-b md:border-b-0 md:border-r">
             <Sidebar />
           </div>
           <CombineCanvas />

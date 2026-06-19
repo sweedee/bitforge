@@ -20,6 +20,7 @@ import { RECIPES_GRAPHICS } from './graphics'
 import { RECIPES_GAMEDEV } from './gamedev'
 import { RECIPES_CLOUD } from './cloud'
 import { RECIPES_CAPSTONE } from './capstone'
+import { RECIPES_FUN } from './fun'
 
 export const RECIPES: Recipe[] = [
   ...RECIPES_HARDWARE,
@@ -41,6 +42,7 @@ export const RECIPES: Recipe[] = [
   ...RECIPES_GAMEDEV,
   ...RECIPES_CLOUD,
   ...RECIPES_CAPSTONE,
+  ...RECIPES_FUN,
 ]
 
 export const RECIPE_INDEX: Map<string, Recipe> = new Map(
