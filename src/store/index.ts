@@ -47,7 +47,36 @@ function loadDiscovered(): Set<string> {
   return new Set(STARTER_ITEM_IDS)
 }
 
+let discoveredSaveTimer: number | undefined
+let pendingDiscovered: Set<string> | null = null
+
+function flushDiscovered() {
+  if (discoveredSaveTimer !== undefined) {
+    clearTimeout(discoveredSaveTimer)
+    discoveredSaveTimer = undefined
+  }
+  if (pendingDiscovered) {
+    localStorage.setItem(LS_DISCOVERED_KEY, JSON.stringify([...pendingDiscovered]))
+    pendingDiscovered = null
+  }
+}
+
+if (typeof window !== 'undefined') window.addEventListener('beforeunload', flushDiscovered)
+
+/** Debounced write — rapid combines shouldn't each trigger a full Set serialization. Flushed on unload. */
 function saveDiscovered(ids: Set<string>) {
+  pendingDiscovered = ids
+  if (discoveredSaveTimer !== undefined) clearTimeout(discoveredSaveTimer)
+  discoveredSaveTimer = window.setTimeout(flushDiscovered, 400)
+}
+
+/** Synchronous write for rare, deliberate actions (reset/unlock-all) where there's no rapid-fire concern. */
+function saveDiscoveredImmediate(ids: Set<string>) {
+  pendingDiscovered = null
+  if (discoveredSaveTimer !== undefined) {
+    clearTimeout(discoveredSaveTimer)
+    discoveredSaveTimer = undefined
+  }
   localStorage.setItem(LS_DISCOVERED_KEY, JSON.stringify([...ids]))
 }
 
@@ -502,14 +531,14 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
   unlockAllItems: () => {
     const updated = new Set(ITEMS.map((item) => item.id))
-    saveDiscovered(updated)
+    saveDiscoveredImmediate(updated)
     set({ discoveredItemIds: updated })
     get().checkAchievements()
   },
 
   resetProgress: () => {
     const starters = new Set(STARTER_ITEM_IDS)
-    saveDiscovered(starters)
+    saveDiscoveredImmediate(starters)
     saveAchievements(new Set())
     saveStats(DEFAULT_STATS)
     saveHintState({ count: HINT_MAX, lastGrantedAt: Date.now() })
