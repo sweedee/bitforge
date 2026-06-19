@@ -16,9 +16,9 @@ export function LevelBadge() {
     >
       <span className={`relative z-10 flex items-center gap-1 font-semibold leading-none ${tier.color}`}>
         <span>{tier.icon}</span>
-        <span>{tier.title}</span>
+        <span className="hidden sm:inline">{tier.title}</span>
       </span>
-      <span className="relative z-10 text-[9px] text-stone-500 leading-none">
+      <span className="relative z-10 hidden sm:block text-[9px] text-stone-500 leading-none">
         {next ? `${next.threshold - xp} XP to ${next.title}` : 'Max level'}
       </span>
       <span className="absolute inset-x-0 bottom-0 h-0.5 bg-amber-500/70" style={{ width: `${pct}%` }} />

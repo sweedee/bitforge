@@ -21,7 +21,7 @@ export function SettingsMenu() {
       <button
         onClick={() => setOpen((o) => !o)}
         title="Settings"
-        className="px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-stone-500 hover:text-stone-100 transition-colors"
+        className="px-2 sm:px-3 py-1.5 text-xs rounded border border-stone-700 text-stone-300 hover:border-stone-500 hover:text-stone-100 transition-colors"
       >
         ⚙️
       </button>

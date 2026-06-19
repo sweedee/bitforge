@@ -237,7 +237,7 @@ export function Sidebar() {
                 style={{ position: 'absolute', top: 0, left: 0, right: 0, transform: `translateY(${virtualRow.start}px)` }}
               >
                 {row.kind === 'header' ? (
-                  <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5 mt-1">{row.label}</div>
+                  <div className="pt-1 pb-1.5 text-[10px] uppercase tracking-widest text-stone-500">{row.label}</div>
                 ) : (
                   <div className="flex flex-wrap gap-2 content-start pb-2">
                     {row.items.map((item) => (

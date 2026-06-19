@@ -42,13 +42,13 @@ export function HintPanel() {
         onClick={handleClick}
         disabled={isFullyDiscovered}
         title={isFullyDiscovered ? 'Everything discovered!' : 'Reveal progressively more about an undiscovered combination'}
-        className={`shrink-0 px-3 py-1.5 text-xs rounded border transition-colors ${
+        className={`shrink-0 px-2 sm:px-3 py-1.5 text-xs rounded border transition-colors ${
           isFullyDiscovered
             ? 'border-stone-800 text-stone-600 cursor-not-allowed opacity-50'
             : 'border-stone-700 text-stone-300 hover:border-amber-600 hover:text-amber-300'
         }`}
       >
-        💡 Hint
+        💡<span className="hidden sm:inline"> Hint</span>
       </button>
       {popoverOpen && message && (
         <div className="absolute top-full mt-1.5 right-0 z-20 max-w-[18rem] rounded border border-amber-500/40 bg-stone-900 px-3 py-2 text-xs text-amber-300/90 shadow-xl">
