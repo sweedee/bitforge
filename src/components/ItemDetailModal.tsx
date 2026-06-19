@@ -27,13 +27,12 @@ export const ItemDetailModal = memo(function ItemDetailModal({ item, onClose }: 
   const usableIn = useMemo(() => {
     const recipes = RECIPES_BY_INPUT.get(item.id) ?? []
     return recipes
-      .filter((r) => discoveredItemIds.has(r.inputs[0] === item.id ? r.inputs[1] : r.inputs[0]))
+      .filter((r) => discoveredItemIds.has(r.inputs[0] === item.id ? r.inputs[1] : r.inputs[0]) && discoveredItemIds.has(r.result))
       .map((r) => {
         const otherId = r.inputs[0] === item.id ? r.inputs[1] : r.inputs[0]
         return {
           other: ITEMS_BY_ID.get(otherId)!,
           result: ITEMS_BY_ID.get(r.result)!,
-          discovered: discoveredItemIds.has(r.result),
         }
       })
   }, [item.id, discoveredItemIds])
@@ -91,19 +90,13 @@ export const ItemDetailModal = memo(function ItemDetailModal({ item, onClose }: 
             <div className="mt-3 w-full text-left">
               <div className="text-[10px] uppercase tracking-widest text-stone-500 mb-1.5">Used in</div>
               <div className="flex flex-col gap-1">
-                {usableIn.slice(0, USABLE_IN_LIMIT).map(({ other, result, discovered }) => (
+                {usableIn.slice(0, USABLE_IN_LIMIT).map(({ other, result }) => (
                   <div key={result.id} className="flex items-center gap-1.5 text-xs text-stone-300 min-w-0">
                     <span className="shrink-0">{other.emoji}</span>
                     <span className="truncate">{other.name}</span>
                     <span className="text-stone-500 shrink-0">→</span>
-                    {discovered ? (
-                      <>
-                        <span className="shrink-0">{result.emoji}</span>
-                        <span className="truncate">{result.name}</span>
-                      </>
-                    ) : (
-                      <span className="text-stone-600">???</span>
-                    )}
+                    <span className="shrink-0">{result.emoji}</span>
+                    <span className="truncate">{result.name}</span>
                   </div>
                 ))}
               </div>
