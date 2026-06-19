@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Item, Rarity } from '@/types'
 import { ITEMS, ITEMS_BY_ID } from '@/data/items'
-import { RECIPES } from '@/data/recipes'
+import { RECIPES_BY_INPUT } from '@/data/recipes'
 import { CATEGORY_LABELS, CATEGORY_ORDER } from '@/data/categories'
 import { RARITY_LABELS, RARITY_ORDER } from '@/data/rarity'
 import { isItemExhausted } from '@/engine/combine'
@@ -23,7 +23,7 @@ export function JournalModal({ onClose }: JournalModalProps) {
   const exhaustedIds = useMemo(() => {
     const set = new Set<string>()
     for (const id of discoveredItemIds) {
-      if (isItemExhausted(id, discoveredItemIds, RECIPES)) set.add(id)
+      if (isItemExhausted(id, discoveredItemIds, RECIPES_BY_INPUT)) set.add(id)
     }
     return set
   }, [discoveredItemIds])

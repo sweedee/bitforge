@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import type { CanvasToken } from '@/types'
 import { ITEMS, ITEMS_BY_ID, STARTER_ITEM_IDS } from '@/data/items'
-import { RECIPES, RECIPE_BY_RESULT, RECIPE_INDEX, RECIPES_BY_INPUT } from '@/data/recipes'
+import { RECIPE_BY_RESULT, RECIPE_INDEX, RECIPES_BY_INPUT } from '@/data/recipes'
 import { getHint, isItemExhausted, tryCombine } from '@/engine/combine'
 import { getLevelIndex, getTotalXp } from '@/engine/level'
 import { computeGridPositions } from '@/lib/gridLayout'
@@ -345,7 +345,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
   tidyCanvas: () => {
     const { canvasTokens, discoveredItemIds, settings } = get()
     let tokens = settings.autoCleanup
-      ? canvasTokens.filter((t) => !isItemExhausted(t.itemId, discoveredItemIds, RECIPES))
+      ? canvasTokens.filter((t) => !isItemExhausted(t.itemId, discoveredItemIds, RECIPES_BY_INPUT))
       : canvasTokens
     if (settings.dedupeOnTidy) {
       const seen = new Set<string>()
@@ -452,7 +452,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
     let targetId: string | null = sameTargetStillValid ? hintTargetId : null
     if (!sameTargetStillValid) {
-      const hint = getHint(discoveredItemIds, RECIPES, RECIPES_BY_INPUT)
+      const hint = getHint(discoveredItemIds, RECIPES_BY_INPUT)
       if (!hint) {
         saveHintState(hintState)
         set({ hintsAvailable: hintState.count, hintLastGrantedAt: hintState.lastGrantedAt })

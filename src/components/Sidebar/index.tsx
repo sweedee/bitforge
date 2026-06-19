@@ -3,7 +3,7 @@ import { useDraggable } from '@dnd-kit/core'
 import type { Item, Category } from '@/types'
 import type { DragPayload } from '@/types/dnd'
 import { ITEMS_BY_ID } from '@/data/items'
-import { RECIPES } from '@/data/recipes'
+import { RECIPES_BY_INPUT } from '@/data/recipes'
 import { CATEGORY_LABELS, CATEGORY_ORDER } from '@/data/categories'
 import { isItemExhausted } from '@/engine/combine'
 import { computeGridPositions } from '@/lib/gridLayout'
@@ -65,7 +65,7 @@ export function Sidebar() {
   const exhaustedIds = useMemo(() => {
     const set = new Set<string>()
     for (const id of discoveredItemIds) {
-      if (isItemExhausted(id, discoveredItemIds, RECIPES)) set.add(id)
+      if (isItemExhausted(id, discoveredItemIds, RECIPES_BY_INPUT)) set.add(id)
     }
     return set
   }, [discoveredItemIds])

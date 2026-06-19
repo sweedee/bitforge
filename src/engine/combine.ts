@@ -33,23 +33,23 @@ export interface Hint {
  * strictly preferred over ones needing an undiscovered ingredient too —
  * otherwise the hint can point at something the player can't actually make yet.
  */
-export function getHint(
-  discoveredItemIds: Set<string>,
-  recipes: Recipe[],
-  recipesByInput: Map<string, Recipe[]>,
-): Hint | null {
+export function getHint(discoveredItemIds: Set<string>, recipesByInput: Map<string, Recipe[]>): Hint | null {
   const readyCandidates: { hint: Hint; weight: number }[] = []
   const partialCandidates: { hint: Hint; weight: number }[] = []
-  for (const recipe of recipes) {
-    if (discoveredItemIds.has(recipe.result)) continue
-    const [a, b] = recipe.inputs
-    const aKnown = discoveredItemIds.has(a)
-    const bKnown = discoveredItemIds.has(b)
-    if (!aKnown && !bKnown) continue
-    const fanOut = recipesByInput.get(recipe.result)?.length ?? 0
-    const candidate = { hint: { resultId: recipe.result, knownIngredientId: aKnown ? a : b }, weight: fanOut + 1 }
-    if (aKnown && bKnown) readyCandidates.push(candidate)
-    else partialCandidates.push(candidate)
+  const seen = new Set<Recipe>()
+  for (const itemId of discoveredItemIds) {
+    for (const recipe of recipesByInput.get(itemId) ?? []) {
+      if (seen.has(recipe)) continue
+      seen.add(recipe)
+      if (discoveredItemIds.has(recipe.result)) continue
+      const [a, b] = recipe.inputs
+      const aKnown = discoveredItemIds.has(a)
+      const bKnown = discoveredItemIds.has(b)
+      const fanOut = recipesByInput.get(recipe.result)?.length ?? 0
+      const candidate = { hint: { resultId: recipe.result, knownIngredientId: aKnown ? a : b }, weight: fanOut + 1 }
+      if (aKnown && bKnown) readyCandidates.push(candidate)
+      else partialCandidates.push(candidate)
+    }
   }
   const candidates = readyCandidates.length > 0 ? readyCandidates : partialCandidates
   if (candidates.length === 0) return null
@@ -73,10 +73,13 @@ export function getCompatiblePartnerIds(itemId: string, recipesByInput: Map<stri
   return partners
 }
 
-export function isItemExhausted(itemId: string, discoveredItemIds: Set<string>, recipes: Recipe[]): boolean {
-  for (const recipe of recipes) {
+export function isItemExhausted(
+  itemId: string,
+  discoveredItemIds: Set<string>,
+  recipesByInput: Map<string, Recipe[]>,
+): boolean {
+  for (const recipe of recipesByInput.get(itemId) ?? []) {
     const [a, b] = recipe.inputs
-    if (a !== itemId && b !== itemId) continue
     const other = a === itemId ? b : a
     if (discoveredItemIds.has(other) && !discoveredItemIds.has(recipe.result)) return false
   }
