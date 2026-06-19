@@ -109,34 +109,36 @@ export function Sidebar() {
 
   return (
     <div className="flex flex-col h-full min-h-0">
-      <div className="p-2.5 border-b border-stone-800 shrink-0 flex flex-col gap-2">
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search discovered items…"
-          className="w-full px-2.5 py-1.5 text-sm rounded border border-stone-700 bg-stone-900 text-stone-200 placeholder:text-stone-500 focus:outline-none focus:border-orange-500"
-        />
-        <select
-          value={categoryFilter}
-          onChange={(e) => setCategoryFilter(e.target.value as Category | 'all')}
-          className="w-full px-2.5 py-1.5 text-sm rounded border border-stone-700 bg-stone-900 text-stone-200 focus:outline-none focus:border-orange-500"
-        >
-          <option value="all">All domains</option>
-          {CATEGORY_ORDER.filter((category) => availableCategories.includes(category)).map((category) => (
-            <option key={category} value={category}>
-              {CATEGORY_LABELS[category]}
-            </option>
-          ))}
-        </select>
+      <div className="p-2 border-b border-stone-800 shrink-0 flex flex-col gap-1.5">
+        <div className="flex items-center gap-1.5">
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search…"
+            className="flex-1 min-w-0 px-2.5 py-1.5 text-sm rounded border border-stone-700 bg-stone-900 text-stone-200 placeholder:text-stone-500 focus:outline-none focus:border-orange-500"
+          />
+          <select
+            value={categoryFilter}
+            onChange={(e) => setCategoryFilter(e.target.value as Category | 'all')}
+            className="w-28 shrink-0 px-1.5 py-1.5 text-sm rounded border border-stone-700 bg-stone-900 text-stone-200 focus:outline-none focus:border-orange-500"
+          >
+            <option value="all">All domains</option>
+            {CATEGORY_ORDER.filter((category) => availableCategories.includes(category)).map((category) => (
+              <option key={category} value={category}>
+                {CATEGORY_LABELS[category]}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="flex items-center justify-between gap-2">
-          <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer">
+          <label className="flex items-center gap-1.5 text-xs text-stone-400 select-none cursor-pointer min-w-0">
             <input
               type="checkbox"
               checked={hideExhausted}
               onChange={(e) => setHideExhausted(e.target.checked)}
-              className="accent-orange-500"
+              className="accent-orange-500 shrink-0"
             />
-            Hide fully explored
+            <span className="truncate">Hide fully explored</span>
           </label>
           <button
             onClick={handleAddAll}
