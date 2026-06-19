@@ -81,4 +81,6 @@ export const WEB: Item[] = [
   { id: 'devtools', name: 'Browser DevTools', emoji: '🔧', category: 'web', rarity: 'uncommon', description: 'Built-in browser tooling for inspecting, debugging, and profiling a running web page.' },
   { id: 'e2e-testing', name: 'End-to-End Testing', emoji: '🤖', category: 'web', rarity: 'uncommon', description: 'Automated tests that drive a real browser through complete user flows to verify the whole app works together.' },
   { id: 'linter', name: 'Linter', emoji: '🧹', category: 'web', rarity: 'uncommon', description: 'A static analysis tool that flags style violations and likely bugs in source code before it ever runs.' },
+  { id: 'csp', name: 'Content Security Policy (CSP)', emoji: '🧱', category: 'web', rarity: 'rare', description: 'An HTTP response header that locks down which sources a page may load scripts and other resources from, blocking most XSS payloads outright.' },
+  { id: 'headless-cms', name: 'Headless CMS', emoji: '📰', category: 'web', rarity: 'rare', description: 'A content management backend that stores and serves content purely through an API, leaving the presentation layer to be built separately.' },
 ]

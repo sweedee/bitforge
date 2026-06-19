@@ -27,7 +27,7 @@ export const RECIPES_CLOUD: Recipe[] = [
   { inputs: ['encryption', 'iam'], result: 'secrets-management' },
   { inputs: ['database', 'virtual-machine'], result: 'multi-tenant-architecture' },
   { inputs: ['load-balancer', 'multi-tenant-architecture'], result: 'noisy-neighbor-problem' },
-  { inputs: ['debugger', 'documentation'], result: 'observability-pillars' },
+  { inputs: ['logging', 'profiling'], result: 'observability-pillars' },
   { inputs: ['observability-pillars', 'server'], result: 'observability' },
   { inputs: ['observability', 'server'], result: 'health-check' },
   { inputs: ['agile', 'observability'], result: 'sre' },

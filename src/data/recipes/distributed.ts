@@ -52,4 +52,5 @@ export const RECIPES_DISTRIBUTED: Recipe[] = [
   { inputs: ['retry-with-backoff', 'http'], result: 'idempotency' },
   { inputs: ['queue', 'rate-limiting'], result: 'backpressure' },
   { inputs: ['replication', 'sharding'], result: 'horizontal-scaling' },
+  { inputs: ['mapreduce', 'cache'], result: 'in-memory-distributed-computing' },
 ]

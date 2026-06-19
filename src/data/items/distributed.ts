@@ -52,4 +52,5 @@ export const DISTRIBUTED: Item[] = [
   { id: 'idempotency', name: 'Idempotency', emoji: '♻️', category: 'distributed', rarity: 'uncommon', description: 'The property that repeating an operation any number of times has the same effect as doing it once.' },
   { id: 'backpressure', name: 'Backpressure', emoji: '🛑', category: 'distributed', rarity: 'rare', description: 'A flow-control signal that slows producers down when consumers cannot keep up with incoming work.' },
   { id: 'horizontal-scaling', name: 'Horizontal Scaling', emoji: '↔️', category: 'distributed', rarity: 'uncommon', description: 'Handling more load by adding more machines, rather than making one machine bigger.' },
+  { id: 'in-memory-distributed-computing', name: 'In-Memory Distributed Computing', emoji: '🧠', category: 'distributed', rarity: 'legendary', description: 'A cluster computing model that keeps intermediate data in memory across operations instead of writing to disk between each step, dramatically speeding up iterative workloads like MapReduce.' },
 ]

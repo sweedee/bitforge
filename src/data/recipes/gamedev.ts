@@ -52,4 +52,5 @@ export const RECIPES_GAMEDEV: Recipe[] = [
   { inputs: ['game-engine', 'python'], result: 'scripting-system' },
   { inputs: ['scripting-system', 'file'], result: 'mod-support' },
   { inputs: ['game-loop', 'clock'], result: 'frame-rate-independence' },
+  { inputs: ['entity-component-system', 'cache'], result: 'data-oriented-design' },
 ]

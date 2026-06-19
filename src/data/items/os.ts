@@ -68,4 +68,7 @@ export const OS: Item[] = [
   { id: 'spooling', name: 'Spooling', emoji: '📤', category: 'os', rarity: 'uncommon', description: 'Queuing jobs, like print jobs, onto a disk buffer so a slow device can consume them at its own pace.' },
   { id: 'buffering', name: 'Buffering', emoji: '🫙', category: 'os', rarity: 'uncommon', description: 'Temporarily holding data in memory to smooth out speed differences between a producer and a consumer.' },
   { id: 'bsod', name: 'Blue Screen of Death', emoji: '🟦', category: 'os', rarity: 'rare', description: 'A fatal-error screen an OS shows after a kernel-level crash it cannot safely recover from.' },
+  { id: 'thread-pool', name: 'Thread Pool', emoji: '👥', category: 'os', rarity: 'rare', description: 'A fixed group of worker threads that pull tasks from a shared queue, avoiding the cost of spawning a thread per job.' },
+  { id: 'green-threads', name: 'Green Threads / Fibers', emoji: '🍃', category: 'os', rarity: 'epic', description: 'A lightweight thread scheduled entirely in user space, swapped by a language runtime instead of the kernel.' },
+  { id: 'generational-gc', name: 'Generational Garbage Collection', emoji: '🪴', category: 'os', rarity: 'legendary', description: 'A garbage collector that segregates objects by age into generations, applying cheap frequent collection to young objects and rarer full sweeps to old ones.' },
 ]

@@ -52,4 +52,5 @@ export const GAMEDEV: Item[] = [
   { id: 'scripting-system', name: 'Scripting System', emoji: '🪄', category: 'gamedev', rarity: 'epic', description: "An embedded interpreted language that lets designers and modders write game behavior without touching engine source." },
   { id: 'mod-support', name: 'Mod Support / Plugin Architecture', emoji: '🔧', category: 'gamedev', rarity: 'rare', description: "Exposing a game's data and scripting hooks so players can create and load their own modifications." },
   { id: 'frame-rate-independence', name: 'Frame Rate Independence', emoji: '⏱️', category: 'gamedev', rarity: 'uncommon', description: "Scaling movement and physics by elapsed time rather than frame count, so gameplay speed doesn't depend on how fast the machine renders." },
+  { id: 'data-oriented-design', name: 'Data-Oriented Design', emoji: '📐', category: 'gamedev', rarity: 'epic', description: 'An architecture that organizes data by memory access pattern rather than by object identity, packing like fields into contiguous arrays for cache efficiency.' },
 ]

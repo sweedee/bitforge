@@ -82,4 +82,9 @@ export const RECIPES_SECURITY: Recipe[] = [
   { inputs: ['email', 'authentication'], result: 'phishing' },
   { inputs: ['pointer', 'exploit'], result: 'use-after-free' },
   { inputs: ['tls', 'exploit'], result: 'heartbleed' },
+  { inputs: ['javascript', 'exploit'], result: 'xss' },
+  { inputs: ['cookie', 'exploit'], result: 'csrf' },
+  { inputs: ['http', 'exploit'], result: 'ssrf' },
+  { inputs: ['object', 'exploit'], result: 'insecure-deserialization' },
+  { inputs: ['file-system', 'exploit'], result: 'path-traversal' },
 ]

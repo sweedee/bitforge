@@ -17,7 +17,7 @@ export const RECIPES_AI_ML: Recipe[] = [
   { inputs: ['model', 'string'], result: 'embedding' },
   { inputs: ['training', 'training'], result: 'overfitting' },
   { inputs: ['dataset', 'string'], result: 'tokenizer' },
-  { inputs: ['model', 'backtracking'], result: 'reinforcement-learning' },
+  { inputs: ['training', 'randomized-algorithm'], result: 'reinforcement-learning' },
   { inputs: ['recursion', 'tree'], result: 'minimax' },
   { inputs: ['minimax', 'branch-and-bound'], result: 'alpha-beta-pruning' },
   { inputs: ['minimax', 'monte-carlo-algorithm'], result: 'monte-carlo-tree-search' },
@@ -48,7 +48,7 @@ export const RECIPES_AI_ML: Recipe[] = [
   { inputs: ['overfitting', 'gradient-descent'], result: 'regularization' },
   { inputs: ['model', 'table'], result: 'confusion-matrix' },
   { inputs: ['dataset', 'randomized-algorithm'], result: 'data-augmentation' },
-  { inputs: ['training', 'tee'], result: 'federated-learning' },
+  { inputs: ['training', 'distributed-system'], result: 'federated-learning' },
   { inputs: ['weights', 'fixed-point-representation'], result: 'model-quantization' },
   { inputs: ['hidden-markov-model', 'reinforcement-learning'], result: 'markov-decision-process' },
   { inputs: ['markov-decision-process', 'memoization'], result: 'q-learning' },
@@ -100,4 +100,5 @@ export const RECIPES_AI_ML: Recipe[] = [
   { inputs: ['llm', 'reinforcement-learning'], result: 'ai-alignment' },
   { inputs: ['cnn', 'exploit'], result: 'adversarial-example' },
   { inputs: ['dataset', 'encryption'], result: 'differential-privacy' },
+  { inputs: ['rnn', 'tokenizer'], result: 'ner' },
 ]

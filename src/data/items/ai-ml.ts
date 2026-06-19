@@ -100,4 +100,5 @@ export const AI_ML: Item[] = [
   { id: 'ai-alignment', name: 'AI Alignment', emoji: '🧭', category: 'ai-ml', rarity: 'legendary', description: "The effort to make an AI system's goals and behavior match what its designers and users actually intend." },
   { id: 'adversarial-example', name: 'Adversarial Example', emoji: '🥷', category: 'ai-ml', rarity: 'epic', description: 'An input deliberately perturbed in a way invisible to humans but that causes a model to misclassify it.' },
   { id: 'differential-privacy', name: 'Differential Privacy', emoji: '🕶️', category: 'ai-ml', rarity: 'epic', description: "A mathematical guarantee that a model's output reveals almost nothing about any single individual in its training data." },
+  { id: 'ner', name: 'Named Entity Recognition (NER)', emoji: '🏷️', category: 'ai-ml', rarity: 'rare', description: 'Tagging spans of text as named entities, like people, organizations, or locations, rather than classifying the text as a whole.' },
 ]
