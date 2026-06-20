@@ -57,6 +57,7 @@ export function Sidebar() {
   const discoveredItemIds = useGameStore((s) => s.discoveredItemIds)
   const highlightedItemIds = useGameStore((s) => s.highlightedItemIds)
   const addCanvasToken = useGameStore((s) => s.addCanvasToken)
+  const clearCanvas = useGameStore((s) => s.clearCanvas)
 
   const [query, setQuery] = useState('')
   const [categoryFilter, setCategoryFilter] = useState<Category | 'all'>('all')
@@ -143,7 +144,14 @@ export function Sidebar() {
     return [...set]
   }, [discoveredItemIds])
 
-  const [pendingBulkAddCount, setPendingBulkAddCount] = useState<number | null>(null)
+  const activeItems = useMemo(() => {
+    return [...discoveredItemIds]
+      .map((id) => ITEMS_BY_ID.get(id)!)
+      .filter(Boolean)
+      .filter((item) => !exhaustedIds.has(item.id))
+  }, [discoveredItemIds, exhaustedIds])
+
+  const [pendingBulkAdd, setPendingBulkAdd] = useState<{ items: Item[]; clearFirst: boolean } | null>(null)
 
   function addItems(items: Item[]) {
     const positions = computeGridPositions(items.length)
@@ -154,20 +162,31 @@ export function Sidebar() {
   function handleAddAll() {
     const visibleItems = groups.flatMap((g) => g.items)
     if (visibleItems.length > BULK_ADD_WARNING_THRESHOLD) {
-      setPendingBulkAddCount(visibleItems.length)
+      setPendingBulkAdd({ items: visibleItems, clearFirst: false })
       return
     }
     addItems(visibleItems)
   }
 
+  function handleResetToActive() {
+    if (activeItems.length > BULK_ADD_WARNING_THRESHOLD) {
+      setPendingBulkAdd({ items: activeItems, clearFirst: true })
+      return
+    }
+    clearCanvas()
+    addItems(activeItems)
+  }
+
   function handleConfirmAddAll() {
-    addItems(groups.flatMap((g) => g.items))
-    setPendingBulkAddCount(null)
+    if (pendingBulkAdd?.clearFirst) clearCanvas()
+    addItems(pendingBulkAdd?.items ?? [])
+    setPendingBulkAdd(null)
   }
 
   function handleConfirmAddCapped() {
-    addItems(groups.flatMap((g) => g.items).slice(0, BULK_ADD_CAPPED_COUNT))
-    setPendingBulkAddCount(null)
+    if (pendingBulkAdd?.clearFirst) clearCanvas()
+    addItems((pendingBulkAdd?.items ?? []).slice(0, BULK_ADD_CAPPED_COUNT))
+    setPendingBulkAdd(null)
   }
 
   return (
@@ -218,6 +237,13 @@ export function Sidebar() {
           >
             Add all
           </button>
+          <button
+            onClick={handleResetToActive}
+            title="Clear canvas and add only items with unexplored combinations"
+            className="px-2 py-1 text-xs rounded border border-stone-700 text-stone-300 hover:border-amber-600 hover:text-amber-300 transition-colors shrink-0"
+          >
+            Reset to active
+          </button>
         </div>
       </div>
 
@@ -254,11 +280,11 @@ export function Sidebar() {
       </div>
 
       <AnimatePresence>
-        {pendingBulkAddCount !== null && (
+        {pendingBulkAdd !== null && (
           <ConfirmBulkAddModal
-            count={pendingBulkAddCount}
+            count={pendingBulkAdd.items.length}
             cappedCount={BULK_ADD_CAPPED_COUNT}
-            onCancel={() => setPendingBulkAddCount(null)}
+            onCancel={() => setPendingBulkAdd(null)}
             onAddCapped={handleConfirmAddCapped}
             onAddAll={handleConfirmAddAll}
           />
