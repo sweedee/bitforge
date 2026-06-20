@@ -8,20 +8,50 @@ import { saveDiscovered } from './discoverySlice'
 import { saveStats } from './statsAchievementsSlice'
 import type { CanvasSlice, GameStore, StatsState } from './types'
 
-const MIN_TOKEN_DIST = 9
+/** Minimum on-screen distance between token chip centers, in real pixels (not canvas %). */
+const MIN_TOKEN_DIST_PX = 72
 
-function isFarFromAll(x: number, y: number, tokens: CanvasToken[], excludeInstanceId?: string) {
-  return tokens.every((t) => t.instanceId === excludeInstanceId || Math.hypot(t.x - x, t.y - y) >= MIN_TOKEN_DIST)
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value))
 }
 
-function findFreePosition(tokens: CanvasToken[], desiredX: number, desiredY: number, excludeInstanceId?: string) {
-  if (isFarFromAll(desiredX, desiredY, tokens, excludeInstanceId)) return { x: desiredX, y: desiredY }
-  for (let radius = MIN_TOKEN_DIST; radius < 40; radius += MIN_TOKEN_DIST) {
+/** Converts a percent-space delta to real pixels using the canvas's actual aspect ratio,
+ * so spacing looks consistent whether the canvas is wide (desktop) or narrow (mobile). */
+function pixelDistance(x1: number, y1: number, x2: number, y2: number, canvasSize: { width: number; height: number }) {
+  const dxPx = ((x2 - x1) / 100) * canvasSize.width
+  const dyPx = ((y2 - y1) / 100) * canvasSize.height
+  return Math.hypot(dxPx, dyPx)
+}
+
+function isFarFromAll(
+  x: number,
+  y: number,
+  tokens: CanvasToken[],
+  canvasSize: { width: number; height: number },
+  excludeInstanceId?: string,
+) {
+  return tokens.every(
+    (t) => t.instanceId === excludeInstanceId || pixelDistance(t.x, t.y, x, y, canvasSize) >= MIN_TOKEN_DIST_PX,
+  )
+}
+
+function findFreePosition(
+  tokens: CanvasToken[],
+  desiredX: number,
+  desiredY: number,
+  canvasSize: { width: number; height: number },
+  excludeInstanceId?: string,
+) {
+  if (isFarFromAll(desiredX, desiredY, tokens, canvasSize, excludeInstanceId)) return { x: desiredX, y: desiredY }
+  const maxRadiusPx = Math.max(canvasSize.width, canvasSize.height)
+  for (let radiusPx = MIN_TOKEN_DIST_PX; radiusPx < maxRadiusPx; radiusPx += MIN_TOKEN_DIST_PX) {
     for (let angle = 0; angle < 360; angle += 30) {
       const rad = (angle * Math.PI) / 180
-      const x = Math.min(95, Math.max(5, desiredX + radius * Math.cos(rad)))
-      const y = Math.min(95, Math.max(5, desiredY + radius * Math.sin(rad)))
-      if (isFarFromAll(x, y, tokens, excludeInstanceId)) return { x, y }
+      const dxPct = ((radiusPx * Math.cos(rad)) / canvasSize.width) * 100
+      const dyPct = ((radiusPx * Math.sin(rad)) / canvasSize.height) * 100
+      const x = clamp(desiredX + dxPct, 5, 95)
+      const y = clamp(desiredY + dyPct, 5, 95)
+      if (isFarFromAll(x, y, tokens, canvasSize, excludeInstanceId)) return { x, y }
     }
   }
   return { x: desiredX, y: desiredY }
@@ -36,12 +66,14 @@ export const createCanvasSlice: StateCreator<GameStore, [], [], CanvasSlice> = (
   justMergedInstanceId: null,
   draggingItemId: null,
   draggingInstanceId: null,
+  canvasSize: { width: 800, height: 500 },
+  setCanvasSize: (width, height) => set({ canvasSize: { width, height } }),
   setDraggingItem: (itemId, instanceId = null) => set({ draggingItemId: itemId, draggingInstanceId: instanceId }),
 
   addCanvasToken: (itemId, x, y, options) => {
     const instanceId = `t${nextInstanceId++}`
-    const tokens = get().canvasTokens
-    const pos = findFreePosition(tokens, x, y)
+    const { canvasTokens: tokens, canvasSize } = get()
+    const pos = findFreePosition(tokens, x, y, canvasSize)
     const token: CanvasToken = { instanceId, itemId, x: pos.x, y: pos.y }
     set({ canvasTokens: [...tokens, token] })
     if (!options?.silent) sounds.place()
@@ -54,8 +86,8 @@ export const createCanvasSlice: StateCreator<GameStore, [], [], CanvasSlice> = (
   },
 
   moveCanvasToken: (instanceId, x, y) => {
-    const tokens = get().canvasTokens
-    const pos = findFreePosition(tokens, x, y, instanceId)
+    const { canvasTokens: tokens, canvasSize } = get()
+    const pos = findFreePosition(tokens, x, y, canvasSize, instanceId)
     set({ canvasTokens: tokens.map((t) => (t.instanceId === instanceId ? { ...t, x: pos.x, y: pos.y } : t)) })
   },
 
@@ -97,7 +129,7 @@ export const createCanvasSlice: StateCreator<GameStore, [], [], CanvasSlice> = (
     const remaining = canvasTokens.filter((t) => t.instanceId !== instanceIdA && t.instanceId !== instanceIdB)
     const midX = (tokenA.x + tokenB.x) / 2
     const midY = (tokenA.y + tokenB.y) / 2
-    const pos = findFreePosition(remaining, midX, midY)
+    const pos = findFreePosition(remaining, midX, midY, get().canvasSize)
     const resultToken: CanvasToken = { instanceId: `t${nextInstanceId++}`, itemId: result.resultId, x: pos.x, y: pos.y }
 
     if (result.isNewDiscovery) {

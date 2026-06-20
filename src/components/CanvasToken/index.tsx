@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useDraggable, useDroppable } from '@dnd-kit/core'
 import type { CanvasToken as CanvasTokenData } from '@/types'
@@ -33,6 +34,24 @@ export function CanvasToken({ token, selected, shake, justMerged, compatible = f
     data: dropData,
   })
 
+  // Touch devices can synthesize click/dblclick events right after a drag release,
+  // which would otherwise spawn an unintended duplicate of the token being dropped.
+  const recentlyDraggedRef = useRef(false)
+  const wasDraggingRef = useRef(isDragging)
+  useEffect(() => {
+    if (isDragging) {
+      recentlyDraggedRef.current = true
+      wasDraggingRef.current = true
+      return
+    }
+    if (!wasDraggingRef.current) return
+    wasDraggingRef.current = false
+    const timer = setTimeout(() => {
+      recentlyDraggedRef.current = false
+    }, 400)
+    return () => clearTimeout(timer)
+  }, [isDragging])
+
   if (!item) return null
 
   return (
@@ -46,6 +65,7 @@ export function CanvasToken({ token, selected, shake, justMerged, compatible = f
       onClick={() => onClick(token.instanceId)}
       onDoubleClick={(e) => {
         e.stopPropagation()
+        if (recentlyDraggedRef.current) return
         addCanvasToken(token.itemId, token.x, token.y)
       }}
       data-testid="canvas-token"

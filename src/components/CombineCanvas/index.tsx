@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useDroppable } from '@dnd-kit/core'
 import { useGameStore } from '@/store'
@@ -18,8 +18,22 @@ export function CombineCanvas() {
   const easyMode = useGameStore((s) => s.settings.easyMode)
   const draggingItemId = useGameStore((s) => s.draggingItemId)
   const draggingInstanceId = useGameStore((s) => s.draggingInstanceId)
+  const setCanvasSize = useGameStore((s) => s.setCanvasSize)
 
   const [selectedInstanceId, setSelectedInstanceId] = useState<string | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const observer = new ResizeObserver(([entry]) => {
+      if (!entry) return
+      const { width, height } = entry.contentRect
+      if (width > 0 && height > 0) setCanvasSize(width, height)
+    })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [setCanvasSize])
 
   const compatiblePartnerIds = useMemo(() => {
     if (!easyMode || !draggingItemId) return null
@@ -60,7 +74,14 @@ export function CombineCanvas() {
   }
 
   return (
-    <div ref={setNodeRef} data-testid="combine-canvas" className="relative flex-1 min-h-0 overflow-hidden bg-stone-950">
+    <div
+      ref={(el) => {
+        setNodeRef(el)
+        containerRef.current = el
+      }}
+      data-testid="combine-canvas"
+      className="relative flex-1 min-h-0 overflow-hidden bg-stone-950"
+    >
       {canvasTokens.length === 0 && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <span className="text-xs text-stone-600">Drag (or tap) an item from the library to bring it here</span>

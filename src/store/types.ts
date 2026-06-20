@@ -47,6 +47,9 @@ export interface CanvasSlice {
   justMergedInstanceId: string | null
   draggingItemId: string | null
   draggingInstanceId: string | null
+  /** Real pixel size of the combine canvas, used to keep token spacing visually consistent across aspect ratios. */
+  canvasSize: { width: number; height: number }
+  setCanvasSize: (width: number, height: number) => void
   setDraggingItem: (itemId: string | null, instanceId?: string | null) => void
   addCanvasToken: (itemId: string, x: number, y: number, options?: { silent?: boolean }) => string
   removeCanvasToken: (instanceId: string) => void

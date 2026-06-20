@@ -26,7 +26,8 @@ export const ItemDetailModal = memo(function ItemDetailModal({ item, onClose }: 
 
   const usableIn = useMemo(() => {
     const recipes = RECIPES_BY_INPUT.get(item.id) ?? []
-    return recipes
+    const uniqueRecipes = [...new Set(recipes)]
+    return uniqueRecipes
       .filter((r) => discoveredItemIds.has(r.inputs[0] === item.id ? r.inputs[1] : r.inputs[0]) && discoveredItemIds.has(r.result))
       .map((r) => {
         const otherId = r.inputs[0] === item.id ? r.inputs[1] : r.inputs[0]
@@ -92,6 +93,9 @@ export const ItemDetailModal = memo(function ItemDetailModal({ item, onClose }: 
               <div className="flex flex-col gap-1">
                 {usableIn.slice(0, USABLE_IN_LIMIT).map(({ other, result }) => (
                   <div key={result.id} className="flex items-center gap-1.5 text-xs text-stone-300 min-w-0">
+                    <span className="shrink-0">{item.emoji}</span>
+                    <span className="truncate">{item.name}</span>
+                    <span className="text-stone-500 shrink-0">+</span>
                     <span className="shrink-0">{other.emoji}</span>
                     <span className="truncate">{other.name}</span>
                     <span className="text-stone-500 shrink-0">→</span>
