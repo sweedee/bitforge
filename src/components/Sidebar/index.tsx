@@ -125,6 +125,7 @@ export function Sidebar() {
   const virtualizer = useVirtualizer({
     count: rows.length,
     getScrollElement: () => scrollRef.current,
+    getItemKey: (index) => rows[index]?.key ?? index,
     estimateSize: (index) => {
       const row = rows[index]
       if (row?.kind === 'header') return 24
